@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>yakumo.glance.v2</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yakumo-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="yakumo-module.html">Package&nbsp;yakumo</a> ::
+        <a href="yakumo.glance-module.html">Package&nbsp;glance</a> ::
+        Package&nbsp;v2
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="yakumo.glance.v2-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="yakumo.glance.v2-module.html">Package yakumo.glance.v2</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># Copyright 2014-2017 by Akira Yoshiyama &lt;akirayoshiyama@gmail.com&gt;.</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"># All Rights Reserved.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment">#    Licensed under the Apache License, Version 2.0 (the "License"); you may</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#    not use this file except in compliance with the License. You may obtain</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment">#    a copy of the License at</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment">#         http://www.apache.org/licenses/LICENSE-2.0</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment">#    Unless required by applicable law or agreed to in writing, software</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment">#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment">#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-comment">#    License for the specific language governing permissions and limitations</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-comment">#    under the License.</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">Sub client class for Glance API v2</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module yakumo.glance.v1.image=yakumo.glance.v1.image-module.html,Module yakumo.glance.v2.image=yakumo.glance.v2.image-module.html,Module yakumo.nova.v2.image=yakumo.nova.v2.image-module.html"><a title="yakumo.glance.v1.image
+yakumo.glance.v2.image
+yakumo.nova.v2.image" class="py-name" href="#" onclick="return doclink('link-0', 'image', 'link-0');">image</a></tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="Client"></a><div id="Client-def"><a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="Client-toggle" onclick="return toggle('Client');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yakumo.glance.v2.Client-class.html">Client</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Client-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Client-expanded"><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"> </tt>
+<a name="Client.__init__"></a><div id="Client.__init__-def"><a name="L25"></a><tt class="py-lineno">25</tt> <a class="py-toggle" href="#" id="Client.__init__-toggle" onclick="return toggle('Client.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yakumo.glance.v2.Client-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">client</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Client.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Client.__init__-expanded"><a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-1" class="py-name"><a title="yakumo.glance.v1.image
+yakumo.glance.v2.image
+yakumo.nova.v2.image" class="py-name" href="#" onclick="return doclink('link-1', 'image', 'link-0');">image</a></tt> <tt class="py-op">=</tt> <tt id="link-2" class="py-name"><a title="yakumo.glance.v1.image
+yakumo.glance.v2.image
+yakumo.nova.v2.image" class="py-name" href="#" onclick="return doclink('link-2', 'image', 'link-0');">image</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Class yakumo.base.Manager=yakumo.base.Manager-class.html,Class yakumo.cinder.v1.snapshot.Manager=yakumo.cinder.v1.snapshot.Manager-class.html,Class yakumo.cinder.v1.volume.Manager=yakumo.cinder.v1.volume.Manager-class.html,Class yakumo.cinder.v1.volume_type.Manager=yakumo.cinder.v1.volume_type.Manager-class.html,Class yakumo.cinder.v2.consistency_group.Manager=yakumo.cinder.v2.consistency_group.Manager-class.html,Class yakumo.cinder.v2.consistency_group_snapshot.Manager=yakumo.cinder.v2.consistency_group_snapshot.Manager-class.html,Class yakumo.cinder.v2.qos.Manager=yakumo.cinder.v2.qos.Manager-class.html,Class yakumo.cinder.v2.quota_set.Manager=yakumo.cinder.v2.quota_set.Manager-class.html,Class yakumo.cinder.v2.service.Manager=yakumo.cinder.v2.service.Manager-class.html,Class yakumo.cinder.v2.snapshot.Manager=yakumo.cinder.v2.snapshot.Manager-class.html,Class yakumo.cinder.v2.volume.Manager=yakumo.cinder.v2.volume.Manager-class.html,Class yakumo.cinder.v2.volume_backup.Manager=yakumo.cinder.v2.volume_backup.Manager-class.html,Class yakumo.cinder.v2.volume_transfer.Manager=yakumo.cinder.v2.volume_transfer.Manager-class.html,Class yakumo.cinder.v2.volume_type.Manager=yakumo.cinder.v2.volume_type.Manager-class.html,Class yakumo.glance.v1.image.Manager=yakumo.glance.v1.image.Manager-class.html,Class yakumo.glance.v2.image.Manager=yakumo.glance.v2.image.Manager-class.html,Class yakumo.glance.v2.image_member.Manager=yakumo.glance.v2.image_member.Manager-class.html,Class yakumo.keystone.v2.endpoint.Manager=yakumo.keystone.v2.endpoint.Manager-class.html,Class yakumo.keystone.v2.project.Manager=yakumo.keystone.v2.project.Manager-class.html,Class yakumo.keystone.v2.role.Manager=yakumo.keystone.v2.role.Manager-class.html,Class yakumo.keystone.v2.service.Manager=yakumo.keystone.v2.service.Manager-class.html,Class yakumo.keystone.v2.user.Manager=yakumo.keystone.v2.user.Manager-class.html,Class yakumo.keystone.v3.credential.Manager=yakumo.keystone.v3.credential.Manager-class.html,Class yakumo.keystone.v3.domain.Manager=yakumo.keystone.v3.domain.Manager-class.html,Class yakumo.keystone.v3.endpoint.Manager=yakumo.keystone.v3.endpoint.Manager-class.html,Class yakumo.keystone.v3.group.Manager=yakumo.keystone.v3.group.Manager-class.html,Class yakumo.keystone.v3.project.Manager=yakumo.keystone.v3.project.Manager-class.html,Class yakumo.keystone.v3.region.Manager=yakumo.keystone.v3.region.Manager-class.html,Class yakumo.keystone.v3.role.Manager=yakumo.keystone.v3.role.Manager-class.html,Class yakumo.keystone.v3.service.Manager=yakumo.keystone.v3.service.Manager-class.html,Class yakumo.keystone.v3.user.Manager=yakumo.keystone.v3.user.Manager-class.html,Class yakumo.neutron.v2.floating_ip.Manager=yakumo.neutron.v2.floating_ip.Manager-class.html,Class yakumo.neutron.v2.lb.health_monitor.Manager=yakumo.neutron.v2.lb.health_monitor.Manager-class.html,Class yakumo.neutron.v2.lb.member.Manager=yakumo.neutron.v2.lb.member.Manager-class.html,Class yakumo.neutron.v2.lb.pool.Manager=yakumo.neutron.v2.lb.pool.Manager-class.html,Class yakumo.neutron.v2.lb.vip.Manager=yakumo.neutron.v2.lb.vip.Manager-class.html,Class yakumo.neutron.v2.lbaas.health_monitor.Manager=yakumo.neutron.v2.lbaas.health_monitor.Manager-class.html,Class yakumo.neutron.v2.lbaas.listener.Manager=yakumo.neutron.v2.lbaas.listener.Manager-class.html,Class yakumo.neutron.v2.lbaas.load_balancer.Manager=yakumo.neutron.v2.lbaas.load_balancer.Manager-class.html,Class yakumo.neutron.v2.lbaas.member.Manager=yakumo.neutron.v2.lbaas.member.Manager-class.html,Class yakumo.neutron.v2.lbaas.pool.Manager=yakumo.neutron.v2.lbaas.pool.Manager-class.html,Class yakumo.neutron.v2.metering.label.Manager=yakumo.neutron.v2.metering.label.Manager-class.html,Class yakumo.neutron.v2.metering.rule.Manager=yakumo.neutron.v2.metering.rule.Manager-class.html,Class yakumo.neutron.v2.network.Manager=yakumo.neutron.v2.network.Manager-class.html,Class yakumo.neutron.v2.port.Manager=yakumo.neutron.v2.port.Manager-class.html,Class yakumo.neutron.v2.quota.Manager=yakumo.neutron.v2.quota.Manager-class.html,Class yakumo.neutron.v2.router.Manager=yakumo.neutron.v2.router.Manager-class.html,Class yakumo.neutron.v2.security_group.Manager=yakumo.neutron.v2.security_group.Manager-class.html,Class yakumo.neutron.v2.security_group_rule.Manager=yakumo.neutron.v2.security_group_rule.Manager-class.html,Class yakumo.neutron.v2.subnet.Manager=yakumo.neutron.v2.subnet.Manager-class.html,Class yakumo.neutron.v2.subnet_pool.Manager=yakumo.neutron.v2.subnet_pool.Manager-class.html,Class yakumo.neutron.v2.vpn.ike_policy.Manager=yakumo.neutron.v2.vpn.ike_policy.Manager-class.html,Class yakumo.neutron.v2.vpn.ipsec_policy.Manager=yakumo.neutron.v2.vpn.ipsec_policy.Manager-class.html,Class yakumo.neutron.v2.vpn.ipsec_site_connection.Manager=yakumo.neutron.v2.vpn.ipsec_site_connection.Manager-class.html,Class yakumo.neutron.v2.vpn.service.Manager=yakumo.neutron.v2.vpn.service.Manager-class.html,Class yakumo.nova.v2.agent.Manager=yakumo.nova.v2.agent.Manager-class.html,Class yakumo.nova.v2.aggregate.Manager=yakumo.nova.v2.aggregate.Manager-class.html,Class yakumo.nova.v2.availability_zone.Manager=yakumo.nova.v2.availability_zone.Manager-class.html,Class yakumo.nova.v2.certificate.Manager=yakumo.nova.v2.certificate.Manager-class.html,Class yakumo.nova.v2.cloudpipe.Manager=yakumo.nova.v2.cloudpipe.Manager-class.html,Class yakumo.nova.v2.fixed_ip.Manager=yakumo.nova.v2.fixed_ip.Manager-class.html,Class yakumo.nova.v2.flavor.Manager=yakumo.nova.v2.flavor.Manager-class.html,Class yakumo.nova.v2.floating_ip.Manager=yakumo.nova.v2.floating_ip.Manager-class.html,Class yakumo.nova.v2.floating_ip_bulk.Manager=yakumo.nova.v2.floating_ip_bulk.Manager-class.html,Class yakumo.nova.v2.floating_ip_dns.Manager=yakumo.nova.v2.floating_ip_dns.Manager-class.html,Class yakumo.nova.v2.hypervisor.Manager=yakumo.nova.v2.hypervisor.Manager-class.html,Class yakumo.nova.v2.image.Manager=yakumo.nova.v2.image.Manager-class.html,Class yakumo.nova.v2.interface_attachment.Manager=yakumo.nova.v2.interface_attachment.Manager-class.html,Class yakumo.nova.v2.key_pair.Manager=yakumo.nova.v2.key_pair.Manager-class.html,Class yakumo.nova.v2.network.Manager=yakumo.nova.v2.network.Manager-class.html,Class yakumo.nova.v2.quota_set.Manager=yakumo.nova.v2.quota_set.Manager-class.html,Class yakumo.nova.v2.security_group.Manager=yakumo.nova.v2.security_group.Manager-class.html,Class yakumo.nova.v2.security_group_default_rule.Manager=yakumo.nova.v2.security_group_default_rule.Manager-class.html,Class yakumo.nova.v2.security_group_rule.Manager=yakumo.nova.v2.security_group_rule.Manager-class.html,Class yakumo.nova.v2.server.Manager=yakumo.nova.v2.server.Manager-class.html,Class yakumo.nova.v2.server_group.Manager=yakumo.nova.v2.server_group.Manager-class.html,Class yakumo.nova.v2.service.Manager=yakumo.nova.v2.service.Manager-class.html,Class yakumo.nova.v2.volume_attachment.Manager=yakumo.nova.v2.volume_attachment.Manager-class.html"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-3', 'Manager', 'link-3');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-4" class="py-name"><a title="yakumo.glance.v1.image
+yakumo.glance.v2.image
+yakumo.nova.v2.image" class="py-name" href="#" onclick="return doclink('link-4', 'image', 'link-0');">image</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="yakumo.glance.v1.image
+yakumo.glance.v2.image
+yakumo.nova.v2.image" class="py-name" href="#" onclick="return doclink('link-5', 'image', 'link-0');">image</a></tt> </tt>
+</div></div><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yakumo-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb 20 21:27:12 2017
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
