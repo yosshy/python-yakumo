@@ -1,0 +1,1775 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>yakumo.nova.v2</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yakumo-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="yakumo-module.html">Package&nbsp;yakumo</a> ::
+        <a href="yakumo.nova-module.html">Package&nbsp;nova</a> ::
+        Package&nbsp;v2
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="yakumo.nova.v2-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="yakumo.nova.v2-module.html">Package yakumo.nova.v2</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment"># Copyright 2014-2017 by Akira Yoshiyama &lt;akirayoshiyama@gmail.com&gt;.</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment"># All Rights Reserved.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment">#    Licensed under the Apache License, Version 2.0 (the "License"); you may</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#    not use this file except in compliance with the License. You may obtain</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment">#    a copy of the License at</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment">#         http://www.apache.org/licenses/LICENSE-2.0</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment">#    Unless required by applicable law or agreed to in writing, software</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment">#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment">#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-comment">#    License for the specific language governing permissions and limitations</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-comment">#    under the License.</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">Sub client class for Nova API v2</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Module yakumo.nova.v2.agent=yakumo.nova.v2.agent-module.html"><a title="yakumo.nova.v2.agent" class="py-name" href="#" onclick="return doclink('link-0', 'agent', 'link-0');">agent</a></tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-1" class="py-name" targets="Module yakumo.nova.v2.aggregate=yakumo.nova.v2.aggregate-module.html"><a title="yakumo.nova.v2.aggregate" class="py-name" href="#" onclick="return doclink('link-1', 'aggregate', 'link-1');">aggregate</a></tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Module yakumo.nova.v2.availability_zone=yakumo.nova.v2.availability_zone-module.html"><a title="yakumo.nova.v2.availability_zone" class="py-name" href="#" onclick="return doclink('link-2', 'availability_zone', 'link-2');">availability_zone</a></tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Module yakumo.nova.v2.certificate=yakumo.nova.v2.certificate-module.html"><a title="yakumo.nova.v2.certificate" class="py-name" href="#" onclick="return doclink('link-3', 'certificate', 'link-3');">certificate</a></tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Module yakumo.nova.v2.cloudpipe=yakumo.nova.v2.cloudpipe-module.html"><a title="yakumo.nova.v2.cloudpipe" class="py-name" href="#" onclick="return doclink('link-4', 'cloudpipe', 'link-4');">cloudpipe</a></tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-5" class="py-name" targets="Module yakumo.nova.v2.fixed_ip=yakumo.nova.v2.fixed_ip-module.html"><a title="yakumo.nova.v2.fixed_ip" class="py-name" href="#" onclick="return doclink('link-5', 'fixed_ip', 'link-5');">fixed_ip</a></tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Module yakumo.nova.v2.flavor=yakumo.nova.v2.flavor-module.html"><a title="yakumo.nova.v2.flavor" class="py-name" href="#" onclick="return doclink('link-6', 'flavor', 'link-6');">flavor</a></tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-7" class="py-name" targets="Module yakumo.neutron.v2.floating_ip=yakumo.neutron.v2.floating_ip-module.html,Module yakumo.nova.v2.floating_ip=yakumo.nova.v2.floating_ip-module.html"><a title="yakumo.neutron.v2.floating_ip
+yakumo.nova.v2.floating_ip" class="py-name" href="#" onclick="return doclink('link-7', 'floating_ip', 'link-7');">floating_ip</a></tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-8" class="py-name" targets="Module yakumo.nova.v2.floating_ip_bulk=yakumo.nova.v2.floating_ip_bulk-module.html"><a title="yakumo.nova.v2.floating_ip_bulk" class="py-name" href="#" onclick="return doclink('link-8', 'floating_ip_bulk', 'link-8');">floating_ip_bulk</a></tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-9" class="py-name" targets="Module yakumo.nova.v2.floating_ip_dns=yakumo.nova.v2.floating_ip_dns-module.html"><a title="yakumo.nova.v2.floating_ip_dns" class="py-name" href="#" onclick="return doclink('link-9', 'floating_ip_dns', 'link-9');">floating_ip_dns</a></tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-10" class="py-name" targets="Module yakumo.nova.v2.hypervisor=yakumo.nova.v2.hypervisor-module.html"><a title="yakumo.nova.v2.hypervisor" class="py-name" href="#" onclick="return doclink('link-10', 'hypervisor', 'link-10');">hypervisor</a></tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-11" class="py-name" targets="Module yakumo.glance.v1.image=yakumo.glance.v1.image-module.html,Module yakumo.glance.v2.image=yakumo.glance.v2.image-module.html,Module yakumo.nova.v2.image=yakumo.nova.v2.image-module.html"><a title="yakumo.glance.v1.image
+yakumo.glance.v2.image
+yakumo.nova.v2.image" class="py-name" href="#" onclick="return doclink('link-11', 'image', 'link-11');">image</a></tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-12" class="py-name" targets="Module yakumo.nova.v2.key_pair=yakumo.nova.v2.key_pair-module.html"><a title="yakumo.nova.v2.key_pair" class="py-name" href="#" onclick="return doclink('link-12', 'key_pair', 'link-12');">key_pair</a></tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-13" class="py-name" targets="Module yakumo.neutron.v2.network=yakumo.neutron.v2.network-module.html,Module yakumo.nova.v2.network=yakumo.nova.v2.network-module.html"><a title="yakumo.neutron.v2.network
+yakumo.nova.v2.network" class="py-name" href="#" onclick="return doclink('link-13', 'network', 'link-13');">network</a></tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-14" class="py-name" targets="Module yakumo.neutron.v2.security_group=yakumo.neutron.v2.security_group-module.html,Module yakumo.nova.v2.security_group=yakumo.nova.v2.security_group-module.html"><a title="yakumo.neutron.v2.security_group
+yakumo.nova.v2.security_group" class="py-name" href="#" onclick="return doclink('link-14', 'security_group', 'link-14');">security_group</a></tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-15" class="py-name" targets="Module yakumo.nova.v2.security_group_default_rule=yakumo.nova.v2.security_group_default_rule-module.html"><a title="yakumo.nova.v2.security_group_default_rule" class="py-name" href="#" onclick="return doclink('link-15', 'security_group_default_rule', 'link-15');">security_group_default_rule</a></tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-16" class="py-name" targets="Module yakumo.nova.v2.server=yakumo.nova.v2.server-module.html"><a title="yakumo.nova.v2.server" class="py-name" href="#" onclick="return doclink('link-16', 'server', 'link-16');">server</a></tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-17" class="py-name" targets="Module yakumo.nova.v2.server_group=yakumo.nova.v2.server_group-module.html"><a title="yakumo.nova.v2.server_group" class="py-name" href="#" onclick="return doclink('link-17', 'server_group', 'link-17');">server_group</a></tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-18" class="py-name" targets="Module yakumo.cinder.v2.service=yakumo.cinder.v2.service-module.html,Module yakumo.keystone.v2.service=yakumo.keystone.v2.service-module.html,Module yakumo.keystone.v3.service=yakumo.keystone.v3.service-module.html,Module yakumo.neutron.v2.vpn.service=yakumo.neutron.v2.vpn.service-module.html,Module yakumo.nova.v2.service=yakumo.nova.v2.service-module.html"><a title="yakumo.cinder.v2.service
+yakumo.keystone.v2.service
+yakumo.keystone.v3.service
+yakumo.neutron.v2.vpn.service
+yakumo.nova.v2.service" class="py-name" href="#" onclick="return doclink('link-18', 'service', 'link-18');">service</a></tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-op">.</tt> <tt class="py-keyword">import</tt> <tt id="link-19" class="py-name" targets="Module yakumo.cinder.v2.quota_set=yakumo.cinder.v2.quota_set-module.html,Module yakumo.nova.v2.quota_set=yakumo.nova.v2.quota_set-module.html"><a title="yakumo.cinder.v2.quota_set
+yakumo.nova.v2.quota_set" class="py-name" href="#" onclick="return doclink('link-19', 'quota_set', 'link-19');">quota_set</a></tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="Client"></a><div id="Client-def"><a name="L42"></a><tt class="py-lineno">42</tt> <a class="py-toggle" href="#" id="Client-toggle" onclick="return toggle('Client');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yakumo.nova.v2.Client-class.html">Client</a><tt class="py-op">(</tt><tt class="py-base-class">object</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Client-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Client-expanded"><a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"> </tt>
+<a name="Client.__init__"></a><div id="Client.__init__-def"><a name="L44"></a><tt class="py-lineno">44</tt> <a class="py-toggle" href="#" id="Client.__init__-toggle" onclick="return toggle('Client.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yakumo.nova.v2.Client-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">client</tt><tt class="py-op">,</tt> <tt class="py-op">*</tt><tt class="py-param">args</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Client.__init__-collapsed" style="display:none;" pad="++" indent="++++++++"></div><div id="Client.__init__-expanded"><a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="yakumo.nova.v2.agent" class="py-name" href="#" onclick="return doclink('link-20', 'agent', 'link-0');">agent</a></tt> <tt class="py-op">=</tt> <tt id="link-21" class="py-name"><a title="yakumo.nova.v2.agent" class="py-name" href="#" onclick="return doclink('link-21', 'agent', 'link-0');">agent</a></tt><tt class="py-op">.</tt><tt id="link-22" class="py-name" targets="Class yakumo.base.Manager=yakumo.base.Manager-class.html,Class yakumo.cinder.v1.snapshot.Manager=yakumo.cinder.v1.snapshot.Manager-class.html,Class yakumo.cinder.v1.volume.Manager=yakumo.cinder.v1.volume.Manager-class.html,Class yakumo.cinder.v1.volume_type.Manager=yakumo.cinder.v1.volume_type.Manager-class.html,Class yakumo.cinder.v2.consistency_group.Manager=yakumo.cinder.v2.consistency_group.Manager-class.html,Class yakumo.cinder.v2.consistency_group_snapshot.Manager=yakumo.cinder.v2.consistency_group_snapshot.Manager-class.html,Class yakumo.cinder.v2.qos.Manager=yakumo.cinder.v2.qos.Manager-class.html,Class yakumo.cinder.v2.quota_set.Manager=yakumo.cinder.v2.quota_set.Manager-class.html,Class yakumo.cinder.v2.service.Manager=yakumo.cinder.v2.service.Manager-class.html,Class yakumo.cinder.v2.snapshot.Manager=yakumo.cinder.v2.snapshot.Manager-class.html,Class yakumo.cinder.v2.volume.Manager=yakumo.cinder.v2.volume.Manager-class.html,Class yakumo.cinder.v2.volume_backup.Manager=yakumo.cinder.v2.volume_backup.Manager-class.html,Class yakumo.cinder.v2.volume_transfer.Manager=yakumo.cinder.v2.volume_transfer.Manager-class.html,Class yakumo.cinder.v2.volume_type.Manager=yakumo.cinder.v2.volume_type.Manager-class.html,Class yakumo.glance.v1.image.Manager=yakumo.glance.v1.image.Manager-class.html,Class yakumo.glance.v2.image.Manager=yakumo.glance.v2.image.Manager-class.html,Class yakumo.glance.v2.image_member.Manager=yakumo.glance.v2.image_member.Manager-class.html,Class yakumo.keystone.v2.endpoint.Manager=yakumo.keystone.v2.endpoint.Manager-class.html,Class yakumo.keystone.v2.project.Manager=yakumo.keystone.v2.project.Manager-class.html,Class yakumo.keystone.v2.role.Manager=yakumo.keystone.v2.role.Manager-class.html,Class yakumo.keystone.v2.service.Manager=yakumo.keystone.v2.service.Manager-class.html,Class yakumo.keystone.v2.user.Manager=yakumo.keystone.v2.user.Manager-class.html,Class yakumo.keystone.v3.credential.Manager=yakumo.keystone.v3.credential.Manager-class.html,Class yakumo.keystone.v3.domain.Manager=yakumo.keystone.v3.domain.Manager-class.html,Class yakumo.keystone.v3.endpoint.Manager=yakumo.keystone.v3.endpoint.Manager-class.html,Class yakumo.keystone.v3.group.Manager=yakumo.keystone.v3.group.Manager-class.html,Class yakumo.keystone.v3.project.Manager=yakumo.keystone.v3.project.Manager-class.html,Class yakumo.keystone.v3.region.Manager=yakumo.keystone.v3.region.Manager-class.html,Class yakumo.keystone.v3.role.Manager=yakumo.keystone.v3.role.Manager-class.html,Class yakumo.keystone.v3.service.Manager=yakumo.keystone.v3.service.Manager-class.html,Class yakumo.keystone.v3.user.Manager=yakumo.keystone.v3.user.Manager-class.html,Class yakumo.neutron.v2.floating_ip.Manager=yakumo.neutron.v2.floating_ip.Manager-class.html,Class yakumo.neutron.v2.lb.health_monitor.Manager=yakumo.neutron.v2.lb.health_monitor.Manager-class.html,Class yakumo.neutron.v2.lb.member.Manager=yakumo.neutron.v2.lb.member.Manager-class.html,Class yakumo.neutron.v2.lb.pool.Manager=yakumo.neutron.v2.lb.pool.Manager-class.html,Class yakumo.neutron.v2.lb.vip.Manager=yakumo.neutron.v2.lb.vip.Manager-class.html,Class yakumo.neutron.v2.lbaas.health_monitor.Manager=yakumo.neutron.v2.lbaas.health_monitor.Manager-class.html,Class yakumo.neutron.v2.lbaas.listener.Manager=yakumo.neutron.v2.lbaas.listener.Manager-class.html,Class yakumo.neutron.v2.lbaas.load_balancer.Manager=yakumo.neutron.v2.lbaas.load_balancer.Manager-class.html,Class yakumo.neutron.v2.lbaas.member.Manager=yakumo.neutron.v2.lbaas.member.Manager-class.html,Class yakumo.neutron.v2.lbaas.pool.Manager=yakumo.neutron.v2.lbaas.pool.Manager-class.html,Class yakumo.neutron.v2.metering.label.Manager=yakumo.neutron.v2.metering.label.Manager-class.html,Class yakumo.neutron.v2.metering.rule.Manager=yakumo.neutron.v2.metering.rule.Manager-class.html,Class yakumo.neutron.v2.network.Manager=yakumo.neutron.v2.network.Manager-class.html,Class yakumo.neutron.v2.port.Manager=yakumo.neutron.v2.port.Manager-class.html,Class yakumo.neutron.v2.quota.Manager=yakumo.neutron.v2.quota.Manager-class.html,Class yakumo.neutron.v2.router.Manager=yakumo.neutron.v2.router.Manager-class.html,Class yakumo.neutron.v2.security_group.Manager=yakumo.neutron.v2.security_group.Manager-class.html,Class yakumo.neutron.v2.security_group_rule.Manager=yakumo.neutron.v2.security_group_rule.Manager-class.html,Class yakumo.neutron.v2.subnet.Manager=yakumo.neutron.v2.subnet.Manager-class.html,Class yakumo.neutron.v2.subnet_pool.Manager=yakumo.neutron.v2.subnet_pool.Manager-class.html,Class yakumo.neutron.v2.vpn.ike_policy.Manager=yakumo.neutron.v2.vpn.ike_policy.Manager-class.html,Class yakumo.neutron.v2.vpn.ipsec_policy.Manager=yakumo.neutron.v2.vpn.ipsec_policy.Manager-class.html,Class yakumo.neutron.v2.vpn.ipsec_site_connection.Manager=yakumo.neutron.v2.vpn.ipsec_site_connection.Manager-class.html,Class yakumo.neutron.v2.vpn.service.Manager=yakumo.neutron.v2.vpn.service.Manager-class.html,Class yakumo.nova.v2.agent.Manager=yakumo.nova.v2.agent.Manager-class.html,Class yakumo.nova.v2.aggregate.Manager=yakumo.nova.v2.aggregate.Manager-class.html,Class yakumo.nova.v2.availability_zone.Manager=yakumo.nova.v2.availability_zone.Manager-class.html,Class yakumo.nova.v2.certificate.Manager=yakumo.nova.v2.certificate.Manager-class.html,Class yakumo.nova.v2.cloudpipe.Manager=yakumo.nova.v2.cloudpipe.Manager-class.html,Class yakumo.nova.v2.fixed_ip.Manager=yakumo.nova.v2.fixed_ip.Manager-class.html,Class yakumo.nova.v2.flavor.Manager=yakumo.nova.v2.flavor.Manager-class.html,Class yakumo.nova.v2.floating_ip.Manager=yakumo.nova.v2.floating_ip.Manager-class.html,Class yakumo.nova.v2.floating_ip_bulk.Manager=yakumo.nova.v2.floating_ip_bulk.Manager-class.html,Class yakumo.nova.v2.floating_ip_dns.Manager=yakumo.nova.v2.floating_ip_dns.Manager-class.html,Class yakumo.nova.v2.hypervisor.Manager=yakumo.nova.v2.hypervisor.Manager-class.html,Class yakumo.nova.v2.image.Manager=yakumo.nova.v2.image.Manager-class.html,Class yakumo.nova.v2.interface_attachment.Manager=yakumo.nova.v2.interface_attachment.Manager-class.html,Class yakumo.nova.v2.key_pair.Manager=yakumo.nova.v2.key_pair.Manager-class.html,Class yakumo.nova.v2.network.Manager=yakumo.nova.v2.network.Manager-class.html,Class yakumo.nova.v2.quota_set.Manager=yakumo.nova.v2.quota_set.Manager-class.html,Class yakumo.nova.v2.security_group.Manager=yakumo.nova.v2.security_group.Manager-class.html,Class yakumo.nova.v2.security_group_default_rule.Manager=yakumo.nova.v2.security_group_default_rule.Manager-class.html,Class yakumo.nova.v2.security_group_rule.Manager=yakumo.nova.v2.security_group_rule.Manager-class.html,Class yakumo.nova.v2.server.Manager=yakumo.nova.v2.server.Manager-class.html,Class yakumo.nova.v2.server_group.Manager=yakumo.nova.v2.server_group.Manager-class.html,Class yakumo.nova.v2.service.Manager=yakumo.nova.v2.service.Manager-class.html,Class yakumo.nova.v2.volume_attachment.Manager=yakumo.nova.v2.volume_attachment.Manager-class.html"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-22', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="yakumo.nova.v2.aggregate" class="py-name" href="#" onclick="return doclink('link-23', 'aggregate', 'link-1');">aggregate</a></tt> <tt class="py-op">=</tt> <tt id="link-24" class="py-name"><a title="yakumo.nova.v2.aggregate" class="py-name" href="#" onclick="return doclink('link-24', 'aggregate', 'link-1');">aggregate</a></tt><tt class="py-op">.</tt><tt id="link-25" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-25', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="yakumo.nova.v2.availability_zone" class="py-name" href="#" onclick="return doclink('link-26', 'availability_zone', 'link-2');">availability_zone</a></tt> <tt class="py-op">=</tt> <tt id="link-27" class="py-name"><a title="yakumo.nova.v2.availability_zone" class="py-name" href="#" onclick="return doclink('link-27', 'availability_zone', 'link-2');">availability_zone</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-28', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-29" class="py-name"><a title="yakumo.nova.v2.certificate" class="py-name" href="#" onclick="return doclink('link-29', 'certificate', 'link-3');">certificate</a></tt> <tt class="py-op">=</tt> <tt id="link-30" class="py-name"><a title="yakumo.nova.v2.certificate" class="py-name" href="#" onclick="return doclink('link-30', 'certificate', 'link-3');">certificate</a></tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-31', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="yakumo.nova.v2.cloudpipe" class="py-name" href="#" onclick="return doclink('link-32', 'cloudpipe', 'link-4');">cloudpipe</a></tt> <tt class="py-op">=</tt> <tt id="link-33" class="py-name"><a title="yakumo.nova.v2.cloudpipe" class="py-name" href="#" onclick="return doclink('link-33', 'cloudpipe', 'link-4');">cloudpipe</a></tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-34', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="yakumo.nova.v2.fixed_ip" class="py-name" href="#" onclick="return doclink('link-35', 'fixed_ip', 'link-5');">fixed_ip</a></tt> <tt class="py-op">=</tt> <tt id="link-36" class="py-name"><a title="yakumo.nova.v2.fixed_ip" class="py-name" href="#" onclick="return doclink('link-36', 'fixed_ip', 'link-5');">fixed_ip</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-37', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="yakumo.nova.v2.flavor" class="py-name" href="#" onclick="return doclink('link-38', 'flavor', 'link-6');">flavor</a></tt> <tt class="py-op">=</tt> <tt id="link-39" class="py-name"><a title="yakumo.nova.v2.flavor" class="py-name" href="#" onclick="return doclink('link-39', 'flavor', 'link-6');">flavor</a></tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-40', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="yakumo.neutron.v2.floating_ip
+yakumo.nova.v2.floating_ip" class="py-name" href="#" onclick="return doclink('link-41', 'floating_ip', 'link-7');">floating_ip</a></tt> <tt class="py-op">=</tt> <tt id="link-42" class="py-name"><a title="yakumo.neutron.v2.floating_ip
+yakumo.nova.v2.floating_ip" class="py-name" href="#" onclick="return doclink('link-42', 'floating_ip', 'link-7');">floating_ip</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-43', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="yakumo.nova.v2.floating_ip_bulk" class="py-name" href="#" onclick="return doclink('link-44', 'floating_ip_bulk', 'link-8');">floating_ip_bulk</a></tt> <tt class="py-op">=</tt> <tt id="link-45" class="py-name"><a title="yakumo.nova.v2.floating_ip_bulk" class="py-name" href="#" onclick="return doclink('link-45', 'floating_ip_bulk', 'link-8');">floating_ip_bulk</a></tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-46', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name"><a title="yakumo.nova.v2.floating_ip_dns" class="py-name" href="#" onclick="return doclink('link-47', 'floating_ip_dns', 'link-9');">floating_ip_dns</a></tt> <tt class="py-op">=</tt> <tt id="link-48" class="py-name"><a title="yakumo.nova.v2.floating_ip_dns" class="py-name" href="#" onclick="return doclink('link-48', 'floating_ip_dns', 'link-9');">floating_ip_dns</a></tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-49', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="yakumo.nova.v2.hypervisor" class="py-name" href="#" onclick="return doclink('link-50', 'hypervisor', 'link-10');">hypervisor</a></tt> <tt class="py-op">=</tt> <tt id="link-51" class="py-name"><a title="yakumo.nova.v2.hypervisor" class="py-name" href="#" onclick="return doclink('link-51', 'hypervisor', 'link-10');">hypervisor</a></tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-52', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="yakumo.glance.v1.image
+yakumo.glance.v2.image
+yakumo.nova.v2.image" class="py-name" href="#" onclick="return doclink('link-53', 'image', 'link-11');">image</a></tt> <tt class="py-op">=</tt> <tt id="link-54" class="py-name"><a title="yakumo.glance.v1.image
+yakumo.glance.v2.image
+yakumo.nova.v2.image" class="py-name" href="#" onclick="return doclink('link-54', 'image', 'link-11');">image</a></tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-55', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="yakumo.nova.v2.key_pair" class="py-name" href="#" onclick="return doclink('link-56', 'key_pair', 'link-12');">key_pair</a></tt> <tt class="py-op">=</tt> <tt id="link-57" class="py-name"><a title="yakumo.nova.v2.key_pair" class="py-name" href="#" onclick="return doclink('link-57', 'key_pair', 'link-12');">key_pair</a></tt><tt class="py-op">.</tt><tt id="link-58" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-58', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-59" class="py-name"><a title="yakumo.neutron.v2.network
+yakumo.nova.v2.network" class="py-name" href="#" onclick="return doclink('link-59', 'network', 'link-13');">network</a></tt> <tt class="py-op">=</tt> <tt id="link-60" class="py-name"><a title="yakumo.neutron.v2.network
+yakumo.nova.v2.network" class="py-name" href="#" onclick="return doclink('link-60', 'network', 'link-13');">network</a></tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-61', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name"><a title="yakumo.neutron.v2.security_group
+yakumo.nova.v2.security_group" class="py-name" href="#" onclick="return doclink('link-62', 'security_group', 'link-14');">security_group</a></tt> <tt class="py-op">=</tt> <tt id="link-63" class="py-name"><a title="yakumo.neutron.v2.security_group
+yakumo.nova.v2.security_group" class="py-name" href="#" onclick="return doclink('link-63', 'security_group', 'link-14');">security_group</a></tt><tt class="py-op">.</tt><tt id="link-64" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-64', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-65" class="py-name"><a title="yakumo.nova.v2.security_group_default_rule" class="py-name" href="#" onclick="return doclink('link-65', 'security_group_default_rule', 'link-15');">security_group_default_rule</a></tt> <tt class="py-op">=</tt> \ </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">            <tt id="link-66" class="py-name"><a title="yakumo.nova.v2.security_group_default_rule" class="py-name" href="#" onclick="return doclink('link-66', 'security_group_default_rule', 'link-15');">security_group_default_rule</a></tt><tt class="py-op">.</tt><tt id="link-67" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-67', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="yakumo.nova.v2.server" class="py-name" href="#" onclick="return doclink('link-68', 'server', 'link-16');">server</a></tt> <tt class="py-op">=</tt> <tt id="link-69" class="py-name"><a title="yakumo.nova.v2.server" class="py-name" href="#" onclick="return doclink('link-69', 'server', 'link-16');">server</a></tt><tt class="py-op">.</tt><tt id="link-70" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-70', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-71" class="py-name"><a title="yakumo.nova.v2.server_group" class="py-name" href="#" onclick="return doclink('link-71', 'server_group', 'link-17');">server_group</a></tt> <tt class="py-op">=</tt> <tt id="link-72" class="py-name"><a title="yakumo.nova.v2.server_group" class="py-name" href="#" onclick="return doclink('link-72', 'server_group', 'link-17');">server_group</a></tt><tt class="py-op">.</tt><tt id="link-73" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-73', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-74" class="py-name"><a title="yakumo.cinder.v2.service
+yakumo.keystone.v2.service
+yakumo.keystone.v3.service
+yakumo.neutron.v2.vpn.service
+yakumo.nova.v2.service" class="py-name" href="#" onclick="return doclink('link-74', 'service', 'link-18');">service</a></tt> <tt class="py-op">=</tt> <tt id="link-75" class="py-name"><a title="yakumo.cinder.v2.service
+yakumo.keystone.v2.service
+yakumo.keystone.v3.service
+yakumo.neutron.v2.vpn.service
+yakumo.nova.v2.service" class="py-name" href="#" onclick="return doclink('link-75', 'service', 'link-18');">service</a></tt><tt class="py-op">.</tt><tt id="link-76" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-76', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-77" class="py-name"><a title="yakumo.cinder.v2.quota_set
+yakumo.nova.v2.quota_set" class="py-name" href="#" onclick="return doclink('link-77', 'quota_set', 'link-19');">quota_set</a></tt> <tt class="py-op">=</tt> <tt id="link-78" class="py-name"><a title="yakumo.cinder.v2.quota_set
+yakumo.nova.v2.quota_set" class="py-name" href="#" onclick="return doclink('link-78', 'quota_set', 'link-19');">quota_set</a></tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="yakumo.base.Manager
+yakumo.cinder.v1.snapshot.Manager
+yakumo.cinder.v1.volume.Manager
+yakumo.cinder.v1.volume_type.Manager
+yakumo.cinder.v2.consistency_group.Manager
+yakumo.cinder.v2.consistency_group_snapshot.Manager
+yakumo.cinder.v2.qos.Manager
+yakumo.cinder.v2.quota_set.Manager
+yakumo.cinder.v2.service.Manager
+yakumo.cinder.v2.snapshot.Manager
+yakumo.cinder.v2.volume.Manager
+yakumo.cinder.v2.volume_backup.Manager
+yakumo.cinder.v2.volume_transfer.Manager
+yakumo.cinder.v2.volume_type.Manager
+yakumo.glance.v1.image.Manager
+yakumo.glance.v2.image.Manager
+yakumo.glance.v2.image_member.Manager
+yakumo.keystone.v2.endpoint.Manager
+yakumo.keystone.v2.project.Manager
+yakumo.keystone.v2.role.Manager
+yakumo.keystone.v2.service.Manager
+yakumo.keystone.v2.user.Manager
+yakumo.keystone.v3.credential.Manager
+yakumo.keystone.v3.domain.Manager
+yakumo.keystone.v3.endpoint.Manager
+yakumo.keystone.v3.group.Manager
+yakumo.keystone.v3.project.Manager
+yakumo.keystone.v3.region.Manager
+yakumo.keystone.v3.role.Manager
+yakumo.keystone.v3.service.Manager
+yakumo.keystone.v3.user.Manager
+yakumo.neutron.v2.floating_ip.Manager
+yakumo.neutron.v2.lb.health_monitor.Manager
+yakumo.neutron.v2.lb.member.Manager
+yakumo.neutron.v2.lb.pool.Manager
+yakumo.neutron.v2.lb.vip.Manager
+yakumo.neutron.v2.lbaas.health_monitor.Manager
+yakumo.neutron.v2.lbaas.listener.Manager
+yakumo.neutron.v2.lbaas.load_balancer.Manager
+yakumo.neutron.v2.lbaas.member.Manager
+yakumo.neutron.v2.lbaas.pool.Manager
+yakumo.neutron.v2.metering.label.Manager
+yakumo.neutron.v2.metering.rule.Manager
+yakumo.neutron.v2.network.Manager
+yakumo.neutron.v2.port.Manager
+yakumo.neutron.v2.quota.Manager
+yakumo.neutron.v2.router.Manager
+yakumo.neutron.v2.security_group.Manager
+yakumo.neutron.v2.security_group_rule.Manager
+yakumo.neutron.v2.subnet.Manager
+yakumo.neutron.v2.subnet_pool.Manager
+yakumo.neutron.v2.vpn.ike_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_policy.Manager
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager
+yakumo.neutron.v2.vpn.service.Manager
+yakumo.nova.v2.agent.Manager
+yakumo.nova.v2.aggregate.Manager
+yakumo.nova.v2.availability_zone.Manager
+yakumo.nova.v2.certificate.Manager
+yakumo.nova.v2.cloudpipe.Manager
+yakumo.nova.v2.fixed_ip.Manager
+yakumo.nova.v2.flavor.Manager
+yakumo.nova.v2.floating_ip.Manager
+yakumo.nova.v2.floating_ip_bulk.Manager
+yakumo.nova.v2.floating_ip_dns.Manager
+yakumo.nova.v2.hypervisor.Manager
+yakumo.nova.v2.image.Manager
+yakumo.nova.v2.interface_attachment.Manager
+yakumo.nova.v2.key_pair.Manager
+yakumo.nova.v2.network.Manager
+yakumo.nova.v2.quota_set.Manager
+yakumo.nova.v2.security_group.Manager
+yakumo.nova.v2.security_group_default_rule.Manager
+yakumo.nova.v2.security_group_rule.Manager
+yakumo.nova.v2.server.Manager
+yakumo.nova.v2.server_group.Manager
+yakumo.nova.v2.service.Manager
+yakumo.nova.v2.volume_attachment.Manager" class="py-name" href="#" onclick="return doclink('link-79', 'Manager', 'link-22');">Manager</a></tt><tt class="py-op">(</tt><tt class="py-name">client</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-80" class="py-name"><a title="yakumo.nova.v2.aggregate" class="py-name" href="#" onclick="return doclink('link-80', 'aggregate', 'link-1');">aggregate</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-81" class="py-name"><a title="yakumo.nova.v2.aggregate" class="py-name" href="#" onclick="return doclink('link-81', 'aggregate', 'link-1');">aggregate</a></tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-82" class="py-name"><a title="yakumo.nova.v2.availability_zone" class="py-name" href="#" onclick="return doclink('link-82', 'availability_zone', 'link-2');">availability_zone</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-83" class="py-name"><a title="yakumo.nova.v2.availability_zone" class="py-name" href="#" onclick="return doclink('link-83', 'availability_zone', 'link-2');">availability_zone</a></tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-84" class="py-name"><a title="yakumo.nova.v2.cloudpipe" class="py-name" href="#" onclick="return doclink('link-84', 'cloudpipe', 'link-4');">cloudpipe</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-85" class="py-name"><a title="yakumo.nova.v2.cloudpipe" class="py-name" href="#" onclick="return doclink('link-85', 'cloudpipe', 'link-4');">cloudpipe</a></tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-86" class="py-name"><a title="yakumo.nova.v2.fixed_ip" class="py-name" href="#" onclick="return doclink('link-86', 'fixed_ip', 'link-5');">fixed_ip</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-87" class="py-name"><a title="yakumo.nova.v2.fixed_ip" class="py-name" href="#" onclick="return doclink('link-87', 'fixed_ip', 'link-5');">fixed_ip</a></tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-88" class="py-name"><a title="yakumo.nova.v2.flavor" class="py-name" href="#" onclick="return doclink('link-88', 'flavor', 'link-6');">flavor</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-89" class="py-name"><a title="yakumo.nova.v2.flavor" class="py-name" href="#" onclick="return doclink('link-89', 'flavor', 'link-6');">flavor</a></tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-90" class="py-name"><a title="yakumo.neutron.v2.floating_ip
+yakumo.nova.v2.floating_ip" class="py-name" href="#" onclick="return doclink('link-90', 'floating_ip', 'link-7');">floating_ip</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-91" class="py-name"><a title="yakumo.neutron.v2.floating_ip
+yakumo.nova.v2.floating_ip" class="py-name" href="#" onclick="return doclink('link-91', 'floating_ip', 'link-7');">floating_ip</a></tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-92" class="py-name"><a title="yakumo.nova.v2.floating_ip_bulk" class="py-name" href="#" onclick="return doclink('link-92', 'floating_ip_bulk', 'link-8');">floating_ip_bulk</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-93" class="py-name"><a title="yakumo.nova.v2.floating_ip_bulk" class="py-name" href="#" onclick="return doclink('link-93', 'floating_ip_bulk', 'link-8');">floating_ip_bulk</a></tt> </tt>
+<a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-94" class="py-name"><a title="yakumo.nova.v2.floating_ip_dns" class="py-name" href="#" onclick="return doclink('link-94', 'floating_ip_dns', 'link-9');">floating_ip_dns</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-95" class="py-name"><a title="yakumo.nova.v2.floating_ip_dns" class="py-name" href="#" onclick="return doclink('link-95', 'floating_ip_dns', 'link-9');">floating_ip_dns</a></tt> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-96" class="py-name"><a title="yakumo.nova.v2.hypervisor" class="py-name" href="#" onclick="return doclink('link-96', 'hypervisor', 'link-10');">hypervisor</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-97" class="py-name"><a title="yakumo.nova.v2.hypervisor" class="py-name" href="#" onclick="return doclink('link-97', 'hypervisor', 'link-10');">hypervisor</a></tt> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-98" class="py-name"><a title="yakumo.glance.v1.image
+yakumo.glance.v2.image
+yakumo.nova.v2.image" class="py-name" href="#" onclick="return doclink('link-98', 'image', 'link-11');">image</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-99" class="py-name"><a title="yakumo.glance.v1.image
+yakumo.glance.v2.image
+yakumo.nova.v2.image" class="py-name" href="#" onclick="return doclink('link-99', 'image', 'link-11');">image</a></tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-100" class="py-name"><a title="yakumo.nova.v2.key_pair" class="py-name" href="#" onclick="return doclink('link-100', 'key_pair', 'link-12');">key_pair</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-101" class="py-name"><a title="yakumo.nova.v2.key_pair" class="py-name" href="#" onclick="return doclink('link-101', 'key_pair', 'link-12');">key_pair</a></tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-102" class="py-name"><a title="yakumo.neutron.v2.network
+yakumo.nova.v2.network" class="py-name" href="#" onclick="return doclink('link-102', 'network', 'link-13');">network</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-103" class="py-name"><a title="yakumo.neutron.v2.network
+yakumo.nova.v2.network" class="py-name" href="#" onclick="return doclink('link-103', 'network', 'link-13');">network</a></tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-104" class="py-name"><a title="yakumo.neutron.v2.security_group
+yakumo.nova.v2.security_group" class="py-name" href="#" onclick="return doclink('link-104', 'security_group', 'link-14');">security_group</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-105" class="py-name"><a title="yakumo.neutron.v2.security_group
+yakumo.nova.v2.security_group" class="py-name" href="#" onclick="return doclink('link-105', 'security_group', 'link-14');">security_group</a></tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-106" class="py-name"><a title="yakumo.nova.v2.security_group_default_rule" class="py-name" href="#" onclick="return doclink('link-106', 'security_group_default_rule', 'link-15');">security_group_default_rule</a></tt> <tt class="py-op">=</tt> \ </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-107" class="py-name"><a title="yakumo.nova.v2.security_group_default_rule" class="py-name" href="#" onclick="return doclink('link-107', 'security_group_default_rule', 'link-15');">security_group_default_rule</a></tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-108" class="py-name"><a title="yakumo.nova.v2.server" class="py-name" href="#" onclick="return doclink('link-108', 'server', 'link-16');">server</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-109" class="py-name"><a title="yakumo.nova.v2.server" class="py-name" href="#" onclick="return doclink('link-109', 'server', 'link-16');">server</a></tt> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">        <tt class="py-name">client</tt><tt class="py-op">.</tt><tt id="link-110" class="py-name"><a title="yakumo.nova.v2.server_group" class="py-name" href="#" onclick="return doclink('link-110', 'server_group', 'link-17');">server_group</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-111" class="py-name"><a title="yakumo.nova.v2.server_group" class="py-name" href="#" onclick="return doclink('link-111', 'server_group', 'link-17');">server_group</a></tt> </tt>
+</div></div><a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yakumo-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Mon Feb 20 21:27:13 2017
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
