@@ -17,8 +17,37 @@
 Exception classes
 """
 
-from keystoneauth1.exceptions import *  # noqa
+from requests.exceptions import HTTPError
+
+
+class BadRequest(Exception):
+    """400 Bad Request"""
+
+
+class Unauthorized(Exception):
+    """401 Unauthorized"""
+
+
+class PaymentRequired(Exception):
+    """402 Payment Required"""
+
+
+class Forbidden(Exception):
+    """403 Forbidden"""
+
+
+class NotFound(Exception):
+    """404 NotFound"""
 
 
 class NoSuchAPI(Exception):
     pass
+
+
+mapping = {
+    400: BadRequest,
+    401: Unauthorized,
+    402: PaymentRequired,
+    403: Forbidden,
+    404: NotFound
+}
