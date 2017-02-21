@@ -23,7 +23,6 @@ import time
 
 from . import exception
 from . import mapper
-from . import rest_client
 from . import utils
 
 
@@ -258,12 +257,10 @@ class Manager(object):
         @rtype: yakumo.base.Manager
         """
         self._client = client
-        self._rest_clients = client._rest_clients
+        self._session = client._session
+        self._http = self._session.get_proxy(self.service_type)
         self._to_json_mapping = {}
         self._to_attr_mapping = {}
-        self._method_definitions = []
-        self._http = self._client._RestClient(self._rest_clients,
-                                              self.service_type)
         if not self._url_resource_list_path:
             self._url_resource_list_path = self._url_resource_path
         if self.resource_class is None:
@@ -271,8 +268,6 @@ class Manager(object):
         mapper.make_mappings(self._attr_mapping,
                              self._to_json_mapping,
                              self._to_attr_mapping)
-        for method_definition in self._method_definitions:
-            exec(method_definition)
         if self._hidden_methods is not None:
             for method in self._hidden_methods:
                 setattr(self, method, self._no_such_api)
