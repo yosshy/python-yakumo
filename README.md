@@ -1,5 +1,5 @@
-Yakumo - Yet Another Unified OpenStack Client Library, Reloaded
-==================================================================
+Yakumo - Yet Another Unified OpenStack Client Library
+=====================================================
 
 Each OpenStack client library like python-novaclient can handle only one OpenStack program, so we have to use multiple client libraries/commands to use OpenStack platform.
 Yakumo is an "unified" OpenStack client library. Its basic usage is similar to python-novaclient and others, but it can handle multiple programs (Nova, Glance, Cinder, Neutron and Keystone now) and it's easy to manage multiple resources on the multiple programs with it.

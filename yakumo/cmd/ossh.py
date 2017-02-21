@@ -21,7 +21,6 @@ from pprint import pprint
 import sys
 
 import os_client_config
-import bpython
 
 import yakumo
 
@@ -36,7 +35,19 @@ def main():
     options = parser.parse_args()
     c = yakumo.Client(**options.__dict__)
 
-    bpython.embed(locals_=locals())
+    local_vars = locals()
+    local_vars['pprint'] = pprint
+    try:
+        import bpython
+        bpython.embed(locals_=local_vars)
+    except ImportError:
+        try:
+            import code
+            import readline
+            readline.parse_and_bind("tab:complete")
+        except ImportError:
+            pass
+        code.interact(None, None, local_vars)
 
 if __name__ == '__main__':
     main()
