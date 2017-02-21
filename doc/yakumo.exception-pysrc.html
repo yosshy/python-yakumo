@@ -75,12 +75,41 @@
 <a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">Exception classes</tt> </tt>
 <a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
 <a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
-<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">keystoneauth1</tt><tt class="py-op">.</tt><tt class="py-name">exceptions</tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt>  <tt class="py-comment"># noqa</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">requests</tt><tt class="py-op">.</tt><tt class="py-name">exceptions</tt> <tt class="py-keyword">import</tt> <tt class="py-name">HTTPError</tt> </tt>
 <a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
 <a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
-<a name="NoSuchAPI"></a><div id="NoSuchAPI-def"><a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="NoSuchAPI-toggle" onclick="return toggle('NoSuchAPI');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yakumo.exception.NoSuchAPI-class.html">NoSuchAPI</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="NoSuchAPI-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="NoSuchAPI-expanded"><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt class="py-keyword">pass</tt> </tt>
-</div><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<a name="BadRequest"></a><div id="BadRequest-def"><a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="BadRequest-toggle" onclick="return toggle('BadRequest');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yakumo.exception.BadRequest-class.html">BadRequest</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="BadRequest-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="BadRequest-expanded"><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt class="py-docstring">"""400 Bad Request"""</tt> </tt>
+</div><a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"> </tt>
+<a name="Unauthorized"></a><div id="Unauthorized-def"><a name="L27"></a><tt class="py-lineno">27</tt> <a class="py-toggle" href="#" id="Unauthorized-toggle" onclick="return toggle('Unauthorized');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yakumo.exception.Unauthorized-class.html">Unauthorized</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Unauthorized-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Unauthorized-expanded"><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">    <tt class="py-docstring">"""401 Unauthorized"""</tt> </tt>
+</div><a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"> </tt>
+<a name="PaymentRequired"></a><div id="PaymentRequired-def"><a name="L31"></a><tt class="py-lineno">31</tt> <a class="py-toggle" href="#" id="PaymentRequired-toggle" onclick="return toggle('PaymentRequired');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yakumo.exception.PaymentRequired-class.html">PaymentRequired</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="PaymentRequired-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="PaymentRequired-expanded"><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">    <tt class="py-docstring">"""402 Payment Required"""</tt> </tt>
+</div><a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"> </tt>
+<a name="Forbidden"></a><div id="Forbidden-def"><a name="L35"></a><tt class="py-lineno">35</tt> <a class="py-toggle" href="#" id="Forbidden-toggle" onclick="return toggle('Forbidden');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yakumo.exception.Forbidden-class.html">Forbidden</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="Forbidden-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="Forbidden-expanded"><a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">    <tt class="py-docstring">"""403 Forbidden"""</tt> </tt>
+</div><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt>
+<a name="NotFound"></a><div id="NotFound-def"><a name="L39"></a><tt class="py-lineno">39</tt> <a class="py-toggle" href="#" id="NotFound-toggle" onclick="return toggle('NotFound');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yakumo.exception.NotFound-class.html">NotFound</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="NotFound-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="NotFound-expanded"><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">    <tt class="py-docstring">"""404 NotFound"""</tt> </tt>
+</div><a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"> </tt>
+<a name="NoSuchAPI"></a><div id="NoSuchAPI-def"><a name="L43"></a><tt class="py-lineno">43</tt> <a class="py-toggle" href="#" id="NoSuchAPI-toggle" onclick="return toggle('NoSuchAPI');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="yakumo.exception.NoSuchAPI-class.html">NoSuchAPI</a><tt class="py-op">(</tt><tt class="py-base-class">Exception</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="NoSuchAPI-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="NoSuchAPI-expanded"><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">    <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"><tt id="link-0" class="py-name" targets="Variable yakumo.exception.mapping=yakumo.exception-module.html#mapping"><a title="yakumo.exception.mapping" class="py-name" href="#" onclick="return doclink('link-0', 'mapping', 'link-0');">mapping</a></tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">    <tt class="py-number">400</tt><tt class="py-op">:</tt> <tt id="link-1" class="py-name" targets="Class yakumo.exception.BadRequest=yakumo.exception.BadRequest-class.html"><a title="yakumo.exception.BadRequest" class="py-name" href="#" onclick="return doclink('link-1', 'BadRequest', 'link-1');">BadRequest</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">    <tt class="py-number">401</tt><tt class="py-op">:</tt> <tt id="link-2" class="py-name" targets="Class yakumo.exception.Unauthorized=yakumo.exception.Unauthorized-class.html"><a title="yakumo.exception.Unauthorized" class="py-name" href="#" onclick="return doclink('link-2', 'Unauthorized', 'link-2');">Unauthorized</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">    <tt class="py-number">402</tt><tt class="py-op">:</tt> <tt id="link-3" class="py-name" targets="Class yakumo.exception.PaymentRequired=yakumo.exception.PaymentRequired-class.html"><a title="yakumo.exception.PaymentRequired" class="py-name" href="#" onclick="return doclink('link-3', 'PaymentRequired', 'link-3');">PaymentRequired</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">    <tt class="py-number">403</tt><tt class="py-op">:</tt> <tt id="link-4" class="py-name" targets="Class yakumo.exception.Forbidden=yakumo.exception.Forbidden-class.html"><a title="yakumo.exception.Forbidden" class="py-name" href="#" onclick="return doclink('link-4', 'Forbidden', 'link-4');">Forbidden</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">    <tt class="py-number">404</tt><tt class="py-op">:</tt> <tt id="link-5" class="py-name" targets="Class yakumo.exception.NotFound=yakumo.exception.NotFound-class.html"><a title="yakumo.exception.NotFound" class="py-name" href="#" onclick="return doclink('link-5', 'NotFound', 'link-5');">NotFound</a></tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"><tt class="py-op">}</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -113,7 +142,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Feb 20 21:27:12 2017
+    Generated by Epydoc 3.0.1 on Tue Feb 21 16:33:40 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

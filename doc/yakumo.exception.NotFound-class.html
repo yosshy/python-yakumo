@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>yakumo.rest_client</title>
+  <title>yakumo.exception.NotFound</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -38,7 +38,8 @@
     <td width="100%">
       <span class="breadcrumbs">
         <a href="yakumo-module.html">Package&nbsp;yakumo</a> ::
-        Module&nbsp;rest_client
+        <a href="yakumo.exception-module.html">Module&nbsp;exception</a> ::
+        Class&nbsp;NotFound
       </span>
     </td>
     <td>
@@ -48,120 +49,98 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="yakumo.rest_client-module.html"
+            >]&nbsp;|&nbsp;<a href="yakumo.exception.NotFound-class.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
-<!-- ==================== MODULE DESCRIPTION ==================== -->
-<h1 class="epydoc">Module rest_client</h1><p class="nomargin-top"><span class="codelink"><a href="yakumo.rest_client-pysrc.html">source&nbsp;code</a></span></p>
-<p>Abstract classes for resource management</p>
+<!-- ==================== CLASS DESCRIPTION ==================== -->
+<h1 class="epydoc">Class NotFound</h1><p class="nomargin-top"><span class="codelink"><a href="yakumo.exception-pysrc.html#NotFound">source&nbsp;code</a></span></p>
+<pre class="base-tree">
+              object --+        
+                       |        
+exceptions.BaseException --+    
+                           |    
+        exceptions.Exception --+
+                               |
+                              <strong class="uidshort">NotFound</strong>
+</pre>
 
-<!-- ==================== CLASSES ==================== -->
-<a name="section-Classes"></a>
+<hr />
+<p>404 NotFound</p>
+
+<!-- ==================== INSTANCE METHODS ==================== -->
+<a name="section-InstanceMethods"></a>
 <table class="summary" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr bgcolor="#70b0f0" class="table-header">
   <td colspan="2" class="table-header">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <tr valign="top">
-        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="left"><span class="table-header">Instance Methods</span></td>
         <td align="right" valign="top"
-         ><span class="options">[<a href="#section-Classes"
+         ><span class="options">[<a href="#section-InstanceMethods"
          class="privatelink" onclick="toggle_private();"
          >hide private</a>]</span></td>
       </tr>
     </table>
   </td>
 </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a href="yakumo.rest_client.RestClient-class.html" class="summary-name">RestClient</a>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>exceptions.Exception</code></b>:
+      <code>__init__</code>,
+      <code>__new__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>exceptions.BaseException</code></b>:
+      <code>__delattr__</code>,
+      <code>__getattribute__</code>,
+      <code>__getitem__</code>,
+      <code>__getslice__</code>,
+      <code>__reduce__</code>,
+      <code>__repr__</code>,
+      <code>__setattr__</code>,
+      <code>__setstate__</code>,
+      <code>__str__</code>,
+      <code>__unicode__</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__format__</code>,
+      <code>__hash__</code>,
+      <code>__reduce_ex__</code>,
+      <code>__sizeof__</code>,
+      <code>__subclasshook__</code>
+      </p>
     </td>
   </tr>
 </table>
-<!-- ==================== FUNCTIONS ==================== -->
-<a name="section-Functions"></a>
+<!-- ==================== PROPERTIES ==================== -->
+<a name="section-Properties"></a>
 <table class="summary" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr bgcolor="#70b0f0" class="table-header">
   <td colspan="2" class="table-header">
     <table border="0" cellpadding="0" cellspacing="0" width="100%">
       <tr valign="top">
-        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="left"><span class="table-header">Properties</span></td>
         <td align="right" valign="top"
-         ><span class="options">[<a href="#section-Functions"
+         ><span class="options">[<a href="#section-Properties"
          class="privatelink" onclick="toggle_private();"
          >hide private</a>]</span></td>
       </tr>
     </table>
   </td>
 </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="get_config"></a><span class="summary-sig-name">get_config</span>(<span class="summary-sig-arg">**kwargs</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#get_config">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="get_rest_clients"></a><span class="summary-sig-name">get_rest_clients</span>(<span class="summary-sig-arg">**kwargs</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#get_rest_clients">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-</table>
-<!-- ==================== VARIABLES ==================== -->
-<a name="section-Variables"></a>
-<table class="summary" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Variables</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-Variables"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="CHUNK_SIZE"></a><span class="summary-name">CHUNK_SIZE</span> = <code title="8192">8192</code>
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'yakumo'"><code class="variable-quote">'</code><code class="variable-string">yakumo</code><code class="variable-quote">'</code></code>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code>exceptions.BaseException</code></b>:
+      <code>args</code>,
+      <code>message</code>
+      </p>
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
+      <code>__class__</code>
+      </p>
     </td>
   </tr>
 </table>
@@ -191,7 +170,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Feb 20 21:27:10 2017
+    Generated by Epydoc 3.0.1 on Tue Feb 21 16:33:39 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

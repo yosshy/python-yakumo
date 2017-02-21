@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>yakumo.rest_client.RestClient</title>
+  <title>yakumo.session.SessionProxy</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -38,8 +38,8 @@
     <td width="100%">
       <span class="breadcrumbs">
         <a href="yakumo-module.html">Package&nbsp;yakumo</a> ::
-        <a href="yakumo.rest_client-module.html">Module&nbsp;rest_client</a> ::
-        Class&nbsp;RestClient
+        <a href="yakumo.session-module.html">Module&nbsp;session</a> ::
+        Class&nbsp;SessionProxy
       </span>
     </td>
     <td>
@@ -49,18 +49,18 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="yakumo.rest_client.RestClient-class.html"
+            >]&nbsp;|&nbsp;<a href="yakumo.session.SessionProxy-class.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class RestClient</h1><p class="nomargin-top"><span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient">source&nbsp;code</a></span></p>
+<h1 class="epydoc">Class SessionProxy</h1><p class="nomargin-top"><span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy">source&nbsp;code</a></span></p>
 <pre class="base-tree">
 object --+
          |
-        <strong class="uidshort">RestClient</strong>
+        <strong class="uidshort">SessionProxy</strong>
 </pre>
 
 <hr />
@@ -87,12 +87,12 @@ object --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="yakumo.rest_client.RestClient-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">rest_clients</span>,
-        <span class="summary-sig-arg">service_type</span>)</span><br />
+          <td><span class="summary-sig"><a href="yakumo.session.SessionProxy-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">session</span>,
+        <span class="summary-sig-arg">service</span>)</span><br />
       x.__init__(...) initializes x; see help(type(x)) for signature</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.__init__">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.__init__">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -106,11 +106,10 @@ object --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="head"></a><span class="summary-sig-name">head</span>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">*args</span>,
-        <span class="summary-sig-arg">**kwargs</span>)</span></td>
+          <td><span class="summary-sig"><a name="has_endpoint"></a><span class="summary-sig-name">has_endpoint</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">service</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.head">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.has_endpoint">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -128,7 +127,7 @@ object --+
         <span class="summary-sig-arg">*args</span>,
         <span class="summary-sig-arg">**kwargs</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.get">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.get">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -142,47 +141,11 @@ object --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="patch"></a><span class="summary-sig-name">patch</span>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a name="head"></a><span class="summary-sig-name">head</span>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">*args</span>,
         <span class="summary-sig-arg">**kwargs</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.patch">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="put"></a><span class="summary-sig-name">put</span>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">*args</span>,
-        <span class="summary-sig-arg">**kwargs</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.put">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="post"></a><span class="summary-sig-name">post</span>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">*args</span>,
-        <span class="summary-sig-arg">**kwargs</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.post">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.head">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -200,7 +163,61 @@ object --+
         <span class="summary-sig-arg">*args</span>,
         <span class="summary-sig-arg">**kwargs</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.delete">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.delete">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="patch"></a><span class="summary-sig-name">patch</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.patch">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="post"></a><span class="summary-sig-name">post</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.post">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="put"></a><span class="summary-sig-name">put</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.put">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -218,25 +235,7 @@ object --+
         <span class="summary-sig-arg">*args</span>,
         <span class="summary-sig-arg">**kwargs</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.get_raw">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="put_raw"></a><span class="summary-sig-name">put_raw</span>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">*args</span>,
-        <span class="summary-sig-arg">**kwargs</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.put_raw">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.get_raw">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -254,7 +253,25 @@ object --+
         <span class="summary-sig-arg">*args</span>,
         <span class="summary-sig-arg">**kwargs</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.post_raw">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.post_raw">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="put_raw"></a><span class="summary-sig-name">put_raw</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.put_raw">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -272,25 +289,7 @@ object --+
         <span class="summary-sig-arg">*args</span>,
         <span class="summary-sig-arg">**kwargs</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.get_file">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="put_file"></a><span class="summary-sig-name">put_file</span>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">*args</span>,
-        <span class="summary-sig-arg">**kwargs</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.put_file">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.get_file">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -308,7 +307,25 @@ object --+
         <span class="summary-sig-arg">*args</span>,
         <span class="summary-sig-arg">**kwargs</span>)</span></td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.post_file">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.post_file">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="put_file"></a><span class="summary-sig-name">put_file</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*args</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.put_file">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -332,58 +349,6 @@ object --+
       <code>__str__</code>,
       <code>__subclasshook__</code>
       </p>
-    </td>
-  </tr>
-</table>
-<!-- ==================== STATIC METHODS ==================== -->
-<a name="section-StaticMethods"></a>
-<table class="summary" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr bgcolor="#70b0f0" class="table-header">
-  <td colspan="2" class="table-header">
-    <table border="0" cellpadding="0" cellspacing="0" width="100%">
-      <tr valign="top">
-        <td align="left"><span class="table-header">Static Methods</span></td>
-        <td align="right" valign="top"
-         ><span class="options">[<a href="#section-StaticMethods"
-         class="privatelink" onclick="toggle_private();"
-         >hide private</a>]</span></td>
-      </tr>
-    </table>
-  </td>
-</tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="json_body"></a><span class="summary-sig-name">json_body</span>(<span class="summary-sig-arg">kwargs</span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.json_body">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a name="make_headers"></a><span class="summary-sig-name">make_headers</span>(<span class="summary-sig-arg">kwargs</span>,
-        <span class="summary-sig-arg">content_type</span>=<span class="summary-sig-default">None</span>,
-        <span class="summary-sig-arg">accept</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">application/json</code><code class="variable-quote">'</code></span>)</span></td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.make_headers">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
     </td>
   </tr>
 </table>
@@ -438,12 +403,12 @@ object --+
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">rest_clients</span>,
-        <span class="sig-arg">service_type</span>)</span>
+        <span class="sig-arg">session</span>,
+        <span class="sig-arg">service</span>)</span>
     <br /><em class="fname">(Constructor)</em>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="yakumo.rest_client-pysrc.html#RestClient.__init__">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="yakumo.session-pysrc.html#SessionProxy.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
@@ -483,7 +448,7 @@ object --+
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Feb 20 21:27:11 2017
+    Generated by Epydoc 3.0.1 on Tue Feb 21 16:33:39 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
