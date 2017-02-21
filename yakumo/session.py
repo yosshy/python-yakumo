@@ -42,6 +42,8 @@ def get_session(**kwargs):
     if cloud_config.config.get('insecure'):
         cloud_config.config['verify'] = False
         cloud_config.config['cacert'] = None
+    if 'timeout' not in cloud_config.config:
+        cloud_config.config['timeout'] = 600
 
     return Session(cloud_config)
 

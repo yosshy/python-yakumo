@@ -30,6 +30,9 @@ def main():
     parser = argparse.ArgumentParser()
     cloud_config = os_client_config.OpenStackConfig()
     cloud_config.register_argparse_arguments(parser, sys.argv)
+
+    parser.set_defaults(os_interface=None, os_auth_type=None,
+                        timeout=None, insecure=False)
     options = parser.parse_args()
     c = yakumo.Client(**options.__dict__)
 
