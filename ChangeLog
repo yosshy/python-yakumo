@@ -1,6 +1,16 @@
 CHANGES
 =======
 
+* setup.cfg: updated
+* README: updated
+* ossh: removed unused file
+* ossh: allow working without bpython
+
+0.2.1
+-----
+
+* Unset the default value of 'os_interface'
+* ChangeLog: updated
 * AUTHORS: updated
 * ChangeLog: updated
 
