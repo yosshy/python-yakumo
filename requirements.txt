@@ -1,3 +1,4 @@
 os_client_config>=1.13.0
 keystoneauth1>=2.18.0
 python-dateutil
+bpython

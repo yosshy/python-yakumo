@@ -56,8 +56,9 @@ LOG.addHandler(ch)
 def cleaner(resource):
     try:
         yield resource
-    except:
-        LOG.exception("Error occured")
+    except Exception as e:
+        LOG.warning("Error occured: %s", e)
+        TEST_LOGS.append((str(e), False))
     finally:
         if hasattr(resource, 'name'):
             LOG.info("Delete %s", resource.name)

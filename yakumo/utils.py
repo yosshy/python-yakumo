@@ -23,7 +23,7 @@ import inspect
 
 
 def join_path(*args):
-    return '/'.join([str(x) for x in args if x is not None])
+    return '/'.join([str(x).strip('/') for x in args if x is not None])
 
 
 def get_json_body(base, **params):
