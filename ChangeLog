@@ -1,6 +1,12 @@
 CHANGES
 =======
 
+
+0.2
+---
+
+* ChangeLog: updated
+* AUTHORS: remove a duplicated entry
 * doc: updated
 * session: replace rest_client with a new session manager
 * requirements: added bpython
