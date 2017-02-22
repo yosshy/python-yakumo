@@ -27,6 +27,7 @@ ATTRIBUTE_MAPPING = [
     ('description', 'description', mapper.Noop),
     ('size', 'size', mapper.Noop),
     ('status', 'status', mapper.Noop),
+    ('force', 'force', mapper.Noop),
     ('source', 'volume_id', mapper.Resource('cinder.volume')),
     ('progress', 'os-extended-snapshot-attributes:progress', mapper.Noop),
     ('project', 'os-extended-snapshot-attributes:project_id',
