@@ -1,6 +1,7 @@
 CHANGES
 =======
 
+* cinder.v2.volume: fixed volume type handling
 
 0.3.3
 -----
