@@ -33,6 +33,9 @@ LOG.debug("image: %s", i)
 n = c.network.find_one(name='private')
 LOG.debug("network: %s", n)
 
+az = c.availability_zone.get_empty('nova')
+LOG.debug("availability zone: %s", az)
+
 LOG.debug("list servers: %s", [_.name for _ in c.server.list()])
 
 LOG.info("Create Server #1")
@@ -41,6 +44,7 @@ with cleaner(c.server.create(name=name,
                              networks=[n],
                              image=i,
                              flavor=f,
+                             availability_zone=az,
                              key_pair=k)) as s:
 
     LOG.debug("list servers: %s", [_.name for _ in c.server.list()])
@@ -49,6 +53,7 @@ with cleaner(c.server.create(name=name,
     s.wait_for_finished()
     test("Server #1 name is " + name, s.name == name)
     test("Server #1 is active", s.status == 'ACTIVE')
+    test("Server #1 az is " + az.name, s.availability_zone == az)
 
     LOG.info("wait for guest OS booted")
     for i in range(30):

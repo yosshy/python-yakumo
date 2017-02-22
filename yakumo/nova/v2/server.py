@@ -53,6 +53,10 @@ ATTRIBUTE_MAPPING = [
     ('user', 'user_id', mapper.Resource('user')),
     ('key_pair', 'key_name', mapper.Resource('nova.key_pair')),
     ('error_reason', 'fault', mapper.Noop),
+    ('availability_zone', 'availability_zone',
+     mapper.Resource('nova.availability_zone')),
+    ('availability_zone', 'OS-EXT-AZ:availability_zone',
+     mapper.Resource('nova.availability_zone')),
 ]
 
 
@@ -560,6 +564,7 @@ class Manager(base.Manager):
     def create(self, name=None, image=None, flavor=None,
                personality=None, disks=None, max_count=None,
                min_count=None, networks=None, security_groups=None,
+               availability_zone=None,
                config_drive=False, key_pair=None, user_data=None):
         """Create a new server
 
@@ -583,6 +588,8 @@ class Manager(base.Manager):
         @type max_count: int
         @keyword min_count: the minimun number of server(s) to create
         @type min_count: int
+        @keyword availability_zone: Availability Zone
+        @type availability_zone: yakumo.availability_zone.Resource
         @keyword config_drive: config drive exists or not (bool)
         @type config_drive: bool
         @keyword user_data: content of a batch file (str)
@@ -648,6 +655,7 @@ class Manager(base.Manager):
                                            min_count=min_count,
                                            networks=_networks,
                                            security_groups=security_groups,
+                                           availability_zone=availability_zone,
                                            config_drive=config_drive,
                                            key_pair=key_pair,
                                            user_data=user_data)
