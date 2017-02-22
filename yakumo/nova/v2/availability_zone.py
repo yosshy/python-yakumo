@@ -19,6 +19,7 @@ Resource class and its manager for availability zones in Compute API v2
 
 from yakumo import base
 from yakumo import mapper
+from yakumo import exception
 
 
 ATTRIBUTE_MAPPING = [
@@ -46,4 +47,7 @@ class Manager(base.Manager):
     _url_resource_list_path = '/os-availability-zone/detail'
 
     def get(self, name):
-        return self.find_one(name=name)
+        try:
+            return self.find_one(name=name)
+        except exception.Forbidden:
+            return self.get_empty(name)
