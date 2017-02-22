@@ -20,6 +20,7 @@ from yakumo.smoketest import *
 
 
 LOG.debug("list volume types: %s", [_.name for _ in c.volume_type.list()])
+LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
 LOG.debug("list QoS: %s", [_.name for _ in c.volume_type_qos.list()])
 
 LOG.info("Create Volume Type #1")
@@ -58,6 +59,22 @@ with cleaner(c.volume_type.create(name=name,
     vt1.unset_metadata('foo', 'foo2')
     test("Volume Type #1 has 1 metadata", len(vt1.metadata) == 1)
     test("Metadata: foo3 -> bar3", vt1.metadata['foo3'] == 'bar3')
+
+    # Volume
+
+    LOG.info("Create Volume #1")
+    name=get_random_str('volume')
+    with cleaner(c.volume.create(name=name,
+                                 volume_type=vt1,
+                                 size=1)) as v1:
+        test("Volume #1 is created", v1 is not None)
+
+        LOG.debug("wait for created")
+        v1.wait_for_finished()
+
+        LOG.debug("Volume #1: %s", v1.get_attrs())
+        test("Volume #1 name is " + name, v1.name == name)
+        test("Volume type is %s" + vt1.name, v1.volume_type == vt1)
 
     # QoS
 
@@ -116,6 +133,7 @@ with cleaner(c.volume_type.create(name=name,
 test("Volume Type #1 is deleted", vt1 not in c.volume.list())
 
 LOG.debug("list volume types: %s", [_.name for _ in c.volume_type.list()])
+LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
 LOG.debug("list QoS: %s", [_.name for _ in c.volume_type_qos.list()])
 
 show_test_summary()

@@ -22,6 +22,7 @@ from yakumo import mapper
 from yakumo import utils
 
 from yakumo.cinder.v2.snapshot import Resource as Snapshot
+from yakumo.cinder.v2.volume_type import Resource as VolumeType
 from yakumo.nova.v2.image import Resource as NovaV2Image
 from yakumo.glance.v1.image import Resource as GlanceV1Image
 from yakumo.glance.v2.image import Resource as GlanceV2Image
@@ -30,7 +31,7 @@ from yakumo.glance.v2.image import Resource as GlanceV2Image
 ATTRIBUTE_MAPPING = [
     ('name', 'name', mapper.Noop),
     ('description', 'description', mapper.Noop),
-    ('volume_type', 'volume_type', mapper.Resource('cinder.volume_type')),
+    ('volume_type', 'volume_type', mapper.Noop),
     ('size', 'size', mapper.Noop),
     ('availability_zone', 'availability_zone',
      mapper.Resource('availability_zone')),
@@ -201,11 +202,21 @@ class Manager(base.Manager):
     _url_resource_list_path = '/volumes/detail'
     _url_resource_path = '/volumes'
 
+    def _attr2json(self, attrs):
+        volume_type = attrs.get('volume_type')
+        if isinstance(volume_type, VolumeType):
+            attrs['volume_type'] = volume_type.name
+        return super(Manager, self)._attr2json(attrs)
+
     def _json2attr(self, json_params):
         ret = super(Manager, self)._json2attr(json_params)
         image = json_params.get('volume_image_metadata', {}).get('image_id')
         if image:
             ret['source_image'] = self._client.image.get_empty(image)
+        volume_type = json_params.get('volume_type')
+        if volume_type:
+            ret['volume_type'] = self._client.volume_type.find_one(
+                name=volume_type)
         return ret
 
     def create(self, name=None, description=None, volume_type=None,
