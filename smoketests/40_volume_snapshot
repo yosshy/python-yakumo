@@ -43,6 +43,7 @@ with cleaner(c.volume.create(name=name,
     name=get_random_str('snapshot')
     with cleaner(c.volume_snapshot.create(name=name,
                                           description="snapshot 1",
+                                          force=True,
                                           source=v1)) as s:
 
         test("Snapshot #1 is created", s is not None)
