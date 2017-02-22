@@ -1,6 +1,19 @@
 CHANGES
 =======
 
+* doc: updated
+* keystone.v3: fixed a bug in service_type
+
+0.3.1
+-----
+
+* requirements: remove keystoneauth1 and bpython
+
+0.3
+---
+
+* doc: updated
+* ChangeLog: updated
 * setup.cfg: updated
 * README: updated
 * ossh: removed unused file
