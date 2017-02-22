@@ -54,7 +54,7 @@ class Manager(base.Manager):
     """manager class for groups on Identity V3 API"""
 
     resource_class = Resource
-    service_type = 'identityv3'
+    service_type = 'identity'
     _attr_mapping = ATTRIBUTE_MAPPING
     _json_resource_key = 'group'
     _json_resources_key = 'groups'

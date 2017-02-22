@@ -63,7 +63,7 @@ class Manager(base.Manager):
     """manager class for projects on Identity V3 API"""
 
     resource_class = Resource
-    service_type = 'identityv3'
+    service_type = 'identity'
     _attr_mapping = ATTRIBUTE_MAPPING
     _json_resource_key = 'project'
     _json_resources_key = 'projects'
