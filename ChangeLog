@@ -1,6 +1,18 @@
 CHANGES
 =======
 
+* cinder.v2.volume: fixed volume type handling
+
+0.3.3
+-----
+
+* doc: updated
+* nova.v2: improved availability zone handling
+
+0.3.2
+-----
+
+* ChangeLog: updated
 * doc: updated
 * keystone.v3: fixed a bug in service_type
 
