@@ -561,6 +561,13 @@ class Manager(base.Manager):
     _url_resource_path = '/servers'
     _url_resource_list_path = '/servers/detail'
 
+    def _json2attr(self, json_params):
+        flavor_id = json_params.pop('flavor', {}).get('id')
+        ret = super(Manager, self)._json2attr(json_params)
+        if flavor_id:
+            ret['flavor'] = self._client.flavor.get_empty(flavor_id)
+        return ret
+
     def create(self, name=None, image=None, flavor=None,
                personality=None, disks=None, max_count=None,
                min_count=None, networks=None, security_groups=None,
