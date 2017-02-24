@@ -1,6 +1,22 @@
 CHANGES
 =======
 
+* setup.cfg: fixed home-page
+
+0.3.6
+-----
+
+* cinder.v2.snapshot: fixed 'force' option handling
+
+0.3.5
+-----
+
+* nova.v2.server: modified flavor handling
+
+0.3.4
+-----
+
+* ChangeLog: updated
 * cinder.v2.volume: fixed volume type handling
 
 0.3.3
