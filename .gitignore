@@ -22,6 +22,7 @@ var/
 *.egg-info/
 .installed.cfg
 *.egg
+register.py
 
 # Installer logs
 pip-log.txt
