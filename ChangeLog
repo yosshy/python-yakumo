@@ -2,6 +2,12 @@ CHANGES
 =======
 
 
+0.3.6
+-----
+
+* cinder.v2.snapshot: fixed 'force' option handling
+* ChangeLog: updated
+
 0.3.5
 -----
 
