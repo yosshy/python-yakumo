@@ -1,6 +1,8 @@
 CHANGES
 =======
 
+* .gitignore: added register.py
+* ChangeLog: updated
 * setup.cfg: fixed project url
 * ChangeLog: updated
 
