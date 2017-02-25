@@ -171,13 +171,13 @@ You can create a new resource object directly if you have its ID.
 <yakumo.nova.v2.server.Resource (id="b1477f6c-bbc4-4c37-ba05-14b935a5d08c", name="vm1")>
 >>>
 ```
-You can check the two objects are the same.
+You can check the two objects are the same:
 ```
 >>> s == s2
 True
 >>>
 ```
-And deleting it:
+and delete one:
 ```
 >>> s.delete()
 >>>
@@ -196,7 +196,7 @@ Akira Yoshiyama / akirayoshiyama _at_ gmail.com
 
 ## Project URL
 
-https://github.com/yosshy/yakumo
+https://github.com/yosshy/python-yakumo
 
 ## License
 
