@@ -2,6 +2,12 @@ CHANGES
 =======
 
 * README: updated
+
+0.4
+---
+
+* ChangeLog: updated
+* README: updated
 * smoketest: pep8
 * doc: updated
 * all: added '--verbose' option
