@@ -127,15 +127,15 @@ You can see description of a method:
     | @keyword name: name of the new server (required)                                                             |
     | @type name: str                                                                                              |
     | @keyword flavor: Flavor object to use (required)                                                             |
-    | @type flavor: yakumo.nova.v2.flavor.Resource                                                              |
+    | @type flavor: yakumo.nova.v2.flavor.Resource                                                                 |
     | @keyword image: Image object to use for ephemeral disk                                                       |
-    | @type image: yakumo.image.Resource                                                                        |
+    | @type image: yakumo.image.Resource                                                                           |
     | @keyword key_pair: KeyPair object to use                                                                     |
-    | @type key_pair: yakumo.nova.v2.key_pair.Resource                                                          |
+    | @type key_pair: yakumo.nova.v2.key_pair.Resource                                                             |
     | @keyword networks: list of networks or ones with tag and/or fixed IP                                         |
-    | @type networks: [yakumo.network.Resource]                                                                 |
+    | @type networks: [yakumo.network.Resource]                                                                    |
     | @keyword security_groups: list of SecurityGroup object(s) to use                                             |
-    | @type security_groups: [yakumo.nova.v2.security_group.Resource]                                           |
+    | @type security_groups: [yakumo.nova.v2.security_group.Resource]                                              |
     | @keyword block_devices: block device mapping                                                                 |
     | @type block_devices: [dict]                                                                                  |
     | @keyword personality: file path and the content to embed                                                     |
@@ -149,7 +149,7 @@ You can see description of a method:
     | @keyword user_data: content of a batch file (str)                                                            |
     | @type user_data: str                                                                                         |
     | @return: Created server                                                                                      |
-    | @rtype: yakumo.nova.v2.server.Resource                                                                    |
+    | @rtype: yakumo.nova.v2.server.Resource                                                                       |
     +--------------------------------------------------------------------------------------------------------------+
 
 You can create a new resource:
