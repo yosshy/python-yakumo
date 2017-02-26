@@ -62,6 +62,7 @@ class Resource(object):
         self._no_such_api = manager._no_such_api
         self._update_method = manager._update_method
         self._url_resource_path = manager._url_resource_path
+        self._verbose = manager._verbose
 
         id = kwargs.get(self._id_attr)
         if isinstance(id, Resource):
@@ -102,9 +103,12 @@ class Resource(object):
             self._id, empty)
 
     def __str__(self):
-        attrs = self.get_attrs()
-        return '<%s.%s (%s)>' % (
-            self.__module__, self.__class__.__name__, attrs)
+        if self._verbose:
+            attrs = self.get_attrs()
+            return '<%s.%s (%s)>' % (
+                self.__module__, self.__class__.__name__, attrs)
+        else:
+            return self.__repr__()
 
     def __getattr__(self, name):
         if not self._has_extra_attr and name not in self._attrs:
@@ -245,7 +249,7 @@ class Manager(object):
     _url_resource_path = ''
     _url_resource_list_path = ''
 
-    def __init__(self, client, **kwargs):
+    def __init__(self, client, verbose=False, **kwargs):
         """
         Create a Manager object
 
@@ -253,6 +257,8 @@ class Manager(object):
 
         @param client: client object
         @type client: yakumo.Client
+        @keyword verbose: Whether str(Resource) displays all attributes
+        @type verbose: bool
         @return: Manager object
         @rtype: yakumo.base.Manager
         """
@@ -261,6 +267,7 @@ class Manager(object):
         self._http = self._session.get_proxy(self.service_type)
         self._to_json_mapping = {}
         self._to_attr_mapping = {}
+        self._verbose = verbose
         if not self._url_resource_list_path:
             self._url_resource_list_path = self._url_resource_path
         if self.resource_class is None:

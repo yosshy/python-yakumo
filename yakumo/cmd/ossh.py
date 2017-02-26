@@ -47,6 +47,8 @@ def main():
         if opt.dest in ENVIRONMENT_VARIABLES:
             opt.metavar = ENVIRONMENT_VARIABLES[opt.dest]
     parser.set_defaults(timeout=None, insecure=False, **kwargs)
+    parser.add_argument('--verbose', help='Verbose output',
+                        action='store_true')
 
     options = parser.parse_args()
     c = yakumo.Client(**options.__dict__)

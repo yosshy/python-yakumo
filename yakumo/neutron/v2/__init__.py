@@ -14,19 +14,19 @@ from . import metering
 
 class Client(object):
 
-    def __init__(self, client, *args, **kwargs):
-        self.floating_ip = floating_ip.Manager(client)
-        self.network = network.Manager(client)
-        self.port = port.Manager(client)
-        self.quota = quota.Manager(client)
-        self.router = router.Manager(client)
-        self.security_group = security_group.Manager(client)
-        self.subnet = subnet.Manager(client)
-        self.subnet_pool = subnet_pool.Manager(client)
-        self.metering = metering.Client(client)
-        self.lb = lb.Client(client)
-        self.lbaas = lbaas.Client(client)
-        self.vpn = vpn.Client(client)
+    def __init__(self, client, **kwargs):
+        self.floating_ip = floating_ip.Manager(client, **kwargs)
+        self.network = network.Manager(client, **kwargs)
+        self.port = port.Manager(client, **kwargs)
+        self.quota = quota.Manager(client, **kwargs)
+        self.router = router.Manager(client, **kwargs)
+        self.security_group = security_group.Manager(client, **kwargs)
+        self.subnet = subnet.Manager(client, **kwargs)
+        self.subnet_pool = subnet_pool.Manager(client, **kwargs)
+        self.metering = metering.Client(client, **kwargs)
+        self.lb = lb.Client(client, **kwargs)
+        self.lbaas = lbaas.Client(client, **kwargs)
+        self.vpn = vpn.Client(client, **kwargs)
 
         client.floating_ip = self.floating_ip
         client.network = self.network

@@ -41,28 +41,28 @@ from . import quota_set
 
 class Client(object):
 
-    def __init__(self, client, *args, **kwargs):
-        self.agent = agent.Manager(client)
-        self.aggregate = aggregate.Manager(client)
-        self.availability_zone = availability_zone.Manager(client)
-        self.certificate = certificate.Manager(client)
-        self.cloudpipe = cloudpipe.Manager(client)
-        self.fixed_ip = fixed_ip.Manager(client)
-        self.flavor = flavor.Manager(client)
-        self.floating_ip = floating_ip.Manager(client)
-        self.floating_ip_bulk = floating_ip_bulk.Manager(client)
-        self.floating_ip_dns = floating_ip_dns.Manager(client)
-        self.hypervisor = hypervisor.Manager(client)
-        self.image = image.Manager(client)
-        self.key_pair = key_pair.Manager(client)
-        self.network = network.Manager(client)
-        self.security_group = security_group.Manager(client)
+    def __init__(self, client, **kwargs):
+        self.agent = agent.Manager(client, **kwargs)
+        self.aggregate = aggregate.Manager(client, **kwargs)
+        self.availability_zone = availability_zone.Manager(client, **kwargs)
+        self.certificate = certificate.Manager(client, **kwargs)
+        self.cloudpipe = cloudpipe.Manager(client, **kwargs)
+        self.fixed_ip = fixed_ip.Manager(client, **kwargs)
+        self.flavor = flavor.Manager(client, **kwargs)
+        self.floating_ip = floating_ip.Manager(client, **kwargs)
+        self.floating_ip_bulk = floating_ip_bulk.Manager(client, **kwargs)
+        self.floating_ip_dns = floating_ip_dns.Manager(client, **kwargs)
+        self.hypervisor = hypervisor.Manager(client, **kwargs)
+        self.image = image.Manager(client, **kwargs)
+        self.key_pair = key_pair.Manager(client, **kwargs)
+        self.network = network.Manager(client, **kwargs)
+        self.security_group = security_group.Manager(client, **kwargs)
         self.security_group_default_rule = \
-            security_group_default_rule.Manager(client)
-        self.server = server.Manager(client)
-        self.server_group = server_group.Manager(client)
-        self.service = service.Manager(client)
-        self.quota_set = quota_set.Manager(client)
+            security_group_default_rule.Manager(client, **kwargs)
+        self.server = server.Manager(client, **kwargs)
+        self.server_group = server_group.Manager(client, **kwargs)
+        self.service = service.Manager(client, **kwargs)
+        self.quota_set = quota_set.Manager(client, **kwargs)
 
         client.aggregate = self.aggregate
         client.availability_zone = self.availability_zone

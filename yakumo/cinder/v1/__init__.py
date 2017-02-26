@@ -24,10 +24,10 @@ from . import volume_type
 
 class Client(object):
 
-    def __init__(self, client, *args, **kwargs):
-        self.volume = volume.Manager(client)
-        self.volume_snapshot = snapshot.Manager(client)
-        self.volume_type = volume_type.Manager(client)
+    def __init__(self, client, **kwargs):
+        self.volume = volume.Manager(client, **kwargs)
+        self.volume_snapshot = snapshot.Manager(client, **kwargs)
+        self.volume_type = volume_type.Manager(client, **kwargs)
 
         client.volume = self.volume
         client.volume_snapshot = self.volume_snapshot
