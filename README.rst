@@ -22,7 +22,7 @@ example,
 
 ::
 
-    bash$ ossh --os-cloud=packstack
+    bash$ ossh --os-cloud=packstack --verbose
     >>>
     Welcome to bpython! Press <F1> for help.
 

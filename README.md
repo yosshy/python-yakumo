@@ -10,7 +10,7 @@ Yes, there is another unified OpenStack client library named 'python-openstacksd
 
 Yakumo contains a simple sample OpenStack shell named 'ossh'. For example,
 ```
-bash$ ossh --os-cloud=packstack
+bash$ ossh --os-cloud=packstack --verbose
 >>>
 Welcome to bpython! Press <F1> for help.
 ```
