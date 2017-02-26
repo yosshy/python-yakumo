@@ -23,14 +23,16 @@ GATEWAY_IP = '192.168.35.254'
 FIXED_IP = '192.168.35.100'
 
 
-LOG.debug("list security groups: %s", [_.name for _ in c.security_group.list()])
+LOG.debug("list security groups: %s",
+          [_.name for _ in c.security_group.list()])
 
 LOG.info("Create Security Group #1")
 name = get_random_str('security_group')
 with cleaner(c.security_group.create(name=name,
                                      description='securty group 1')) as sg:
 
-    LOG.debug("list security groups: %s", [_.name for _ in c.security_group.list()])
+    LOG.debug("list security groups: %s",
+              [_.name for _ in c.security_group.list()])
 
     test("Security Group #1 name is " + name, sg.name == name)
 
@@ -45,8 +47,9 @@ with cleaner(c.security_group.create(name=name,
                                  protocol='tcp',
                                  remote_ip_prefix='0.0.0.0/0')) as sgr:
 
-        LOG.debug("list rules: %s", [(_.direction, _.port_range_min, _.protocol)
-                                     for _ in sg.rules.list()])
+        LOG.debug("list rules: %s",
+                  [(_.direction, _.port_range_min, _.protocol)
+                   for _ in sg.rules.list()])
 
         test("Security Group #1 has 3 rules", len(sg.rules.list()) == 3)
 
@@ -64,6 +67,7 @@ with cleaner(c.security_group.create(name=name,
 
 test("security_group #1 is gone", sg not in c.security_group.list())
 
-LOG.debug("list security_groups: %s", [_.name for _ in c.security_group.list()])
+LOG.debug("list security_groups: %s",
+          [_.name for _ in c.security_group.list()])
 
 show_test_summary()

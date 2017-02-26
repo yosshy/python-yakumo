@@ -40,7 +40,7 @@ with cleaner(c.volume.create(name=name,
     test("Volume #1 source is the image", v1.source_image == i)
 
     LOG.info("Create Snapshot #1 from Volume #1")
-    name=get_random_str('snapshot')
+    name = get_random_str('snapshot')
     with cleaner(c.volume_snapshot.create(name=name,
                                           description="snapshot 1",
                                           force=True,

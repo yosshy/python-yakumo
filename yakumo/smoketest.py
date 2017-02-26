@@ -50,7 +50,7 @@ ENVIRONMENT_VARIABLES = {
 
 
 kwargs = {dest: os.environ.get(env)
-    for dest, env in ENVIRONMENT_VARIABLES.items()}
+          for dest, env in ENVIRONMENT_VARIABLES.items()}
 parser = argparse.ArgumentParser()
 cloud_config = os_client_config.OpenStackConfig()
 cloud_config.register_argparse_arguments(parser, sys.argv)

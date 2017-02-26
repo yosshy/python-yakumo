@@ -37,7 +37,9 @@ echo "disks:"
 lsblk -d -n -b | awk '{ print "  " $1 ": { size: " $4 ", type: " $6 " }" }'
 
 echo "nics:"
-ip a | awk 'BEGIN { RS="       valid_lft forever preferred_lft forever\n" } /^[0-9]: eth/ { gsub(":", "", $2); print "  " $2 ": { mac: \"" $11"\", ip: " $15 " }" }'
+ip a | sed -re "s/^([0-9])/\n\1/" | awk 'BEGIN { RS="" }
+/^[0-9]: eth/ { gsub(":", "", $2);
+print "  " $2 ": { mac: \"" $11"\", ip: " $15 " }" }'
 
 echo "EndSysRepo"
 done
