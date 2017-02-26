@@ -119,6 +119,23 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
+          <td><span class="summary-sig"><a href="yakumo.cinder.v2.volume.Manager-class.html#_attr2json" class="summary-sig-name" onclick="show_private();">_attr2json</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">attrs</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yakumo.cinder.v2.volume-pysrc.html#Manager._attr2json">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
           <td><span class="summary-sig"><a href="yakumo.cinder.v2.volume.Manager-class.html#_json2attr" class="summary-sig-name" onclick="show_private();">_json2attr</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">json_params</span>)</span></td>
           <td align="right" valign="top">
@@ -196,7 +213,6 @@
       <code><a href="yakumo.base.Manager-class.html#list">list</a></code>
       </p>
     <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="yakumo.base.Manager-class.html">base.Manager</a></code></b> (private):
-      <code><a href="yakumo.base.Manager-class.html#_attr2json" onclick="show_private();">_attr2json</a></code>,
       <code><a href="yakumo.base.Manager-class.html#_find_gen" onclick="show_private();">_find_gen</a></code>,
       <code><a href="yakumo.base.Manager-class.html#_no_such_api" onclick="show_private();">_no_such_api</a></code>
       </p></div>
@@ -246,13 +262,13 @@
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
         <a href="yakumo.cinder.v2.volume.Manager-class.html#_attr_mapping" class="summary-name" onclick="show_private();">_attr_mapping</a> = <code title="[('name', 'name', mapper.Noop), ('description', 'description', mapper.\
-Noop), ('volume_type', 'volume_type', mapper.Resource('cinder.volume_t\
-ype')), ('size', 'size', mapper.Noop), ('availability_zone', 'availabi\
-lity_zone', mapper.Resource('availability_zone')), ('source_image', 'i\
-mageRef', mapper.Resource('image')), ('source_volume', 'source_volid',\
- mapper.Resource('cinder.volume')), ('source_snapshot', 'snapshot_id',\
- mapper.Resource('cinder.volume_snapshot')), ('source_replica', 'sourc\
-e_replica', mapper.Noop), ('consistencygroup', 'consistencygroup_id', \
+Noop), ('volume_type', 'volume_type', mapper.Noop), ('size', 'size', m\
+apper.Noop), ('availability_zone', 'availability_zone', mapper.Resourc\
+e('availability_zone')), ('source_image', 'imageRef', mapper.Resource(\
+'image')), ('source_volume', 'source_volid', mapper.Resource('cinder.v\
+olume')), ('source_snapshot', 'snapshot_id', mapper.Resource('cinder.v\
+olume_snapshot')), ('source_replica', 'source_replica', mapper.Noop), \
+('consistencygroup', 'consistencygroup_id', mapper.Resource('cinder.co\
 ..."><code class="variable-group">[</code><code class="variable-group">(</code><code class="variable-quote">'</code><code class="variable-string">name</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">name</code><code class="variable-quote">'</code><code class="variable-op">, </code>&lt;yakumo.mapper.NoopClass obj<code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
@@ -339,6 +355,29 @@ e_replica', mapper.Noop), ('consistencygroup', 'consistencygroup_id', \
   </td>
 </tr>
 </table>
+<a name="_attr2json"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_attr2json</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">attrs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yakumo.cinder.v2.volume-pysrc.html#Manager._attr2json">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="yakumo.base.Manager-class.html#_attr2json" onclick="show_private();">base.Manager._attr2json</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
 <a name="_json2attr"></a>
 <div class="private">
 <table class="details" border="1" cellpadding="3"
@@ -487,13 +526,13 @@ e_replica', mapper.Noop), ('consistencygroup', 'consistencygroup_id', \
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
 [('name', 'name', mapper.Noop), ('description', 'description', mapper.<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-Noop), ('volume_type', 'volume_type', mapper.Resource('cinder.volume_t<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-ype')), ('size', 'size', mapper.Noop), ('availability_zone', 'availabi<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-lity_zone', mapper.Resource('availability_zone')), ('source_image', 'i<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-mageRef', mapper.Resource('image')), ('source_volume', 'source_volid',<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
- mapper.Resource('cinder.volume')), ('source_snapshot', 'snapshot_id',<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
- mapper.Resource('cinder.volume_snapshot')), ('source_replica', 'sourc<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-e_replica', mapper.Noop), ('consistencygroup', 'consistencygroup_id', <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+Noop), ('volume_type', 'volume_type', mapper.Noop), ('size', 'size', m<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+apper.Noop), ('availability_zone', 'availability_zone', mapper.Resourc<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+e('availability_zone')), ('source_image', 'imageRef', mapper.Resource(<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+'image')), ('source_volume', 'source_volid', mapper.Resource('cinder.v<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+olume')), ('source_snapshot', 'snapshot_id', mapper.Resource('cinder.v<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+olume_snapshot')), ('source_replica', 'source_replica', mapper.Noop), <span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+('consistencygroup', 'consistencygroup_id', mapper.Resource('cinder.co<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
 <code class="variable-ellipsis">...</code>
 </pre></td></tr></table>
 </dd>
@@ -527,7 +566,7 @@ e_replica', mapper.Noop), ('consistencygroup', 'consistencygroup_id', <span clas
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Wed Feb 22 10:03:47 2017
+    Generated by Epydoc 3.0.1 on Sun Feb 26 19:39:29 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
