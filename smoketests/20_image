@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 # Copyright 2014-2017 by Akira Yoshiyama <akirayoshiyama@gmail.com>.
 # All Rights Reserved.
@@ -39,7 +39,7 @@ SOURCE_IMAGE = './images/cirros-0.3.5-x86_64-disk.img'
 
 LOG.info("Create an image")
 
-name=get_random_str('image')
+name = get_random_str('image')
 with cleaner(c.image.create(name=name,
                             file=SOURCE_IMAGE,
                             container_format='bare',
@@ -53,7 +53,7 @@ with cleaner(c.image.create(name=name,
     test("Image size", m.size == os.stat(SOURCE_IMAGE).st_size)
     test("Image checksum", m.checksum == get_md5(SOURCE_IMAGE))
     test("Image is active", m.status == 'active')
-    test("Image is private", m.is_public == False)
+    test("Image is private", not m.is_public)
     test("Container format is bare", m.container_format == 'bare')
     test("Disk format is qcow2", m.disk_format == 'qcow2')
     test("Extended attribute (os_type)", m.os_type == 'linux')
@@ -61,7 +61,7 @@ with cleaner(c.image.create(name=name,
 
     LOG.info("Update image properties")
 
-    name=get_random_str('image')
+    name = get_random_str('image')
     m.update(name=name, os_type='windows')
 
     test("Image name", m.name == name)

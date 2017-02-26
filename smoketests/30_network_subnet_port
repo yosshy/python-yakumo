@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 # Copyright 2014-2017 by Akira Yoshiyama <akirayoshiyama@gmail.com>.
 # All Rights Reserved.
@@ -73,7 +73,7 @@ with cleaner(c.network.create(name=name,
             LOG.debug("list ports: %s", [_.name for _ in c.port.list()])
 
             test("Port #2 name is " + name, p2.name == name)
-            test("Port #2 has specified IP address", 
+            test("Port #2 has specified IP address",
                  FIXED_IP in [_['ip_address'] for _ in p2.fixed_ips])
 
         test("Port #2 is gone", p2 not in c.port.list())

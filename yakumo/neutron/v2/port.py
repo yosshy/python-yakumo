@@ -67,7 +67,8 @@ class Resource(base.Resource):
         @keyword mac_address: MAC address
         @type mac_address: str
         @keyword fixed_ips: List of dictionary with fixed IP and subnet
-        @type fixed_ips: [{'ip_address': str, 'subnet': yakumo.subnet.Resource}]
+        @type fixed_ips: [{'ip_address': str,
+                           'subnet': yakumo.subnet.Resource}]
         @keyword security_groups: Security groups
         @type security_groups: str
         @keyword is_enabled: Whether the port is enabled

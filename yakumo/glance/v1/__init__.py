@@ -22,7 +22,7 @@ from . import image
 
 class Client(object):
 
-    def __init__(self, client, *args, **kwargs):
-        self.image = image.Manager(client)
+    def __init__(self, client, **kwargs):
+        self.image = image.Manager(client, **kwargs)
 
         client.image = self.image

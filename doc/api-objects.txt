@@ -53,6 +53,7 @@ yakumo.cmd	yakumo.cmd-module.html
 yakumo.cmd.__package__	yakumo.cmd-module.html#__package__
 yakumo.cmd.ossh	yakumo.cmd.ossh-module.html
 yakumo.cmd.ossh.__package__	yakumo.cmd.ossh-module.html#__package__
+yakumo.cmd.ossh.ENVIRONMENT_VARIABLES	yakumo.cmd.ossh-module.html#ENVIRONMENT_VARIABLES
 yakumo.cmd.ossh.main	yakumo.cmd.ossh-module.html#main
 yakumo.exception	yakumo.exception-module.html
 yakumo.exception.mapping	yakumo.exception-module.html#mapping
@@ -304,10 +305,14 @@ yakumo.smoketest.ch	yakumo.smoketest-module.html#ch
 yakumo.smoketest.LOG	yakumo.smoketest-module.html#LOG
 yakumo.smoketest.parser	yakumo.smoketest-module.html#parser
 yakumo.smoketest.TEST_LOGS	yakumo.smoketest-module.html#TEST_LOGS
-yakumo.smoketest.SOURCE	yakumo.smoketest-module.html#SOURCE
-yakumo.smoketest.test	yakumo.smoketest-module.html#test
-yakumo.smoketest.formatter	yakumo.smoketest-module.html#formatter
+yakumo.smoketest.__package__	yakumo.smoketest-module.html#__package__
 yakumo.smoketest.cloud_config	yakumo.smoketest-module.html#cloud_config
+yakumo.smoketest.SOURCE	yakumo.smoketest-module.html#SOURCE
+yakumo.smoketest.kwargs	yakumo.smoketest-module.html#kwargs
+yakumo.smoketest.ENVIRONMENT_VARIABLES	yakumo.smoketest-module.html#ENVIRONMENT_VARIABLES
+yakumo.smoketest.formatter	yakumo.smoketest-module.html#formatter
+yakumo.smoketest.opt	yakumo.smoketest-module.html#opt
+yakumo.smoketest.test	yakumo.smoketest-module.html#test
 yakumo.smoketest.c	yakumo.smoketest-module.html#c
 yakumo.smoketest.get_random_str	yakumo.smoketest-module.html#get_random_str
 yakumo.smoketest.show_test_summary	yakumo.smoketest-module.html#show_test_summary
@@ -898,7 +903,7 @@ yakumo.base.Manager.get_empty	yakumo.base.Manager-class.html#get_empty
 yakumo.cinder.v2.volume.Manager.create	yakumo.cinder.v2.volume.Manager-class.html#create
 yakumo.cinder.v2.volume.Manager._url_resource_list_path	yakumo.cinder.v2.volume.Manager-class.html#_url_resource_list_path
 yakumo.base.Manager._id_attr	yakumo.base.Manager-class.html#_id_attr
-yakumo.base.Manager._attr2json	yakumo.base.Manager-class.html#_attr2json
+yakumo.cinder.v2.volume.Manager._attr2json	yakumo.cinder.v2.volume.Manager-class.html#_attr2json
 yakumo.base.Manager._find_gen	yakumo.base.Manager-class.html#_find_gen
 yakumo.cinder.v2.volume.Manager._json_resource_key	yakumo.cinder.v2.volume.Manager-class.html#_json_resource_key
 yakumo.base.Manager.get	yakumo.base.Manager-class.html#get
@@ -3906,7 +3911,7 @@ yakumo.nova.v2.server.Manager	yakumo.nova.v2.server.Manager-class.html
 yakumo.nova.v2.server.Manager._json_resources_key	yakumo.nova.v2.server.Manager-class.html#_json_resources_key
 yakumo.base.Manager._has_extra_attr	yakumo.base.Manager-class.html#_has_extra_attr
 yakumo.nova.v2.server.Manager._attr_mapping	yakumo.nova.v2.server.Manager-class.html#_attr_mapping
-yakumo.base.Manager._json2attr	yakumo.base.Manager-class.html#_json2attr
+yakumo.nova.v2.server.Manager._json2attr	yakumo.nova.v2.server.Manager-class.html#_json2attr
 yakumo.base.Manager._no_such_api	yakumo.base.Manager-class.html#_no_such_api
 yakumo.base.Manager._update_method	yakumo.base.Manager-class.html#_update_method
 yakumo.base.Manager.find	yakumo.base.Manager-class.html#find

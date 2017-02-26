@@ -887,10 +887,11 @@ yakumo.nova.v2.server.Manager._json_resource_key
 yakumo.nova.v2.server_group.Manager._json_resource_key
 yakumo.nova.v2.service.Manager._json_resource_key
 yakumo.nova.v2.volume_attachment.Manager._json_resource_key" class="py-name" href="#" onclick="return doclink('link-39', '_json_resource_key', 'link-27');">_json_resource_key</a></tt><tt class="py-op">)</tt> </tt>
-<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-name">attrs</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method yakumo.base.Manager._json2attr()=yakumo.base.Manager-class.html#_json2attr,Method yakumo.cinder.v2.qos.Manager._json2attr()=yakumo.cinder.v2.qos.Manager-class.html#_json2attr,Method yakumo.cinder.v2.volume.Manager._json2attr()=yakumo.cinder.v2.volume.Manager-class.html#_json2attr,Method yakumo.neutron.v2.port.Manager._json2attr()=yakumo.neutron.v2.port.Manager-class.html#_json2attr"><a title="yakumo.base.Manager._json2attr
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-name">attrs</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method yakumo.base.Manager._json2attr()=yakumo.base.Manager-class.html#_json2attr,Method yakumo.cinder.v2.qos.Manager._json2attr()=yakumo.cinder.v2.qos.Manager-class.html#_json2attr,Method yakumo.cinder.v2.volume.Manager._json2attr()=yakumo.cinder.v2.volume.Manager-class.html#_json2attr,Method yakumo.neutron.v2.port.Manager._json2attr()=yakumo.neutron.v2.port.Manager-class.html#_json2attr,Method yakumo.nova.v2.server.Manager._json2attr()=yakumo.nova.v2.server.Manager-class.html#_json2attr"><a title="yakumo.base.Manager._json2attr
 yakumo.cinder.v2.qos.Manager._json2attr
 yakumo.cinder.v2.volume.Manager._json2attr
-yakumo.neutron.v2.port.Manager._json2attr" class="py-name" href="#" onclick="return doclink('link-40', '_json2attr', 'link-40');">_json2attr</a></tt><tt class="py-op">(</tt><tt class="py-name">json_params</tt><tt class="py-op">)</tt> </tt>
+yakumo.neutron.v2.port.Manager._json2attr
+yakumo.nova.v2.server.Manager._json2attr" class="py-name" href="#" onclick="return doclink('link-40', '_json2attr', 'link-40');">_json2attr</a></tt><tt class="py-op">(</tt><tt class="py-name">json_params</tt><tt class="py-op">)</tt> </tt>
 <a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="yakumo.base.Manager.resource_class" class="py-name" href="#" onclick="return doclink('link-41', 'resource_class', 'link-21');">resource_class</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">attrs</tt><tt class="py-op">)</tt> </tt>
 <a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
 <a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
@@ -928,16 +929,17 @@ yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('li
 yakumo.keystone.v3.user" class="py-name" href="#" onclick="return doclink('link-44', 'user', 'link-31');">user</a></tt><tt class="py-op">:</tt> </tt>
 <a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">            <tt class="py-name">params</tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-name">user_id</tt><tt class="py-op">=</tt><tt id="link-45" class="py-name"><a title="yakumo.keystone.v2.user
 yakumo.keystone.v3.user" class="py-name" href="#" onclick="return doclink('link-45', 'user', 'link-31');">user</a></tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="yakumo.base.Resource._id" class="py-name" href="#" onclick="return doclink('link-46', '_id', 'link-37');">_id</a></tt><tt class="py-op">)</tt> </tt>
-<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt class="py-name">kwargs</tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-name">volumes</tt><tt class="py-op">=</tt><tt class="py-name">volumes</tt><tt class="py-op">,</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">        <tt id="link-47" class="py-name" targets="Variable yakumo.smoketest.kwargs=yakumo.smoketest-module.html#kwargs"><a title="yakumo.smoketest.kwargs" class="py-name" href="#" onclick="return doclink('link-47', 'kwargs', 'link-47');">kwargs</a></tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-name">volumes</tt><tt class="py-op">=</tt><tt class="py-name">volumes</tt><tt class="py-op">,</tt> </tt>
 <a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                      <tt class="py-name">per_volume_gigabytes</tt><tt class="py-op">=</tt><tt class="py-name">per_volume_gigabytes</tt><tt class="py-op">,</tt> </tt>
 <a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">                      <tt class="py-name">snapshots</tt><tt class="py-op">=</tt><tt class="py-name">snapshots</tt><tt class="py-op">,</tt> </tt>
 <a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                      <tt class="py-name">gigabytes</tt><tt class="py-op">=</tt><tt class="py-name">gigabytes</tt><tt class="py-op">,</tt> </tt>
 <a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                      <tt class="py-name">backups</tt><tt class="py-op">=</tt><tt class="py-name">backups</tt><tt class="py-op">,</tt> </tt>
 <a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                      <tt class="py-name">backup_gigabytes</tt><tt class="py-op">=</tt><tt class="py-name">backup_gigabytes</tt><tt class="py-op">)</tt> </tt>
-<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-name">json_params</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-47" class="py-name" targets="Method yakumo.base.Manager._attr2json()=yakumo.base.Manager-class.html#_attr2json,Method yakumo.neutron.v2.port.Manager._attr2json()=yakumo.neutron.v2.port.Manager-class.html#_attr2json"><a title="yakumo.base.Manager._attr2json
-yakumo.neutron.v2.port.Manager._attr2json" class="py-name" href="#" onclick="return doclink('link-47', '_attr2json', 'link-47');">_attr2json</a></tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
-<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_http</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name" targets="Method yakumo.session.Session.put()=yakumo.session.Session-class.html#put,Method yakumo.session.SessionProxy.put()=yakumo.session.SessionProxy-class.html#put"><a title="yakumo.session.Session.put
-yakumo.session.SessionProxy.put" class="py-name" href="#" onclick="return doclink('link-48', 'put', 'link-48');">put</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-49" class="py-name"><a title="yakumo.base.Manager._url_resource_path
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-name">json_params</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name" targets="Method yakumo.base.Manager._attr2json()=yakumo.base.Manager-class.html#_attr2json,Method yakumo.cinder.v2.volume.Manager._attr2json()=yakumo.cinder.v2.volume.Manager-class.html#_attr2json,Method yakumo.neutron.v2.port.Manager._attr2json()=yakumo.neutron.v2.port.Manager-class.html#_attr2json"><a title="yakumo.base.Manager._attr2json
+yakumo.cinder.v2.volume.Manager._attr2json
+yakumo.neutron.v2.port.Manager._attr2json" class="py-name" href="#" onclick="return doclink('link-48', '_attr2json', 'link-48');">_attr2json</a></tt><tt class="py-op">(</tt><tt id="link-49" class="py-name"><a title="yakumo.smoketest.kwargs" class="py-name" href="#" onclick="return doclink('link-49', 'kwargs', 'link-47');">kwargs</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_http</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Method yakumo.session.Session.put()=yakumo.session.Session-class.html#put,Method yakumo.session.SessionProxy.put()=yakumo.session.SessionProxy-class.html#put"><a title="yakumo.session.Session.put
+yakumo.session.SessionProxy.put" class="py-name" href="#" onclick="return doclink('link-50', 'put', 'link-50');">put</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="yakumo.base.Manager._url_resource_path
 yakumo.cinder.v1.snapshot.Manager._url_resource_path
 yakumo.cinder.v1.volume.Manager._url_resource_path
 yakumo.cinder.v1.volume_type.Manager._url_resource_path
@@ -1014,10 +1016,10 @@ yakumo.nova.v2.security_group_rule.Manager._url_resource_path
 yakumo.nova.v2.server.Manager._url_resource_path
 yakumo.nova.v2.server_group.Manager._url_resource_path
 yakumo.nova.v2.service.Manager._url_resource_path
-yakumo.nova.v2.volume_attachment.Manager._url_resource_path" class="py-name" href="#" onclick="return doclink('link-49', '_url_resource_path', 'link-28');">_url_resource_path</a></tt><tt class="py-op">,</tt> <tt id="link-50" class="py-name"><a title="yakumo.keystone.v2.project
-yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('link-50', 'project', 'link-29');">project</a></tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="yakumo.base.Resource._id" class="py-name" href="#" onclick="return doclink('link-51', '_id', 'link-37');">_id</a></tt><tt class="py-op">,</tt> </tt>
+yakumo.nova.v2.volume_attachment.Manager._url_resource_path" class="py-name" href="#" onclick="return doclink('link-51', '_url_resource_path', 'link-28');">_url_resource_path</a></tt><tt class="py-op">,</tt> <tt id="link-52" class="py-name"><a title="yakumo.keystone.v2.project
+yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('link-52', 'project', 'link-29');">project</a></tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="yakumo.base.Resource._id" class="py-name" href="#" onclick="return doclink('link-53', '_id', 'link-37');">_id</a></tt><tt class="py-op">,</tt> </tt>
 <a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line">                       <tt class="py-name">params</tt><tt class="py-op">=</tt><tt class="py-name">params</tt><tt class="py-op">,</tt> </tt>
-<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                       <tt class="py-name">data</tt><tt class="py-op">=</tt><tt id="link-52" class="py-name"><a title="yakumo.utils" class="py-name" href="#" onclick="return doclink('link-52', 'utils', 'link-5');">utils</a></tt><tt class="py-op">.</tt><tt id="link-53" class="py-name" targets="Function yakumo.utils.get_json_body()=yakumo.utils-module.html#get_json_body"><a title="yakumo.utils.get_json_body" class="py-name" href="#" onclick="return doclink('link-53', 'get_json_body', 'link-53');">get_json_body</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="yakumo.base.Manager._json_resource_key
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">                       <tt class="py-name">data</tt><tt class="py-op">=</tt><tt id="link-54" class="py-name"><a title="yakumo.utils" class="py-name" href="#" onclick="return doclink('link-54', 'utils', 'link-5');">utils</a></tt><tt class="py-op">.</tt><tt id="link-55" class="py-name" targets="Function yakumo.utils.get_json_body()=yakumo.utils-module.html#get_json_body"><a title="yakumo.utils.get_json_body" class="py-name" href="#" onclick="return doclink('link-55', 'get_json_body', 'link-55');">get_json_body</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="yakumo.base.Manager._json_resource_key
 yakumo.cinder.v1.snapshot.Manager._json_resource_key
 yakumo.cinder.v1.volume.Manager._json_resource_key
 yakumo.cinder.v1.volume_type.Manager._json_resource_key
@@ -1093,7 +1095,7 @@ yakumo.nova.v2.security_group_rule.Manager._json_resource_key
 yakumo.nova.v2.server.Manager._json_resource_key
 yakumo.nova.v2.server_group.Manager._json_resource_key
 yakumo.nova.v2.service.Manager._json_resource_key
-yakumo.nova.v2.volume_attachment.Manager._json_resource_key" class="py-name" href="#" onclick="return doclink('link-54', '_json_resource_key', 'link-27');">_json_resource_key</a></tt><tt class="py-op">,</tt> </tt>
+yakumo.nova.v2.volume_attachment.Manager._json_resource_key" class="py-name" href="#" onclick="return doclink('link-56', '_json_resource_key', 'link-27');">_json_resource_key</a></tt><tt class="py-op">,</tt> </tt>
 <a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line">                                                <tt class="py-op">**</tt><tt class="py-name">json_params</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
 </div><a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"> </tt>
 <a name="Manager.delete"></a><div id="Manager.delete-def"><a name="L115"></a><tt class="py-lineno">115</tt> <a class="py-toggle" href="#" id="Manager.delete-toggle" onclick="return toggle('Manager.delete');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yakumo.cinder.v2.quota_set.Manager-class.html#delete">delete</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">project</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">user</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
@@ -1106,16 +1108,16 @@ yakumo.nova.v2.volume_attachment.Manager._json_resource_key" class="py-name" hre
 <a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring">        @type user: yakumo.user.Resource</tt> </tt>
 <a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">        @rtype: None</tt> </tt>
 <a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-55" class="py-name"><a title="yakumo.keystone.v2.project
-yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('link-55', 'project', 'link-29');">project</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
-<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">            <tt id="link-56" class="py-name"><a title="yakumo.keystone.v2.project
-yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('link-56', 'project', 'link-29');">project</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_project</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-57" class="py-name"><a title="yakumo.keystone.v2.project
+yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('link-57', 'project', 'link-29');">project</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line">            <tt id="link-58" class="py-name"><a title="yakumo.keystone.v2.project
+yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('link-58', 'project', 'link-29');">project</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_project</tt> </tt>
 <a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">        <tt class="py-name">params</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
-<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-57" class="py-name"><a title="yakumo.keystone.v2.user
-yakumo.keystone.v3.user" class="py-name" href="#" onclick="return doclink('link-57', 'user', 'link-31');">user</a></tt><tt class="py-op">:</tt> </tt>
-<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">            <tt class="py-name">params</tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-name">user_id</tt><tt class="py-op">=</tt><tt id="link-58" class="py-name"><a title="yakumo.keystone.v2.user
-yakumo.keystone.v3.user" class="py-name" href="#" onclick="return doclink('link-58', 'user', 'link-31');">user</a></tt><tt class="py-op">.</tt><tt id="link-59" class="py-name"><a title="yakumo.base.Resource._id" class="py-name" href="#" onclick="return doclink('link-59', '_id', 'link-37');">_id</a></tt><tt class="py-op">)</tt> </tt>
-<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_http</tt><tt class="py-op">.</tt><tt id="link-60" class="py-name" targets="Method yakumo.base.Resource.delete()=yakumo.base.Resource-class.html#delete,Method yakumo.cinder.v2.consistency_group.Resource.delete()=yakumo.cinder.v2.consistency_group.Resource-class.html#delete,Method yakumo.cinder.v2.quota_set.Manager.delete()=yakumo.cinder.v2.quota_set.Manager-class.html#delete,Method yakumo.cinder.v2.volume_backup.Resource.delete()=yakumo.cinder.v2.volume_backup.Resource-class.html#delete,Method yakumo.neutron.v2.quota.Resource.delete()=yakumo.neutron.v2.quota.Resource-class.html#delete,Method yakumo.nova.v2.floating_ip_bulk.Manager.delete()=yakumo.nova.v2.floating_ip_bulk.Manager-class.html#delete,Method yakumo.nova.v2.quota_set.Manager.delete()=yakumo.nova.v2.quota_set.Manager-class.html#delete,Method yakumo.nova.v2.security_group_rule.Resource.delete()=yakumo.nova.v2.security_group_rule.Resource-class.html#delete,Method yakumo.session.Session.delete()=yakumo.session.Session-class.html#delete,Method yakumo.session.SessionProxy.delete()=yakumo.session.SessionProxy-class.html#delete"><a title="yakumo.base.Resource.delete
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-59" class="py-name"><a title="yakumo.keystone.v2.user
+yakumo.keystone.v3.user" class="py-name" href="#" onclick="return doclink('link-59', 'user', 'link-31');">user</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line">            <tt class="py-name">params</tt> <tt class="py-op">=</tt> <tt class="py-name">dict</tt><tt class="py-op">(</tt><tt class="py-name">user_id</tt><tt class="py-op">=</tt><tt id="link-60" class="py-name"><a title="yakumo.keystone.v2.user
+yakumo.keystone.v3.user" class="py-name" href="#" onclick="return doclink('link-60', 'user', 'link-31');">user</a></tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="yakumo.base.Resource._id" class="py-name" href="#" onclick="return doclink('link-61', '_id', 'link-37');">_id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_http</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name" targets="Method yakumo.base.Resource.delete()=yakumo.base.Resource-class.html#delete,Method yakumo.cinder.v2.consistency_group.Resource.delete()=yakumo.cinder.v2.consistency_group.Resource-class.html#delete,Method yakumo.cinder.v2.quota_set.Manager.delete()=yakumo.cinder.v2.quota_set.Manager-class.html#delete,Method yakumo.cinder.v2.volume_backup.Resource.delete()=yakumo.cinder.v2.volume_backup.Resource-class.html#delete,Method yakumo.neutron.v2.quota.Resource.delete()=yakumo.neutron.v2.quota.Resource-class.html#delete,Method yakumo.nova.v2.floating_ip_bulk.Manager.delete()=yakumo.nova.v2.floating_ip_bulk.Manager-class.html#delete,Method yakumo.nova.v2.quota_set.Manager.delete()=yakumo.nova.v2.quota_set.Manager-class.html#delete,Method yakumo.nova.v2.security_group_rule.Resource.delete()=yakumo.nova.v2.security_group_rule.Resource-class.html#delete,Method yakumo.session.Session.delete()=yakumo.session.Session-class.html#delete,Method yakumo.session.SessionProxy.delete()=yakumo.session.SessionProxy-class.html#delete"><a title="yakumo.base.Resource.delete
 yakumo.cinder.v2.consistency_group.Resource.delete
 yakumo.cinder.v2.quota_set.Manager.delete
 yakumo.cinder.v2.volume_backup.Resource.delete
@@ -1124,7 +1126,7 @@ yakumo.nova.v2.floating_ip_bulk.Manager.delete
 yakumo.nova.v2.quota_set.Manager.delete
 yakumo.nova.v2.security_group_rule.Resource.delete
 yakumo.session.Session.delete
-yakumo.session.SessionProxy.delete" class="py-name" href="#" onclick="return doclink('link-60', 'delete', 'link-60');">delete</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-61" class="py-name"><a title="yakumo.base.Manager._url_resource_path
+yakumo.session.SessionProxy.delete" class="py-name" href="#" onclick="return doclink('link-62', 'delete', 'link-62');">delete</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-63" class="py-name"><a title="yakumo.base.Manager._url_resource_path
 yakumo.cinder.v1.snapshot.Manager._url_resource_path
 yakumo.cinder.v1.volume.Manager._url_resource_path
 yakumo.cinder.v1.volume_type.Manager._url_resource_path
@@ -1201,8 +1203,8 @@ yakumo.nova.v2.security_group_rule.Manager._url_resource_path
 yakumo.nova.v2.server.Manager._url_resource_path
 yakumo.nova.v2.server_group.Manager._url_resource_path
 yakumo.nova.v2.service.Manager._url_resource_path
-yakumo.nova.v2.volume_attachment.Manager._url_resource_path" class="py-name" href="#" onclick="return doclink('link-61', '_url_resource_path', 'link-28');">_url_resource_path</a></tt><tt class="py-op">,</tt> <tt id="link-62" class="py-name"><a title="yakumo.keystone.v2.project
-yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('link-62', 'project', 'link-29');">project</a></tt><tt class="py-op">.</tt><tt id="link-63" class="py-name"><a title="yakumo.base.Resource._id" class="py-name" href="#" onclick="return doclink('link-63', '_id', 'link-37');">_id</a></tt><tt class="py-op">,</tt> </tt>
+yakumo.nova.v2.volume_attachment.Manager._url_resource_path" class="py-name" href="#" onclick="return doclink('link-63', '_url_resource_path', 'link-28');">_url_resource_path</a></tt><tt class="py-op">,</tt> <tt id="link-64" class="py-name"><a title="yakumo.keystone.v2.project
+yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('link-64', 'project', 'link-29');">project</a></tt><tt class="py-op">.</tt><tt id="link-65" class="py-name"><a title="yakumo.base.Resource._id" class="py-name" href="#" onclick="return doclink('link-65', '_id', 'link-37');">_id</a></tt><tt class="py-op">,</tt> </tt>
 <a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line">                          <tt class="py-name">params</tt><tt class="py-op">=</tt><tt class="py-name">params</tt><tt class="py-op">)</tt> </tt>
 </div><a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"> </tt>
 <a name="Manager.get_default"></a><div id="Manager.get_default-def"><a name="L133"></a><tt class="py-lineno">133</tt> <a class="py-toggle" href="#" id="Manager.get_default-toggle" onclick="return toggle('Manager.get_default');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="yakumo.cinder.v2.quota_set.Manager-class.html#get_default">get_default</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">project</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
@@ -1214,12 +1216,12 @@ yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('li
 <a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line"><tt class="py-docstring">        @return: Default quota set</tt> </tt>
 <a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line"><tt class="py-docstring">        @rtype: yakumo.cinder.v2.quota_set.Resource</tt> </tt>
 <a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
-<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-64" class="py-name"><a title="yakumo.keystone.v2.project
-yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('link-64', 'project', 'link-29');">project</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
-<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">            <tt id="link-65" class="py-name"><a title="yakumo.keystone.v2.project
-yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('link-65', 'project', 'link-29');">project</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_project</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt id="link-66" class="py-name"><a title="yakumo.keystone.v2.project
+yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('link-66', 'project', 'link-29');">project</a></tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">            <tt id="link-67" class="py-name"><a title="yakumo.keystone.v2.project
+yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('link-67', 'project', 'link-29');">project</a></tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_project</tt> </tt>
 <a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">        <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
-<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">            <tt class="py-name">ret</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_http</tt><tt class="py-op">.</tt><tt id="link-66" class="py-name"><a title="yakumo.base.GlanceV2Manager.get
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">            <tt class="py-name">ret</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_http</tt><tt class="py-op">.</tt><tt id="link-68" class="py-name"><a title="yakumo.base.GlanceV2Manager.get
 yakumo.base.Manager.get
 yakumo.cinder.v2.quota_set.Manager.get
 yakumo.glance.v1.image.Manager.get
@@ -1230,7 +1232,7 @@ yakumo.nova.v2.fixed_ip.Manager.get
 yakumo.nova.v2.quota_set.Manager.get
 yakumo.nova.v2.security_group_rule.Manager.get
 yakumo.session.Session.get
-yakumo.session.SessionProxy.get" class="py-name" href="#" onclick="return doclink('link-66', 'get', 'link-34');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-67" class="py-name"><a title="yakumo.base.Manager._url_resource_path
+yakumo.session.SessionProxy.get" class="py-name" href="#" onclick="return doclink('link-68', 'get', 'link-34');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="yakumo.base.Manager._url_resource_path
 yakumo.cinder.v1.snapshot.Manager._url_resource_path
 yakumo.cinder.v1.volume.Manager._url_resource_path
 yakumo.cinder.v1.volume_type.Manager._url_resource_path
@@ -1307,9 +1309,9 @@ yakumo.nova.v2.security_group_rule.Manager._url_resource_path
 yakumo.nova.v2.server.Manager._url_resource_path
 yakumo.nova.v2.server_group.Manager._url_resource_path
 yakumo.nova.v2.service.Manager._url_resource_path
-yakumo.nova.v2.volume_attachment.Manager._url_resource_path" class="py-name" href="#" onclick="return doclink('link-67', '_url_resource_path', 'link-28');">_url_resource_path</a></tt><tt class="py-op">,</tt> <tt id="link-68" class="py-name"><a title="yakumo.keystone.v2.project
-yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('link-68', 'project', 'link-29');">project</a></tt><tt class="py-op">.</tt><tt id="link-69" class="py-name"><a title="yakumo.base.Resource._id" class="py-name" href="#" onclick="return doclink('link-69', '_id', 'link-37');">_id</a></tt><tt class="py-op">)</tt> </tt>
-<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">            <tt class="py-name">json_params</tt> <tt class="py-op">=</tt> <tt class="py-name">ret</tt><tt class="py-op">.</tt><tt id="link-70" class="py-name"><a title="yakumo.base.GlanceV2Manager.get
+yakumo.nova.v2.volume_attachment.Manager._url_resource_path" class="py-name" href="#" onclick="return doclink('link-69', '_url_resource_path', 'link-28');">_url_resource_path</a></tt><tt class="py-op">,</tt> <tt id="link-70" class="py-name"><a title="yakumo.keystone.v2.project
+yakumo.keystone.v3.project" class="py-name" href="#" onclick="return doclink('link-70', 'project', 'link-29');">project</a></tt><tt class="py-op">.</tt><tt id="link-71" class="py-name"><a title="yakumo.base.Resource._id" class="py-name" href="#" onclick="return doclink('link-71', '_id', 'link-37');">_id</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">            <tt class="py-name">json_params</tt> <tt class="py-op">=</tt> <tt class="py-name">ret</tt><tt class="py-op">.</tt><tt id="link-72" class="py-name"><a title="yakumo.base.GlanceV2Manager.get
 yakumo.base.Manager.get
 yakumo.cinder.v2.quota_set.Manager.get
 yakumo.glance.v1.image.Manager.get
@@ -1320,7 +1322,7 @@ yakumo.nova.v2.fixed_ip.Manager.get
 yakumo.nova.v2.quota_set.Manager.get
 yakumo.nova.v2.security_group_rule.Manager.get
 yakumo.session.Session.get
-yakumo.session.SessionProxy.get" class="py-name" href="#" onclick="return doclink('link-70', 'get', 'link-34');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-71" class="py-name"><a title="yakumo.base.Manager._json_resource_key
+yakumo.session.SessionProxy.get" class="py-name" href="#" onclick="return doclink('link-72', 'get', 'link-34');">get</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-73" class="py-name"><a title="yakumo.base.Manager._json_resource_key
 yakumo.cinder.v1.snapshot.Manager._json_resource_key
 yakumo.cinder.v1.volume.Manager._json_resource_key
 yakumo.cinder.v1.volume_type.Manager._json_resource_key
@@ -1396,12 +1398,13 @@ yakumo.nova.v2.security_group_rule.Manager._json_resource_key
 yakumo.nova.v2.server.Manager._json_resource_key
 yakumo.nova.v2.server_group.Manager._json_resource_key
 yakumo.nova.v2.service.Manager._json_resource_key
-yakumo.nova.v2.volume_attachment.Manager._json_resource_key" class="py-name" href="#" onclick="return doclink('link-71', '_json_resource_key', 'link-27');">_json_resource_key</a></tt><tt class="py-op">)</tt> </tt>
-<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">            <tt class="py-name">attrs</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-72" class="py-name"><a title="yakumo.base.Manager._json2attr
+yakumo.nova.v2.volume_attachment.Manager._json_resource_key" class="py-name" href="#" onclick="return doclink('link-73', '_json_resource_key', 'link-27');">_json_resource_key</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">            <tt class="py-name">attrs</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-74" class="py-name"><a title="yakumo.base.Manager._json2attr
 yakumo.cinder.v2.qos.Manager._json2attr
 yakumo.cinder.v2.volume.Manager._json2attr
-yakumo.neutron.v2.port.Manager._json2attr" class="py-name" href="#" onclick="return doclink('link-72', '_json2attr', 'link-40');">_json2attr</a></tt><tt class="py-op">(</tt><tt class="py-name">json_params</tt><tt class="py-op">)</tt> </tt>
-<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-73" class="py-name"><a title="yakumo.base.Manager.resource_class" class="py-name" href="#" onclick="return doclink('link-73', 'resource_class', 'link-21');">resource_class</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">attrs</tt><tt class="py-op">)</tt> </tt>
+yakumo.neutron.v2.port.Manager._json2attr
+yakumo.nova.v2.server.Manager._json2attr" class="py-name" href="#" onclick="return doclink('link-74', '_json2attr', 'link-40');">_json2attr</a></tt><tt class="py-op">(</tt><tt class="py-name">json_params</tt><tt class="py-op">)</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-75" class="py-name"><a title="yakumo.base.Manager.resource_class" class="py-name" href="#" onclick="return doclink('link-75', 'resource_class', 'link-21');">resource_class</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">attrs</tt><tt class="py-op">)</tt> </tt>
 <a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
 <a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">None</tt> </tt>
 </div></div><a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line"> </tt><script type="text/javascript">
@@ -1437,7 +1440,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Wed Feb 22 10:03:49 2017
+    Generated by Epydoc 3.0.1 on Sun Feb 26 19:39:32 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

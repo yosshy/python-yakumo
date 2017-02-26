@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 # Copyright 2014-2017 by Akira Yoshiyama <akirayoshiyama@gmail.com>.
 # All Rights Reserved.
@@ -134,7 +134,8 @@ with cleaner(c.server.create(name=name,
         pass
     test("Server #1 is stopped", s.status == 'SHUTOFF')
 
-    LOG.info("Show Server #1 action: %s", [_['action'] for _ in s.get_actions()])
+    LOG.info("Show Server #1 action: %s",
+             [_['action'] for _ in s.get_actions()])
 
 test("Server #1 is deleted", s not in c.server.list())
 

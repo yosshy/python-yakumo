@@ -1,12 +1,31 @@
 CHANGES
 =======
 
+* README: updated
+* smoketest: pep8
+* doc: updated
+* all: added '--verbose' option
+* smoketest: use /usr/bin/env
+* smoketest: supported additional OS_* environment variables
+* ossh: supported additional OS_* environment variables
+* smoketest: rename the start script
+* README: added README.rst
+
+0.3.7
+-----
+
+* ChangeLog: updated
 * setup.cfg: fixed home-page
+* .gitignore: added register.py
+* ChangeLog: updated
+* setup.cfg: fixed project url
+* ChangeLog: updated
 
 0.3.6
 -----
 
 * cinder.v2.snapshot: fixed 'force' option handling
+* ChangeLog: updated
 
 0.3.5
 -----
@@ -18,6 +37,7 @@ CHANGES
 
 * ChangeLog: updated
 * cinder.v2.volume: fixed volume type handling
+* ChangeLog: updated
 
 0.3.3
 -----

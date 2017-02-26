@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 #
 # Copyright 2014-2017 by Akira Yoshiyama <akirayoshiyama@gmail.com>.
 # All Rights Reserved.
@@ -63,7 +63,7 @@ with cleaner(c.volume_type.create(name=name,
     # Volume
 
     LOG.info("Create Volume #1")
-    name=get_random_str('volume')
+    name = get_random_str('volume')
     with cleaner(c.volume.create(name=name,
                                  volume_type=vt1,
                                  size=1)) as v1:
@@ -79,7 +79,7 @@ with cleaner(c.volume_type.create(name=name,
     # QoS
 
     LOG.info("Create QoS #1")
-    name=get_random_str('qos')
+    name = get_random_str('qos')
     with cleaner(c.volume_type_qos.create(name=name,
                                           availability="100",
                                           numberOfFailures="0")) as q1:

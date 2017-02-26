@@ -30,16 +30,16 @@ from . import user
 
 class Client(object):
 
-    def __init__(self, client, *args, **kwargs):
-        self.region = region.Manager(client)
-        self.service = service.Manager(client)
-        self.endpoint = endpoint.Manager(client)
-        self.role = role.Manager(client)
-        self.domain = domain.Manager(client)
-        self.project = project.Manager(client)
-        self.group = group.Manager(client)
-        self.user = user.Manager(client)
-        self.credential = credential.Manager(client)
+    def __init__(self, client, **kwargs):
+        self.region = region.Manager(client, **kwargs)
+        self.service = service.Manager(client, **kwargs)
+        self.endpoint = endpoint.Manager(client, **kwargs)
+        self.role = role.Manager(client, **kwargs)
+        self.domain = domain.Manager(client, **kwargs)
+        self.project = project.Manager(client, **kwargs)
+        self.group = group.Manager(client, **kwargs)
+        self.user = user.Manager(client, **kwargs)
+        self.credential = credential.Manager(client, **kwargs)
 
         client.region = self.region
         client.service = self.service

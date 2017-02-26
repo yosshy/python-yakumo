@@ -31,18 +31,18 @@ from . import volume_type
 
 class Client(object):
 
-    def __init__(self, client, *args, **kwargs):
-        self.consistency_group = consistency_group.Manager(client)
+    def __init__(self, client, **kwargs):
+        self.consistency_group = consistency_group.Manager(client, **kwargs)
         self.consistency_group_snapshot = \
-            consistency_group_snapshot.Manager(client)
-        self.quota_set = quota_set.Manager(client)
-        self.service = service.Manager(client)
-        self.volume = volume.Manager(client)
-        self.volume_backup = volume_backup.Manager(client)
-        self.volume_snapshot = snapshot.Manager(client)
-        self.volume_transfer = volume_transfer.Manager(client)
-        self.volume_type = volume_type.Manager(client)
-        self.volume_type_qos = qos.Manager(client)
+            consistency_group_snapshot.Manager(client, **kwargs)
+        self.quota_set = quota_set.Manager(client, **kwargs)
+        self.service = service.Manager(client, **kwargs)
+        self.volume = volume.Manager(client, **kwargs)
+        self.volume_backup = volume_backup.Manager(client, **kwargs)
+        self.volume_snapshot = snapshot.Manager(client, **kwargs)
+        self.volume_transfer = volume_transfer.Manager(client, **kwargs)
+        self.volume_type = volume_type.Manager(client, **kwargs)
+        self.volume_type_qos = qos.Manager(client, **kwargs)
 
         client.consistency_group = self.consistency_group
         client.consistency_group_snapshot = self.consistency_group_snapshot
