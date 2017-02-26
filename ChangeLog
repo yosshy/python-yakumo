@@ -1,6 +1,21 @@
 CHANGES
 =======
 
+* README: updated
+* smoketest: pep8
+* doc: updated
+* all: added '--verbose' option
+* smoketest: use /usr/bin/env
+* smoketest: supported additional OS_* environment variables
+* ossh: supported additional OS_* environment variables
+* smoketest: rename the start script
+* README: added README.rst
+
+0.3.7
+-----
+
+* ChangeLog: updated
+* setup.cfg: fixed home-page
 * .gitignore: added register.py
 * ChangeLog: updated
 * setup.cfg: fixed project url
