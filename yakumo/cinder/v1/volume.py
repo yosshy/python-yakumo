@@ -21,6 +21,7 @@ from yakumo import base
 from yakumo import mapper
 
 from yakumo.cinder.v1.snapshot import Resource as Snapshot
+from yakumo.cinder.v1.volume_type import Resource as VolumeType
 from yakumo.nova.v2.image import Resource as NovaV2Image
 from yakumo.glance.v1.image import Resource as GlanceV1Image
 from yakumo.glance.v2.image import Resource as GlanceV2Image
@@ -60,6 +61,40 @@ class Resource(base.Resource):
 
     _stable_state = ['available', 'in-use', 'error', 'error_deleting']
 
+    def get_metadata(self):
+        """
+        Get metadata of a volume
+
+        @return: Metadata
+        @rtype: dict
+        """
+        ret = self._http.get(self._url_resource_path, self._id, 'metadata')
+        return ret.get('metadata')
+
+    def set_metadata(self, **metadata):
+        """
+        Update metadata of a volume
+
+        @keyword metadata: key=value style.
+        @type metadata: dict
+        @rtype: None
+        """
+        self._http.post(self._url_resource_path, self._id, 'metadata',
+                        data={'metadata': metadata})
+        self.reload()
+
+    def unset_metadata(self, *keys):
+        """
+        Delete metadata of a volume
+
+        @param key: key of the metadata
+        @type keys: [str]
+        @rtype: None
+        """
+        for key in keys:
+            self._http.delete(self._url_resource_path, self._id, 'metadata', key)
+        self.reload()
+
 
 class Manager(base.Manager):
     """manager class for roles on Block Storage V1 API"""
@@ -72,6 +107,23 @@ class Manager(base.Manager):
     _hidden_methods = ["update"]
     _url_resource_list_path = '/volumes/detail'
     _url_resource_path = '/volumes'
+
+    def _attr2json(self, attrs):
+        volume_type = attrs.get('volume_type')
+        if isinstance(volume_type, VolumeType):
+            attrs['volume_type'] = volume_type.name
+        return super(Manager, self)._attr2json(attrs)
+
+    def _json2attr(self, json_params):
+        ret = super(Manager, self)._json2attr(json_params)
+        image = json_params.get('volume_image_metadata', {}).get('image_id')
+        if image:
+            ret['source_image'] = self._client.image.get_empty(image)
+        volume_type = json_params.get('volume_type')
+        if volume_type:
+            ret['volume_type'] = self._client.volume_type.find_one(
+                name=volume_type)
+        return ret
 
     def create(self, name=None, description=None, size=None, project=None,
                availability_zone=None, source=None, volume_type=None,

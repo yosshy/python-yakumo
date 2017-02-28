@@ -47,6 +47,7 @@ ATTRIBUTE_MAPPING = [
     ('task_state', 'OS-EXT-STS:task_state', mapper.Noop),
     ('created_at', 'created', mapper.DateTime),
     ('updated_at', 'updated', mapper.DateTime),
+    ('metadata', 'metadata', mapper.Noop),
     ('flavor', 'flavorRef', mapper.Resource('nova.flavor')),
     ('image', 'imageRef', mapper.Resource('image')),
     ('project', 'tenant_id', mapper.Resource('project')),
@@ -505,7 +506,7 @@ class Resource(base.Resource):
                 get_empty(x.get('id'))
                 for x in ret.get('security_groups', [])]
 
-    def metadata_get(self):
+    def get_metadata(self):
         """
         Get instance metadata
 
@@ -515,38 +516,29 @@ class Resource(base.Resource):
         ret = self._http.get(self._url_resource_path, self._id, 'metadata')
         return ret.get('metadata')
 
-    def metadata_replace(self, metadata=None):
+    def set_metadata(self, **metadata):
         """
-        Replace instance metadata
+        Update instance metadata
 
-        @keyword metadata: metadata with key=value
+        @keyword metadata: key=value style.
         @type metadata: dict
         @rtype: None
         """
         self._http.post(self._url_resource_path, self._id, 'metadata',
                         data={'metadata': metadata})
+        self.reload()
 
-    def metadata_update(self, metadata=None):
-        """
-        Update instance metadata
-
-        @keyword metadata: metadata with key=value
-        @type metadata: dict
-        @rtype: None
-        """
-        for key, value in metadata.items():
-            self._http.put(self._url_resource_path, self._id, 'metadata', key,
-                           data={'meta': {key: value}})
-
-    def metadata_delete(self, key):
+    def unset_metadata(self, *keys):
         """
         Delete instance metadata
 
         @param key: key of the metadata
-        @type key: str
+        @type keys: [str]
         @rtype: None
         """
-        self._http.delete(self._url_resource_path, self._id, 'metadata', key)
+        for key in keys:
+            self._http.delete(self._url_resource_path, self._id, 'metadata', key)
+        self.reload()
 
 
 class Manager(base.Manager):
@@ -571,7 +563,7 @@ class Manager(base.Manager):
     def create(self, name=None, image=None, flavor=None,
                personality=None, disks=None, max_count=None,
                min_count=None, networks=None, security_groups=None,
-               availability_zone=None,
+               availability_zone=None, metadata=None,
                config_drive=False, key_pair=None, user_data=None):
         """Create a new server
 
@@ -597,6 +589,8 @@ class Manager(base.Manager):
         @type min_count: int
         @keyword availability_zone: Availability Zone
         @type availability_zone: yakumo.availability_zone.Resource
+        @keyword metadata: Metadata
+        @type metadata: dict
         @keyword config_drive: config drive exists or not (bool)
         @type config_drive: bool
         @keyword user_data: content of a batch file (str)
@@ -665,4 +659,5 @@ class Manager(base.Manager):
                                            availability_zone=availability_zone,
                                            config_drive=config_drive,
                                            key_pair=key_pair,
+                                           metadata=metadata,
                                            user_data=user_data)

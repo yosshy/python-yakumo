@@ -28,7 +28,7 @@ ATTRIBUTE_MAPPING = [
     ('size', 'OS-EXT-IMG-SIZE:size', mapper.Noop),
     ('min_ram', 'minRam', mapper.Noop),
     ('min_disk', 'minDisk', mapper.Noop),
-    ('properties', 'metadata', mapper.Noop),
+    ('metadata', 'metadata', mapper.Noop),
     ('status', 'status', mapper.Noop),
     ('created_at', 'created', mapper.Noop),
     ('updated_at', 'updated', mapper.Noop),
@@ -38,23 +38,16 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for images in Compute API v2"""
 
-    def get_metadata(self, key):
+    def get_metadata(self):
         """Get extra specs for a flavor
 
-        @param key: key of metadata
-        @type key: str
-        @return: value of metadata
-        @rtype: str
+        @return: Metadata
+        @rtype: dir
         """
-        if key is None:
-            ret = self._http.get(self._url_resource_path, self._id, 'metadata')
-            return ret.get('metadata', {})
-        else:
-            ret = self._http.get(self._url_resource_path, self._id, 'metadata',
-                                 key)
-            return ret.get('meta', {}).get(key)
+        ret = self._http.get(self._url_resource_path, self._id, 'metadata')
+        return ret.get('metadata', {})
 
-    def create_metadata(self, metadata=None):
+    def set_metadata(self, **metadata):
         """
         Create metadata for a image
 
@@ -65,29 +58,20 @@ class Resource(base.Resource):
         metadata = {k: str(v) for k, v in metadata.items()}
         self._http.post(self._url_resource_path, self._id, 'metadata',
                         data=dict(metadata=metadata))
+        self.reload()
 
-    def update_metadata(self, metadata=None):
-        """
-        Update metadata for an image
-
-        @keyword metadata: Metadata with key=value
-        @type metadata: dict
-        @rtype: None
-        """
-        metadata = {k: str(v) for k, v in metadata.items()}
-        for k, v in metadata.items():
-            self._http.put(self._url_resource_path, self._id, 'metadata', k,
-                           data={'meta': {k: v}})
-
-    def delete_metadata(self, key):
+    def unset_metadata(self, *keys):
         """
         Delete one metadata from an image
 
-        @param key: key of metadata to remove
-        @type key: str
+        @param keys: keys of metadata to remove
+        @type keys: [str]
         @rtype: None
         """
-        self._http.delete(self._url_resource_path, self._id, 'metadata', key)
+        for key in keys:
+            self._http.delete(self._url_resource_path, self._id, 'metadata',
+                              key)
+        self.reload()
 
 
 class Manager(base.Manager):
