@@ -57,18 +57,23 @@ with cleaner(c.image.create(name=name,
     ni = c.nova.image.find_one(name=name)
     test("Image name", ni.name == name)
 
-    test("Image metadata are %s" % metadata, ni.get_metadata() == metadata)
+    LOG.debug("Initial metadata: %s", ni.metadata)
+    test("Metadata has %s" % metadata, ni.metadata == metadata)
 
-    m = {'foo2': 'boo2', 'foo3': 'boo3',}
+    m = {'foo2': 'bar4', 'foo3': 'bar3'}
+    LOG.debug("Set metadata : %s", m)
     metadata.update(m)
     ni.set_metadata(**m)
-    test("Image metadata are %s" % metadata, ni.get_metadata() == metadata)
+    LOG.debug("Updated metadata: %s", ni.metadata)
+    test("Metadata has %s" % metadata, ni.metadata == metadata)
 
-    keys = ['foo', 'foo2']
-    for key in keys:
+    m = ['foo', 'foo2']
+    LOG.debug("Unset metadata : %s", m)
+    for key in m:
         metadata.pop(key)
-    ni.unset_metadata(*keys)
-    test("Image metadata are %s" % metadata, ni.get_metadata() == metadata)
+    ni.unset_metadata(*m)
+    LOG.debug("Updated metadata: %s", ni.metadata)
+    test("Metadata has %s" % metadata, ni.metadata == metadata)
 
 LOG.debug("list images: %s", [_.name for _ in c.image.list()])
 show_test_summary()

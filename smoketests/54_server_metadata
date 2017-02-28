@@ -61,7 +61,7 @@ with cleaner(c.server.create(name=name,
     LOG.info("Metadata: %s", s.metadata)
     test("Metadata has %s" % metadata, s.metadata == metadata)
 
-    m = {'foo2': 'bar2', 'foo3': 'bar3'}
+    m = {'foo2': 'bar4', 'foo3': 'bar3'}
     metadata.update(m)
     s.set_metadata(**m)
     LOG.info("Metadata: %s", s.metadata)
