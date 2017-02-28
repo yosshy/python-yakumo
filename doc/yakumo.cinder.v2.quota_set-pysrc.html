@@ -887,10 +887,12 @@ yakumo.nova.v2.server.Manager._json_resource_key
 yakumo.nova.v2.server_group.Manager._json_resource_key
 yakumo.nova.v2.service.Manager._json_resource_key
 yakumo.nova.v2.volume_attachment.Manager._json_resource_key" class="py-name" href="#" onclick="return doclink('link-39', '_json_resource_key', 'link-27');">_json_resource_key</a></tt><tt class="py-op">)</tt> </tt>
-<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-name">attrs</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method yakumo.base.Manager._json2attr()=yakumo.base.Manager-class.html#_json2attr,Method yakumo.cinder.v2.qos.Manager._json2attr()=yakumo.cinder.v2.qos.Manager-class.html#_json2attr,Method yakumo.cinder.v2.volume.Manager._json2attr()=yakumo.cinder.v2.volume.Manager-class.html#_json2attr,Method yakumo.neutron.v2.port.Manager._json2attr()=yakumo.neutron.v2.port.Manager-class.html#_json2attr,Method yakumo.nova.v2.server.Manager._json2attr()=yakumo.nova.v2.server.Manager-class.html#_json2attr"><a title="yakumo.base.Manager._json2attr
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-name">attrs</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method yakumo.base.Manager._json2attr()=yakumo.base.Manager-class.html#_json2attr,Method yakumo.cinder.v1.volume.Manager._json2attr()=yakumo.cinder.v1.volume.Manager-class.html#_json2attr,Method yakumo.cinder.v2.qos.Manager._json2attr()=yakumo.cinder.v2.qos.Manager-class.html#_json2attr,Method yakumo.cinder.v2.volume.Manager._json2attr()=yakumo.cinder.v2.volume.Manager-class.html#_json2attr,Method yakumo.neutron.v2.port.Manager._json2attr()=yakumo.neutron.v2.port.Manager-class.html#_json2attr,Method yakumo.nova.v2.aggregate.Manager._json2attr()=yakumo.nova.v2.aggregate.Manager-class.html#_json2attr,Method yakumo.nova.v2.server.Manager._json2attr()=yakumo.nova.v2.server.Manager-class.html#_json2attr"><a title="yakumo.base.Manager._json2attr
+yakumo.cinder.v1.volume.Manager._json2attr
 yakumo.cinder.v2.qos.Manager._json2attr
 yakumo.cinder.v2.volume.Manager._json2attr
 yakumo.neutron.v2.port.Manager._json2attr
+yakumo.nova.v2.aggregate.Manager._json2attr
 yakumo.nova.v2.server.Manager._json2attr" class="py-name" href="#" onclick="return doclink('link-40', '_json2attr', 'link-40');">_json2attr</a></tt><tt class="py-op">(</tt><tt class="py-name">json_params</tt><tt class="py-op">)</tt> </tt>
 <a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-41" class="py-name"><a title="yakumo.base.Manager.resource_class" class="py-name" href="#" onclick="return doclink('link-41', 'resource_class', 'link-21');">resource_class</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">attrs</tt><tt class="py-op">)</tt> </tt>
 <a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
@@ -935,7 +937,8 @@ yakumo.keystone.v3.user" class="py-name" href="#" onclick="return doclink('link-
 <a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                      <tt class="py-name">gigabytes</tt><tt class="py-op">=</tt><tt class="py-name">gigabytes</tt><tt class="py-op">,</tt> </tt>
 <a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                      <tt class="py-name">backups</tt><tt class="py-op">=</tt><tt class="py-name">backups</tt><tt class="py-op">,</tt> </tt>
 <a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                      <tt class="py-name">backup_gigabytes</tt><tt class="py-op">=</tt><tt class="py-name">backup_gigabytes</tt><tt class="py-op">)</tt> </tt>
-<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-name">json_params</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name" targets="Method yakumo.base.Manager._attr2json()=yakumo.base.Manager-class.html#_attr2json,Method yakumo.cinder.v2.volume.Manager._attr2json()=yakumo.cinder.v2.volume.Manager-class.html#_attr2json,Method yakumo.neutron.v2.port.Manager._attr2json()=yakumo.neutron.v2.port.Manager-class.html#_attr2json"><a title="yakumo.base.Manager._attr2json
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-name">json_params</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-48" class="py-name" targets="Method yakumo.base.Manager._attr2json()=yakumo.base.Manager-class.html#_attr2json,Method yakumo.cinder.v1.volume.Manager._attr2json()=yakumo.cinder.v1.volume.Manager-class.html#_attr2json,Method yakumo.cinder.v2.volume.Manager._attr2json()=yakumo.cinder.v2.volume.Manager-class.html#_attr2json,Method yakumo.neutron.v2.port.Manager._attr2json()=yakumo.neutron.v2.port.Manager-class.html#_attr2json"><a title="yakumo.base.Manager._attr2json
+yakumo.cinder.v1.volume.Manager._attr2json
 yakumo.cinder.v2.volume.Manager._attr2json
 yakumo.neutron.v2.port.Manager._attr2json" class="py-name" href="#" onclick="return doclink('link-48', '_attr2json', 'link-48');">_attr2json</a></tt><tt class="py-op">(</tt><tt id="link-49" class="py-name"><a title="yakumo.smoketest.kwargs" class="py-name" href="#" onclick="return doclink('link-49', 'kwargs', 'link-47');">kwargs</a></tt><tt class="py-op">)</tt> </tt>
 <a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_http</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Method yakumo.session.Session.put()=yakumo.session.Session-class.html#put,Method yakumo.session.SessionProxy.put()=yakumo.session.SessionProxy-class.html#put"><a title="yakumo.session.Session.put
@@ -1400,9 +1403,11 @@ yakumo.nova.v2.server_group.Manager._json_resource_key
 yakumo.nova.v2.service.Manager._json_resource_key
 yakumo.nova.v2.volume_attachment.Manager._json_resource_key" class="py-name" href="#" onclick="return doclink('link-73', '_json_resource_key', 'link-27');">_json_resource_key</a></tt><tt class="py-op">)</tt> </tt>
 <a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">            <tt class="py-name">attrs</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-74" class="py-name"><a title="yakumo.base.Manager._json2attr
+yakumo.cinder.v1.volume.Manager._json2attr
 yakumo.cinder.v2.qos.Manager._json2attr
 yakumo.cinder.v2.volume.Manager._json2attr
 yakumo.neutron.v2.port.Manager._json2attr
+yakumo.nova.v2.aggregate.Manager._json2attr
 yakumo.nova.v2.server.Manager._json2attr" class="py-name" href="#" onclick="return doclink('link-74', '_json2attr', 'link-40');">_json2attr</a></tt><tt class="py-op">(</tt><tt class="py-name">json_params</tt><tt class="py-op">)</tt> </tt>
 <a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">            <tt class="py-keyword">return</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-75" class="py-name"><a title="yakumo.base.Manager.resource_class" class="py-name" href="#" onclick="return doclink('link-75', 'resource_class', 'link-21');">resource_class</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-name">attrs</tt><tt class="py-op">)</tt> </tt>
 <a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">        <tt class="py-keyword">except</tt><tt class="py-op">:</tt> </tt>
@@ -1440,7 +1445,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sun Feb 26 19:39:32 2017
+    Generated by Epydoc 3.0.1 on Tue Feb 28 22:38:51 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
