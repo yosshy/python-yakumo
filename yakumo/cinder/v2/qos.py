@@ -33,6 +33,15 @@ class Resource(base.Resource):
 
     _stable_state = ['available', 'error', 'error_deleting']
 
+    def get_metadata(self):
+        """
+        Aquire specs of a QoS Specs
+
+        @return: specs in key=value format
+        @rtype: dict
+        """
+        return self.get_attrs()
+
     def set_metadata(self, **kwargs):
         """
         Add or update specs into a QoS specification
@@ -44,7 +53,6 @@ class Resource(base.Resource):
         @rtype: None
         """
         self.update(**kwargs)
-        self.reload()
 
     def unset_metadata(self, *keys):
         """
@@ -58,7 +66,7 @@ class Resource(base.Resource):
                        data={"keys": keys})
         self.reload()
 
-    def get_association(self):
+    def get_associations(self):
         """
         Get associated volume types for a QoS specs
 
@@ -72,27 +80,31 @@ class Resource(base.Resource):
                 self._client.cinder.volume_type.get_empty(vt['id']))
         return volume_types
 
-    def associate(self, volume_type=None):
+    def associate(self, *volume_types):
         """
         Associate QoS specs with a volume type
 
-        @keyword volume_type: Volume type to be associated
-        @type volume_type: yakumo.cinder.v2.volume_type.Resource
+        @param volume_type: Volume type to be associated
+        @type volume_type: [yakumo.cinder.v2.volume_type.Resource]
         @rtype: None
         """
-        self._http.get(self._url_resource_path, self._id, 'associate',
-                       params={'vol_type_id': volume_type.get_id()})
+        for volume_type in volume_types:
+            self._http.get(self._url_resource_path, self._id, 'associate',
+                           params={'vol_type_id': volume_type.get_id()})
+        self.reload()
 
-    def disassociate(self, volume_type=None):
+    def disassociate(self, *volume_types):
         """
         Dissociate QoS specs from a volume type
 
-        @keyword volume_type: Volume type to be dissociated
+        @param volume_type: Volume type to be dissociated
         @type volume_type: yakumo.cinder.v2.volume_type.Resource
         @rtype: None
         """
-        self._http.get(self._url_resource_path, self._id, 'disassociate',
-                       params={'vol_type_id': volume_type.get_id()})
+        for volume_type in volume_types:
+            self._http.get(self._url_resource_path, self._id, 'disassociate',
+                           params={'vol_type_id': volume_type.get_id()})
+        self.reload()
 
     def disassociate_all(self):
         """
@@ -101,6 +113,7 @@ class Resource(base.Resource):
         @rtype: None
         """
         self._http.get(self._url_resource_path, self._id, 'disassociate_all')
+        self.reload()
 
 
 class Manager(base.Manager):
