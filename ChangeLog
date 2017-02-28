@@ -1,6 +1,21 @@
 CHANGES
 =======
 
+* doc: updated
+* smoketest: applied the same test pattern
+* cinder.v1.snapshot: added metadata APIs
+* cinder.v1.volume: added metadata APIs and more
+* cinder.v2.snapshot: added metadata APIs
+* cinder.v2.volume: added metadata APIs
+* cinder.v2.qos: modified metadata and association APIs
+* nova.v2.aggregate: modified metadata and host APIs
+* nova.v2.image: modified metadata APIs
+* nova.v2.server: modified metadata APIs
+
+0.4.1
+-----
+
+* ChangeLog: updated
 * README: updated
 
 0.4

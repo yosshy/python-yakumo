@@ -732,10 +732,10 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="yakumo.nova.v2.server.Resource-class.html#metadata_get" class="summary-sig-name">metadata_get</a>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a href="yakumo.nova.v2.server.Resource-class.html#get_metadata" class="summary-sig-name">get_metadata</a>(<span class="summary-sig-arg">self</span>)</span><br />
       Get instance metadata</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.nova.v2.server-pysrc.html#Resource.metadata_get">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.nova.v2.server-pysrc.html#Resource.get_metadata">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -749,29 +749,11 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="yakumo.nova.v2.server.Resource-class.html#metadata_replace" class="summary-sig-name">metadata_replace</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">metadata</span>=<span class="summary-sig-default">None</span>)</span><br />
-      Replace instance metadata</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.nova.v2.server-pysrc.html#Resource.metadata_replace">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">None</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a href="yakumo.nova.v2.server.Resource-class.html#metadata_update" class="summary-sig-name">metadata_update</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">metadata</span>=<span class="summary-sig-default">None</span>)</span><br />
+          <td><span class="summary-sig"><a href="yakumo.nova.v2.server.Resource-class.html#set_metadata" class="summary-sig-name">set_metadata</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**metadata</span>)</span><br />
       Update instance metadata</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.nova.v2.server-pysrc.html#Resource.metadata_update">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.nova.v2.server-pysrc.html#Resource.set_metadata">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -785,11 +767,11 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="yakumo.nova.v2.server.Resource-class.html#metadata_delete" class="summary-sig-name">metadata_delete</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">key</span>)</span><br />
+          <td><span class="summary-sig"><a href="yakumo.nova.v2.server.Resource-class.html#unset_metadata" class="summary-sig-name">unset_metadata</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*keys</span>)</span><br />
       Delete instance metadata</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.nova.v2.server-pysrc.html#Resource.metadata_delete">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.nova.v2.server-pysrc.html#Resource.unset_metadata">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -1313,17 +1295,17 @@
   </dl>
 </td></tr></table>
 </div>
-<a name="metadata_get"></a>
+<a name="get_metadata"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">metadata_get</span>(<span class="sig-arg">self</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_metadata</span>(<span class="sig-arg">self</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="yakumo.nova.v2.server-pysrc.html#Resource.metadata_get">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="yakumo.nova.v2.server-pysrc.html#Resource.get_metadata">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
@@ -1334,43 +1316,18 @@
   </dl>
 </td></tr></table>
 </div>
-<a name="metadata_replace"></a>
+<a name="set_metadata"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">metadata_replace</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">metadata</span>=<span class="sig-default">None</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_metadata</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">**metadata</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="yakumo.nova.v2.server-pysrc.html#Resource.metadata_replace">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <p>Replace instance metadata</p>
-  <dl class="fields">
-    <dt>Parameters:</dt>
-    <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>metadata</code></strong> (dict) - metadata with key=value</li>
-    </ul></dd>
-    <dt>Returns: None</dt>
-  </dl>
-</td></tr></table>
-</div>
-<a name="metadata_update"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">metadata_update</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">metadata</span>=<span class="sig-default">None</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="yakumo.nova.v2.server-pysrc.html#Resource.metadata_update">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="yakumo.nova.v2.server-pysrc.html#Resource.set_metadata">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
@@ -1378,24 +1335,24 @@
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>metadata</code></strong> (dict) - metadata with key=value</li>
+        <li><strong class="pname"><code>metadata</code></strong> (dict) - key=value style.</li>
     </ul></dd>
     <dt>Returns: None</dt>
   </dl>
 </td></tr></table>
 </div>
-<a name="metadata_delete"></a>
+<a name="unset_metadata"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">metadata_delete</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">key</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">unset_metadata</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*keys</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="yakumo.nova.v2.server-pysrc.html#Resource.metadata_delete">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="yakumo.nova.v2.server-pysrc.html#Resource.unset_metadata">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
@@ -1403,7 +1360,8 @@
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>key</code></strong> (str) - key of the metadata</li>
+        <li><strong class="pname"><code>key</code></strong> - key of the metadata</li>
+        <li><strong class="pname"><code>keys</code></strong> ([str])</li>
     </ul></dd>
     <dt>Returns: None</dt>
   </dl>
@@ -1474,7 +1432,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sun Feb 26 19:39:30 2017
+    Generated by Epydoc 3.0.1 on Tue Feb 28 22:38:50 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
