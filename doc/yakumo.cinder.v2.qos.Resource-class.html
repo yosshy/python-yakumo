@@ -89,6 +89,23 @@
 </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">dict</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yakumo.cinder.v2.qos.Resource-class.html#get_metadata" class="summary-sig-name">get_metadata</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Aquire specs of a QoS Specs</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yakumo.cinder.v2.qos-pysrc.html#Resource.get_metadata">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">None</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -129,10 +146,10 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="yakumo.cinder.v2.qos.Resource-class.html#get_association" class="summary-sig-name">get_association</a>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a href="yakumo.cinder.v2.qos.Resource-class.html#get_associations" class="summary-sig-name">get_associations</a>(<span class="summary-sig-arg">self</span>)</span><br />
       Get associated volume types for a QoS specs</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.cinder.v2.qos-pysrc.html#Resource.get_association">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.cinder.v2.qos-pysrc.html#Resource.get_associations">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -147,7 +164,7 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="yakumo.cinder.v2.qos.Resource-class.html#associate" class="summary-sig-name">associate</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">volume_type</span>=<span class="summary-sig-default">None</span>)</span><br />
+        <span class="summary-sig-arg">*volume_types</span>)</span><br />
       Associate QoS specs with a volume type</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="yakumo.cinder.v2.qos-pysrc.html#Resource.associate">source&nbsp;code</a></span>
@@ -165,7 +182,7 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="yakumo.cinder.v2.qos.Resource-class.html#disassociate" class="summary-sig-name">disassociate</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">volume_type</span>=<span class="summary-sig-default">None</span>)</span><br />
+        <span class="summary-sig-arg">*volume_types</span>)</span><br />
       Dissociate QoS specs from a volume type</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="yakumo.cinder.v2.qos-pysrc.html#Resource.disassociate">source&nbsp;code</a></span>
@@ -307,6 +324,27 @@
   </td>
 </tr>
 </table>
+<a name="get_metadata"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_metadata</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yakumo.cinder.v2.qos-pysrc.html#Resource.get_metadata">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Aquire specs of a QoS Specs</p>
+  <dl class="fields">
+    <dt>Returns: dict</dt>
+        <dd>specs in key=value format</dd>
+  </dl>
+</td></tr></table>
+</div>
 <a name="set_metadata"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -358,17 +396,17 @@
   </dl>
 </td></tr></table>
 </div>
-<a name="get_association"></a>
+<a name="get_associations"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_association</span>(<span class="sig-arg">self</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_associations</span>(<span class="sig-arg">self</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="yakumo.cinder.v2.qos-pysrc.html#Resource.get_association">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="yakumo.cinder.v2.qos-pysrc.html#Resource.get_associations">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
@@ -387,7 +425,7 @@
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">associate</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">volume_type</span>=<span class="sig-default">None</span>)</span>
+        <span class="sig-arg">*volume_types</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="yakumo.cinder.v2.qos-pysrc.html#Resource.associate">source&nbsp;code</a></span>&nbsp;
@@ -398,7 +436,7 @@
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>volume_type</code></strong> (yakumo.cinder.v2.volume_type.Resource) - Volume type to be associated</li>
+        <li><strong class="pname"><code>volume_type</code></strong> ([yakumo.cinder.v2.volume_type.Resource]) - Volume type to be associated</li>
     </ul></dd>
     <dt>Returns: None</dt>
   </dl>
@@ -412,7 +450,7 @@
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">disassociate</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">volume_type</span>=<span class="sig-default">None</span>)</span>
+        <span class="sig-arg">*volume_types</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="yakumo.cinder.v2.qos-pysrc.html#Resource.disassociate">source&nbsp;code</a></span>&nbsp;
@@ -456,7 +494,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sun Feb 26 19:39:29 2017
+    Generated by Epydoc 3.0.1 on Tue Feb 28 22:38:49 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

@@ -90,6 +90,40 @@ class Resource(base.Resource):
             description=description,
             metadata=metadata)
 
+    def get_metadata(self):
+        """
+        Get metadata of a volume
+
+        @return: Metadata
+        @rtype: dict
+        """
+        ret = self._http.get(self._url_resource_path, self._id, 'metadata')
+        return ret.get('metadata')
+
+    def set_metadata(self, **metadata):
+        """
+        Update metadata of a volume
+
+        @keyword metadata: key=value style.
+        @type metadata: dict
+        @rtype: None
+        """
+        self._http.post(self._url_resource_path, self._id, 'metadata',
+                        data={'metadata': metadata})
+        self.reload()
+
+    def unset_metadata(self, *keys):
+        """
+        Delete metadata of a volume
+
+        @param key: key of the metadata
+        @type keys: [str]
+        @rtype: None
+        """
+        for key in keys:
+            self._http.delete(self._url_resource_path, self._id, 'metadata', key)
+        self.reload()
+
     def extend(self, size=None):
         """
         Extend a volume

@@ -27,7 +27,7 @@ ATTRIBUTE_MAPPING = [
     ('description', 'display_description', mapper.Noop),
     ('size', 'size', mapper.Noop),
     ('status', 'status', mapper.Noop),
-    ('volume', 'volume_id', mapper.Resource('cinder.volume')),
+    ('source', 'volume_id', mapper.Resource('cinder.volume')),
     ('progress', 'os-extended-snapshot-attributes:progress', mapper.Noop),
     ('project', 'os-extended-snapshot-attributes:project_id',
      mapper.Resource('project')),
@@ -42,6 +42,40 @@ class Resource(base.Resource):
 
     _stable_state = ['available', 'error', 'error_deleting']
 
+    def get_metadata(self):
+        """
+        Get metadata of a volume snapshot
+
+        @return: Metadata
+        @rtype: dict
+        """
+        ret = self._http.get(self._url_resource_path, self._id, 'metadata')
+        return ret.get('metadata')
+
+    def set_metadata(self, **metadata):
+        """
+        Update metadata of a volume snapshot
+
+        @keyword metadata: key=value style.
+        @type metadata: dict
+        @rtype: None
+        """
+        self._http.post(self._url_resource_path, self._id, 'metadata',
+                        data={'metadata': metadata})
+        self.reload()
+
+    def unset_metadata(self, *keys):
+        """
+        Delete metadata of a volume snapshot
+
+        @param key: key of the metadata
+        @type keys: [str]
+        @rtype: None
+        """
+        for key in keys:
+            self._http.delete(self._url_resource_path, self._id, 'metadata', key)
+        self.reload()
+
 
 class Manager(base.Manager):
     """manager class for roles on Block Storage V1 API"""
@@ -55,8 +89,8 @@ class Manager(base.Manager):
     _url_resource_list_path = '/snapshots/detail'
     _url_resource_path = '/snapshots'
 
-    def create(self, name=None, description=None, volume=None,
-               force=False):
+    def create(self, name=None, description=None, source=None,
+               metadata=None, force=False):
         """
         Create a snapshot of a volume
 
@@ -64,12 +98,15 @@ class Manager(base.Manager):
         @type name: str
         @keyword description: Description
         @type description: str
-        @keyword volume: Volume object
-        @type volume: yakumo.cinder.v1.volume.Resource
+        @keyword source: Volume object
+        @type source: yakumo.cinder.v1.volume.Resource
+        @keyword metadata: Metadata
+        @type metadata: dict
         @return: Created volume object
         @rtype: yakumo.cinder.v1.snapshot.Resource
         """
         return super(Manager, self).create(name=name,
                                            description=description,
-                                           volume=volume,
+                                           source=source,
+                                           metadata=metadata,
                                            force=force)

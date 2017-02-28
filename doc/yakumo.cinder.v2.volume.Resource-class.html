@@ -109,6 +109,59 @@
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">dict</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yakumo.cinder.v2.volume.Resource-class.html#get_metadata" class="summary-sig-name">get_metadata</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Get metadata of a volume</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yakumo.cinder.v2.volume-pysrc.html#Resource.get_metadata">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">None</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yakumo.cinder.v2.volume.Resource-class.html#set_metadata" class="summary-sig-name">set_metadata</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">**metadata</span>)</span><br />
+      Update metadata of a volume</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yakumo.cinder.v2.volume-pysrc.html#Resource.set_metadata">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">None</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yakumo.cinder.v2.volume.Resource-class.html#unset_metadata" class="summary-sig-name">unset_metadata</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*keys</span>)</span><br />
+      Delete metadata of a volume</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yakumo.cinder.v2.volume-pysrc.html#Resource.unset_metadata">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">None</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
@@ -382,6 +435,78 @@
   </dl>
 </td></tr></table>
 </div>
+<a name="get_metadata"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_metadata</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yakumo.cinder.v2.volume-pysrc.html#Resource.get_metadata">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Get metadata of a volume</p>
+  <dl class="fields">
+    <dt>Returns: dict</dt>
+        <dd>Metadata</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="set_metadata"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_metadata</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">**metadata</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yakumo.cinder.v2.volume-pysrc.html#Resource.set_metadata">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Update metadata of a volume</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>metadata</code></strong> (dict) - key=value style.</li>
+    </ul></dd>
+    <dt>Returns: None</dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="unset_metadata"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">unset_metadata</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*keys</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yakumo.cinder.v2.volume-pysrc.html#Resource.unset_metadata">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Delete metadata of a volume</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>key</code></strong> - key of the metadata</li>
+        <li><strong class="pname"><code>keys</code></strong> ([str])</li>
+    </ul></dd>
+    <dt>Returns: None</dt>
+  </dl>
+</td></tr></table>
+</div>
 <a name="extend"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -605,7 +730,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sun Feb 26 19:39:29 2017
+    Generated by Epydoc 3.0.1 on Tue Feb 28 22:38:49 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

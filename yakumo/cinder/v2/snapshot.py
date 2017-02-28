@@ -43,6 +43,40 @@ class Resource(base.Resource):
 
     _stable_state = ['available', 'error', 'error_deleting']
 
+    def get_metadata(self):
+        """
+        Get metadata of a volume snapshot
+
+        @return: Metadata
+        @rtype: dict
+        """
+        ret = self._http.get(self._url_resource_path, self._id, 'metadata')
+        return ret.get('metadata')
+
+    def set_metadata(self, **metadata):
+        """
+        Update metadata of a volume snapshot
+
+        @keyword metadata: key=value style.
+        @type metadata: dict
+        @rtype: None
+        """
+        self._http.post(self._url_resource_path, self._id, 'metadata',
+                        data={'metadata': metadata})
+        self.reload()
+
+    def unset_metadata(self, *keys):
+        """
+        Delete metadata of a volume snapshot
+
+        @param key: key of the metadata
+        @type keys: [str]
+        @rtype: None
+        """
+        for key in keys:
+            self._http.delete(self._url_resource_path, self._id, 'metadata', key)
+        self.reload()
+
 
 class Manager(base.Manager):
     """manager class for volume snapshots on Block Storage V2 API"""
@@ -56,8 +90,8 @@ class Manager(base.Manager):
     _url_resource_list_path = '/snapshots/detail'
     _url_resource_path = '/snapshots'
 
-    def create(self, name=None, description=None, source=None,
-               force=False):
+    def create(self, name=None, description=None, metadata=None,
+               source=None, force=False):
         """
         Create a snapshot of a volume
 
@@ -65,6 +99,8 @@ class Manager(base.Manager):
         @type name: str
         @keyword description: Description
         @type description: str
+        @keyword metadata: Metadata
+        @type metadata: dict
         @keyword source: Source volume
         @type source: yakumo.cinder.v2.volume.Resource
         @return: Created volume object
@@ -72,5 +108,6 @@ class Manager(base.Manager):
         """
         return super(Manager, self).create(name=name,
                                            description=description,
+                                           metadata=metadata,
                                            source=source,
                                            force=force)

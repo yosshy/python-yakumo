@@ -113,6 +113,23 @@
     </table>
   </td>
 </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yakumo.nova.v2.aggregate.Manager-class.html#_json2attr" class="summary-sig-name" onclick="show_private();">_json2attr</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">json_params</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Manager._json2attr">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">yakumo.nova.v2.aggregate.Resource</span>
@@ -121,7 +138,8 @@
         <tr>
           <td><span class="summary-sig"><a href="yakumo.nova.v2.aggregate.Manager-class.html#create" class="summary-sig-name">create</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">name</span>=<span class="summary-sig-default">None</span>,
-        <span class="summary-sig-arg">availability_zone</span>=<span class="summary-sig-default">None</span>)</span><br />
+        <span class="summary-sig-arg">availability_zone</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">metadata</span>=<span class="summary-sig-default">None</span>)</span><br />
       Create a host aggregate</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Manager.create">source&nbsp;code</a></span>
@@ -145,7 +163,6 @@
     <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="yakumo.base.Manager-class.html">base.Manager</a></code></b> (private):
       <code><a href="yakumo.base.Manager-class.html#_attr2json" onclick="show_private();">_attr2json</a></code>,
       <code><a href="yakumo.base.Manager-class.html#_find_gen" onclick="show_private();">_find_gen</a></code>,
-      <code><a href="yakumo.base.Manager-class.html#_json2attr" onclick="show_private();">_json2attr</a></code>,
       <code><a href="yakumo.base.Manager-class.html#_no_such_api" onclick="show_private();">_no_such_api</a></code>
       </p></div>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
@@ -193,12 +210,12 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a href="yakumo.nova.v2.aggregate.Manager-class.html#_attr_mapping" class="summary-name" onclick="show_private();">_attr_mapping</a> = <code title="[('id', 'id', mapper.StrInt), ('name', 'name', mapper.Noop), ('hosts',\
- 'hosts', mapper.Noop), ('availability_zone', 'availability_zone', map\
-per.Resource('nova.availability_zone')), ('metadata', 'metadata', mapp\
-er.Noop), ('created_at', 'created_at', mapper.DateTime), ('updated_at'\
-, 'updated_at', mapper.DateTime), ('deleted_at', 'deleted_at', mapper.\
-DateTime), ('is_deleted', 'deleted', mapper.Noop),]"><code class="variable-group">[</code><code class="variable-group">(</code><code class="variable-quote">'</code><code class="variable-string">id</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">id</code><code class="variable-quote">'</code><code class="variable-op">, </code>&lt;yakumo.mapper.StrIntClass objec<code class="variable-ellipsis">...</code></code>
+        <a href="yakumo.nova.v2.aggregate.Manager-class.html#_attr_mapping" class="summary-name" onclick="show_private();">_attr_mapping</a> = <code title="[('id', 'id', mapper.Noop), ('name', 'name', mapper.Noop), ('hosts', '\
+hosts', mapper.Noop), ('availability_zone', 'availability_zone', mappe\
+r.Noop), ('metadata', 'metadata', mapper.Noop), ('created_at', 'create\
+d_at', mapper.DateTime), ('updated_at', 'updated_at', mapper.DateTime)\
+, ('deleted_at', 'deleted_at', mapper.DateTime), ('is_deleted', 'delet\
+ed', mapper.Noop),]"><code class="variable-group">[</code><code class="variable-group">(</code><code class="variable-quote">'</code><code class="variable-string">id</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">id</code><code class="variable-quote">'</code><code class="variable-op">, </code>&lt;yakumo.mapper.NoopClass object <code class="variable-ellipsis">...</code></code>
     </td>
   </tr>
 <tr class="private">
@@ -278,6 +295,29 @@ DateTime), ('is_deleted', 'deleted', mapper.Noop),]"><code class="variable-group
   </td>
 </tr>
 </table>
+<a name="_json2attr"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_json2attr</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">json_params</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Manager._json2attr">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  
+  <dl class="fields">
+    <dt>Overrides:
+        <a href="yakumo.base.Manager-class.html#_json2attr" onclick="show_private();">base.Manager._json2attr</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
 <a name="create"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -287,7 +327,8 @@ DateTime), ('is_deleted', 'deleted', mapper.Noop),]"><code class="variable-group
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">create</span>(<span class="sig-arg">self</span>,
         <span class="sig-arg">name</span>=<span class="sig-default">None</span>,
-        <span class="sig-arg">availability_zone</span>=<span class="sig-default">None</span>)</span>
+        <span class="sig-arg">availability_zone</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">metadata</span>=<span class="sig-default">None</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Manager.create">source&nbsp;code</a></span>&nbsp;
@@ -300,6 +341,7 @@ DateTime), ('is_deleted', 'deleted', mapper.Noop),]"><code class="variable-group
     <dd><ul class="nomargin-top">
         <li><strong class="pname"><code>name</code></strong> (str) - name of the host aggregate</li>
         <li><strong class="pname"><code>availability_zone</code></strong> (str) - name of availability zone</li>
+        <li><strong class="pname"><code>metadata</code></strong> (dict) - Metadata</li>
     </ul></dd>
     <dt>Returns: yakumo.nova.v2.aggregate.Resource</dt>
         <dd>Created host aggregate</dd>
@@ -340,12 +382,12 @@ DateTime), ('is_deleted', 'deleted', mapper.Noop),]"><code class="variable-group
   <dl class="fields">
     <dt>Value:</dt>
       <dd><table><tr><td><pre class="variable">
-[('id', 'id', mapper.StrInt), ('name', 'name', mapper.Noop), ('hosts',<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
- 'hosts', mapper.Noop), ('availability_zone', 'availability_zone', map<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-per.Resource('nova.availability_zone')), ('metadata', 'metadata', mapp<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-er.Noop), ('created_at', 'created_at', mapper.DateTime), ('updated_at'<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-, 'updated_at', mapper.DateTime), ('deleted_at', 'deleted_at', mapper.<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
-DateTime), ('is_deleted', 'deleted', mapper.Noop),]
+[('id', 'id', mapper.Noop), ('name', 'name', mapper.Noop), ('hosts', '<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+hosts', mapper.Noop), ('availability_zone', 'availability_zone', mappe<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+r.Noop), ('metadata', 'metadata', mapper.Noop), ('created_at', 'create<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+d_at', mapper.DateTime), ('updated_at', 'updated_at', mapper.DateTime)<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+, ('deleted_at', 'deleted_at', mapper.DateTime), ('is_deleted', 'delet<span class="variable-linewrap"><img src="crarr.png" alt="\" /></span>
+ed', mapper.Noop),]
 </pre></td></tr></table>
 </dd>
   </dl>
@@ -378,7 +420,7 @@ DateTime), ('is_deleted', 'deleted', mapper.Noop),]
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sun Feb 26 19:39:30 2017
+    Generated by Epydoc 3.0.1 on Tue Feb 28 22:38:50 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

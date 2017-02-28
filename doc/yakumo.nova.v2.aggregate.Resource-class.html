@@ -112,11 +112,11 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="yakumo.nova.v2.aggregate.Resource-class.html#add_host" class="summary-sig-name">add_host</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">host</span>=<span class="summary-sig-default">None</span>)</span><br />
-      Create a host aggregate</td>
+          <td><span class="summary-sig"><a href="yakumo.nova.v2.aggregate.Resource-class.html#add_hosts" class="summary-sig-name">add_hosts</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*hosts</span>)</span><br />
+      Register hosts to a host aggregate</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Resource.add_host">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Resource.add_hosts">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -130,11 +130,28 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="yakumo.nova.v2.aggregate.Resource-class.html#remove_host" class="summary-sig-name">remove_host</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">host</span>=<span class="summary-sig-default">None</span>)</span><br />
-      Remove a host aggregate</td>
+          <td><span class="summary-sig"><a href="yakumo.nova.v2.aggregate.Resource-class.html#remove_hosts" class="summary-sig-name">remove_hosts</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*hosts</span>)</span><br />
+      Unregister hosts from a host aggregate</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Resource.remove_host">source&nbsp;code</a></span>
+            <span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Resource.remove_hosts">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">dict</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yakumo.nova.v2.aggregate.Resource-class.html#get_metadata" class="summary-sig-name">get_metadata</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Aquire metadata of a host aggregate</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Resource.get_metadata">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -149,10 +166,28 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="yakumo.nova.v2.aggregate.Resource-class.html#set_metadata" class="summary-sig-name">set_metadata</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">metadata</span>=<span class="summary-sig-default">None</span>)</span><br />
-      Remove a host aggregate</td>
+        <span class="summary-sig-arg">**metadata</span>)</span><br />
+      Set metadata for a host aggregate</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Resource.set_metadata">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">None</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yakumo.nova.v2.aggregate.Resource-class.html#unset_metadata" class="summary-sig-name">unset_metadata</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">*keys</span>)</span><br />
+      Remove metadata of a host aggregate</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Resource.unset_metadata">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -297,53 +332,74 @@
   </dl>
 </td></tr></table>
 </div>
-<a name="add_host"></a>
+<a name="add_hosts"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">add_host</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">host</span>=<span class="sig-default">None</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">add_hosts</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*hosts</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Resource.add_host">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Resource.add_hosts">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>Create a host aggregate</p>
+  <p>Register hosts to a host aggregate</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>host</code></strong> (host name) - host name</li>
+        <li><strong class="pname"><code>hosts</code></strong> ([str])</li>
     </ul></dd>
     <dt>Returns: None</dt>
   </dl>
 </td></tr></table>
 </div>
-<a name="remove_host"></a>
+<a name="remove_hosts"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">remove_host</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">host</span>=<span class="sig-default">None</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">remove_hosts</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*hosts</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Resource.remove_host">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Resource.remove_hosts">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>Remove a host aggregate</p>
+  <p>Unregister hosts from a host aggregate</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>host</code></strong> (host name) - host name</li>
+        <li><strong class="pname"><code>hosts</code></strong> ([str]) - List of host names</li>
     </ul></dd>
     <dt>Returns: None</dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_metadata"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_metadata</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Resource.get_metadata">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Aquire metadata of a host aggregate</p>
+  <dl class="fields">
+    <dt>Returns: dict</dt>
+        <dd>Metadata</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -355,18 +411,43 @@
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">set_metadata</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">metadata</span>=<span class="sig-default">None</span>)</span>
+        <span class="sig-arg">**metadata</span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Resource.set_metadata">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>Remove a host aggregate</p>
+  <p>Set metadata for a host aggregate</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>metadata</code></strong> (dict) - key=value parameters</li>
+        <li><strong class="pname"><code>metadata</code></strong> (dict) - Metadata as key=value</li>
+    </ul></dd>
+    <dt>Returns: None</dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="unset_metadata"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">unset_metadata</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">*keys</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yakumo.nova.v2.aggregate-pysrc.html#Resource.unset_metadata">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Remove metadata of a host aggregate</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>keys</code></strong> ([str]) - metadata keys to remove</li>
     </ul></dd>
     <dt>Returns: None</dt>
   </dl>
@@ -399,7 +480,7 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sun Feb 26 19:39:30 2017
+    Generated by Epydoc 3.0.1 on Tue Feb 28 22:38:50 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
