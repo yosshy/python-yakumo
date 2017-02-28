@@ -61,8 +61,10 @@ with cleaner(c.volume.create(name=name,
 
     LOG.info("Create Snapshot #1 from Volume #1")
     name = get_random_str('snapshot')
+    metadata = {'foo': 'bar', 'foo2': 'bar2'}
     with cleaner(c.volume_snapshot.create(name=name,
                                           description="snapshot 1",
+                                          metadata=metadata,
                                           force=True,
                                           source=v1)) as s:
 
@@ -74,6 +76,24 @@ with cleaner(c.volume.create(name=name,
         test("Snapshot #1 name is " + name, s.name == name)
         test("Snapshot #1 is available", s.status == 'available')
         test("Snapshot #1 source is Volume #1", s.source == v1)
+
+        LOG.debug("Initial metadata: %s", s.metadata)
+        test("Metadata has %s" % metadata, s.metadata == metadata)
+
+        m = {'foo2': 'bar4', 'foo3': 'bar3'}
+        LOG.debug("Set metadata : %s", m)
+        metadata.update(m)
+        s.set_metadata(**m)
+        LOG.debug("Updated metadata: %s", s.metadata)
+        test("Metadata has %s" % metadata, s.metadata == metadata)
+
+        m = ['foo', 'foo2']
+        LOG.debug("Unset metadata : %s", m)
+        for key in m:
+            metadata.pop(key)
+        s.unset_metadata(*m)
+        LOG.debug("Updated metadata: %s", s.metadata)
+        test("Metadata has %s" % metadata, s.metadata == metadata)
 
         LOG.info("Create Volume #2 from Snapshot #1")
         name = get_random_str('volume')
