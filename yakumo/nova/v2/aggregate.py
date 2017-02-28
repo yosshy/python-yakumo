@@ -23,11 +23,10 @@ from yakumo import utils
 
 
 ATTRIBUTE_MAPPING = [
-    ('id', 'id', mapper.StrInt),
+    ('id', 'id', mapper.Noop),
     ('name', 'name', mapper.Noop),
     ('hosts', 'hosts', mapper.Noop),
-    ('availability_zone', 'availability_zone',
-     mapper.Resource('nova.availability_zone')),
+    ('availability_zone', 'availability_zone', mapper.Noop),
     ('metadata', 'metadata', mapper.Noop),
     ('created_at', 'created_at', mapper.DateTime),
     ('updated_at', 'updated_at', mapper.DateTime),
@@ -52,40 +51,69 @@ class Resource(base.Resource):
         super(Resource, self).update(
             name=name,
             availability_zone=availability_zone)
+        self.reload()
 
-    def add_host(self, host=None):
+    def add_hosts(self, *hosts):
         """
-        Create a host aggregate
+        Register hosts to a host aggregate
 
-        @keyword host: host name
-        @type host: host name
+        @params hosts: List of host names
+        @type hosts: [str]
         @rtype: None
         """
-        return self._http.post(self._url_resource_path, self._id, "action",
-                               data=utils.get_json_body("add_host", host=host))
+        for host in hosts:
+            self._http.post(self._url_resource_path, self._id, "action",
+                            data=utils.get_json_body("add_host", host=host))
+        self.reload()
 
-    def remove_host(self, host=None):
+    def remove_hosts(self, *hosts):
         """
-        Remove a host aggregate
+        Unregister hosts from a host aggregate
 
-        @keyword host: host name
-        @type host: host name
+        @keyword hosts: List of host names
+        @type hosts: [str]
         @rtype: None
         """
-        return self._http.post(self._url_resource_path, self._id, "action",
-                               data=utils.get_json_body("remove_host",
-                                                        host=host))
+        for host in hosts:
+            self._http.post(self._url_resource_path, self._id, "action",
+                            data=utils.get_json_body("remove_host",
+                                                     host=host))
+        self.reload()
 
-    def set_metadata(self, metadata=None):
+    def get_metadata(self):
         """
-        Remove a host aggregate
+        Aquire metadata of a host aggregate
 
-        @keyword metadata: key=value parameters
+        @return: Metadata
+        @rtype: dict
+        """
+        return self.metadata
+
+    def set_metadata(self, **metadata):
+        """
+        Set metadata for a host aggregate
+
+        @keyword metadata: Metadata as key=value
         @type metadata: dict
         @rtype: None
         """
-        return self._http.post(self._url_resource_path, self._id, "action",
-                               data={"set_metadata": {"metadata": kwargs}})
+        self._http.post(self._url_resource_path, self._id, "action",
+                        data={"set_metadata": {"metadata": metadata}})
+        self.reload()
+
+    def unset_metadata(self, *keys):
+        """
+        Remove metadata of a host aggregate
+
+        @param keys: metadata keys to remove
+        @type keys: [str]
+        @rtype: None
+        """
+        metadata = self.metadata
+        for key in keys:
+            if key in metadata:
+                metadata[key] = None
+        self.set_metadata(**metadata)
 
 
 class Manager(base.Manager):
@@ -98,7 +126,12 @@ class Manager(base.Manager):
     _json_resources_key = 'aggregates'
     _url_resource_path = '/os-aggregates'
 
-    def create(self, name=None, availability_zone=None):
+    def _json2attr(self, json_params):
+        if json_params.get('metadata', {}).get('availability_zone'):
+            json_params['metadata'].pop('availability_zone')
+        return super(Manager, self)._json2attr(json_params)
+
+    def create(self, name=None, availability_zone=None, metadata=None):
         """
         Create a host aggregate
 
@@ -106,9 +139,14 @@ class Manager(base.Manager):
         @type name: str
         @keyword availability_zone: name of availability zone
         @type availability_zone: str
+        @keyword metadata: Metadata
+        @type metadata: dict
         @return: Created host aggregate
         @rtype: yakumo.nova.v2.aggregate.Resource
         """
-        return super(Manager, self).create(
+        ret = super(Manager, self).create(
             name=name,
             availability_zone=availability_zone)
+        if metadata:
+            ret.set_metadata(**metadata)
+        return ret
