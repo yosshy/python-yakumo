@@ -25,9 +25,11 @@ LOG.debug("list snapshots: %s", [_.name for _ in c.volume_snapshot.list()])
 LOG.info("Create Volume #1")
 name = get_random_str('volume')
 i = c.image.find_one(name='cirros')
+metadata = {'foo': 'bar', 'foo2': 'bar2'}
 with cleaner(c.volume.create(name=name,
                              description="volume 1",
                              source=i,
+                             metadata=metadata,
                              size=1)) as v1:
 
     test("Volume #1 is created", v1 is not None)
@@ -38,6 +40,24 @@ with cleaner(c.volume.create(name=name,
     test("Volume #1 name is " + name, v1.name == name)
     test("Volume #1 is available", v1.status == 'available')
     test("Volume #1 source is the image", v1.source_image == i)
+
+    LOG.debug("Initial metadata: %s", v1.metadata)
+    test("Metadata has %s" % metadata, v1.metadata == metadata)
+
+    m = {'foo2': 'bar4', 'foo3': 'bar3'}
+    LOG.debug("Set metadata : %s", m)
+    metadata.update(m)
+    v1.set_metadata(**m)
+    LOG.debug("Updated metadata: %s", v1.metadata)
+    test("Metadata has %s" % metadata, v1.metadata == metadata)
+
+    m = ['foo', 'foo2']
+    LOG.debug("Unset metadata : %s", m)
+    for key in m:
+        metadata.pop(key)
+    v1.unset_metadata(*m)
+    LOG.debug("Updated metadata: %s", v1.metadata)
+    test("Metadata has %s" % metadata, v1.metadata == metadata)
 
     LOG.info("Create Snapshot #1 from Volume #1")
     name = get_random_str('snapshot')
