@@ -19,6 +19,7 @@ Resource class and its manager for endpoints in Identity V2 API
 
 from yakumo import base
 from yakumo import mapper
+from yakumo import exception
 
 
 ATTRIBUTE_MAPPING = [
@@ -74,3 +75,12 @@ class Manager(base.Manager):
             region=region,
             is_enabled=is_enabled,
             service=service)
+
+    def get(self, id):
+        try:
+            ret = self.find_one(id=id)
+            if ret is None:
+                raise exception.NotFound
+            return ret
+        except exception.Forbidden:
+            return self.get_empty(id)
