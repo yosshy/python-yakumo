@@ -18,9 +18,14 @@
 
 import hashlib
 import os
+import sys
 import tempfile
 from yakumo.smoketest import *
 
+
+# check Identity API version
+if c._session.config[u'identity_api_version'] != '2.0':
+     sys.exit(1)
 
 LOG.debug("list services: %s", [_.name for _ in c.service.list()])
 LOG.debug("list endpoints: %s", c.endpoint.list())
