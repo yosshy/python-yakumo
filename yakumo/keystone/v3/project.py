@@ -58,6 +58,62 @@ class Resource(base.Resource):
             domain=domain,
             is_enabled=is_enabled)
 
+    def grant_roles(self, users=None, groups=None, roles=None):
+        """
+        Grant roles to users and/or groups for a project
+
+        @keyword users: List of users
+        @type users: [keystone.user.Resource]
+        @keyword groups: List of groups
+        @type groups: [keystone.group.Resource]
+        @keyword roles: List of roles
+        @type roles: [keystone.role.Resource]
+        @rtype: None
+        """
+        if not isinstance(users, list):
+            users = [users]
+        if not isinstance(groups, list):
+            groups = [groups]
+        if not isinstance(roles, list):
+            roles = [roles]
+        for role in roles:
+            for user in users:
+                self._http.put(self._url_resource_path, self._id,
+                               "users", user.get_id(),
+                               "roles", role.get_id())
+            for group in groups:
+                self._http.put(self._url_resource_path, self._id,
+                               "groups", group.get_id(),
+                               "roles", role.get_id())
+
+    def revoke_roles(self, users=None, groups=None, roles=None):
+        """
+        Revoke roles from users and/or groups for a project
+
+        @keyword users: List of users
+        @type users: [keystone.user.Resource]
+        @keyword groups: List of groups
+        @type groups: [keystone.group.Resource]
+        @keyword roles: List of roles
+        @type roles: [keystone.role.Resource]
+        @rtype: None
+        """
+        if not isinstance(users, list):
+            users = [users]
+        if not isinstance(groups, list):
+            groups = [groups]
+        if not isinstance(roles, list):
+            roles = [roles]
+        for role in roles:
+            for user in users:
+                self._http.delete(self._url_resource_path, self._id,
+                                  "users", user.get_id(),
+                                  "roles", role.get_id())
+            for group in groups:
+                self._http.delete(self._url_resource_path, self._id,
+                                  "groups", group.get_id(),
+                                  "roles", role.get_id())
+
 
 class Manager(base.Manager):
     """manager class for projects on Identity V3 API"""
