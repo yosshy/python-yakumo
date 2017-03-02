@@ -49,6 +49,46 @@ class Resource(base.Resource):
             description=description,
             is_enabled=is_enabled)
 
+    def grant_roles(self, users=None, roles=None):
+        """
+        Grant roles to users for a project
+
+        @keyword users: List of users
+        @type users: [keystone.user.Resource]
+        @keyword roles: List of roles
+        @type roles: [keystone.role.Resource]
+        @rtype: None
+        """
+        if not isinstance(users, list):
+            users = [users]
+        if not isinstance(roles, list):
+            roles = [roles]
+        for role in roles:
+            for user in users:
+                self._http.put(self._url_resource_path, self._id,
+                               "users", user.get_id(),
+                               "roles/OS-KSADM", role.get_id())
+
+    def revoke_roles(self, users=None, roles=None):
+        """
+        Revoke roles from users for a project
+
+        @keyword users: List of users
+        @type users: [keystone.user.Resource]
+        @keyword roles: List of roles
+        @type roles: [keystone.role.Resource]
+        @rtype: None
+        """
+        if not isinstance(users, list):
+            users = [users]
+        if not isinstance(roles, list):
+            roles = [roles]
+        for role in roles:
+            for user in users:
+                self._http.delete(self._url_resource_path, self._id,
+                                  "users", user.get_id(),
+                                  "roles/OS-KSADM", role.get_id())
+
 
 class Manager(base.Manager):
     """manager class for projects on Identity V2 API"""

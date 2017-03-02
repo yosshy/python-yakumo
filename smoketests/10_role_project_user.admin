@@ -80,6 +80,12 @@ with cleaner(c.role.create(name=name,
             test("User #1: username is 'user 1-1'", u.username == 'user 1-1')
             test("User #1: is enabled", u.is_enabled)
 
+            LOG.info("Grant Role #1 to User #1 for Project #1")
+            p.grant_roles(users=u, roles=r)
+
+            LOG.info("Revoke Role #1 from User #1 for Project #1")
+            p.revoke_roles(users=u, roles=r)
+
 LOG.debug("list role: %s", [_.name for _ in c.role.list()])
 LOG.debug("list projects: %s", [_.name for _ in c.project.list()])
 LOG.debug("list user: %s", [_.name for _ in c.user.list()])
