@@ -57,10 +57,12 @@ class Manager(base.Manager):
     _update_method = 'patch'
     _url_resource_path = '/regions'
 
-    def create(self, description=None, parent=None):
+    def create(self, id=None, description=None, parent=None):
         """
         Register a region
 
+        @keyword id: ID
+        @type id: str
         @keyword description: Description
         @type description: str
         @keyword parent: Parent region
@@ -69,6 +71,6 @@ class Manager(base.Manager):
         @rtype: yakumo.keystone.v3.region.Resource
         """
         return super(Manager, self).create(
-            name=name,
+            id=id,
             description=description,
-            domain=domain)
+            parent=parent)
