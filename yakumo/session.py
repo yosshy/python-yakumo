@@ -20,15 +20,21 @@ import functools
 import json
 import os
 import os_client_config
+from os_client_config import cloud_config
 import random
 import requests
 from simplejson.scanner import JSONDecodeError
 
-from . import utils
 from . import exception
+from . import patch
+from . import utils
 
 
 CHUNK_SIZE = 4096
+
+
+# Patch it!
+cloud_config.CloudConfig.get_session_endpoint = patch.get_session_endpoint
 
 
 def get_session(**kwargs):
