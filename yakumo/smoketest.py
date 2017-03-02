@@ -75,7 +75,7 @@ def cleaner(resource):
     try:
         yield resource
     except Exception as e:
-        LOG.warning("Error occured: %s", e)
+        LOG.exception("Error occured: %s", e)
         TEST_LOGS.append((str(e), False))
     finally:
         if hasattr(resource, 'name'):
