@@ -18,7 +18,12 @@ Resource class and its manager for projects in Identity V3 API
 """
 
 from yakumo import base
+from yakumo import exception
 from yakumo import mapper
+
+from .group import Resource as Group
+from .role import Resource as Role
+from .user import Resource as User
 
 
 ATTRIBUTE_MAPPING = [
@@ -57,6 +62,121 @@ class Resource(base.Resource):
             parent=parent,
             domain=domain,
             is_enabled=is_enabled)
+
+    def check_roles(self, users=None, groups=None, roles=None):
+        """
+        Check roles of users and/or groups for a project
+
+        @keyword users: List of users
+        @type users: [keystone.user.Resource]
+        @keyword groups: List of groups
+        @type groups: [keystone.group.Resource]
+        @keyword roles: List of roles
+        @type roles: [keystone.role.Resource]
+        @return: Whether users/groups have roles
+        @rtype: None
+        """
+        if users is None:
+            users = []
+        if isinstance(users, User):
+            users = [users]
+        if groups is None:
+            groups = []
+        if isinstance(groups, Group):
+            groups = [groups]
+        if roles is None:
+            roles = []
+        if isinstance(roles, Role):
+            roles = [roles]
+
+        ret = []
+        for user in users:
+            try:
+                for role in roles:
+                    self._http.head(self._url_resource_path, self._id,
+                                    "users", user.get_id(),
+                                    "roles", role.get_id())
+                ret.append(True)
+            except exception.NotFound:
+                ret.append(False)
+        for group in groups:
+            try:
+                for role in roles:
+                    self._http.head(self._url_resource_path, self._id,
+                                    "groups", group.get_id(),
+                                    "roles", role.get_id())
+                ret.append(True)
+            except exception.NotFound:
+                ret.append(False)
+        return ret
+
+    def grant_roles(self, users=None, groups=None, roles=None):
+        """
+        Grant roles to users and/or groups for a project
+
+        @keyword users: List of users
+        @type users: [keystone.user.Resource]
+        @keyword groups: List of groups
+        @type groups: [keystone.group.Resource]
+        @keyword roles: List of roles
+        @type roles: [keystone.role.Resource]
+        @rtype: None
+        """
+        if users is None:
+            users = []
+        if isinstance(users, User):
+            users = [users]
+        if groups is None:
+            groups = []
+        if isinstance(groups, Group):
+            groups = [groups]
+        if roles is None:
+            roles = []
+        if isinstance(roles, Role):
+            roles = [roles]
+        for role in roles:
+            for user in users:
+                self._http.put(self._url_resource_path, self._id,
+                               "users", user.get_id(),
+                               "roles", role.get_id())
+            for group in groups:
+                self._http.put(self._url_resource_path, self._id,
+                               "groups", group.get_id(),
+                               "roles", role.get_id())
+
+    def revoke_roles(self, users=None, groups=None, roles=None):
+        """
+        Revoke roles from users and/or groups for a project
+
+        @keyword users: List of users
+        @type users: [keystone.user.Resource]
+        @keyword groups: List of groups
+        @type groups: [keystone.group.Resource]
+        @keyword roles: List of roles
+        @type roles: [keystone.role.Resource]
+        @rtype: None
+        """
+        if users is None:
+            users = []
+        if isinstance(users, User):
+            users = [users]
+        if groups is None:
+            groups = []
+        if isinstance(groups, Group):
+            groups = [groups]
+        if roles is None:
+            roles = []
+        if isinstance(roles, Role):
+            roles = [roles]
+        for role in roles:
+            for user in users:
+                self._http.delete(self._url_resource_path, self._id,
+                                  "users", user.get_id(),
+                                  "roles", role.get_id())
+            for group in groups:
+                self._http.delete(self._url_resource_path, self._id,
+                                  "groups", group.get_id(),
+                                  "roles", role.get_id())
 
 
 class Manager(base.Manager):
