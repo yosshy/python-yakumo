@@ -18,6 +18,7 @@ Resource class and its manager for Quota sets in Block Storage API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -71,9 +72,9 @@ class Manager(base.Manager):
         except:
             return None
 
-    def update(self, project=None, user=None, volumes=None,
-               per_volume_gigabytes=None, snapshots=None, gigabytes=None,
-               backups=None, backup_gigabytes=None):
+    def update(self, project=UNDEF, user=UNDEF, volumes=UNDEF,
+               per_volume_gigabytes=UNDEF, snapshots=UNDEF, gigabytes=UNDEF,
+               backups=UNDEF, backup_gigabytes=UNDEF):
         """
         Update quota set for a project
 

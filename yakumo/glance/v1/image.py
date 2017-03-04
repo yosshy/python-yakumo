@@ -18,6 +18,7 @@ Resource class and its manager for images in Image V1 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -48,10 +49,10 @@ class Resource(base.Resource):
 
     _stable_state = ['active', 'killed', 'deleted', 'deactivated']
 
-    def update(self, name=None, uri=None, disk_format=None,
-               container_format=None, size=None, virtual_size=None,
-               checksum=None, min_ram=None, min_disk=None, owner=None,
-               properties=None, is_public=None, file=None):
+    def update(self, name=UNDEF, uri=UNDEF, disk_format=UNDEF,
+               container_format=UNDEF, size=UNDEF, virtual_size=UNDEF,
+               checksum=UNDEF, min_ram=UNDEF, min_disk=UNDEF, owner=UNDEF,
+               properties=UNDEF, is_public=UNDEF, file=None):
         """
         Update properties of an image
 
@@ -131,10 +132,10 @@ class Manager(base.Manager):
     _url_resource_list_path = '/v1/images/detail'
     _url_resource_path = '/v1/images'
 
-    def create(self, name=None, uri=None, disk_format=None,
-               container_format=None, size=None, virtual_size=None,
-               checksum=None, min_ram=None, min_disk=None, owner=None,
-               properties=None, is_public=None, file=None):
+    def create(self, name=UNDEF, uri=UNDEF, disk_format=UNDEF,
+               container_format=UNDEF, size=UNDEF, virtual_size=UNDEF,
+               checksum=UNDEF, min_ram=UNDEF, min_disk=UNDEF, owner=UNDEF,
+               properties=UNDEF, is_public=UNDEF, file=None):
         """
         Register an image
 

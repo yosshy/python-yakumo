@@ -18,6 +18,7 @@ Resource class and its manager for projects in Identity V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -32,7 +33,7 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """resource class for projects on Identity V2 API"""
 
-    def update(self, name=None, description=None, is_enabled=None):
+    def update(self, name=UNDEF, description=UNDEF, is_enabled=UNDEF):
         """
         Update properties of a project
 
@@ -49,6 +50,46 @@ class Resource(base.Resource):
             description=description,
             is_enabled=is_enabled)
 
+    def grant_roles(self, users=None, roles=None):
+        """
+        Grant roles to users for a project
+
+        @keyword users: List of users
+        @type users: [keystone.user.Resource]
+        @keyword roles: List of roles
+        @type roles: [keystone.role.Resource]
+        @rtype: None
+        """
+        if not isinstance(users, list):
+            users = [users]
+        if not isinstance(roles, list):
+            roles = [roles]
+        for role in roles:
+            for user in users:
+                self._http.put(self._url_resource_path, self._id,
+                               "users", user.get_id(),
+                               "roles/OS-KSADM", role.get_id())
+
+    def revoke_roles(self, users=None, roles=None):
+        """
+        Revoke roles from users for a project
+
+        @keyword users: List of users
+        @type users: [keystone.user.Resource]
+        @keyword roles: List of roles
+        @type roles: [keystone.role.Resource]
+        @rtype: None
+        """
+        if not isinstance(users, list):
+            users = [users]
+        if not isinstance(roles, list):
+            roles = [roles]
+        for role in roles:
+            for user in users:
+                self._http.delete(self._url_resource_path, self._id,
+                                  "users", user.get_id(),
+                                  "roles/OS-KSADM", role.get_id())
+
 
 class Manager(base.Manager):
     """manager class for projects on Identity V2 API"""
@@ -60,7 +101,7 @@ class Manager(base.Manager):
     _json_resources_key = 'tenants'
     _url_resource_path = '/tenants'
 
-    def create(self, name=None, description=None, is_enabled=None):
+    def create(self, name=UNDEF, description=UNDEF, is_enabled=UNDEF):
         """
         Register a project
 

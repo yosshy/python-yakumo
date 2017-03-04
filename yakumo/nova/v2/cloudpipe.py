@@ -18,6 +18,7 @@ Resource class and its manager for cloudpipes in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -35,7 +36,7 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for cloudpipes in Compute API v2"""
 
-    def update(self, vpn_ip=None, vpn_port=None):
+    def update(self, vpn_ip=UNDEF, vpn_port=UNDEF):
         """
         Update properties of a cloudpipe
 
@@ -63,7 +64,7 @@ class Manager(base.Manager):
     _json_resources_key = 'cloudpipes'
     _url_resource_path = '/os-cloudpipe'
 
-    def create(self, project=None):
+    def create(self, project=UNDEF):
         """
         Create a cloudpipe
 

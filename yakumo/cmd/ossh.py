@@ -22,6 +22,7 @@ from pprint import pprint
 import sys
 
 import os_client_config
+import pbr
 
 import yakumo
 
@@ -47,10 +48,16 @@ def main():
         if opt.dest in ENVIRONMENT_VARIABLES:
             opt.metavar = ENVIRONMENT_VARIABLES[opt.dest]
     parser.set_defaults(timeout=None, insecure=False, **kwargs)
+    parser.add_argument('--version', help='Print version and exit',
+                        action='store_true')
     parser.add_argument('--verbose', help='Verbose output',
                         action='store_true')
 
     options = parser.parse_args()
+    if options.version:
+        print(pbr.version.VersionInfo('yakumo'))
+        sys.exit(0)
+
     c = yakumo.Client(**options.__dict__)
 
     local_vars = locals()

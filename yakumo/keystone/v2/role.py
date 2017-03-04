@@ -18,6 +18,7 @@ Resource class and its manager for roles in Identity V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -43,7 +44,7 @@ class Manager(base.Manager):
     _json_resources_key = 'roles'
     _url_resource_path = '/OS-KSADM/roles'
 
-    def create(self, name=None, description=None):
+    def create(self, name=UNDEF, description=UNDEF):
         """
         Register a role
 

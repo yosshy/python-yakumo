@@ -18,6 +18,7 @@ Resource class and its manager for routers in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -52,8 +53,8 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for routers in Networking V2 API"""
 
-    def update(self, name=None, routes=None,
-               external_gateway_info=None, is_enabled=None):
+    def update(self, name=UNDEF, routes=UNDEF,
+               external_gateway_info=UNDEF, is_enabled=UNDEF):
         """
         Update properties of a router
 
@@ -126,7 +127,7 @@ class Manager(base.Manager):
     _json_resources_key = 'routers'
     _url_resource_path = '/v2.0/routers'
 
-    def create(self, name=None, routes=None, is_enabled=True):
+    def create(self, name=UNDEF, routes=UNDEF, is_enabled=UNDEF):
         """
         Create a router
 

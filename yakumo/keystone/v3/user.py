@@ -18,6 +18,7 @@ Resource class and its manager for users in Identity V3 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -26,6 +27,7 @@ ATTRIBUTE_MAPPING = [
     ('name', 'name', mapper.Noop),
     ('password', 'password', mapper.Noop),
     ('email', 'email', mapper.Noop),
+    ('project', 'default_project_id', mapper.Resource('keystone.project')),
     ('domain', 'domain_id', mapper.Resource('keystone.domain')),
     ('is_enabled', 'enabled', mapper.Noop),
 ]
@@ -34,7 +36,8 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """resource class for users on Identity V3 API"""
 
-    def update(self, name=None, password=None, email=None, is_enabled=None):
+    def update(self, name=UNDEF, password=UNDEF, email=UNDEF, project=UNDEF,
+               domain=UNDEF, is_enabled=UNDEF):
         """
         Update properties of a user
 
@@ -44,6 +47,8 @@ class Resource(base.Resource):
         @type password: str
         @keyword email: E-mail address
         @type email: str
+        @keyword project: Project
+        @type project: yakumo.keystone.v3.project.Resource
         @keyword domain: Domain
         @type domain: yakumo.keystone.v3.domain.Resource
         @keyword is_enabled: Whether the user is enabled or not
@@ -54,6 +59,7 @@ class Resource(base.Resource):
             name=name,
             password=password,
             email=email,
+            project=project,
             domain=domain,
             is_enabled=is_enabled)
 
@@ -69,7 +75,8 @@ class Manager(base.Manager):
     _update_method = 'patch'
     _url_resource_path = '/users'
 
-    def create(self, name=None, password=None, email=None, is_enabled=None):
+    def create(self, name=UNDEF, password=UNDEF, email=UNDEF, project=UNDEF,
+               domain=UNDEF, is_enabled=UNDEF):
         """
         Register a user
 
@@ -79,6 +86,8 @@ class Manager(base.Manager):
         @type password: str
         @keyword email: E-mail address
         @type email: str
+        @keyword project: Project
+        @type project: yakumo.keystone.v3.project.Resource
         @keyword domain: Domain
         @type domain: yakumo.keystone.v3.domain.Resource
         @keyword is_enabled: Whether the user is enabled or not
@@ -90,5 +99,6 @@ class Manager(base.Manager):
             name=name,
             password=password,
             email=email,
+            project=project,
             domain=domain,
             is_enabled=is_enabled)

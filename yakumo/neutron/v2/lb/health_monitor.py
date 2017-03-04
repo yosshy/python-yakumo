@@ -18,6 +18,7 @@ Resource class and its manager for LB Health Monitors in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -41,7 +42,7 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for LB Health Monitors in Networking V2 API"""
 
-    def update(self, delay=None):
+    def update(self, delay=UNDEF):
         """
         Update a LB health monitor
 
@@ -62,9 +63,9 @@ class Manager(base.Manager):
     _json_resources_key = 'health_monitors'
     _url_resource_path = '/v2.0/lb/health_monitors'
 
-    def create(self, type=None, http_method=None, url_path=None,
-               expected_codes=None, delay=None, timeout=None, max_retries=None,
-               is_enabled=None):
+    def create(self, type=UNDEF, http_method=UNDEF, url_path=UNDEF,
+               expected_codes=UNDEF, delay=UNDEF, timeout=UNDEF,
+               max_retries=UNDEF, is_enabled=UNDEF):
         """
         Create a LB health monitor
 

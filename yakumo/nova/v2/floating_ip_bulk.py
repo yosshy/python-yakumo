@@ -18,6 +18,7 @@ Resource class and its manager for floating IP bulks in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -58,7 +59,7 @@ class Manager(base.Manager):
             attrs = self._json2attr(x)
             yield self.resource_class(self, **attrs)
 
-    def create(self, pool=None, ip_range=None, interface=None):
+    def create(self, pool=UNDEF, ip_range=UNDEF, interface=UNDEF):
         """
         Bulk-create floating IPs
 

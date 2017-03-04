@@ -18,6 +18,7 @@ Resource class and its manager for volumes on Block Storage V1 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -73,7 +74,8 @@ class Resource(base.Resource):
         @rtype: None
         """
         for key in keys:
-            self._http.delete(self._url_resource_path, self._id, 'metadata', key)
+            self._http.delete(self._url_resource_path, self._id,
+                              'metadata', key)
         self.reload()
 
 
@@ -89,8 +91,8 @@ class Manager(base.Manager):
     _url_resource_list_path = '/snapshots/detail'
     _url_resource_path = '/snapshots'
 
-    def create(self, name=None, description=None, source=None,
-               metadata=None, force=False):
+    def create(self, name=UNDEF, description=UNDEF, source=UNDEF,
+               metadata=UNDEF, force=False):
         """
         Create a snapshot of a volume
 

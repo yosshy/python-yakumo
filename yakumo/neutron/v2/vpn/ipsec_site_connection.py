@@ -19,6 +19,7 @@ Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -56,12 +57,12 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for VPN IPSec site connections in Networking V2 API"""
 
-    def update(self, name=None, description=None,
-               peer_address=None, peer_id=None,
-               local_ep_group_id=None, peer_ep_group_id=None,
-               peer_cidrs=None, mtu=None, psk=None, initiator=None,
-               dpd=None, action=None, interval=None, timeout=None,
-               is_enabled=True):
+    def update(self, name=UNDEF, description=UNDEF,
+               peer_address=UNDEF, peer_id=UNDEF,
+               local_ep_group_id=UNDEF, peer_ep_group_id=UNDEF,
+               peer_cidrs=UNDEF, mtu=UNDEF, psk=UNDEF, initiator=UNDEF,
+               dpd=UNDEF, action=UNDEF, interval=UNDEF, timeout=UNDEF,
+               is_enabled=UNDEF):
 
         """
         Update properties of an IPSec site connection
@@ -127,13 +128,13 @@ class Manager(base.Manager):
     _json_resources_key = 'ipsec_site_connections'
     _url_resource_path = '/v2.0/vpn/ipsec-site-connections'
 
-    def create(self, name=None, description=None, peer_address=None,
-               peer_id=None, local_ep_group_id=None,
-               peer_ep_group_id=None, peer_cidrs=None,
-               route_mode=None, mtu=None, auth_mode=None, psk=None,
-               initiator=None, ikepolicy=None, ipsecpolicy=None,
-               vpnservice=None, project=None, dpd=None, action=None,
-               interval=None, timeout=None, is_enabled=True):
+    def create(self, name=UNDEF, description=UNDEF, peer_address=UNDEF,
+               peer_id=UNDEF, local_ep_group_id=UNDEF,
+               peer_ep_group_id=UNDEF, peer_cidrs=UNDEF,
+               route_mode=UNDEF, mtu=UNDEF, auth_mode=UNDEF, psk=UNDEF,
+               initiator=UNDEF, ikepolicy=UNDEF, ipsecpolicy=UNDEF,
+               vpnservice=UNDEF, project=UNDEF, dpd=UNDEF, action=UNDEF,
+               interval=UNDEF, timeout=UNDEF, is_enabled=UNDEF):
 
         """
         Create an IPSec site connection

@@ -18,6 +18,7 @@ Resource class and its manager for security groups in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 from . import security_group_rule
@@ -51,7 +52,7 @@ class Manager(base.Manager):
     _json_resources_key = 'security_groups'
     _url_resource_path = '/os-security-groups'
 
-    def create(self, name=None, description=None, project=None):
+    def create(self, name=UNDEF, description=UNDEF, project=UNDEF):
         """
         Create a security group
 

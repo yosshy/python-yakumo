@@ -18,6 +18,7 @@ Resource class and its manager for metering labels for Networking v2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -45,7 +46,7 @@ class Manager(base.Manager):
     _json_resources_key = 'metering_labels'
     _url_resource_path = '/v2.0/metering/metering-labels'
 
-    def create(self, name=None, description=None):
+    def create(self, name=UNDEF, description=UNDEF):
         """
         Create a LB member for a pool
 

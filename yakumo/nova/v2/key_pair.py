@@ -18,6 +18,7 @@ Resource class and its manager for key pairs in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -50,7 +51,7 @@ class Manager(base.Manager):
     _json_resources_key = 'keypairs'
     _url_resource_path = '/os-keypairs'
 
-    def create(self, name=None, public_key=None):
+    def create(self, name=UNDEF, public_key=UNDEF):
         """
         Register a SSH public key
 

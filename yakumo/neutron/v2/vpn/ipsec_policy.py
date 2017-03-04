@@ -18,6 +18,7 @@ Resource class and its manager for VPN IPSec policies in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -39,10 +40,10 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for VPN IPSec policies in Networking V2 API"""
 
-    def update(self, name=None, description=None, auth_algorithm=None,
-               encryption_algorithm=None, pfs=None, lifetime=None,
-               encapsulation_mode=None, transform_protocol=None, project=None):
-
+    def update(self, name=UNDEF, description=UNDEF, auth_algorithm=UNDEF,
+               encryption_algorithm=UNDEF, pfs=UNDEF, lifetime=UNDEF,
+               encapsulation_mode=UNDEF, transform_protocol=UNDEF,
+               project=UNDEF):
         """
         Update properties of an IPSec policy
 
@@ -92,10 +93,10 @@ class Manager(base.Manager):
     _json_resources_key = 'ike_policies'
     _url_resource_path = '/v2.0/vpn/ike_policies'
 
-    def create(self, name=None, description=None, auth_algorithm=None,
-               encryption_algorithm=None, pfs=None, lifetime=None,
-               encapsulation_mode=None, transform_protocol=None, project=None):
-
+    def create(self, name=UNDEF, description=UNDEF, auth_algorithm=UNDEF,
+               encryption_algorithm=UNDEF, pfs=UNDEF, lifetime=UNDEF,
+               encapsulation_mode=UNDEF, transform_protocol=UNDEF,
+               project=UNDEF):
         """
         Create an IPSec policy
 

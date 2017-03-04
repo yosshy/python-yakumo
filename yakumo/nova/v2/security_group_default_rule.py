@@ -19,6 +19,7 @@ Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -47,8 +48,8 @@ class Manager(base.Manager):
     _json_resources_key = 'security_group_default_rules'
     _url_resource_path = '/os-security-group-default-rules'
 
-    def create(self, cidr=None, lower_port=None, upper_port=None,
-               protocol=None):
+    def create(self, cidr=UNDEF, lower_port=UNDEF, upper_port=UNDEF,
+               protocol=UNDEF):
         """
         Create a security group
 

@@ -18,6 +18,7 @@ Resource class and its manager for services in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -65,7 +66,7 @@ class Resource(base.Resource):
         self._manager.set_disabled_reason(host=self.host, binary=self.binary,
                                           reason=reason)
 
-    def update(self, name=None, availability_zone=None):
+    def update(self, name=UNDEF, availability_zone=UNDEF):
         """
         Create a host aggregate
 

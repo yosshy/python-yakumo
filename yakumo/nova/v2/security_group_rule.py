@@ -18,6 +18,7 @@ Resource class and its manager for security group rules in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -73,9 +74,9 @@ class Manager(base.SubManager):
         else:
             self._rules = []
 
-    def create(self, remote_ip_prefix=None, port_range_min=None,
-               port_range_max=None, protocol=None, group=None,
-               project=None):
+    def create(self, remote_ip_prefix=UNDEF, port_range_min=UNDEF,
+               port_range_max=UNDEF, protocol=UNDEF, group=UNDEF,
+               project=UNDEF):
         """
         Create a security group rule
 

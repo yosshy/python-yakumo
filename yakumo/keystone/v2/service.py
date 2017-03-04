@@ -18,6 +18,7 @@ Resource class and its manager for services in Identity V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -45,7 +46,8 @@ class Manager(base.Manager):
     _json_resources_key = 'OS-KSADM:services'
     _url_resource_path = '/OS-KSADM/services'
 
-    def create(self, name=None, type=None, description=None, is_enabled=None):
+    def create(self, name=UNDEF, type=UNDEF, description=UNDEF,
+               is_enabled=UNDEF):
         """
         Register a service
 

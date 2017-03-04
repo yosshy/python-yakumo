@@ -18,6 +18,7 @@ Resource class and its manager for server groups in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -46,7 +47,7 @@ class Manager(base.Manager):
     _json_resources_key = 'server_groups'
     _url_resource_path = '/os-server-groups'
 
-    def create(self, name=None, policies=None):
+    def create(self, name=UNDEF, policies=UNDEF):
         """
         Create a server group
 

@@ -18,6 +18,7 @@ Resource class and its manager for LBaaS Pools in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 from . import member
@@ -49,7 +50,7 @@ class Resource(base.Resource):
         'health_monitor': health_monitor.Manager
     }
 
-    def update(self, name=None, lb_method=None):
+    def update(self, name=UNDEF, lb_method=UNDEF):
         """
         Update a load balancer pool
 
@@ -106,10 +107,10 @@ class Manager(base.Manager):
     _json_resources_key = 'pools'
     _url_resource_path = '/v2.0/lbaas/pools'
 
-    def create(self, name=None, description=None, lb_algorithm=None,
-               protocol=None, protocol_port=None, listener=None,
-               project=None, health_monitor=None, is_enabled=None,
-               session_persistence=None):
+    def create(self, name=UNDEF, description=UNDEF, lb_algorithm=UNDEF,
+               protocol=UNDEF, protocol_port=UNDEF, listener=UNDEF,
+               project=UNDEF, health_monitor=UNDEF, is_enabled=UNDEF,
+               session_persistence=UNDEF):
         """
         Create a load balancer pool
 

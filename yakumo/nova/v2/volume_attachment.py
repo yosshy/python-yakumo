@@ -18,6 +18,7 @@ Resource class and its manager for volume attachment in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -53,7 +54,7 @@ class Manager(base.SubManager):
     _json_resources_key = 'volumeAttachments'
     _url_resource_path = '/servers/%s/os-volume_attachments'
 
-    def attach(self, device=None, volume=None):
+    def attach(self, device=UNDEF, volume=UNDEF):
         """
         Attach a volume
 

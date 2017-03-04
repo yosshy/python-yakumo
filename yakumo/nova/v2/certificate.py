@@ -18,6 +18,7 @@ Resource class and its manager for root certificates in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -44,7 +45,7 @@ class Manager(base.Manager):
     _json_resources_key = 'certificates'
     _url_resource_path = '/os-certificates'
 
-    def create(self, data=None, private_key=None):
+    def create(self, data=UNDEF, private_key=UNDEF):
         """
         Register a root certificate
 

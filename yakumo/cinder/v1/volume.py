@@ -18,6 +18,7 @@ Resource class and its manager for volumes on Block Storage V1 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 from yakumo.cinder.v1.snapshot import Resource as Snapshot
@@ -92,7 +93,8 @@ class Resource(base.Resource):
         @rtype: None
         """
         for key in keys:
-            self._http.delete(self._url_resource_path, self._id, 'metadata', key)
+            self._http.delete(self._url_resource_path, self._id,
+                              'metadata', key)
         self.reload()
 
 
@@ -125,9 +127,9 @@ class Manager(base.Manager):
                 name=volume_type)
         return ret
 
-    def create(self, name=None, description=None, size=None, project=None,
-               availability_zone=None, source=None, volume_type=None,
-               metadata=None):
+    def create(self, name=UNDEF, description=UNDEF, size=UNDEF, project=UNDEF,
+               availability_zone=UNDEF, source=UNDEF, volume_type=UNDEF,
+               metadata=UNDEF):
         """
         Create a volume
 

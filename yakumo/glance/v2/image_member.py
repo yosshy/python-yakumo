@@ -18,6 +18,7 @@ Resource class and its manager for image members in Image V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -35,7 +36,7 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.GlanceV2Resource):
     """resource class for image members on Image V2 API"""
 
-    def update(self, status=None):
+    def update(self, status=UNDEF):
         """
         Update status of a member
 
@@ -57,7 +58,7 @@ class Manager(base.GlanceV2SubManager):
     _json_resources_key = 'members'
     _url_resource_path = '/v2/images/%s/members'
 
-    def create(self, user=None):
+    def create(self, user=UNDEF):
         """
         Register a member for a image
 

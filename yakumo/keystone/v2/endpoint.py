@@ -18,7 +18,9 @@ Resource class and its manager for endpoints in Identity V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
+from yakumo import exception
 
 
 ATTRIBUTE_MAPPING = [
@@ -47,8 +49,8 @@ class Manager(base.Manager):
     _json_resources_key = 'endpoints'
     _url_resource_path = '/endpoints'
 
-    def create(self, public_url=None, internal_url=None, admin_url=None,
-               region=None, is_enabled=None, service=None):
+    def create(self, public_url=UNDEF, internal_url=UNDEF, admin_url=UNDEF,
+               region=UNDEF, is_enabled=UNDEF, service=UNDEF):
         """
         Register endpoints for a service
 
@@ -74,3 +76,12 @@ class Manager(base.Manager):
             region=region,
             is_enabled=is_enabled,
             service=service)
+
+    def get(self, id):
+        try:
+            ret = self.find_one(id=id)
+            if ret is None:
+                raise exception.NotFound
+            return ret
+        except exception.Forbidden:
+            return self.get_empty(id)

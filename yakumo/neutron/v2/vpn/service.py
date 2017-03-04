@@ -18,6 +18,7 @@ Resource class and its manager for VPN services in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -37,8 +38,8 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for VPN services in Networking V2 API"""
 
-    def update(self, name=None, description=None, router=None,
-               subnet=None, project=None, is_enabled=None):
+    def update(self, name=UNDEF, description=UNDEF, router=UNDEF,
+               subnet=UNDEF, project=UNDEF, is_enabled=UNDEF):
         """
         Update properties of a VPN service
 
@@ -66,8 +67,8 @@ class Manager(base.Manager):
     _json_resources_key = 'vpnservices'
     _url_resource_path = '/v2.0/vpn/vpnservices'
 
-    def create(self, name=None, description=None, router=None,
-               subnet=None, project=None, is_enabled=None):
+    def create(self, name=UNDEF, description=UNDEF, router=UNDEF,
+               subnet=UNDEF, project=UNDEF, is_enabled=UNDEF):
         """
         Create a VPN service
 

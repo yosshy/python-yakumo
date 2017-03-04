@@ -18,6 +18,7 @@ Resource class and its manager for LB Pools in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 from . import member
@@ -47,7 +48,7 @@ class Resource(base.Resource):
         'vip': vip.Manager
     }
 
-    def update(self, name=None, lb_method=None):
+    def update(self, name=UNDEF, lb_method=UNDEF):
         """
         Update properties of a load balancer pool
 
@@ -93,8 +94,8 @@ class Manager(base.Manager):
     _json_resources_key = 'pools'
     _url_resource_path = '/v2.0/lb/pools'
 
-    def create(self, name=None, description=None, lb_method=None,
-               protocol=None, subnet=None, is_enabled=None):
+    def create(self, name=UNDEF, description=UNDEF, lb_method=UNDEF,
+               protocol=UNDEF, subnet=UNDEF, is_enabled=UNDEF):
         """
         Create a load balancer pool
 

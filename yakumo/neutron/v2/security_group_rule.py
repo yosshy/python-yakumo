@@ -18,6 +18,7 @@ Resource class and its manager for security group rules in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -52,9 +53,9 @@ class Manager(base.SubManager):
     _json_resources_key = 'security_group_rules'
     _url_resource_path = '/v2.0/security-group-rules'
 
-    def create(self, direction=None, ethertype=None,
-               port_range_min=None, port_range_max=None,
-               protocol=None, remote_group=None, remote_ip_prefix=None):
+    def create(self, direction=UNDEF, ethertype=UNDEF,
+               port_range_min=UNDEF, port_range_max=UNDEF,
+               protocol=UNDEF, remote_group=UNDEF, remote_ip_prefix=UNDEF):
         """
         Register a rule of a security group
 

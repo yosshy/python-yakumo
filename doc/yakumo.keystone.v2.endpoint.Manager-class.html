@@ -120,15 +120,33 @@
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="yakumo.keystone.v2.endpoint.Manager-class.html#create" class="summary-sig-name">create</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">public_url</span>=<span class="summary-sig-default">None</span>,
-        <span class="summary-sig-arg">internal_url</span>=<span class="summary-sig-default">None</span>,
-        <span class="summary-sig-arg">admin_url</span>=<span class="summary-sig-default">None</span>,
-        <span class="summary-sig-arg">region</span>=<span class="summary-sig-default">None</span>,
-        <span class="summary-sig-arg">is_enabled</span>=<span class="summary-sig-default">None</span>,
-        <span class="summary-sig-arg">service</span>=<span class="summary-sig-default">None</span>)</span><br />
+        <span class="summary-sig-arg">public_url</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">__UNDEF__</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">internal_url</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">__UNDEF__</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">admin_url</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">__UNDEF__</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">region</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">__UNDEF__</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">is_enabled</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">__UNDEF__</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">service</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">__UNDEF__</code><code class="variable-quote">'</code></span>)</span><br />
       Register endpoints for a service</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="yakumo.keystone.v2.endpoint-pysrc.html#Manager.create">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">yakumo.base.Resource</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="yakumo.keystone.v2.endpoint.Manager-class.html#get" class="summary-sig-name">get</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">id</span>)</span><br />
+      Aquire an existing resource object</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="yakumo.keystone.v2.endpoint-pysrc.html#Manager.get">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -142,7 +160,6 @@
       <code><a href="yakumo.base.Manager-class.html#__init__">__init__</a></code>,
       <code><a href="yakumo.base.Manager-class.html#find">find</a></code>,
       <code><a href="yakumo.base.Manager-class.html#find_one">find_one</a></code>,
-      <code><a href="yakumo.base.Manager-class.html#get">get</a></code>,
       <code><a href="yakumo.base.Manager-class.html#get_empty">get_empty</a></code>,
       <code><a href="yakumo.base.Manager-class.html#list">list</a></code>
       </p>
@@ -295,12 +312,12 @@ ne.service')),]"><code class="variable-group">[</code><code class="variable-grou
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
   <h3 class="epydoc"><span class="sig"><span class="sig-name">create</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">public_url</span>=<span class="sig-default">None</span>,
-        <span class="sig-arg">internal_url</span>=<span class="sig-default">None</span>,
-        <span class="sig-arg">admin_url</span>=<span class="sig-default">None</span>,
-        <span class="sig-arg">region</span>=<span class="sig-default">None</span>,
-        <span class="sig-arg">is_enabled</span>=<span class="sig-default">None</span>,
-        <span class="sig-arg">service</span>=<span class="sig-default">None</span>)</span>
+        <span class="sig-arg">public_url</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">__UNDEF__</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">internal_url</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">__UNDEF__</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">admin_url</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">__UNDEF__</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">region</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">__UNDEF__</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">is_enabled</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">__UNDEF__</code><code class="variable-quote">'</code></span>,
+        <span class="sig-arg">service</span>=<span class="sig-default"><code class="variable-quote">'</code><code class="variable-string">__UNDEF__</code><code class="variable-quote">'</code></span>)</span>
   </h3>
   </td><td align="right" valign="top"
     ><span class="codelink"><a href="yakumo.keystone.v2.endpoint-pysrc.html#Manager.create">source&nbsp;code</a></span>&nbsp;
@@ -322,6 +339,36 @@ ne.service')),]"><code class="variable-group">[</code><code class="variable-grou
         <dd>Created endpoint</dd>
     <dt>Overrides:
         <a href="yakumo.base.Manager-class.html#create">base.Manager.create</a>
+    </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">id</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="yakumo.keystone.v2.endpoint-pysrc.html#Manager.get">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Aquire an existing resource object</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>id</code></strong> - ID</li>
+    </ul></dd>
+    <dt>Returns: yakumo.base.Resource</dt>
+        <dd>Resource object</dd>
+    <dt>Overrides:
+        <a href="yakumo.base.Manager-class.html#get">base.Manager.get</a>
+        <dd><em class="note">(inherited documentation)</em></dd>
     </dt>
   </dl>
 </td></tr></table>
@@ -394,7 +441,7 @@ ne.service')),]
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Tue Feb 28 22:38:49 2017
+    Generated by Epydoc 3.0.1 on Sat Mar  4 23:02:24 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

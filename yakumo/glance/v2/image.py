@@ -18,6 +18,7 @@ Resource class and its manager for images in Image V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 from . import image_member
@@ -55,11 +56,11 @@ class Resource(base.GlanceV2Resource):
     _stable_state = ['active', 'killed', 'deleted', 'deactivated']
     _sub_manager_list = {'members': image_member.Manager}
 
-    def update(self, name=None, disk_format=None, container_format=None,
-               size=None, virtual_size=None, checksum=None, min_ram=None,
-               min_disk=None, owner=None, status=None, created_at=None,
-               updated_at=None, is_public=None, protected=None, schema=None,
-               tags=None, **kwargs):
+    def update(self, name=UNDEF, disk_format=UNDEF, container_format=UNDEF,
+               size=UNDEF, virtual_size=UNDEF, checksum=UNDEF, min_ram=UNDEF,
+               min_disk=UNDEF, owner=UNDEF, status=UNDEF, created_at=UNDEF,
+               updated_at=UNDEF, is_public=UNDEF, protected=UNDEF,
+               schema=UNDEF, tags=UNDEF, **kwargs):
         """
         Update properties of an image
 
@@ -198,9 +199,9 @@ class Manager(base.GlanceV2Manager):
     _json_resources_key = 'images'
     _url_resource_path = '/v2/images'
 
-    def create(self, id=None, name=None, is_public=None, tags=None,
-               container_format=None, disk_format=None, min_disk=None,
-               min_ram=None, is_protected=None, file=None, **kwargs):
+    def create(self, id=UNDEF, name=UNDEF, is_public=UNDEF, tags=UNDEF,
+               container_format=UNDEF, disk_format=UNDEF, min_disk=UNDEF,
+               min_ram=UNDEF, is_protected=UNDEF, file=None, **kwargs):
         """
         Register an image
 
