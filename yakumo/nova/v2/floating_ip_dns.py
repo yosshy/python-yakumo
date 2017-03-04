@@ -18,6 +18,7 @@ Resource class and its manager for floating IP DNS entries in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -34,8 +35,8 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for floating IP DNS entries in Compute API v2"""
 
-    def update(self, new_domain=None, project=None, scope=None,
-               availability_zone=None):
+    def update(self, new_domain=UNDEF, project=UNDEF, scope=UNDEF,
+               availability_zone=UNDEF):
         """
         Update properties of a domain
 
@@ -112,8 +113,8 @@ class Manager(base.Manager):
     _json_resources_key = 'domain_entries'
     _url_resource_path = '/os-floating-ip-dns'
 
-    def create(self, domain=None, project=None, scope=None,
-               availability_zone=None):
+    def create(self, domain=UNDEF, project=UNDEF, scope=UNDEF,
+               availability_zone=UNDEF):
         """
         Create a domain
 
@@ -129,8 +130,8 @@ class Manager(base.Manager):
         """
         self._http.put(self._url_resource_path, domain,
                        data=utils.get_json_body(
-                          'domain_entry',
-                          domain=domain,
-                          project=project,
-                          scope=scope,
-                          availability_zone=availability_zone))
+                           'domain_entry',
+                           domain=domain,
+                           project=project,
+                           scope=scope,
+                           availability_zone=availability_zone))

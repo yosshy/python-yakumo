@@ -18,6 +18,7 @@ Resource class and its manager for LBaaS load balancers in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -40,10 +41,7 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for LBaaS load balancers in Networking V2 API"""
 
-    def update(self,
-               name=None,
-               description=None,
-               is_enabled=None):
+    def update(self, name=UNDEF, description=UNDEF, is_enabled=UNDEF):
         """
         Update properties of a LBaaS listener
 
@@ -71,9 +69,9 @@ class Manager(base.Manager):
     _json_resources_key = 'loadbalancers'
     _url_resource_path = '/v2.0/lbaas/loadbalancers'
 
-    def create(self, name=None, description=None, project=None,
-               vip_subnet=None, vip_address=None, is_enabled=True,
-               provider=None):
+    def create(self, name=UNDEF, description=UNDEF, project=UNDEF,
+               vip_subnet=UNDEF, vip_address=UNDEF, is_enabled=UNDEF,
+               provider=UNDEF):
         """
         Create a LBaaS listener
 

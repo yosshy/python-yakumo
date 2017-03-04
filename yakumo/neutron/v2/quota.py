@@ -18,6 +18,7 @@ Resource class and its manager for quotas in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -42,10 +43,10 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for quotas in Networking V2 API"""
 
-    def update(self, subnet=None, ikepolicy=None,
-               subnetpool=None, network=None, ipsec_site_connection=None,
-               floatingip=None, ipsecpolicy=None, security_group_rule=None,
-               vpnservice=None, security_group=None, router=None, port=None):
+    def update(self, subnet=UNDEF, ikepolicy=UNDEF, subnetpool=UNDEF,
+               network=UNDEF, ipsec_site_connection=UNDEF, floatingip=UNDEF,
+               ipsecpolicy=UNDEF, security_group_rule=UNDEF, vpnservice=UNDEF,
+               security_group=UNDEF, router=UNDEF, port=UNDEF):
         """
         Update properties of a quota
 

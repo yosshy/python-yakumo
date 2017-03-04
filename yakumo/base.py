@@ -21,6 +21,7 @@ import copy
 import inspect
 import time
 
+from . import constant
 from . import exception
 from . import mapper
 from . import utils
@@ -296,11 +297,12 @@ class Manager(object):
     def _attr2json(self, attrs):
         result = {}
         for key, value in attrs.items():
+            if value is constant.UNDEF:
+                continue
             _map = self._to_json_mapping.get(key)
             if _map is not None:
-                if value is not None:
-                    result[_map['json_attr']] = \
-                        _map['mapper'].to_json(self, value)
+                result[_map['json_attr']] = \
+                    _map['mapper'].to_json(self, value)
             elif self._has_extra_attr \
                     and not key.startswith('_') and key not in BAD_ATTRS:
                 result[key] = value

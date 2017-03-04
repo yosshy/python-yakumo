@@ -18,6 +18,7 @@ Resource class and its manager for consistency group on Block Storage V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -37,7 +38,7 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """resource class for consistency group on Block Storage V2 API"""
 
-    def update(self, name=None, description=None, add=None, remove=None):
+    def update(self, name=UNDEF, description=UNDEF, add=UNDEF, remove=UNDEF):
         """
         Update properties of a consistency group
 
@@ -81,7 +82,7 @@ class Manager(base.Manager):
     _url_resource_list_path = '/consistencygroups/detail'
     _url_resource_path = '/consistencygroups'
 
-    def create(self, name=None, description=None, volume_types=None,
+    def create(self, name=UNDEF, description=UNDEF, volume_types=UNDEF,
                availability_zone=False):
         """
         Create a consistency group

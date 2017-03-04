@@ -18,6 +18,7 @@ Resource class and its manager for volumes on Block Storage V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -73,7 +74,7 @@ class Resource(base.Resource):
 
     _stable_state = ['available', 'in-use', 'error', 'error_deleting']
 
-    def update(self, name=None, description=None, metadata=None):
+    def update(self, name=UNDEF, description=UNDEF, metadata=UNDEF):
         """
         Update properties of a volume
 
@@ -121,7 +122,8 @@ class Resource(base.Resource):
         @rtype: None
         """
         for key in keys:
-            self._http.delete(self._url_resource_path, self._id, 'metadata', key)
+            self._http.delete(self._url_resource_path, self._id,
+                              'metadata', key)
         self.reload()
 
     def extend(self, size=None):
@@ -253,11 +255,11 @@ class Manager(base.Manager):
                 name=volume_type)
         return ret
 
-    def create(self, name=None, description=None, volume_type=None,
-               size=None, availability_zone=None, source=None,
-               is_replication=False, consistency_group=None,
-               scheduler_hints=None, metadata=None,
-               project=None, is_multiattach=None):
+    def create(self, name=UNDEF, description=UNDEF, volume_type=UNDEF,
+               size=UNDEF, availability_zone=UNDEF, source=UNDEF,
+               is_replication=UNDEF, consistency_group=UNDEF,
+               scheduler_hints=UNDEF, metadata=UNDEF,
+               project=UNDEF, is_multiattach=UNDEF):
         """
         Create a volume
 
@@ -288,12 +290,12 @@ class Manager(base.Manager):
         @return: Created volume
         @rtype: yakumo.cinder.v2.volume.Resource
         """
-        source_image = None
-        source_volume = None
-        source_snapshot = None
-        source_replica = None
+        source_image = UNDEF
+        source_volume = UNDEF
+        source_snapshot = UNDEF
+        source_replica = UNDEF
         if isinstance(source, Resource):
-            if is_replication:
+            if is_replication is not UNDEF:
                 source_replica = source
             else:
                 source_volume = source
@@ -316,9 +318,9 @@ class Manager(base.Manager):
             metadata=metadata,
             is_multiattach=is_multiattach)
 
-    def manage(self, name=None, description=None, volume_type=None,
-               size=None, availability_zone=None, metadata=None,
-               ref=None, project=None, is_bootable=None):
+    def manage(self, name=UNDEF, description=UNDEF, volume_type=UNDEF,
+               size=UNDEF, availability_zone=UNDEF, metadata=UNDEF,
+               ref=UNDEF, project=UNDEF, is_bootable=UNDEF):
         """
         Manage a volume
 

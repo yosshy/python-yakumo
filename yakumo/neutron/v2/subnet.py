@@ -18,6 +18,7 @@ Resource class and its manager for subnets in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -39,8 +40,9 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for subnets in Networking V2 API"""
 
-    def update(self, name=None, allocation_pools=None, gateway_ip=None,
-               is_dhcp_enabled=None, dns_nameservers=None, host_routes=None):
+    def update(self, name=UNDEF, allocation_pools=UNDEF, gateway_ip=UNDEF,
+               is_dhcp_enabled=UNDEF, dns_nameservers=UNDEF,
+               host_routes=UNDEF):
         """
         Update properties of a subnet
         @keyword name: Subnet name
@@ -76,10 +78,10 @@ class Manager(base.Manager):
     _json_resources_key = 'subnets'
     _url_resource_path = '/v2.0/subnets'
 
-    def create(self, name=None, network=None, project=None,
-               allocation_pools=None, gateway_ip=None, ip_version=None,
-               cidr=None, is_dhcp_enabled=None, dns_nameservers=None,
-               host_routes=None, ipv6_ra_mode=None, ipv6_address_mode=None):
+    def create(self, name=UNDEF, network=UNDEF, project=UNDEF,
+               allocation_pools=UNDEF, gateway_ip=UNDEF, ip_version=UNDEF,
+               cidr=UNDEF, is_dhcp_enabled=UNDEF, dns_nameservers=UNDEF,
+               host_routes=UNDEF, ipv6_ra_mode=UNDEF, ipv6_address_mode=UNDEF):
         """
         Create a subnet
 

@@ -18,6 +18,7 @@ Resource class and its manager for volume transfer on Block Storage V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 from . import volume
@@ -63,7 +64,7 @@ class Manager(base.Manager):
     _url_resource_list_path = '/os-volume-transfer/detail'
     _url_resource_path = '/os-volume-transfer'
 
-    def create(self, name=None, volume=None):
+    def create(self, name=UNDEF, volume=UNDEF):
         """
         Create a volume transfer
 

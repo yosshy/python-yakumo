@@ -19,6 +19,7 @@ Block Storage V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -51,8 +52,8 @@ class Manager(base.Manager):
     _url_resource_list_path = '/cgsnapshots/detail'
     _url_resource_path = '/cgsnapshots'
 
-    def create(self, name=None, description=None, source_cg=None,
-               project=None, user=False, status=None):
+    def create(self, name=UNDEF, description=UNDEF, source_cg=UNDEF,
+               project=UNDEF, user=UNDEF, status=UNDEF):
         """
         Create a consistency group snapshot
 

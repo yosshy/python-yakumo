@@ -18,6 +18,7 @@ Resource class and its manager for ports in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -46,9 +47,10 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for ports in Networking V2 API"""
 
-    def update(self, name=None, network=None, project=None, device=None,
-               device_owner=None, allowed_address_pairs=None, mac_address=None,
-               fixed_ips=None, security_groups=None, is_enabled=None):
+    def update(self, name=UNDEF, network=UNDEF, project=UNDEF, device=UNDEF,
+               device_owner=UNDEF, allowed_address_pairs=UNDEF,
+               mac_address=UNDEF, fixed_ips=UNDEF, security_groups=UNDEF,
+               is_enabled=UNDEF):
         """
         update properties of a port
 
@@ -113,9 +115,10 @@ class Manager(base.Manager):
             ret['device'] = self._client.router.get_empty(device)
         return ret
 
-    def create(self, name=None, network=None, project=None, device=None,
-               device_owner=None, allowed_address_pairs=None, mac_address=None,
-               fixed_ips=None, security_groups=None, is_enabled=None):
+    def create(self, name=UNDEF, network=UNDEF, project=UNDEF, device=UNDEF,
+               device_owner=UNDEF, allowed_address_pairs=UNDEF,
+               mac_address=UNDEF, fixed_ips=UNDEF, security_groups=UNDEF,
+               is_enabled=UNDEF):
         """
         Create a port
 

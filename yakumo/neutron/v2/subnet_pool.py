@@ -18,6 +18,7 @@ Resource class and its manager for subnet pools in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -40,9 +41,9 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for subnet pools in Compute API v2"""
 
-    def update(self, name=None, address_scope_id=None, prefixes=None,
-               default_prefixlen=None, min_prefixlen=None, max_prefixlen=None,
-               default_quota=None, project=None):
+    def update(self, name=UNDEF, address_scope_id=UNDEF, prefixes=UNDEF,
+               default_prefixlen=UNDEF, min_prefixlen=UNDEF,
+               max_prefixlen=UNDEF, default_quota=UNDEF, project=UNDEF):
         """
         Update a subnet pool
 
@@ -85,9 +86,10 @@ class Manager(base.Manager):
     _json_resources_key = 'subnetpools'
     _url_resource_path = '/v2.0/subnetpools'
 
-    def create(self, name=None, address_scope_id=None, prefixes=None,
-               default_prefixlen=None, min_prefixlen=None, max_prefixlen=None,
-               default_quota=None, project=None, is_shared=None):
+    def create(self, name=UNDEF, address_scope_id=UNDEF, prefixes=UNDEF,
+               default_prefixlen=UNDEF, min_prefixlen=UNDEF,
+               max_prefixlen=UNDEF, default_quota=UNDEF, project=UNDEF,
+               is_shared=UNDEF):
         """
         Create a subnet pool
 

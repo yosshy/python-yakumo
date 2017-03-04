@@ -18,6 +18,7 @@ Resource class and its manager for credentials in Identity V3 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -33,7 +34,7 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """resource class for credentials on Identity V3 API"""
 
-    def update(self, type=None, blob=None, user=None, project=None):
+    def update(self, type=UNDEF, blob=UNDEF, user=UNDEF, project=UNDEF):
         """
         Update properties of a credential
 
@@ -65,7 +66,7 @@ class Manager(base.Manager):
     _update_method = 'patch'
     _url_resource_path = '/credentials'
 
-    def create(self, type=None, blob=None, user=None, project=None):
+    def create(self, type=UNDEF, blob=UNDEF, user=UNDEF, project=UNDEF):
         """
         Register a credential
 

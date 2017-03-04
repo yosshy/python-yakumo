@@ -20,6 +20,7 @@ Resource class and its manager for servers in Compute API v2
 import time
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import exception
 from yakumo import mapper
 from yakumo import utils
@@ -271,9 +272,9 @@ class Resource(base.Resource):
         """
         self._http.post(self._url_resource_path, self._id, 'action',
                         data=utils.get_json_body(
-                           "createImage",
-                           name=name,
-                           metadata=metadata))
+                            "createImage",
+                            name=name,
+                            metadata=metadata))
 
     def backup(self, name=None, backup_type=None, rotation=None):
         """
@@ -289,10 +290,10 @@ class Resource(base.Resource):
         """
         self._http.post(self._url_resource_path, self._id, 'action',
                         data=utils.get_json_body(
-                           "createBackup",
-                           name=name,
-                           backup_type=backup_type,
-                           rotation=rotation))
+                            "createBackup",
+                            name=name,
+                            backup_type=backup_type,
+                            rotation=rotation))
 
     def live_migration(self, host=None, disk_over_commit=False):
         """
@@ -306,10 +307,10 @@ class Resource(base.Resource):
         """
         self._http.post(self._url_resource_path, self._id, 'action',
                         data=utils.get_json_body(
-                           "os-migrateLive",
-                           host=host,
-                           block_migration=False,
-                           disk_over_commit=disk_over_commit))
+                            "os-migrateLive",
+                            host=host,
+                            block_migration=False,
+                            disk_over_commit=disk_over_commit))
 
     def block_migration(self, host=None, disk_over_commit=False):
         """
@@ -323,10 +324,10 @@ class Resource(base.Resource):
         """
         self._http.post(self._url_resource_path, self._id, 'action',
                         data=utils.get_json_body(
-                           "os-migrateLive",
-                           host=host,
-                           block_migration=True,
-                           disk_over_commit=disk_over_commit))
+                            "os-migrateLive",
+                            host=host,
+                            block_migration=True,
+                            disk_over_commit=disk_over_commit))
 
     def evacuate(self, host=None, password=None, shared=True):
         """
@@ -342,10 +343,10 @@ class Resource(base.Resource):
         """
         self._http.post(self._url_resource_path, self._id, 'action',
                         data=utils.get_json_body(
-                           "evacuate",
-                           host=host,
-                           adminPass=password,
-                           onSharedStorage=shared))
+                            "evacuate",
+                            host=host,
+                            adminPass=password,
+                            onSharedStorage=shared))
 
     def reset_status(self, status=None):
         """
@@ -357,7 +358,7 @@ class Resource(base.Resource):
         """
         self._http.post(self._url_resource_path, self._id, 'action',
                         data=utils.get_json_body(
-                           "os-resetState", state=status))
+                            "os-resetState", state=status))
 
     def get_vnc_console(self, type='novnc'):
         """
@@ -370,8 +371,8 @@ class Resource(base.Resource):
         """
         ret = self._http.post(self._url_resource_path, self._id, 'action',
                               data=utils.get_json_body(
-                                 "os-getVNCConsole",
-                                 type=type))
+                                  "os-getVNCConsole",
+                                  type=type))
         return ret.get('console')
 
     def get_console_log(self, lines=50):
@@ -385,8 +386,8 @@ class Resource(base.Resource):
         """
         ret = self._http.post(self._url_resource_path, self._id, 'action',
                               data=utils.get_json_body(
-                                 "os-getConsoleOutput",
-                                 length=lines))
+                                  "os-getConsoleOutput",
+                                  length=lines))
         return ret.get('output')
 
     def get_diagnostics(self):
@@ -410,8 +411,8 @@ class Resource(base.Resource):
         """
         self._http.post(self._url_resource_path, self._id, 'action',
                         data={"resize": {
-                              "flavorRef": flavor.id,
-                              "OS-DCF:diskConfig": disk_config}})
+                            "flavorRef": flavor.id,
+                            "OS-DCF:diskConfig": disk_config}})
 
     def confirm_resize(self):
         """
@@ -537,7 +538,8 @@ class Resource(base.Resource):
         @rtype: None
         """
         for key in keys:
-            self._http.delete(self._url_resource_path, self._id, 'metadata', key)
+            self._http.delete(self._url_resource_path, self._id,
+                              'metadata', key)
         self.reload()
 
 
@@ -560,11 +562,11 @@ class Manager(base.Manager):
             ret['flavor'] = self._client.flavor.get_empty(flavor_id)
         return ret
 
-    def create(self, name=None, image=None, flavor=None,
-               personality=None, disks=None, max_count=None,
-               min_count=None, networks=None, security_groups=None,
-               availability_zone=None, metadata=None,
-               config_drive=False, key_pair=None, user_data=None):
+    def create(self, name=UNDEF, image=UNDEF, flavor=UNDEF,
+               personality=UNDEF, disks=UNDEF, max_count=UNDEF,
+               min_count=UNDEF, networks=UNDEF, security_groups=UNDEF,
+               availability_zone=UNDEF, metadata=UNDEF,
+               config_drive=UNDEF, key_pair=UNDEF, user_data=UNDEF):
         """Create a new server
 
         @keyword name: name of the new server (required)
@@ -598,8 +600,10 @@ class Manager(base.Manager):
         @return: Created server
         @rtype: yakumo.nova.v2.server.Resource
         """
-        networks = networks or []
-        disks = disks or []
+        if networks == UNDEF:
+            networks = []
+        if disks == UNDEF:
+            disks = []
         _networks = []
         for net in networks:
             _network = {}

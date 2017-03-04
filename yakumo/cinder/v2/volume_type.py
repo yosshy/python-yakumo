@@ -20,6 +20,7 @@ Resource class and its manager for volume types on Block Storage V2 API
 import copy
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -95,8 +96,8 @@ class Manager(base.Manager):
     _url_resource_list_path = '/types'
     _url_resource_path = '/types'
 
-    def create(self, name=None, description=None, metadata=None,
-               is_public=True):
+    def create(self, name=UNDEF, description=UNDEF, metadata=UNDEF,
+               is_public=UNDEF):
         """
         Register a volume type
 

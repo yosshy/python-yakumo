@@ -18,6 +18,7 @@ Resource class and its manager for users in Identity V3 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -35,8 +36,8 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """resource class for users on Identity V3 API"""
 
-    def update(self, name=None, password=None, email=None, project=None,
-               domain=None, is_enabled=None):
+    def update(self, name=UNDEF, password=UNDEF, email=UNDEF, project=UNDEF,
+               domain=UNDEF, is_enabled=UNDEF):
         """
         Update properties of a user
 
@@ -74,8 +75,8 @@ class Manager(base.Manager):
     _update_method = 'patch'
     _url_resource_path = '/users'
 
-    def create(self, name=None, password=None, email=None, project=None,
-               domain=None, is_enabled=None):
+    def create(self, name=UNDEF, password=UNDEF, email=UNDEF, project=UNDEF,
+               domain=UNDEF, is_enabled=UNDEF):
         """
         Register a user
 

@@ -18,6 +18,7 @@ Resource class and its manager for networks in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -124,15 +125,15 @@ class Manager(base.Manager):
     _json_resources_key = 'networks'
     _url_resource_path = '/os-networks'
 
-    def create(self, bridge=None, bridge_interface=None, broadcast=None,
-               cidr=None, cidr_v6=None, dhcp_server=None, dhcp_start=None,
-               dns1=None, dns2=None, is_dhcp_enabled=None, gateway=None,
-               gateway_v6=None, host=None, is_injected=None, name=None,
-               mtu=None, is_multi_host=None, is_address_shared=None,
-               netmask=None, netmask_v6=None, priority=None, project=None,
-               rxtx_base=None, updated_at=None, vlan=None,
-               vpn_private_address=None, vpn_public_address=None,
-               vpn_public_port=None):
+    def create(self, bridge=UNDEF, bridge_interface=UNDEF, broadcast=UNDEF,
+               cidr=UNDEF, cidr_v6=UNDEF, dhcp_server=UNDEF, dhcp_start=UNDEF,
+               dns1=UNDEF, dns2=UNDEF, is_dhcp_enabled=UNDEF, gateway=UNDEF,
+               gateway_v6=UNDEF, host=UNDEF, is_injected=UNDEF, name=UNDEF,
+               mtu=UNDEF, is_multi_host=UNDEF, is_address_shared=UNDEF,
+               netmask=UNDEF, netmask_v6=UNDEF, priority=UNDEF, project=UNDEF,
+               rxtx_base=UNDEF, updated_at=UNDEF, vlan=UNDEF,
+               vpn_private_address=UNDEF, vpn_public_address=UNDEF,
+               vpn_public_port=UNDEF):
         """
         Create a network
 

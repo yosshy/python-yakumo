@@ -18,6 +18,7 @@ Resource class and its manager for projects in Identity V3 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import exception
 from yakumo import mapper
 
@@ -39,8 +40,8 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """resource class for projects on Identity V3 API"""
 
-    def update(self, name=None, description=None, parent=None, domain=None,
-               is_enabled=None):
+    def update(self, name=UNDEF, description=UNDEF, parent=UNDEF, domain=UNDEF,
+               is_enabled=UNDEF):
         """
         Update properties of a project
 
@@ -190,8 +191,8 @@ class Manager(base.Manager):
     _update_method = 'patch'
     _url_resource_path = '/projects'
 
-    def create(self, name=None, description=None, parent=None, domain=None,
-               is_enabled=None):
+    def create(self, name=UNDEF, description=UNDEF, parent=UNDEF, domain=UNDEF,
+               is_enabled=UNDEF):
         """
         Register a project
 

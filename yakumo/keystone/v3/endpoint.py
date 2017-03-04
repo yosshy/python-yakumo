@@ -18,6 +18,7 @@ Resource class and its manager for endpoints in Identity V3 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -34,8 +35,8 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """resource class for endpoints on Identity V3 API"""
 
-    def update(self, name=None, description=None, interface=None, url=None,
-               region=None, service=None):
+    def update(self, name=UNDEF, description=UNDEF, interface=UNDEF, url=UNDEF,
+               region=UNDEF, service=UNDEF):
         """
         Update properties of an endpoint
 
@@ -73,8 +74,8 @@ class Manager(base.Manager):
     _update_method = 'patch'
     _url_resource_path = '/endpoints'
 
-    def create(self, name=None, description=None, interface=None, url=None,
-               region=None, service=None):
+    def create(self, name=UNDEF, description=UNDEF, interface=UNDEF, url=UNDEF,
+               region=UNDEF, service=UNDEF):
         """
         Register an endpoint
 

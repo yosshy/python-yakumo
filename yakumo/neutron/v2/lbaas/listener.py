@@ -18,6 +18,7 @@ Resource class and its manager for LBaaS listeners in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -42,9 +43,9 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for LBaaS listeners in Networking V2 API"""
 
-    def update(self, name=None, description=None, connection_limit=None,
-               default_tls_container_ref=None, sni_container_refs=None,
-               is_enabled=None):
+    def update(self, name=UNDEF, description=UNDEF, connection_limit=UNDEF,
+               default_tls_container_ref=UNDEF, sni_container_refs=UNDEF,
+               is_enabled=UNDEF):
 
         """
         Update a listener for LBaaS
@@ -83,10 +84,10 @@ class Manager(base.SubManager):
     _json_resources_key = 'listeners'
     _url_resource_path = '/v2.0/lbaas/listeners'
 
-    def create(self, name=None, description=None, protocol=None,
-               protocol_port=None, connection_limit=None,
-               default_tls_container_ref=None, sni_container_refs=None,
-               project=None, is_enabled=None):
+    def create(self, name=UNDEF, description=UNDEF, protocol=UNDEF,
+               protocol_port=UNDEF, connection_limit=UNDEF,
+               default_tls_container_ref=UNDEF, sni_container_refs=UNDEF,
+               project=UNDEF, is_enabled=UNDEF):
         """
         Create a listener for LBaaS
 

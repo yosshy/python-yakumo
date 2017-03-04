@@ -18,6 +18,7 @@ Resource class and its manager for networks in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -46,10 +47,11 @@ class Resource(base.Resource):
 
     _stable_state = ['ACTIVE', 'DOWN', 'INACTIVE', 'ERROR']
 
-    def update(self, id, name=None, is_shared=None, is_enabled=True,
-               is_external=None, is_port_security_enabled=None, segments=None,
-               provider_physical_network=None, provider_network_type=None,
-               provider_segmentation_id=None):
+    def update(self, name=UNDEF, is_shared=UNDEF, is_enabled=UNDEF,
+               is_external=UNDEF, is_port_security_enabled=UNDEF,
+               segments=UNDEF, provider_physical_network=UNDEF,
+               provider_network_type=UNDEF,
+               provider_segmentation_id=UNDEF):
         """
         Update properties of a network
 
@@ -95,10 +97,11 @@ class Manager(base.Manager):
     _json_resources_key = 'networks'
     _url_resource_path = '/v2.0/networks'
 
-    def create(self, name=None, project=None, is_shared=None, is_enabled=True,
-               is_external=None, is_port_security_enabled=None, segments=None,
-               provider_physical_network=None, provider_network_type=None,
-               provider_segmentation_id=None, vlan_transparent=None):
+    def create(self, name=UNDEF, project=UNDEF, is_shared=UNDEF,
+               is_enabled=UNDEF, is_external=UNDEF,
+               is_port_security_enabled=UNDEF, segments=UNDEF,
+               provider_physical_network=UNDEF, provider_network_type=UNDEF,
+               provider_segmentation_id=UNDEF, vlan_transparent=UNDEF):
         """
         Create a network
 

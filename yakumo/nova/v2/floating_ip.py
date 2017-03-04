@@ -18,6 +18,7 @@ Resource class and its manager for floating IPs in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -76,7 +77,7 @@ class Manager(base.Manager):
     _json_resources_key = 'floating_ips'
     _url_resource_path = '/os-floating-ips'
 
-    def allocate(self, pool=None):
+    def allocate(self, pool=UNDEF):
         """Allocate a new floating IP
 
         @keyword pool: Pool name

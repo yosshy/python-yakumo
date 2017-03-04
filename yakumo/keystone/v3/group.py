@@ -18,6 +18,7 @@ Resource class and its manager for groups in Identity V3 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -32,7 +33,7 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """resource class for groups on Identity V3 API"""
 
-    def update(self, name=None, description=None, domain=None):
+    def update(self, name=UNDEF, description=UNDEF, domain=UNDEF):
         """
         Update properties of a group
 
@@ -61,7 +62,7 @@ class Manager(base.Manager):
     _update_method = 'patch'
     _url_resource_path = '/groups'
 
-    def create(self, name=None, description=None, domain=None):
+    def create(self, name=UNDEF, description=UNDEF, domain=UNDEF):
         """
         Register a group
 

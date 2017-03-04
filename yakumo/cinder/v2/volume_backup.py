@@ -18,6 +18,7 @@ Resource class and its manager for volume backup on Block Storage V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from . import volume_transfer
 
@@ -93,8 +94,8 @@ class Manager(base.Manager):
     _url_resource_list_path = '/backups/detail'
     _url_resource_path = '/backups'
 
-    def create(self, name=None, description=None, source_volume=None,
-               container=None, is_incremental=False):
+    def create(self, name=UNDEF, description=UNDEF, source_volume=UNDEF,
+               container=UNDEF, is_incremental=UNDEF):
         """
         Create a backup of a volume
 

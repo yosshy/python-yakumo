@@ -18,6 +18,7 @@ Resource class and its manager for flavors in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -145,9 +146,9 @@ class Manager(base.Manager):
     _url_resource_path = '/flavors'
     _url_resource_list_path = '/flavors/detail'
 
-    def create(self, id=None, name=None, ram=None, vcpus=None,
-               disk=None, ephemeral=None, swap=None, rxtx_factor=None,
-               is_public=None):
+    def create(self, id=UNDEF, name=UNDEF, ram=UNDEF, vcpus=UNDEF,
+               disk=UNDEF, ephemeral=UNDEF, swap=UNDEF, rxtx_factor=UNDEF,
+               is_public=UNDEF):
         """Register a flavor
 
         @keyword id: ID of the new flavor (int)

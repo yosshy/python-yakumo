@@ -18,6 +18,7 @@ Resource class and its manager for QoS specifications on Block Storage V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -133,7 +134,7 @@ class Manager(base.Manager):
         kwargs.update(specs)
         return super(Manager, self)._json2attr(kwargs)
 
-    def create(self, name=None, consumer=None, **kwargs):
+    def create(self, name=UNDEF, consumer=UNDEF, **kwargs):
         """
         Create a snapshot of a volume
 

@@ -18,6 +18,7 @@ Resource class and its manager for aggregates in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -38,7 +39,7 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for aggregates in Compute API v2"""
 
-    def update(self, name=None, availability_zone=None):
+    def update(self, name=UNDEF, availability_zone=UNDEF):
         """
         Update properties of a host aggregate
 
@@ -131,7 +132,7 @@ class Manager(base.Manager):
             json_params['metadata'].pop('availability_zone')
         return super(Manager, self)._json2attr(json_params)
 
-    def create(self, name=None, availability_zone=None, metadata=None):
+    def create(self, name=UNDEF, availability_zone=UNDEF, metadata=UNDEF):
         """
         Create a host aggregate
 

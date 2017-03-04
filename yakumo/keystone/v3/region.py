@@ -18,6 +18,7 @@ Resource class and its manager for regions in Identity V3 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -31,7 +32,7 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """resource class for regions on Identity V3 API"""
 
-    def update(self, description=None, parent=None):
+    def update(self, description=UNDEF, parent=UNDEF):
         """
         Update properties of a region
 
@@ -57,7 +58,7 @@ class Manager(base.Manager):
     _update_method = 'patch'
     _url_resource_path = '/regions'
 
-    def create(self, id=None, description=None, parent=None):
+    def create(self, id=UNDEF, description=UNDEF, parent=UNDEF):
         """
         Register a region
 

@@ -18,6 +18,7 @@ Resource class and its manager for interface attachment in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -55,7 +56,7 @@ class Manager(base.SubManager):
     _json_resources_key = 'interfaceAttachments'
     _url_resource_path = '/servers/%s/os-interface'
 
-    def attach(self, port=None, network=None, fixed_ips=None):
+    def attach(self, port=UNDEF, network=UNDEF, fixed_ips=UNDEF):
         """Attach a interface
 
         @keyword port: Port

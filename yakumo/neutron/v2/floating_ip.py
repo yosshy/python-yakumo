@@ -18,6 +18,7 @@ Resource class and its manager for floating IPs in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -38,7 +39,7 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for floating IPs in Networking V2 API"""
 
-    def update(self, floating_ip=None, port=None):
+    def update(self, floating_ip=UNDEF, port=UNDEF):
         """
         Update a floting IP address
 
@@ -82,8 +83,8 @@ class Manager(base.Manager):
     _json_resources_key = 'floatingips'
     _url_resource_path = '/v2.0/floatingips'
 
-    def create(self, project=None, floating_network=None,
-               fixed_ip=None, floating_ip=None, port=None):
+    def create(self, project=UNDEF, floating_network=UNDEF,
+               fixed_ip=UNDEF, floating_ip=UNDEF, port=UNDEF):
         """
         Aquire a floating IP address
 

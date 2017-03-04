@@ -18,6 +18,7 @@ Resource class and its manager for Quota sets in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -80,12 +81,12 @@ class Manager(base.Manager):
         except:
             return None
 
-    def update(self, project=None, user=None, cores=None, fixed_ips=None,
-               floating_ips=None, injected_file_content_bytes=None,
-               injected_file_path_bytes=None, injected_files=None,
-               instances=None, key_pairs=None, metadata_items=None, ram=None,
-               security_group_rules=None, security_groups=None,
-               server_group_members=None, server_groups=None):
+    def update(self, project=UNDEF, user=UNDEF, cores=UNDEF, fixed_ips=UNDEF,
+               floating_ips=UNDEF, injected_file_content_bytes=UNDEF,
+               injected_file_path_bytes=UNDEF, injected_files=UNDEF,
+               instances=UNDEF, key_pairs=UNDEF, metadata_items=UNDEF,
+               ram=UNDEF, security_group_rules=UNDEF, security_groups=UNDEF,
+               server_group_members=UNDEF, server_groups=UNDEF):
         """
         Update quota set for a project
 

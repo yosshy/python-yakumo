@@ -18,6 +18,7 @@ Resource class and its manager for agents in Compute API v2
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 
 
@@ -35,8 +36,8 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for agents in Compute API v2"""
 
-    def update(self, architecture=None, hypervisor=None, os=None, url=None,
-               version=None):
+    def update(self, architecture=UNDEF, hypervisor=UNDEF, os=UNDEF, url=UNDEF,
+               version=UNDEF):
         """
         Update properties of an agent
 
@@ -70,8 +71,8 @@ class Manager(base.Manager):
     _json_resources_key = 'agents'
     _url_resource_path = '/os-agents'
 
-    def create(self, architecture=None, hypervisor=None, os=None, url=None,
-               version=None):
+    def create(self, architecture=UNDEF, hypervisor=UNDEF, os=UNDEF, url=UNDEF,
+               version=UNDEF):
         """
         Register an agent
 

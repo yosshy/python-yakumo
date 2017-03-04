@@ -18,6 +18,7 @@ Resource class and its manager for LB virtual IPs in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -43,8 +44,8 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for LB virtual IPs in Networking V2 API"""
 
-    def update(self, name=None, description=None, session_persistence=None,
-               connection_limit=None, is_enabled=None):
+    def update(self, name=UNDEF, description=UNDEF, session_persistence=UNDEF,
+               connection_limit=UNDEF, is_enabled=UNDEF):
         """
         Update a VIP for a LB pool
 
@@ -80,9 +81,10 @@ class Manager(base.SubManager):
     _json_resources_key = 'vips'
     _url_resource_path = '/v2.0/lb/vips'
 
-    def create(self, name=None, description=None, subnet=None, address=None,
-               protocol=None, protocol_port=None, session_persistence=None,
-               connection_limit=None, is_enabled=None):
+    def create(self, name=UNDEF, description=UNDEF, subnet=UNDEF,
+               address=UNDEF, protocol=UNDEF, protocol_port=UNDEF,
+               session_persistence=UNDEF, connection_limit=UNDEF,
+               is_enabled=UNDEF):
         """
         Create a VIP for a LB pool
 

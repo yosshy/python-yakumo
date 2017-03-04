@@ -18,6 +18,7 @@ Resource class and its manager for LB backend members in Networking V2 API
 """
 
 from yakumo import base
+from yakumo.constant import UNDEF
 from yakumo import mapper
 from yakumo import utils
 
@@ -37,7 +38,7 @@ ATTRIBUTE_MAPPING = [
 class Resource(base.Resource):
     """Resource class for LB backend members in Networking V2 API"""
 
-    def update(self, is_enabled=None):
+    def update(self, is_enabled=UNDEF):
         """
         Update a LB member for a pool
 
@@ -59,7 +60,8 @@ class Manager(base.SubManager):
     _json_resources_key = 'members'
     _url_resource_path = '/v2.0/lb/members'
 
-    def create(self, address=None, port=None, weight=None, is_enabled=None):
+    def create(self, address=UNDEF, port=UNDEF, weight=UNDEF,
+               is_enabled=UNDEF):
         """
         Create a LB member for a pool
 
