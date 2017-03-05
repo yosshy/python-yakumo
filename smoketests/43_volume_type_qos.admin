@@ -27,9 +27,9 @@ LOG.debug("list QoS: %s", [_.name for _ in c.volume_type_qos.list()])
 
 LOG.info("Create QoS #1")
 name = get_random_str('qos')
-with cleaner(c.volume_type_qos.create(name=name,
-                                      availability="100",
-                                      numberOfFailures="0")) as q1:
+with c.volume_type_qos.create(name=name,
+                              availability="100",
+                              numberOfFailures="0") as q1:
 
     LOG.debug("QoS #1: %s", q1.get_attrs())
     test("QoS #1 is created", q1 is not None)
@@ -53,18 +53,18 @@ with cleaner(c.volume_type_qos.create(name=name,
 
     LOG.info("Create Volume Type #1")
     name = get_random_str('volume')
-    with cleaner(c.volume_type.create(name=name,
-                                      description='volume type 1',
-                                      is_public=False)) as vt1:
+    with c.volume_type.create(name=name,
+                              description='volume type 1',
+                              is_public=False) as vt1:
 
         test("Volume Type #1 is created", vt1 is not None)
         test("Volume Type #1 name is " + name, vt1.name == name)
 
         LOG.info("Create Volume Type #2")
         name = get_random_str('volume')
-        with cleaner(c.volume_type.create(name=name,
-                                          description='volume type 2',
-                                          is_public=False)) as vt2:
+        with c.volume_type.create(name=name,
+                                  description='volume type 2',
+                                  is_public=False) as vt2:
 
             test("Volume Type #2 is created", vt2 is not None)
             test("Volume Type #2 name is " + name, vt2.name == name)

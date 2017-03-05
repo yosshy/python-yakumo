@@ -81,6 +81,16 @@ class Resource(object):
                 setattr(self, attr,
                         sub_manager(self, *args, **kwargs))
 
+    def __enter__(self):
+        return self
+
+    def __exit__(self, type, value, tb):
+        try:
+            self.delete()
+            self.wait_for_finished()
+        except:
+            pass
+
     def __eq__(self, other):
         if not isinstance(other, Resource):
             return False

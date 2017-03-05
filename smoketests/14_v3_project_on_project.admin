@@ -34,28 +34,28 @@ LOG.debug("list projects: %s", [_.name for _ in c.project.list()])
 
 LOG.info("Create Domain #1")
 name = get_random_str('domain')
-with cleaner(c.domain.create(name=name,
-                             description='domain 1',
-                             is_enabled=True)) as d:
+with c.domain.create(name=name,
+                     description='domain 1',
+                     is_enabled=True) as d:
 
     test("Doamin #1: name is %s" % name, d.name == name)
 
     LOG.info("Create Project #1")
     name = get_random_str('project')
-    with cleaner(c.project.create(name=name,
-                                  description='project 1',
-                                  domain=d,
-                                  is_enabled=True)) as p1:
+    with c.project.create(name=name,
+                          description='project 1',
+                          domain=d,
+                          is_enabled=True) as p1:
 
         test("Project #1: name is %s" % name, p1.name == name)
 
         LOG.info("Create Project #2")
         name = get_random_str('project')
-        with cleaner(c.project.create(name=name,
-                                      description='project 2',
-                                      domain=d,
-                                      parent=p1,
-                                      is_enabled=False)) as p2:
+        with c.project.create(name=name,
+                              description='project 2',
+                              domain=d,
+                              parent=p1,
+                              is_enabled=False) as p2:
 
             test("Project #2: name is %s" % name, p2.name == name)
             test("Project #2: description is 'project 2'",

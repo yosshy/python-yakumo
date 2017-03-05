@@ -32,10 +32,10 @@ LOG.debug("list endpoints: %s", c.endpoint.list())
 
 LOG.info("Create Service #1")
 name = get_random_str('service')
-with cleaner(c.service.create(name=name,
-                              type='type1',
-                              description='service 1',
-                              is_enabled=False)) as s:
+with c.service.create(name=name,
+                      type='type1',
+                      description='service 1',
+                      is_enabled=False) as s:
 
     test("Service #1: name is %s" % name, s.name == name)
     test("Service #1: type is 'type1'", s.type == 'type1')
@@ -53,8 +53,7 @@ with cleaner(c.service.create(name=name,
 
     LOG.info("Create Region #1")
     region_id = get_random_str('region')
-    with cleaner(c.region.create(id=region_id,
-                                 description='region 1')) as r:
+    with c.region.create(id=region_id, description='region 1') as r:
 
         test("Region #1: id is %s" % region_id, r.id == region_id)
         test("Region #1: description is 'region 1'",
@@ -69,10 +68,10 @@ with cleaner(c.service.create(name=name,
         LOG.info("Create Endpoints")
         name = get_random_str('endpoint')
         url = 'http://%s/v1/public' % name
-        with cleaner(c.endpoint.create(url=url,
-                                       interface='public',
-                                       region=r,
-                                       service=s)) as e:
+        with c.endpoint.create(url=url,
+                               interface='public',
+                               region=r,
+                               service=s) as e:
 
             test("Endpoints #1: service is %s" % s.name, e.service == s)
             test("Endpoints #1: region  is %s" % r.id, e.region == r)

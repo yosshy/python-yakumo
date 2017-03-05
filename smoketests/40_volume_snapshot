@@ -26,11 +26,11 @@ LOG.info("Create Volume #1")
 name = get_random_str('volume')
 i = c.image.find_one(name='cirros')
 metadata = {'foo': 'bar', 'foo2': 'bar2'}
-with cleaner(c.volume.create(name=name,
-                             description="volume 1",
-                             source=i,
-                             metadata=metadata,
-                             size=1)) as v1:
+with c.volume.create(name=name,
+                     description="volume 1",
+                     source=i,
+                     metadata=metadata,
+                     size=1) as v1:
 
     test("Volume #1 is created", v1 is not None)
 
@@ -62,11 +62,11 @@ with cleaner(c.volume.create(name=name,
     LOG.info("Create Snapshot #1 from Volume #1")
     name = get_random_str('snapshot')
     metadata = {'foo': 'bar', 'foo2': 'bar2'}
-    with cleaner(c.volume_snapshot.create(name=name,
-                                          description="snapshot 1",
-                                          metadata=metadata,
-                                          force=True,
-                                          source=v1)) as s:
+    with c.volume_snapshot.create(name=name,
+                                  description="snapshot 1",
+                                  metadata=metadata,
+                                  force=True,
+                                  source=v1) as s:
 
         test("Snapshot #1 is created", s is not None)
 
@@ -97,9 +97,9 @@ with cleaner(c.volume.create(name=name,
 
         LOG.info("Create Volume #2 from Snapshot #1")
         name = get_random_str('volume')
-        with cleaner(c.volume.create(name=name,
-                                     description="volume 2",
-                                     source=s)) as v2:
+        with c.volume.create(name=name,
+                             description="volume 2",
+                             source=s) as v2:
 
             test("Volume #2 is created", v2 is not None)
 
@@ -116,9 +116,7 @@ with cleaner(c.volume.create(name=name,
 
     LOG.info("Create Volume #3 from Volume #1")
     name = get_random_str('volume')
-    with cleaner(c.volume.create(name=name,
-                                 description="volume 3",
-                                 source=v1)) as v3:
+    with c.volume.create(name=name, description="volume 3", source=v1) as v3:
 
         test("Volume #3 is created", v3 is not None)
 

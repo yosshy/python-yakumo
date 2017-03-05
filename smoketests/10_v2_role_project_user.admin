@@ -34,17 +34,16 @@ LOG.debug("list users: %s", [_.name for _ in c.user.list()])
 
 LOG.info("Create Role #1")
 name = get_random_str('role')
-with cleaner(c.role.create(name=name,
-                           description='role 1')) as r:
+with c.role.create(name=name, description='role 1') as r:
 
     test("Role #1: name is %s" % name, r.name == name)
     test("Role #1: description is 'role 1'", r.description == 'role 1')
 
     LOG.info("Create a project")
     name = get_random_str('project')
-    with cleaner(c.project.create(name=name,
-                                  description='project 1',
-                                  is_enabled=False)) as p:
+    with c.project.create(name=name,
+                          description='project 1',
+                          is_enabled=False) as p:
 
         test("Project #1: name is %s" % name, p.name == name)
         test("Project #1: description is 'project 1'", p.description == 'project 1')
@@ -62,11 +61,11 @@ with cleaner(c.role.create(name=name,
         LOG.info("Create a user")
         name = get_random_str('user')
         password = get_random_str('pass')
-        with cleaner(c.user.create(name=name,
-                                   username='user 1',
-                                   password=password,
-                                   project=p,
-                                   is_enabled=False)) as u:
+        with c.user.create(name=name,
+                           username='user 1',
+                           password=password,
+                           project=p,
+                           is_enabled=False) as u:
 
             test("User #1: name is %s" % name, u.name == name)
             test("User #1: username is 'user 1'", u.username == 'user 1')

@@ -25,10 +25,10 @@ LOG.debug("list image: %s", [_.name for _ in c.image.list()])
 LOG.info("Create Volume #1")
 name = get_random_str('volume')
 i = c.image.find_one(name='cirros')
-with cleaner(c.volume.create(name=name,
-                             description="volume 1",
-                             source=i,
-                             size=1)) as v1:
+with c.volume.create(name=name,
+                     description="volume 1",
+                     source=i,
+                     size=1) as v1:
 
     test("Volume #1 is created", v1 is not None)
 
@@ -41,7 +41,7 @@ with cleaner(c.volume.create(name=name,
 
     LOG.info("Create Image #1 from Volume #1")
     name = get_random_str('image')
-    with cleaner(v1.upload(name=name, disk_format="raw")) as i:
+    with v1.upload(name=name, disk_format="raw") as i:
 
         LOG.debug("list image: %s", [_.name for _ in c.image.list()])
 
@@ -56,10 +56,10 @@ with cleaner(c.volume.create(name=name,
 
         LOG.info("Create Volume #2 from Image #1")
         name = get_random_str('volume')
-        with cleaner(c.volume.create(name=name,
-                                     description="volume 2",
-                                     source=i,
-                                     size=1)) as v2:
+        with c.volume.create(name=name,
+                             description="volume 2",
+                             source=i,
+                             size=1) as v2:
 
             test("Volume #2 is created", v2 is not None)
 
