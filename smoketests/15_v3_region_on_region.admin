@@ -31,16 +31,15 @@ LOG.debug("list regions: %s", c.region.list())
 
 LOG.info("Create Region #1")
 region_id = get_random_str('region')
-with cleaner(c.region.create(id=region_id,
-                             description='region 1')) as r1:
+with c.region.create(id=region_id, description='region 1') as r1:
 
     test("Region #1: id is %s" % region_id, r1.id == region_id)
 
     LOG.info("Create Region #1")
     region_id = get_random_str('region')
-    with cleaner(c.region.create(id=region_id,
-                                 parent=r1,
-                                 description='region 2')) as r2:
+    with c.region.create(id=region_id,
+                         parent=r1,
+                         description='region 2') as r2:
 
         test("Region #2: id is %s" % region_id, r2.id == region_id)
         test("Region #2: description is 'region 2'",

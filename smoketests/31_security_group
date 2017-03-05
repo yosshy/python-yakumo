@@ -28,8 +28,7 @@ LOG.debug("list security groups: %s",
 
 LOG.info("Create Security Group #1")
 name = get_random_str('security_group')
-with cleaner(c.security_group.create(name=name,
-                                     description='securty group 1')) as sg:
+with c.security_group.create(name=name, description='securty group 1') as sg:
 
     LOG.debug("list security groups: %s",
               [_.name for _ in c.security_group.list()])
@@ -40,12 +39,12 @@ with cleaner(c.security_group.create(name=name,
                                  for _ in sg.rules.list()])
 
     LOG.info("Create Rule #1")
-    with cleaner(sg.rules.create(direction='ingress',
-                                 ethertype='IPv4',
-                                 port_range_min=22,
-                                 port_range_max=22,
-                                 protocol='tcp',
-                                 remote_ip_prefix='0.0.0.0/0')) as sgr:
+    with sg.rules.create(direction='ingress',
+                         ethertype='IPv4',
+                         port_range_min=22,
+                         port_range_max=22,
+                         protocol='tcp',
+                         remote_ip_prefix='0.0.0.0/0') as sgr:
 
         LOG.debug("list rules: %s",
                   [(_.direction, _.port_range_min, _.protocol)

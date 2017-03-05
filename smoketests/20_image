@@ -40,12 +40,12 @@ SOURCE_IMAGE = './images/cirros-0.3.5-x86_64-disk.img'
 LOG.info("Create an image")
 
 name = get_random_str('image')
-with cleaner(c.image.create(name=name,
-                            file=SOURCE_IMAGE,
-                            container_format='bare',
-                            disk_format='qcow2',
-                            tags=['tag1'],
-                            os_type='linux')) as m:
+with c.image.create(name=name,
+                    file=SOURCE_IMAGE,
+                    container_format='bare',
+                    disk_format='qcow2',
+                    tags=['tag1'],
+                    os_type='linux') as m:
     LOG.debug("wait for created")
     m.wait_for_finished()
 

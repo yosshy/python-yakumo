@@ -38,9 +38,7 @@ LOG.debug("list servers: %s", [_.name for _ in c.server.list()])
 
 LOG.info("Create Volume #1")
 name = get_random_str('volume')
-with cleaner(c.volume.create(name=name,
-                             source=i,
-                             size=1)) as v:
+with c.volume.create(name=name, source=i, size=1) as v:
 
     LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
 
@@ -55,11 +53,11 @@ with cleaner(c.volume.create(name=name,
 
     LOG.info("Create Server #1 with Volume #1")
     name = get_random_str('server')
-    with cleaner(c.server.create(name=name,
-                                 networks=[n],
-                                 disks=[{'source': v}],
-                                 flavor=f,
-                                 key_pair=k)) as s:
+    with c.server.create(name=name,
+                         networks=[n],
+                         disks=[{'source': v}],
+                         flavor=f,
+                         key_pair=k) as s:
 
         LOG.debug("list servers: %s", [_.name for _ in c.server.list()])
 

@@ -30,9 +30,9 @@ hosts = [_.host for _ in c.nova.service.find(binary='nova-compute')]
 
 LOG.info("Create Aggregate #1")
 name = get_random_str('aggregate')
-with cleaner(c.aggregate.create(name=name,
-                                availability_zone='foo',
-                                metadata=metadata)) as a:
+with c.aggregate.create(name=name,
+                        availability_zone='foo',
+                        metadata=metadata) as a:
 
     LOG.debug("list aggregates: %s", [_.name for _ in c.aggregate.list()])
 

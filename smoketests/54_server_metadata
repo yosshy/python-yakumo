@@ -43,13 +43,13 @@ LOG.info("Metadata: %s", metadata)
 
 LOG.info("Create Server #1")
 name = get_random_str('server')
-with cleaner(c.server.create(name=name,
-                             networks=[n],
-                             image=i,
-                             flavor=f,
-                             availability_zone=az,
-                             metadata=metadata,
-                             key_pair=k)) as s:
+with c.server.create(name=name,
+                     networks=[n],
+                     image=i,
+                     flavor=f,
+                     availability_zone=az,
+                     metadata=metadata,
+                     key_pair=k) as s:
 
     LOG.debug("list servers: %s", [_.name for _ in c.server.list()])
 

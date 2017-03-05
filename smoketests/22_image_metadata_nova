@@ -41,12 +41,12 @@ LOG.info("Create an image")
 
 name = get_random_str('image')
 metadata = {'foo': 'bar', 'foo2': 'bar2'}
-with cleaner(c.image.create(name=name,
-                            file=SOURCE_IMAGE,
-                            container_format='bare',
-                            disk_format='qcow2',
-                            tags=['tag1'],
-                            **metadata)) as i:
+with c.image.create(name=name,
+                    file=SOURCE_IMAGE,
+                    container_format='bare',
+                    disk_format='qcow2',
+                    tags=['tag1'],
+                    **metadata) as i:
     LOG.debug("wait for created")
     i.wait_for_finished()
 
