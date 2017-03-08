@@ -28,9 +28,6 @@ def main(c, image=None):
 
     LOG.debug("image: %s", image)
 
-    LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
-    LOG.debug("list snapshots: %s", [_.name for _ in c.volume_snapshot.list()])
-
     LOG.info("Create Volume #1")
     name = get_random_str('volume')
     metadata = {'foo': 'bar', 'foo2': 'bar2'}
@@ -141,13 +138,15 @@ def main(c, image=None):
 
     test("Volume #1 is deleted", v1 not in c.volume.list())
 
-    LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
-    LOG.debug("list snapshots: %s", [_.name for _ in c.volume_snapshot.list()])
-
-    show_test_summary()
-
 
 if __name__ == '__main__':
     c = utils.get_client()
     i = c.image.find_one(name=IMAGE_NAME)
+
+    LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
+    LOG.debug("list snapshots: %s", [_.name for _ in c.volume_snapshot.list()])
     main(c, image=i)
+    LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
+    LOG.debug("list snapshots: %s", [_.name for _ in c.volume_snapshot.list()])
+
+    show_test_summary()

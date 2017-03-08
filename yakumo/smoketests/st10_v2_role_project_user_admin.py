@@ -30,10 +30,6 @@ def main(c):
     if c._session.config[u'identity_api_version'] != '2.0':
         return
 
-    LOG.debug("list roles: %s", [_.name for _ in c.role.list()])
-    LOG.debug("list projects: %s", [_.name for _ in c.project.list()])
-    LOG.debug("list users: %s", [_.name for _ in c.user.list()])
-
     LOG.info("Create Role #1")
     name = get_random_str('role')
     with c.role.create(name=name, description='role 1') as r:
@@ -96,11 +92,16 @@ def main(c):
                 LOG.info("Revoke Role #1 from User #1 for Project #1")
                 p.revoke_roles(users=u, roles=r)
 
+
+if __name__ == '__main__':
+    c = utils.get_client()
+
     LOG.debug("list roles: %s", [_.name for _ in c.role.list()])
     LOG.debug("list projects: %s", [_.name for _ in c.project.list()])
     LOG.debug("list users: %s", [_.name for _ in c.user.list()])
+    main(c)
+    LOG.debug("list roles: %s", [_.name for _ in c.role.list()])
+    LOG.debug("list projects: %s", [_.name for _ in c.project.list()])
+    LOG.debug("list users: %s", [_.name for _ in c.user.list()])
+
     show_test_summary()
-
-
-if __name__ == '__main__':
-    main(utils.get_client())

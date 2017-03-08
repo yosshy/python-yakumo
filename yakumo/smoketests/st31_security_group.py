@@ -28,9 +28,6 @@ FIXED_IP = '192.168.35.100'
 
 def main(c):
 
-    LOG.debug("list security groups: %s",
-              [_.name for _ in c.security_group.list()])
-
     LOG.info("Create Security Group #1")
     name = get_random_str('security_group')
     with c.security_group.create(name=name,
@@ -75,11 +72,14 @@ def main(c):
 
     test("security_group #1 is gone", sg not in c.security_group.list())
 
+
+if __name__ == '__main__':
+    c = utils.get_client()
+
+    LOG.debug("list security groups: %s",
+              [_.name for _ in c.security_group.list()])
+    main(c)
     LOG.debug("list security_groups: %s",
               [_.name for _ in c.security_group.list()])
 
     show_test_summary()
-
-
-if __name__ == '__main__':
-    main(utils.get_client())

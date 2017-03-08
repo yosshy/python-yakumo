@@ -23,10 +23,6 @@ from yakumo import utils
 
 def main(c):
 
-    LOG.debug("list volume types: %s", [_.name for _ in c.volume_type.list()])
-    LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
-    LOG.debug("list QoS: %s", [_.name for _ in c.volume_type_qos.list()])
-
     LOG.info("Create Volume Type #1")
     name = get_random_str('volume')
     i = c.image.find_one(name='cirros')
@@ -39,14 +35,14 @@ def main(c):
         test("Volume Type #1 is created", vt1 is not None)
         test("Volume Type #1 name is " + name, vt1.name == name)
 
-    # properties
+        # properties
 
         name = get_random_str('volume')
         vt1.update(name=name)
 
         test("Volume Type #1 has a new name", vt1.name == name)
 
-    # metadata operation
+        # metadata operation
 
         LOG.debug("Set/unset metadata")
 
@@ -68,7 +64,7 @@ def main(c):
         LOG.debug("Updated metadata: %s", vt1.metadata)
         test("Metadata has %s" % metadata, vt1.metadata == metadata)
 
-    # Volume
+        # Volume
 
         LOG.info("Create Volume #1")
         name = get_random_str('volume')
@@ -88,12 +84,16 @@ def main(c):
 
     test("Volume Type #1 is deleted", vt1 not in c.volume.list())
 
+
+if __name__ == '__main__':
+    c = utils.get_client()
+
+    LOG.debug("list volume types: %s", [_.name for _ in c.volume_type.list()])
+    LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
+    LOG.debug("list QoS: %s", [_.name for _ in c.volume_type_qos.list()])
+    main(c)
     LOG.debug("list volume types: %s", [_.name for _ in c.volume_type.list()])
     LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
     LOG.debug("list QoS: %s", [_.name for _ in c.volume_type_qos.list()])
 
     show_test_summary()
-
-
-if __name__ == '__main__':
-    main(utils.get_client())

@@ -37,61 +37,7 @@ FLAVOR_NAME = 'm1.small'
 AZ_NAME = 'nova'
 
 
-def main(c):
-
-    for t in KEYSTONE_TESTS:
-        try:
-            LOG.info("%s: Started", t.__doc__)
-            t.main(c)
-            LOG.info("%s: Finished successfully", t.__doc__)
-        except Exception as e:
-            LOG.exception("%s: Error occured: %s", t.__doc__, e)
-
-    project_name = get_random_str('test')
-    user_name = get_random_str('test')
-    password = get_random_str('pass')
-
-    config = copy.copy(c._session.config)
-    config['auth']['project_name'] = project_name
-    config['auth']['username'] = user_name
-    config['auth']['password'] = password
-    r = c.role.find_one(name='_member_')
-
-    if config['identity_api_version'] == '2.0':
-        with c.project.create(name=project_name,
-                              description='test project',
-                              is_enabled=True) as p:
-            with c.user.create(name=user_name,
-                               username='test user',
-                               password=password,
-                               project=p,
-                               is_enabled=True) as u:
-                p.grant_roles(users=u, roles=r)
-                c2 = Client(**config)
-                tenant_tests(c, c2)
-
-            test("User #1 is deleted", u not in c.user.list())
-        test("Project #1 is deleted", p not in c.project.list())
-
-    elif config['identity_api_version'] == '3':
-        d = c.domain.find_one(name=config['project_domain_name'])
-        with c.project.create(name=project_name,
-                              description='test project',
-                              domain=d,
-                              is_enabled=True) as p:
-            with c.user.create(name=user_name,
-                               password=password,
-                               domain=d,
-                               is_enabled=True) as u:
-                p.grant_roles(users=u, roles=r)
-                c2 = Client(**config)
-                tenant_tests(c, c2)
-
-            test("User #1 is deleted", u not in c.user.list())
-        test("Project #1 is deleted", p not in c.project.list())
-
-
-def tenant_tests(c, c2):
+def run_tenant_tests(c, c2):
 
     for t in GLANCE_TESTS + NEUTRON_TESTS + CINDER_TESTS:
         try:
@@ -168,7 +114,62 @@ def tenant_tests(c, c2):
     test("Network #1 is deleted", n1 not in c2.network.list())
     test("Network #2 is deleted", n2 not in c2.network.list())
 
-if __name__ == '__main__':
+
+def run_tests(c):
+
+    for t in KEYSTONE_TESTS:
+        try:
+            LOG.info("%s: Started", t.__doc__)
+            t.main(c)
+            LOG.info("%s: Finished successfully", t.__doc__)
+        except Exception as e:
+            LOG.exception("%s: Error occured: %s", t.__doc__, e)
+
+    project_name = get_random_str('test')
+    user_name = get_random_str('test')
+    password = get_random_str('pass')
+
+    config = copy.copy(c._session.config)
+    config['auth']['project_name'] = project_name
+    config['auth']['username'] = user_name
+    config['auth']['password'] = password
+    r = c.role.find_one(name='_member_')
+
+    if config['identity_api_version'] == '2.0':
+        with c.project.create(name=project_name,
+                              description='test project',
+                              is_enabled=True) as p:
+            with c.user.create(name=user_name,
+                               username='test user',
+                               password=password,
+                               project=p,
+                               is_enabled=True) as u:
+                p.grant_roles(users=u, roles=r)
+                c2 = Client(**config)
+                run_tenant_tests(c, c2)
+
+            test("User #1 is deleted", u not in c.user.list())
+        test("Project #1 is deleted", p not in c.project.list())
+
+    elif config['identity_api_version'] == '3':
+        d = c.domain.find_one(name=config['project_domain_name'])
+        with c.project.create(name=project_name,
+                              description='test project',
+                              domain=d,
+                              is_enabled=True) as p:
+            with c.user.create(name=user_name,
+                               password=password,
+                               domain=d,
+                               is_enabled=True) as u:
+                p.grant_roles(users=u, roles=r)
+                c2 = Client(**config)
+                run_tenant_tests(c, c2)
+
+            test("User #1 is deleted", u not in c.user.list())
+        test("Project #1 is deleted", p not in c.project.list())
+
+
+def main():
     c = utils.get_client()
 
     LOG.debug("list networks: %s", [_.name for _ in c.network.list()])
@@ -177,7 +178,7 @@ if __name__ == '__main__':
     LOG.debug("list servers: %s", [_.name for _ in c.server.list()])
     LOG.debug("list key pairs: %s", [_.name for _ in c.key_pair.list()])
     LOG.debug("list images: %s", [_.name for _ in c.image.list()])
-    main(c)
+    run_tests(c)
     LOG.debug("list networks: %s", [_.name for _ in c.network.list()])
     LOG.debug("list subnets: %s", [_.name for _ in c.subnet.list()])
     LOG.debug("list routers: %s", [_.name for _ in c.router.list()])
@@ -185,3 +186,6 @@ if __name__ == '__main__':
     LOG.debug("list key pairs: %s", [_.name for _ in c.key_pair.list()])
     LOG.debug("list images: %s", [_.name for _ in c.image.list()])
     show_test_summary()
+
+if __name__ == '__main__':
+    main()
