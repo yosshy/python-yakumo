@@ -17,6 +17,9 @@
 Resource class and its manager for key pairs in Compute API v2
 """
 
+import os
+import stat
+
 from yakumo import base
 from yakumo.constant import UNDEF
 from yakumo import mapper
@@ -27,11 +30,9 @@ ATTRIBUTE_MAPPING = [
     ('name', 'name', mapper.Noop),
     ('fingerprint', 'fingerprint', mapper.Noop),
     ('public_key', 'public_key', mapper.Noop),
+    ('private_key', 'private_key', mapper.Noop),
+    ('type', 'type', mapper.Noop),
     ('user', 'user_id', mapper.Resource('user')),
-    ('created_at', 'created_at', mapper.DateTime),
-    ('updated_at', 'updated_at', mapper.DateTime),
-    ('deleted_at', 'deleted_at', mapper.DateTime),
-    ('is_deleted', 'deleted', mapper.Noop),
 ]
 
 
@@ -51,7 +52,8 @@ class Manager(base.Manager):
     _json_resources_key = 'keypairs'
     _url_resource_path = '/os-keypairs'
 
-    def create(self, name=UNDEF, public_key=UNDEF):
+    def create(self, name=UNDEF, public_key=UNDEF, private_key_file=UNDEF,
+               type=UNDEF, user=UNDEF):
         """
         Register a SSH public key
 
@@ -59,10 +61,26 @@ class Manager(base.Manager):
         @type name: str
         @keyword public_key: content of SSH public key
         @type public_key: str
+        @keyword type: 'ssh' or 'x509'
+        @type type: str
+        @keyword user: Owner
+        @type user: yakumo.user.Resource
         @return: Registered key
         @rtype: yakumo.nova.v2.key_pair.Resource
         """
-        return super(Manager, self).create(name=name, public_key=public_key)
+        kwargs = dict(name=name,
+                      public_key=public_key,
+                      type=type,
+                      user=user)
+        json_params = self._attr2json(kwargs)
+        ret = self._http.post(self._url_resource_path,
+                              data={self._json_resource_key: json_params})
+        attrs = self._json2attr(ret[self._json_resource_key])
+        if 'private_key' in attrs and private_key_file != UNDEF:
+            with open(private_key_file, "w") as f:
+                f.write(attrs['private_key'])
+            os.chmod(private_key_file, stat.S_IRUSR)
+        return self.resource_class(self, **attrs)
 
     def _find_gen(self, **kwargs):
         ret = self._http.get(self._url_resource_list_path)

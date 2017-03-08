@@ -3,9 +3,9 @@
 DIR=`dirname $0`
 
 if [ -n "$1" ]; then
-        TESTS=${DIR}/yakumo/smoketests/$1*.py
+        TESTS=${DIR}/yakumo/smoketests/st$1*.py
 else
-        TESTS=${DIR}/yakumo/smoketests/*.py
+        TESTS=${DIR}/yakumo/smoketests/st*.py
 fi
 
 export PYTHONPATH=${DIR}
