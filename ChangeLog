@@ -1,9 +1,13 @@
 CHANGES
 =======
 
+* setup: added yakumo_run_tests command
+* smoketests: refactored
+
 0.7.0
 -----
 
+* ChangeLog: updated
 * ChangeLog: updated
 * doc: updated
 * base: don't wait for finish when _stable_state is empty
