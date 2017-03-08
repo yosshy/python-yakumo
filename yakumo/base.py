@@ -236,6 +236,8 @@ class Resource(object):
         @type interval: int
         @rtype: None
         """
+        if self._stable_state == []:
+            return
         for i in range(count):
             time.sleep(interval)
             try:
