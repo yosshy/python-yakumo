@@ -2,6 +2,39 @@ CHANGES
 =======
 
 * doc: updated
+* smoketests: renamed *.admin.py as *_admin.py
+* smoketests: moved into yakumo/
+* smoketests: added .py suffix
+* smoketest: remove cleaner()
+* base: added __enter__ and __exit__ for Resource
+
+0.6.0
+-----
+
+* requirements: added pbr
+* ossh: added --version argument
+* doc: updated
+* smoketest/14,15: added for hierarchical regions and projects
+* all: applied UNDEF to arguments
+* smoketest/13: added for services/regions/endpoints in keystone.v3
+* smoketest/12: added for domain/project/group/user in keystone.v3
+* smoketest/11: added Identity API version checke
+* smoketest/10: added Identity API version checker
+* keystone.v2: improved service and endpoint
+* smoketest: display raised exceptions
+* keystone.v3: add grant_role() and revoke_role() to project
+* keystone.v2: add grant_role() and revoke_role()
+
+0.5.1
+-----
+
+* Patched CloudConfig.get_session_endpoint() for Identity admin endpoint
+
+0.5
+---
+
+* ChangeLog: updated
+* doc: updated
 * smoketest: applied the same test pattern
 * cinder.v1.snapshot: added metadata APIs
 * cinder.v1.volume: added metadata APIs and more
