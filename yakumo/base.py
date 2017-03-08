@@ -154,6 +154,8 @@ class Resource(object):
         for key in dir(self):
             if key.startswith('_'):
                 continue
+            if key in self._sub_manager_list:
+                continue
             value = getattr(self, key)
             if inspect.ismethod(value) or inspect.isfunction(value):
                 continue
@@ -234,6 +236,8 @@ class Resource(object):
         @type interval: int
         @rtype: None
         """
+        if self._stable_state == []:
+            return
         for i in range(count):
             time.sleep(interval)
             try:
