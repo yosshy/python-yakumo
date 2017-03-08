@@ -28,8 +28,7 @@ LOG.debug("list subnets: %s", [_.name for _ in c.subnet.list()])
 
 LOG.info("Create Network #1")
 name = get_random_str('network')
-with cleaner(c.network.create(name=name,
-                              is_shared=False)) as n:
+with c.network.create(name=name, is_shared=False) as n:
 
     LOG.debug("list networks: %s", [_.name for _ in c.network.list()])
 
@@ -40,12 +39,12 @@ with cleaner(c.network.create(name=name,
 
     LOG.info("Create Subnet #1")
     name = get_random_str('snapshot')
-    with cleaner(c.subnet.create(name=name,
-                                 network=n,
-                                 ip_version=4,
-                                 cidr=CIDR,
-                                 gateway_ip=GATEWAY_IP,
-                                 is_dhcp_enabled=True)) as s:
+    with c.subnet.create(name=name,
+                         network=n,
+                         ip_version=4,
+                         cidr=CIDR,
+                         gateway_ip=GATEWAY_IP,
+                         is_dhcp_enabled=True) as s:
 
         LOG.debug("list subnets: %s", [_.name for _ in c.subnet.list()])
 
@@ -53,8 +52,7 @@ with cleaner(c.network.create(name=name,
 
         LOG.info("Create Port #1")
         name = get_random_str('port')
-        with cleaner(c.port.create(name=name,
-                                   network=n)) as p1:
+        with c.port.create(name=name, network=n) as p1:
 
             LOG.debug("list ports: %s", [_.name for _ in c.port.list()])
 
@@ -64,11 +62,11 @@ with cleaner(c.network.create(name=name,
 
         LOG.info("Create Port #2")
         name = get_random_str('port')
-        with cleaner(c.port.create(name=name,
-                                   fixed_ips=[{
-                                       'ip_address': FIXED_IP,
-                                       'subnet': s}],
-                                   network=n)) as p2:
+        with c.port.create(name=name,
+                           fixed_ips=[{
+                               'ip_address': FIXED_IP,
+                               'subnet': s}],
+                           network=n) as p2:
 
             LOG.debug("list ports: %s", [_.name for _ in c.port.list()])
 

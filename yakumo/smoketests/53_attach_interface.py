@@ -62,32 +62,26 @@ LOG.debug("image: %s", i)
 n = c.network.find_one(name='private')
 LOG.debug("network: %s", n)
 
+n2 = c.network.find_one(name='private2')
+LOG.debug("network2: %s", n2)
+
 LOG.debug("list servers: %s", [_.name for _ in c.server.list()])
-LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
+LOG.debug("list ports: %s", [_.name for _ in c.port.list()])
 
 LOG.info("Create Volume #1")
 name = get_random_str('volume')
-with cleaner(c.volume.create(name=name,
-                             size=1)) as v:
+with c.port.create(name=name, network=n2) as p:
 
-    LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
-
-    test("Volume #1 is created", v is not None)
-
-    LOG.debug("wait for created")
-    v.wait_for_finished()
-
-    test("Volume #1 name is " + name, v.name == name)
-    test("Volume #1 is available", v.status == 'available')
+    test("Port #1 is created", p is not None)
 
     LOG.info("Create Server #1")
     name = get_random_str('server')
-    with cleaner(c.server.create(name=name,
-                                 networks=[n],
-                                 image=i,
-                                 flavor=f,
-                                 key_pair=k,
-                                 user_data=USER_DATA)) as s:
+    with c.server.create(name=name,
+                         networks=[n],
+                         image=i,
+                         flavor=f,
+                         key_pair=k,
+                         user_data=USER_DATA) as s:
 
         LOG.debug("list servers: %s", [_.name for _ in c.server.list()])
 
@@ -118,49 +112,79 @@ with cleaner(c.volume.create(name=name,
         LOG.debug("nics: %s", stat['nics'])
         LOG.debug("disks: %s", stat['disks'])
 
-        disks = len(stat['disks'])
-        test("/dev/vdb not found", 'vdb' not in stat['disks'])
+        eth0_mac = stat['nics']['eth0']['mac']
+        port0_mac = c.port.find_one(device=s).mac_address
+        test("eth0 is a port for Server #1", port0_mac == eth0_mac)
 
-        LOG.info("Attach Volume #1")
-        va = s.volume.attach(volume=v)
-        v.wait_for_finished()
+        test("eth1 not found", 'eth1' not in stat['nics'])
+        nics = len(stat['nics'])
 
-        test("Volume #1 is in-use", v.status == 'in-use')
-
+        LOG.info("Attach a network")
+        ia = s.interface.attach(network=n)
         for i in range(30):
             time.sleep(10)
             cl = s.get_console_log(lines=20)
             stat = get_guest_stat(cl)
 
-            if len(stat['disks']) != disks:
+            if len(stat['nics']) != nics:
                 break
 
-        test("/dev/vdb exists", 'vdb' in stat['disks'])
-        test("Volume #1 is /dev/vdb",
-             v.size == (stat['disks']['vdb']['size'] / 1024 ** 3))
+        test("eth1 exists", 'eth1' in stat['nics'])
 
-        disks = len(stat['disks'])
+        eth1_mac = stat['nics']['eth1']['mac']
+        port1_mac = [_.mac_address for _ in c.port.find(device=s)
+                     if _.mac_address != eth0_mac][0]
+        test("eth1 is the new port for Server #1", port1_mac == eth1_mac)
 
-        LOG.info("Detach Volume #1")
-        va.detach()
-        v.wait_for_finished()
+        nics = len(stat['nics'])
 
-        test("Volume #1 is available", v.status == 'available')
-
+        LOG.info("Detach a network")
+        ia.detach()
         for i in range(30):
             time.sleep(10)
             cl = s.get_console_log(lines=20)
             stat = get_guest_stat(cl)
 
-            if len(stat['disks']) != disks:
+            if len(stat['nics']) != nics:
                 break
-        test("/dev/vdb is gone", 'vdb' not in stat['disks'])
+
+        test("eth1 not found", 'eth1' not in stat['nics'])
+        nics = len(stat['nics'])
+
+        LOG.info("Attach a port")
+        ia = s.interface.attach(port=p)
+        for i in range(30):
+            time.sleep(10)
+            cl = s.get_console_log(lines=20)
+            stat = get_guest_stat(cl)
+
+            if len(stat['nics']) != nics:
+                break
+
+        test("eth1 exists", 'eth1' in stat['nics'])
+        eth1_mac = stat['nics']['eth1']['mac']
+        test("eth1 is Port #1", p.mac_address == eth1_mac)
+
+        nics = len(stat['nics'])
+
+        LOG.info("Detach a port")
+        ia.detach()
+        for i in range(30):
+            time.sleep(10)
+            cl = s.get_console_log(lines=20)
+            stat = get_guest_stat(cl)
+
+            if len(stat['nics']) != nics:
+                break
+
+        test("eth1 not found", 'eth1' not in stat['nics'])
 
     test("Server #1 is deleted", s not in c.server.list())
 
-test("Volume #1 is deleted", v not in c.volume.list())
+
+test("Port #1 is deleted", p not in c.port.list())
 
 LOG.debug("list servers: %s", [_.name for _ in c.server.list()])
-LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
+LOG.debug("list ports: %s", [_.name for _ in c.port.list()])
 
 show_test_summary()

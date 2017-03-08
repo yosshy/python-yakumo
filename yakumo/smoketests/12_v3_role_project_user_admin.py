@@ -37,9 +37,9 @@ LOG.debug("list users: %s", [_.name for _ in c.user.list()])
 
 LOG.info("Create Domain #1")
 name = get_random_str('domain')
-with cleaner(c.domain.create(name=name,
-                             description='domain 1',
-                             is_enabled=False)) as d:
+with c.domain.create(name=name,
+                     description='domain 1',
+                     is_enabled=False) as d:
 
     test("Doamin #1: name is %s" % name, d.name == name)
     test("Domain #1: description is 'domain 1'", d.description == 'domain 1')
@@ -56,16 +56,16 @@ with cleaner(c.domain.create(name=name,
 
     LOG.info("Create Role #1")
     name = get_random_str('role')
-    with cleaner(c.role.create(name=name)) as r:
+    with c.role.create(name=name) as r:
 
         test("Role #1: name is %s" % name, r.name == name)
 
         LOG.info("Create Project #1")
         name = get_random_str('project')
-        with cleaner(c.project.create(name=name,
-                                      description='project 1',
-                                      domain=d,
-                                      is_enabled=False)) as p:
+        with c.project.create(name=name,
+                              description='project 1',
+                              domain=d,
+                              is_enabled=False) as p:
 
             test("Project #1: name is %s" % name, p.name == name)
             test("Project #1: description is 'project 1'",
@@ -85,9 +85,9 @@ with cleaner(c.domain.create(name=name,
             LOG.info("Create Group #1")
             name = get_random_str('group')
             password = get_random_str('pass')
-            with cleaner(c.group.create(name=name,
-                                        description='group 1',
-                                        domain=d)) as g:
+            with c.group.create(name=name,
+                                description='group 1',
+                                domain=d) as g:
 
                 test("Group #1: name is %s" % name, g.name == name)
                 test("Group #1: description is 'group 1'",
@@ -137,11 +137,11 @@ with cleaner(c.domain.create(name=name,
                 LOG.info("Create User #1")
                 name = get_random_str('user')
                 password = get_random_str('pass')
-                with cleaner(c.user.create(name=name,
-                                           email='user@example.com',
-                                           password=password,
-                                           domain=d,
-                                           is_enabled=False)) as u:
+                with c.user.create(name=name,
+                                   email='user@example.com',
+                                   password=password,
+                                   domain=d,
+                                   is_enabled=False) as u:
 
                     test("User #1: name is %s" % name, u.name == name)
                     test("User #1: email is 'user@example.com'",

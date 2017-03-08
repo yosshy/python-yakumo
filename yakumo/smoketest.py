@@ -17,7 +17,6 @@
 
 
 import argparse
-from contextlib import contextmanager
 import logging
 import os
 import os.path
@@ -29,8 +28,7 @@ import os_client_config
 from yakumo import Client, utils
 
 
-__all__ = ('c', 'LOG', 'cleaner', 'get_random_str', 'test',
-           'show_test_summary')
+__all__ = ('c', 'LOG', 'get_random_str', 'test', 'show_test_summary')
 
 SOURCE = "abcdefghijklmnopqrstuvwxyz" \
          "ABCDEFGHIJKLMNOPQRSTUVWXYZ" \
@@ -68,23 +66,6 @@ ch.setLevel(logging.DEBUG)
 formatter = logging.Formatter('%(asctime)s %(name)s %(levelname)s %(message)s')
 ch.setFormatter(formatter)
 LOG.addHandler(ch)
-
-
-@contextmanager
-def cleaner(resource):
-    try:
-        yield resource
-    except Exception as e:
-        LOG.exception("Error occured: %s", e)
-        TEST_LOGS.append((str(e), False))
-    finally:
-        if hasattr(resource, 'name'):
-            LOG.info("Delete %s", resource.name)
-        else:
-            LOG.info("Delete %s", resource.get_id())
-        resource.delete()
-        LOG.debug("waiting for deleted")
-        resource.wait_for_finished()
 
 
 def get_random_str(prefix="test"):

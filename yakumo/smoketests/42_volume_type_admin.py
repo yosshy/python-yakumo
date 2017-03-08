@@ -27,10 +27,10 @@ LOG.info("Create Volume Type #1")
 name = get_random_str('volume')
 i = c.image.find_one(name='cirros')
 metadata = {'foo': 'bar', 'foo2': 'bar2'}
-with cleaner(c.volume_type.create(name=name,
-                                  description='volume type 1',
-                                  metadata=metadata,
-                                  is_public=False)) as vt1:
+with c.volume_type.create(name=name,
+                          description='volume type 1',
+                          metadata=metadata,
+                          is_public=False) as vt1:
 
     test("Volume Type #1 is created", vt1 is not None)
     test("Volume Type #1 name is " + name, vt1.name == name)
@@ -68,9 +68,9 @@ with cleaner(c.volume_type.create(name=name,
 
     LOG.info("Create Volume #1")
     name = get_random_str('volume')
-    with cleaner(c.volume.create(name=name,
-                                 volume_type=vt1,
-                                 size=1)) as v1:
+    with c.volume.create(name=name,
+                         volume_type=vt1,
+                         size=1) as v1:
         test("Volume #1 is created", v1 is not None)
 
         LOG.debug("wait for created")

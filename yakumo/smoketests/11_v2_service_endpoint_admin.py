@@ -32,10 +32,10 @@ LOG.debug("list endpoints: %s", c.endpoint.list())
 
 LOG.info("Create Service #1")
 name = get_random_str('service')
-with cleaner(c.service.create(name=name,
-                              type='type1',
-                              description='service 1',
-                              is_enabled=False)) as s:
+with c.service.create(name=name,
+                      type='type1',
+                      description='service 1',
+                      is_enabled=False) as s:
 
     test("Service #1: name is %s" % name, s.name == name)
     test("Service #1: type is 'type1'", s.type == 'type1')
@@ -48,12 +48,12 @@ with cleaner(c.service.create(name=name,
     public_url = 'http://%s/v1/public' % name
     internal_url = 'http://%s/v1/internal' % name
     admin_url = 'http://%s/v1/admin' % name
-    with cleaner(c.endpoint.create(public_url=public_url,
-                                   internal_url=internal_url,
-                                   admin_url=admin_url,
-                                   region=region_name,
-                                   service=s,
-                                   is_enabled=False)) as e:
+    with c.endpoint.create(public_url=public_url,
+                           internal_url=internal_url,
+                           admin_url=admin_url,
+                           region=region_name,
+                           service=s,
+                           is_enabled=False) as e:
 
         test("Endpoints #1: service is %s" % s.name, e.service == s)
         test("Endpoints #1: region name is %s" % region_name,
