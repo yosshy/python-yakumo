@@ -23,11 +23,7 @@ from yakumo import utils
 
 def main(c):
 
-    LOG.debug("list volume types: %s", [_.name for _ in c.volume_type.list()])
-    LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
-    LOG.debug("list QoS: %s", [_.name for _ in c.volume_type_qos.list()])
-
-# QoS
+    # QoS
 
     LOG.info("Create QoS #1")
     name = get_random_str('qos')
@@ -118,12 +114,16 @@ def main(c):
 
     test("QoS #1 is deleted", q1 not in c.volume.list())
 
+
+if __name__ == '__main__':
+    c = utils.get_client()
+
+    LOG.debug("list volume types: %s", [_.name for _ in c.volume_type.list()])
+    LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
+    LOG.debug("list QoS: %s", [_.name for _ in c.volume_type_qos.list()])
+    main(c)
     LOG.debug("list volume types: %s", [_.name for _ in c.volume_type.list()])
     LOG.debug("list volumes: %s", [_.name for _ in c.volume.list()])
     LOG.debug("list QoS: %s", [_.name for _ in c.volume_type_qos.list()])
 
     show_test_summary()
-
-
-if __name__ == '__main__':
-    main(utils.get_client())

@@ -31,9 +31,6 @@ def main(c):
     if c._session.config[u'identity_api_version'] != '2.0':
         return
 
-    LOG.debug("list services: %s", [_.name for _ in c.service.list()])
-    LOG.debug("list endpoints: %s", c.endpoint.list())
-
     LOG.info("Create Service #1")
     name = get_random_str('service')
     with c.service.create(name=name,
@@ -71,10 +68,14 @@ def main(c):
                  e.admin_url == admin_url)
             test("Endpoints #1: is disabled", not e.is_enabled)
 
-    LOG.debug("list service: %s", [_.name for _ in c.service.list()])
-    LOG.debug("list endpoints: %s", c.endpoint.list())
-    show_test_summary()
-
 
 if __name__ == '__main__':
-    main(utils.get_client())
+    c = utils.get_client()
+
+    LOG.debug("list services: %s", [_.name for _ in c.service.list()])
+    LOG.debug("list endpoints: %s", c.endpoint.list())
+    main(c)
+    LOG.debug("list services: %s", [_.name for _ in c.service.list()])
+    LOG.debug("list endpoints: %s", c.endpoint.list())
+
+    show_test_summary()

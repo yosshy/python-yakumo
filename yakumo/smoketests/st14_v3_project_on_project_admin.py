@@ -31,9 +31,6 @@ def main(c):
     if c._session.config[u'identity_api_version'] != '3':
         return
 
-    LOG.debug("list domains: %s", [_.name for _ in c.domain.list()])
-    LOG.debug("list projects: %s", [_.name for _ in c.project.list()])
-
     LOG.info("Create Domain #1")
     name = get_random_str('domain')
     with c.domain.create(name=name,
@@ -69,10 +66,14 @@ def main(c):
         LOG.debug("Domain #1: disabled to delete")
         d.update(is_enabled=False)
 
-    LOG.debug("list domains: %s", [_.name for _ in c.domain.list()])
-    LOG.debug("list projects: %s", [_.name for _ in c.project.list()])
-    show_test_summary()
-
 
 if __name__ == '__main__':
-    main(utils.get_client())
+    c = utils.get_client()
+
+    LOG.debug("list domains: %s", [_.name for _ in c.domain.list()])
+    LOG.debug("list projects: %s", [_.name for _ in c.project.list()])
+    main(c)
+    LOG.debug("list domains: %s", [_.name for _ in c.domain.list()])
+    LOG.debug("list projects: %s", [_.name for _ in c.project.list()])
+
+    show_test_summary()

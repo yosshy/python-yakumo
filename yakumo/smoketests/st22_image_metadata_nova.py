@@ -27,8 +27,6 @@ from yakumo import utils
 
 def main(c):
 
-    LOG.debug("list images: %s", [_.name for _ in c.image.list()])
-
     SOURCE_IMAGE = './images/cirros-0.3.5-x86_64-disk.img'
 
     LOG.info("Create an image")
@@ -69,9 +67,12 @@ def main(c):
         LOG.debug("Updated metadata: %s", ni.metadata)
         test("Metadata has %s" % metadata, ni.metadata == metadata)
 
-    LOG.debug("list images: %s", [_.name for _ in c.image.list()])
-    show_test_summary()
-
 
 if __name__ == '__main__':
-    main(utils.get_client())
+    c = utils.get_client()
+
+    LOG.debug("list images: %s", [_.name for _ in c.image.list()])
+    main(c)
+    LOG.debug("list images: %s", [_.name for _ in c.image.list()])
+
+    show_test_summary()

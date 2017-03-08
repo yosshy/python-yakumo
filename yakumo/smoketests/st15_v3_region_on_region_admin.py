@@ -31,8 +31,6 @@ def main(c):
     if c._session.config[u'identity_api_version'] != '3':
         return
 
-    LOG.debug("list regions: %s", c.region.list())
-
     LOG.info("Create Region #1")
     region_id = get_random_str('region')
     with c.region.create(id=region_id, description='region 1') as r1:
@@ -55,9 +53,12 @@ def main(c):
             r2.update(parent=None)
             test("Region #2: no parent", r2.parent is None)
 
-    LOG.debug("list regions: %s", c.region.list())
-    show_test_summary()
-
 
 if __name__ == '__main__':
-    main(utils.get_client())
+    c = utils.get_client()
+
+    LOG.debug("list regions: %s", c.region.list())
+    main(c)
+    LOG.debug("list regions: %s", c.region.list())
+
+    show_test_summary()

@@ -28,9 +28,6 @@ FIXED_IP = '192.168.35.100'
 
 def main(c):
 
-    LOG.debug("list networks: %s", [_.name for _ in c.network.list()])
-    LOG.debug("list subnets: %s", [_.name for _ in c.subnet.list()])
-
     LOG.info("Create Network #1")
     name = get_random_str('network')
     with c.network.create(name=name, is_shared=False) as n:
@@ -85,11 +82,14 @@ def main(c):
 
     test("Network #1 is gone", n not in c.network.list())
 
+
+if __name__ == '__main__':
+    c = utils.get_client()
+
+    LOG.debug("list networks: %s", [_.name for _ in c.network.list()])
+    LOG.debug("list subnets: %s", [_.name for _ in c.subnet.list()])
+    main(c)
     LOG.debug("list networks: %s", [_.name for _ in c.network.list()])
     LOG.debug("list subnets: %s", [_.name for _ in c.subnet.list()])
 
     show_test_summary()
-
-
-if __name__ == '__main__':
-    main(utils.get_client())
