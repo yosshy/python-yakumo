@@ -152,7 +152,7 @@ def run_tests(c):
         test("Project #1 is deleted", p not in c.project.list())
 
     elif config['identity_api_version'] == '3':
-        d = c.domain.find_one(name=config['project_domain_name'])
+        d = c.domain.find_one(name=config['auth']['project_domain_name'])
         with c.project.create(name=project_name,
                               description='test project',
                               domain=d,
