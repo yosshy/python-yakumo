@@ -1,6 +1,17 @@
 CHANGES
 =======
 
+* run_tests: changed the default flavor
+
+0.7.2
+-----
+
+* run_test: fixed a bug at creating temporary credential
+
+0.7.1
+-----
+
+* ChangeLog: updated
 * setup: added yakumo_run_tests command
 * smoketests: refactored
 
