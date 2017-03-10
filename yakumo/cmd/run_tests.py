@@ -33,7 +33,7 @@ GATEWAY_IP2 = '192.168.36.254'
 IMAGE_FILE = 'images/cirros-0.3.5-x86_64-disk.img'
 CONTAINER_FORMAT = 'bare'
 DISK_FORMAT = 'qcow2'
-FLAVOR_NAME = 'm1.small'
+FLAVOR_NAME = 'm1.tiny'
 AZ_NAME = 'nova'
 
 
