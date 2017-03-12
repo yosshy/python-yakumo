@@ -146,6 +146,7 @@ class Session(object):
         self.endpoints = {}
         for service in config.get_services():
             try:
+                service = service.replace('_', '-')
                 self.endpoints[service] = config.get_session_endpoint(service)
             except:
                 pass
