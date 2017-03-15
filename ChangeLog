@@ -1,6 +1,15 @@
 CHANGES
 =======
 
+* PEP8: applied
+* doc: updated
+* doc: updated
+* swift.v1: initial commit
+
+0.7.3
+-----
+
+* ChangeLog: updated
 * run_tests: changed the default flavor
 
 0.7.2
