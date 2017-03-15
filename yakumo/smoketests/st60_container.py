@@ -21,8 +21,9 @@ from yakumo.smoketest import *
 from yakumo import utils
 
 
-QUOTA_BYTES = 10 * 1024 ** 3 # 10GB
+QUOTA_BYTES = 10 * 1024 ** 3  # 10GB
 QUOTA_COUNT = 10
+
 
 def main(c):
 
