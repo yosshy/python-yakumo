@@ -1,13 +1,13 @@
-Yakumo - Yet Another Unified OpenStack Client Library
-=====================================================
+Yakumo - Pythonic Unified OpenStack Client Library
+==================================================
 
 Each OpenStack client library like python-novaclient can handle only one
 OpenStack program, so we have to use multiple client libraries/commands
-to use OpenStack platform. Yakumo is an "unified" OpenStack client
-library. Its basic usage is similar to python-novaclient and others, but
-it can handle multiple programs (Nova, Glance, Cinder, Neutron and
-Keystone now) and it's easy to manage multiple resources on the multiple
-programs with it.
+to use OpenStack platform. Yakumo is yet another "unified" OpenStack
+client library. Its basic usage is a bit similar to python-novaclient
+and others, but it can handle multiple programs (Nova, Swift Glance,
+Cinder, Neutron and Keystone now) and it's easy to manage multiple
+resources on the multiple programs with it.
 
 Yes, there is another unified OpenStack client library named
 'python-openstacksdk'. But its API style is different from
@@ -34,25 +34,25 @@ ossh has code completion capability of bpython. Type "c.":
 
 ::
 
-    >>> c.agent
-    +--------------------------------------------------------------------------------------------------------------+
-    | agent                         aggregate                     availability_zone                                |
-    | certificate                   cinder                        cloudpipe                                        |
-    | consistency_group             consistency_group_snapshot    endpoint                                         |
-    | fixed_ip                      flavor                        floating_ip                                      |
-    | floating_ip_bulk              floating_ip_dns               glance                                           |
-    | host                          hypervisor                    image                                            |
-    | key_pair                      keystone                      lb                                               |
-    | lbaas                         network                       network_quota                                    |
-    | neutron                       nova                          port                                             |
-    | project                       quota_set                     role                                             |
-    | router                        security_group                security_group_default_rule                      |
-    | server                        server_group                  service                                          |
-    | subnet                        subnet_pool                   user                                             |
-    | volume                        volume_backup                 volume_snapshot                                  |
-    | volume_transfer               volume_type                   volume_type_qos_spec                             |
-    | vpn                                                                                                          |
-    +--------------------------------------------------------------------------------------------------------------+
+    >>> c.
+    +------------------------------------------------------------------------------------------+
+    | aggregate                     availability_zone             cinder                       |
+    | cloudpipe                     consistency_group             consistency_group_snapshot   |
+    | container                     credential                    domain                       |
+    | endpoint                      fixed_ip                      flavor                       |
+    | floating_ip                   floating_ip_bulk              floating_ip_dns              |
+    | glance                        group                         hypervisor                   |
+    | image                         key_pair                      keystone                     |
+    | lb                            lbaas                         network                      |
+    | network_quota                 neutron                       nova                         |
+    | port                          project                       region                       |
+    | role                          router                        security_group               |
+    | security_group_default_rule   server                        server_group                 |
+    | service                       subnet                        subnet_pool                  |
+    | swift                         user                          volume                       |
+    | volume_backup                 volume_snapshot               volume_transfer              |
+    | volume_type                   volume_type_qos               vpn                          |
+    +------------------------------------------------------------------------------------------+
 
 c.CATEGORY.list() returns a list of resource objects:
 
