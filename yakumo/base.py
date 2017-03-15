@@ -500,6 +500,7 @@ class GlanceV2SubManager(SubManager, GlanceV2Manager):
     """Base class for sub resource managers for GlanceV2Manager."""
     pass
 
+
 class SwiftV1Resource(Resource):
     """resource class for resources on Object Storage V1 API"""
 
@@ -636,6 +637,7 @@ class SwiftV1Manager(Manager):
         for x in ret:
             if 'name' in x:
                 yield self.get_empty(x['name'])
+
 
 class SwiftV1SubManager(SubManager, SwiftV1Manager):
     """Base class for sub resource managers for GlanceV2Manager."""
