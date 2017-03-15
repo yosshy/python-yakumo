@@ -428,7 +428,7 @@ class Manager(object):
         return self.find()
 
 
-class SubManager(Manager):
+class SubManager(object):
     """Base class for sub resource managers."""
 
     def __init__(self, parent_resource, *args, **kwargs):
@@ -497,5 +497,148 @@ class GlanceV2Manager(Manager):
 
 
 class GlanceV2SubManager(SubManager, GlanceV2Manager):
+    """Base class for sub resource managers for GlanceV2Manager."""
+    pass
+
+
+class SwiftV1Resource(Resource):
+    """resource class for resources on Object Storage V1 API"""
+
+    def update(self, **kwargs):
+        """
+        Update a volume
+
+        kwargs: attributes of the resource
+        @rtype: None
+        """
+        attrs = self.get_attrs()
+        for key, value in kwargs.items():
+            if value is constant.UNDEF:
+                continue
+            attrs[key] = value
+        headers = self._attr2json(attrs)
+        self._http.post_raw(self._url_resource_path, self._id,
+                            headers=headers)
+        self.reload()
+
+    def get_metadata(self):
+        """
+        Get metadata of a volume
+
+        @return: Metadata
+        @rtype: dict
+        """
+        ret = self._http.head(self._url_resource_path, self._id)
+        attrs = self._json2attr(ret)
+        return attrs.get('metadata', {})
+
+    def set_metadata(self, **metadata):
+        """
+        Update metadata of a volume
+
+        @keyword metadata: key=value style.
+        @type metadata: dict
+        @rtype: None
+        """
+        if self.metadata is None:
+            self.metadata = {}
+        self.metadata.update(metadata)
+        self.update()
+
+    def unset_metadata(self, *keys):
+        """
+        Delete metadata of a volume
+
+        @param key: key of the metadata
+        @type keys: [str]
+        @rtype: None
+        """
+        if self.metadata is None:
+            return
+        for key in keys:
+            if key in self.metadata:
+                self.metadata.pop(key)
+        self.update()
+
+
+class SwiftV1Manager(Manager):
+    """manager class for resources on Object Storage V1 API"""
+
+    _id_attr = 'name'
+
+    def _attr2json(self, attrs):
+        metadata = attrs.pop('metadata', {})
+        result = super(SwiftV1Manager, self)._attr2json(attrs)
+        if isinstance(metadata, dict):
+            for key, value in metadata.items():
+                x_key = "x-%s-meta-%s" % (self._json_resource_key, key)
+                if x_key not in attrs:
+                    result[x_key] = value
+        return result
+
+    def _json2attr(self, json_params):
+        result = {}
+        metadata = {}
+        for key, value in json_params.items():
+            key = key.lower()
+            _map = self._to_attr_mapping.get(key)
+            if _map is not None:
+                result[_map['attr']] = _map['mapper'].to_attr(self, value)
+            else:
+                key_prefix = 'x-%s-meta-' % self._json_resource_key
+                if key.startswith(key_prefix):
+                    _key = key[len(key_prefix):]
+                    metadata[_key] = value
+        if metadata:
+            result['metadata'] = metadata
+        return result
+
+    def create(self, name, data=None, **kwargs):
+        """
+        Create a resource
+
+        kwargs: attributes of the resource
+
+        @keyword name: Resource name
+        @type name: str
+        @return: Resource object (empty)
+        @rtype: yakumo.base.Resource
+        """
+        headers = self._attr2json(kwargs)
+        self._http.put_raw(self._url_resource_path, name,
+                           headers=headers, data=data)
+        return self.get_empty(name)
+
+    def get(self, name):
+        """
+        Aquire an existing resource object
+
+        @param name: name
+        @type name: str
+        @return: Resource object
+        @rtype: yakumo.base.Resource
+        """
+        try:
+            json_params = self._http.head(
+                utils.join_path(self._url_resource_path, name))
+            json_params['name'] = name
+            attrs = self._json2attr(json_params)
+            return self.resource_class(self, **attrs)
+        except exception.NotFound:
+            raise
+        except:
+            return None
+
+    def _find_gen(self, **kwargs):
+        try:
+            ret = self._http.get(self._url_resource_path)
+        except:
+            return
+        for x in ret:
+            if 'name' in x:
+                yield self.get_empty(x['name'])
+
+
+class SwiftV1SubManager(SubManager, SwiftV1Manager):
     """Base class for sub resource managers for GlanceV2Manager."""
     pass

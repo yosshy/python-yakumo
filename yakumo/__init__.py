@@ -63,3 +63,8 @@ class Client(object):
             if self._session.config['network_api_version'] == '2':
                 import yakumo.neutron.v2
                 self.neutron = yakumo.neutron.v2.Client(self, **kwargs)
+
+        if self._session.has_endpoint('object-store'):
+            if self._session.config['object_store_api_version'] == '1':
+                import yakumo.swift.v1
+                self.swift = yakumo.swift.v1.Client(self, **kwargs)
