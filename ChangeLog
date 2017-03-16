@@ -1,6 +1,18 @@
 CHANGES
 =======
 
+* base: reverted the superclass of SubManager
+
+0.8.1
+-----
+
+* setup: updated
+* README: updated
+
+0.8.0
+-----
+
+* ChangeLog: updated
 * PEP8: applied
 * doc: updated
 * doc: updated
