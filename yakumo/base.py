@@ -428,7 +428,7 @@ class Manager(object):
         return self.find()
 
 
-class SubManager(object):
+class SubManager(Manager):
     """Base class for sub resource managers."""
 
     def __init__(self, parent_resource, *args, **kwargs):
