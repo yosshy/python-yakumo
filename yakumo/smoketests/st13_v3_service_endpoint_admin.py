@@ -19,6 +19,7 @@
 
 import hashlib
 import os
+import sys
 import tempfile
 
 from yakumo.smoketest import *
@@ -95,6 +96,8 @@ def main(c):
 
 if __name__ == '__main__':
     c = utils.get_client()
+    if c._session.config[u'identity_api_version'] != '3':
+        sys.exit(0)
 
     LOG.debug("list services: %s", [_.name for _ in c.service.list()])
     LOG.debug("list endpoints: %s", c.endpoint.list())

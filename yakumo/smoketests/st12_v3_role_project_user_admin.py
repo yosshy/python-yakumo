@@ -19,6 +19,7 @@
 
 import hashlib
 import os
+import sys
 import tempfile
 
 from yakumo.smoketest import *
@@ -197,6 +198,8 @@ def main(c):
 
 if __name__ == '__main__':
     c = utils.get_client()
+    if c._session.config[u'identity_api_version'] != '3':
+        sys.exit(0)
 
     LOG.debug("list domains: %s", [_.name for _ in c.domain.list()])
     LOG.debug("list roles: %s", [_.name for _ in c.role.list()])

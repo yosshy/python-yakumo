@@ -35,6 +35,8 @@ from . import st53_attach_interface
 from . import st54_server_metadata
 from . import st55_host_aggregate_admin
 from . import st56_key_pair
+from . import st60_container_admin
+from . import st61_object_admin
 
 
 __all__ = [
@@ -43,6 +45,7 @@ __all__ = [
     'NEUTRON_TESTS',
     'CINDER_TESTS',
     'NOVA_TESTS',
+    'SWIFT_TESTS',
 ]
 
 KEYSTONE_TESTS = [
@@ -79,4 +82,9 @@ NOVA_TESTS = [
     st54_server_metadata,
     st55_host_aggregate_admin,
     st56_key_pair,
+]
+
+SWIFT_TESTS = [
+    st60_container_admin,
+    st61_object_admin,
 ]
