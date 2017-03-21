@@ -19,6 +19,7 @@
 
 import hashlib
 import os
+import sys
 import tempfile
 from yakumo.smoketest import *
 from yakumo import utils
@@ -95,6 +96,8 @@ def main(c):
 
 if __name__ == '__main__':
     c = utils.get_client()
+    if c._session.config[u'identity_api_version'] != '2.0':
+        sys.exit(0)
 
     LOG.debug("list roles: %s", [_.name for _ in c.role.list()])
     LOG.debug("list projects: %s", [_.name for _ in c.project.list()])
