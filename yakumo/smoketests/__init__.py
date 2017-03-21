@@ -35,8 +35,8 @@ from . import st53_attach_interface
 from . import st54_server_metadata
 from . import st55_host_aggregate_admin
 from . import st56_key_pair
-from . import st60_container
-from . import st61_object
+from . import st60_container_admin
+from . import st61_object_admin
 
 
 __all__ = [
@@ -85,6 +85,6 @@ NOVA_TESTS = [
 ]
 
 SWIFT_TESTS = [
-    st60_container,
-    st61_object,
+    st60_container_admin,
+    st61_object_admin,
 ]

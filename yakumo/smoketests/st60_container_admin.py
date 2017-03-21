@@ -17,6 +17,8 @@
 """Container API Test (Container Metadata)"""
 
 
+import sys
+
 from yakumo.smoketest import *
 from yakumo import utils
 
@@ -26,6 +28,8 @@ QUOTA_COUNT = 10
 
 
 def main(c):
+    if not c._session.has_endpoint('object-store'):
+        return
 
     LOG.info("Create an container")
 
@@ -71,6 +75,8 @@ def main(c):
 
 if __name__ == '__main__':
     c = utils.get_client()
+    if not c._session.has_endpoint('object-store'):
+        sys.exit(0)
 
     LOG.debug("list containers: %s", [_.name for _ in c.container.list()])
     main(c)
