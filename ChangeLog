@@ -1,7 +1,20 @@
 CHANGES
 =======
 
+
+0.8.3
+-----
+
+* smoketests: fixed tests swift.v1
+* smoketests/st1: added Identity API version checks for run_tests.sh
+* run_tests: added smoke tests for swift.v1
+
+0.8.2
+-----
+
+* ChangeLog: updated
 * base: reverted the superclass of SubManager
+* ChangeLog: updated
 
 0.8.1
 -----
