@@ -39,7 +39,7 @@ AZ_NAME = 'nova'
 
 def run_tenant_tests(c, c2):
 
-    for t in GLANCE_TESTS + NEUTRON_TESTS + CINDER_TESTS:
+    for t in SWIFT_TESTS + GLANCE_TESTS + NEUTRON_TESTS + CINDER_TESTS:
         try:
             LOG.info("%s: Started", t.__doc__)
             if t.__name__.endswith('admin'):
