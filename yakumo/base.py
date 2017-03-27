@@ -19,6 +19,7 @@ Abstract classes for resource management
 
 import copy
 import inspect
+import six
 import time
 
 from . import constant
@@ -414,7 +415,7 @@ class Manager(object):
         @rtype: yakumo.base.Resource
         """
         try:
-            return self._find_gen(**kwargs).next()
+            return six.next(self._find_gen(**kwargs))
         except StopIteration:
             return None
 
