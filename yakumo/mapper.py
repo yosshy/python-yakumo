@@ -116,11 +116,11 @@ class Base64(object):
 
     @staticmethod
     def to_attr(manager_class, attr, do_raise=False):
-        return base64.b64decode(attr)
+        return base64.b64decode(attr.encode('ascii')).decode('utf-8')
 
     @staticmethod
     def to_json(manager_class, attr):
-        return base64.b64encode(attr)
+        return base64.b64encode(attr.encode('utf-8')).decode('ascii')
 
 
 class DateTimeClass(object):
