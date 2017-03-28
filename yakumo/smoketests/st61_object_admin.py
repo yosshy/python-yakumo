@@ -28,7 +28,7 @@ from yakumo import utils
 
 def get_md5(file):
     m = hashlib.md5()
-    with open(file) as f:
+    with open(file, 'rb') as f:
         while True:
             chunk = f.read(4096)
             if not chunk:
@@ -118,6 +118,7 @@ def main(c):
             o.replace(content_type=CONTENT_TYPE, file=FILE)
 
             # content_type won't applied on replace()
+            LOG.debug("content type: %s", o.content_type)
             test("Object #1: content type is %s" % CONTENT_TYPE2,
                  o.content_type == CONTENT_TYPE2)
             test("Object #1: MD5 checksum is %s" % MD5,

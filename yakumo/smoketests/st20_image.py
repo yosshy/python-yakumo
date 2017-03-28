@@ -27,7 +27,7 @@ from yakumo import utils
 
 def get_md5(file):
     m = hashlib.md5()
-    with open(file) as f:
+    with open(file, 'rb') as f:
         while True:
             chunk = f.read(4096)
             if not chunk:
