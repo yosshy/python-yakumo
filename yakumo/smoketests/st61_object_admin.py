@@ -21,6 +21,7 @@ import hashlib
 import os
 import sys
 import tempfile
+import time
 
 from yakumo.smoketest import *
 from yakumo import utils
@@ -73,6 +74,7 @@ def main(c):
 
             LOG.info("Update content type")
             o.update(content_type=CONTENT_TYPE2)
+            time.sleep(5)
             test("Object #1: content type is %s" % CONTENT_TYPE2,
                  o.content_type == CONTENT_TYPE2)
 
@@ -116,6 +118,7 @@ def main(c):
 
             LOG.info("Replace Object #1")
             o.replace(content_type=CONTENT_TYPE, file=FILE)
+            time.sleep(5)
 
             # content_type won't applied on replace()
             LOG.debug("content type: %s", o.content_type)
