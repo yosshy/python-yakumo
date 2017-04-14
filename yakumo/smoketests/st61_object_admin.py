@@ -21,6 +21,7 @@ import hashlib
 import os
 import sys
 import tempfile
+import time
 
 from yakumo.smoketest import *
 from yakumo import utils
@@ -28,7 +29,7 @@ from yakumo import utils
 
 def get_md5(file):
     m = hashlib.md5()
-    with open(file) as f:
+    with open(file, 'rb') as f:
         while True:
             chunk = f.read(4096)
             if not chunk:
@@ -73,6 +74,7 @@ def main(c):
 
             LOG.info("Update content type")
             o.update(content_type=CONTENT_TYPE2)
+            time.sleep(5)
             test("Object #1: content type is %s" % CONTENT_TYPE2,
                  o.content_type == CONTENT_TYPE2)
 
@@ -116,8 +118,10 @@ def main(c):
 
             LOG.info("Replace Object #1")
             o.replace(content_type=CONTENT_TYPE, file=FILE)
+            time.sleep(5)
 
             # content_type won't applied on replace()
+            LOG.debug("content type: %s", o.content_type)
             test("Object #1: content type is %s" % CONTENT_TYPE2,
                  o.content_type == CONTENT_TYPE2)
             test("Object #1: MD5 checksum is %s" % MD5,

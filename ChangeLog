@@ -1,13 +1,34 @@
 CHANGES
 =======
 
+* smoketest/61: added time.sleep(5) for updating metadata
+* smoketests: add 'rb' to open()
+* mapper: added encode() and decode() for python3
+* base: applied six to _find_gen()
+* requirements: Added simplejson and six
+* README: updated
+* ChangeLog: updated
+
+0.8.3
+-----
+
+* smoketests: fixed tests swift.v1
+* smoketests/st1: added Identity API version checks for run_tests.sh
+* run_tests: added smoke tests for swift.v1
+
+0.8.2
+-----
+
+* ChangeLog: updated
 * base: reverted the superclass of SubManager
+* ChangeLog: updated
 
 0.8.1
 -----
 
 * setup: updated
 * README: updated
+* ChangeLog: updated
 
 0.8.0
 -----
