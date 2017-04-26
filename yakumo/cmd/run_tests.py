@@ -17,6 +17,7 @@
 
 from contextlib import contextmanager
 import copy
+import os
 
 from yakumo import Client
 from yakumo.smoketest import *
@@ -25,16 +26,17 @@ from yakumo import utils
 from yakumo.smoketests import *
 
 
-CIDR1 = '192.168.35.0/24'
-CIDR2 = '192.168.36.0/24'
-GATEWAY_IP1 = '192.168.35.254'
-GATEWAY_IP2 = '192.168.36.254'
+CIDR1 = os.environ.get('CIDR1', '192.168.35.0/24')
+CIDR2 = os.environ.get('CIDR2', '192.168.36.0/24')
+GATEWAY_IP1 = os.environ.get('GATEWAY_IP1', '192.168.35.254')
+GATEWAY_IP2 = os.environ.get('GATEWAY_IP2', '192.168.36.254')
 
-IMAGE_FILE = 'images/cirros-0.3.5-x86_64-disk.img'
-CONTAINER_FORMAT = 'bare'
-DISK_FORMAT = 'qcow2'
-FLAVOR_NAME = 'm1.tiny'
-AZ_NAME = 'nova'
+IMAGE = os.environ.get('IMAGE', 'images/cirros-0.3.5-x86_64-disk.img')
+CONTAINER_FORMAT = os.environ.get('CONTAINER_FORMAT', 'bare')
+DISK_FORMAT = os.environ.get('DISK_FORMAT', 'qcow2')
+FLAVOR = os.environ.get('FLAVOR', 'm1.tiny')
+AZ = os.environ.get('AZ', 'nova')
+ROLE = os.environ.get('ROLE', '_member_')
 
 
 def run_tenant_tests(c, c2):
@@ -72,15 +74,15 @@ def run_tenant_tests(c, c2):
                 c2.router.create(name=get_random_str('router')) as r2, \
                 c2.key_pair.create(name=get_random_str('keypair')) as k, \
                 c2.image.create(name=get_random_str('image'),
-                                file=IMAGE_FILE,
+                                file=IMAGE,
                                 container_format=CONTAINER_FORMAT,
                                 disk_format=DISK_FORMAT) as i:
 
                     r1.add_interface(subnet=sn1)
                     r2.add_interface(subnet=sn2)
 
-                    f = c2.flavor.find_one(name=FLAVOR_NAME)
-                    az = c2.availability_zone.get_empty(AZ_NAME)
+                    f = c2.flavor.find_one(name=FLAVOR)
+                    az = c2.availability_zone.get_empty(AZ)
 
                     for t in NOVA_TESTS:
                         try:
@@ -133,7 +135,7 @@ def run_tests(c):
     config['auth']['project_name'] = project_name
     config['auth']['username'] = user_name
     config['auth']['password'] = password
-    r = c.role.find_one(name='_member_')
+    r = c.role.find_one(name=ROLE)
 
     if config['identity_api_version'] == '2.0':
         with c.project.create(name=project_name,
