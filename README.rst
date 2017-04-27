@@ -30,7 +30,7 @@ example,
 from environment variables. Of course, you can define another client
 object by yourself. See ossh source code for details.
 
-ossh has code completion capability of bpython. Type "c.":
+ossh has code completion capability of bpython if available. Type "c.":
 
 ::
 
@@ -53,6 +53,28 @@ ossh has code completion capability of bpython. Type "c.":
     | volume_backup                 volume_snapshot               volume_transfer              |
     | volume_type                   volume_type_qos               vpn                          |
     +------------------------------------------------------------------------------------------+
+
+You can also use built-in completion capability without bpython. Type
+"c.":
+
+::
+
+    >>> c.
+    c.aggregate                    c.image                        c.server
+    c.availability_zone            c.key_pair                     c.server_group
+    c.cinder                       c.keystone                     c.service
+    c.cloudpipe                    c.lb                           c.subnet
+    c.consistency_group            c.lbaas                        c.subnet_pool
+    c.consistency_group_snapshot   c.network                      c.swift
+    c.container                    c.network_quota                c.user
+    c.endpoint                     c.neutron                      c.volume
+    c.fixed_ip                     c.nova                         c.volume_backup
+    c.flavor                       c.port                         c.volume_snapshot
+    c.floating_ip                  c.project                      c.volume_transfer
+    c.floating_ip_bulk             c.role                         c.volume_type
+    c.floating_ip_dns              c.router                       c.volume_type_qos
+    c.glance                       c.security_group               c.vpn
+    c.hypervisor                   c.security_group_default_rule
 
 c.CATEGORY.list() returns a list of resource objects:
 
