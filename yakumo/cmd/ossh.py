@@ -66,13 +66,13 @@ def main():
         import bpython
         bpython.embed(locals_=local_vars)
     except ImportError:
-        try:
-            import code
-            import readline
-            readline.parse_and_bind("tab:complete")
-        except ImportError:
-            pass
+        import code
+        import readline
+        from yakumo import utils
+        readline.parse_and_bind("tab:complete")
+        readline.set_completer(utils.Completer(locals()).complete)
         code.interact(None, None, local_vars)
+
 
 if __name__ == '__main__':
     main()
