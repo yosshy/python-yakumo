@@ -96,12 +96,48 @@ def gen_chunk(file):
 
 class Completer(rlcompleter.Completer):
 
-    PATTERN = re.compile(r"(\w+(\.\w+)*)[\.\(](\w*)")
+    PATTERN = re.compile(r"(\w+(\.\w+)*)\.(\w*)")
+    PATTERN2 = re.compile(r"([\.\w]+)\($")
     METHOD_PATTERN = re.compile(r"^\s*(def .*?\):)", re.MULTILINE | re.DOTALL)
 
-    def __init__(self, namespace = None):
-        super(Completer, self).__init__(namespace=namespace)
-        readline.set_completer_delims(' \t\n`~!@#$%^&*)-=+[{]}\\|;:\'",<>/?')
+    def help(self):
+        line = readline.get_line_buffer().rstrip()
+        if line == '' or line[-1] != '(':
+            return
+        m = self.PATTERN2.search(line)
+        if not m:
+            return
+        try:
+            thisobject = eval(m.group(1), self.namespace)
+        except Exception:
+            return
+
+        if not inspect.ismethod(thisobject):
+            return
+        m = self.METHOD_PATTERN.match(inspect.getsource(thisobject))
+        if m:
+            print("")
+            print(m.group(1))
+            print(inspect.getdoc(thisobject).strip())
+            print(sys.ps1 + readline.get_line_buffer(), end='', flush=True)
+
+    def complete(self, text, state):
+        if self.use_main_ns:
+            self.namespace = __main__.__dict__
+
+        if text == "":
+            self.help()
+            return None
+
+        if state == 0:
+            if "." in text:
+                self.matches = self.attr_matches(text)
+            else:
+                self.matches = self.global_matches(text)
+        try:
+            return self.matches[state]
+        except IndexError:
+            return None
 
     def attr_matches(self, text):
         """
