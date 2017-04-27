@@ -1,6 +1,16 @@
 CHANGES
 =======
 
+0.10.1
+------
+
+* README: updated
+* utils.Completer: add inline help for built-in completer
+
+0.10.0
+------
+
+* ChangeLog: updated
 * doc: updated
 * ChangeLog: updated
 * README: updated
