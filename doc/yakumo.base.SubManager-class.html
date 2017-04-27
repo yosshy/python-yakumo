@@ -58,9 +58,11 @@
 <!-- ==================== CLASS DESCRIPTION ==================== -->
 <h1 class="epydoc">Class SubManager</h1><p class="nomargin-top"><span class="codelink"><a href="yakumo.base-pysrc.html#SubManager">source&nbsp;code</a></span></p>
 <pre class="base-tree">
-object --+
-         |
-        <strong class="uidshort">SubManager</strong>
+object --+    
+         |    
+   <a href="yakumo.base.Manager-class.html">Manager</a> --+
+             |
+            <strong class="uidshort">SubManager</strong>
 </pre>
 
 <dl><dt>Known Subclasses:</dt>
@@ -91,7 +93,7 @@ object --+
 </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">yakumo.base.Manager</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -99,7 +101,7 @@ object --+
         <span class="summary-sig-arg">parent_resource</span>,
         <span class="summary-sig-arg">*args</span>,
         <span class="summary-sig-arg">**kwargs</span>)</span><br />
-      x.__init__(...) initializes x; see help(type(x)) for signature</td>
+      Create a Manager object</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="yakumo.base-pysrc.html#SubManager.__init__">source&nbsp;code</a></span>
             
@@ -111,6 +113,20 @@ object --+
   </tr>
   <tr>
     <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="yakumo.base.Manager-class.html">Manager</a></code></b>:
+      <code><a href="yakumo.base.Manager-class.html#create">create</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#find">find</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#find_one">find_one</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#get">get</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#get_empty">get_empty</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#list">list</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="yakumo.base.Manager-class.html">Manager</a></code></b> (private):
+      <code><a href="yakumo.base.Manager-class.html#_attr2json" onclick="show_private();">_attr2json</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#_find_gen" onclick="show_private();">_find_gen</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#_json2attr" onclick="show_private();">_json2attr</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#_no_such_api" onclick="show_private();">_no_such_api</a></code>
+      </p></div>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
       <code>__format__</code>,
@@ -125,6 +141,44 @@ object --+
       <code>__str__</code>,
       <code>__subclasshook__</code>
       </p>
+    </td>
+  </tr>
+</table>
+<!-- ==================== CLASS VARIABLES ==================== -->
+<a name="section-ClassVariables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Class Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-ClassVariables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr>
+    <td colspan="2" class="summary">
+    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="yakumo.base.Manager-class.html">Manager</a></code></b>:
+      <code><a href="yakumo.base.Manager-class.html#resource_class">resource_class</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#service_type">service_type</a></code>
+      </p>
+    <div class="private">    <p class="indent-wrapped-lines"><b>Inherited from <code><a href="yakumo.base.Manager-class.html">Manager</a></code></b> (private):
+      <code><a href="yakumo.base.Manager-class.html#_attr_mapping" onclick="show_private();">_attr_mapping</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#_has_detail" onclick="show_private();">_has_detail</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#_has_extra_attr" onclick="show_private();">_has_extra_attr</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#_hidden_methods" onclick="show_private();">_hidden_methods</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#_id_attr" onclick="show_private();">_id_attr</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#_json_resource_key" onclick="show_private();">_json_resource_key</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#_json_resources_key" onclick="show_private();">_json_resources_key</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#_update_method" onclick="show_private();">_update_method</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#_url_resource_list_path" onclick="show_private();">_url_resource_list_path</a></code>,
+      <code><a href="yakumo.base.Manager-class.html#_url_resource_path" onclick="show_private();">_url_resource_path</a></code>
+      </p></div>
     </td>
   </tr>
 </table>
@@ -189,8 +243,16 @@ object --+
     </td>
   </tr></table>
   
-  <p>x.__init__(...) initializes x; see help(type(x)) for signature</p>
+  <p>Create a Manager object</p>
+  <p>kwargs: options</p>
   <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>client</code></strong> - client object</li>
+        <li><strong class="pname"><code>verbose</code></strong> - Whether str(Resource) displays all attributes</li>
+    </ul></dd>
+    <dt>Returns: yakumo.base.Manager</dt>
+        <dd>Manager object</dd>
     <dt>Overrides:
         object.__init__
         <dd><em class="note">(inherited documentation)</em></dd>
@@ -225,7 +287,7 @@ object --+
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Wed Mar 15 17:21:54 2017
+    Generated by Epydoc 3.0.1 on Thu Apr 27 11:48:51 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
