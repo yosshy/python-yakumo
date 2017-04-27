@@ -17,8 +17,11 @@
 Miscellaneous functions/decorators
 """
 
+from __future__ import print_function
 import argparse
+import inspect
 import os
+import readline
 import rlcompleter
 import re
 import sys
@@ -93,7 +96,12 @@ def gen_chunk(file):
 
 class Completer(rlcompleter.Completer):
 
-    PATTERN = re.compile(r"(\w+(\.\w+)*)\.(\w*)")
+    PATTERN = re.compile(r"(\w+(\.\w+)*)[\.\(](\w*)")
+    METHOD_PATTERN = re.compile(r"^\s*(def .*?\):)", re.MULTILINE | re.DOTALL)
+
+    def __init__(self, namespace = None):
+        super(Completer, self).__init__(namespace=namespace)
+        readline.set_completer_delims(' \t\n`~!@#$%^&*)-=+[{]}\\|;:\'",<>/?')
 
     def attr_matches(self, text):
         """
@@ -107,6 +115,14 @@ class Completer(rlcompleter.Completer):
             thisobject = eval(expr, self.namespace)
         except Exception:
             return []
+
+        if attr == '' and inspect.ismethod(thisobject):
+            m = self.METHOD_PATTERN.match(inspect.getsource(thisobject))
+            if m:
+                print("")
+                print(m.group(1))
+                print(inspect.getdoc(thisobject).strip())
+                print(sys.ps1 + readline.get_line_buffer(), end='', flush=True)
 
         # get the content of the object, except __builtins__
         words = dir(thisobject)
