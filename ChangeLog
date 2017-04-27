@@ -1,6 +1,8 @@
 CHANGES
 =======
 
+* README: updated
+* ChangeLog: updated
 * ossh: improved built-in command line completer
 * utils: add Completer() to extend rlcompleter.Completer()
 * base: extend timeout for wait_for_finished()
