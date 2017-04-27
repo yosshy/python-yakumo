@@ -227,7 +227,7 @@ class Resource(object):
         """
         self._http.delete(utils.join_path(self._url_resource_path, self._id))
 
-    def wait_for_finished(self, count=10, interval=10):
+    def wait_for_finished(self, count=100, interval=15):
         """
         Wait for task finished
 
