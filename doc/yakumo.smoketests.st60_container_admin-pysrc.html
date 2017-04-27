@@ -1,0 +1,410 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>yakumo.smoketests.st60_container_admin</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yakumo-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="yakumo-module.html">Package&nbsp;yakumo</a> ::
+        <a href="yakumo.smoketests-module.html">Package&nbsp;smoketests</a> ::
+        Module&nbsp;st60_container_admin
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="yakumo.smoketests.st60_container_admin-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="yakumo.smoketests.st60_container_admin-module.html" onclick="show_private();">Module yakumo.smoketests.st60_container_admin</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-comment">#!/usr/bin/env python</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-comment"># Copyright 2014-2017 by Akira Yoshiyama &lt;akirayoshiyama@gmail.com&gt;.</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-comment"># All Rights Reserved.</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-comment">#    Licensed under the Apache License, Version 2.0 (the "License"); you may</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-comment">#    not use this file except in compliance with the License. You may obtain</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-comment">#    a copy of the License at</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment">#         http://www.apache.org/licenses/LICENSE-2.0</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-comment">#</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-comment">#    Unless required by applicable law or agreed to in writing, software</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-comment">#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-comment">#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-comment">#    License for the specific language governing permissions and limitations</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-comment">#    under the License.</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">"""Container API Test (Container Metadata)"""</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">sys</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package yakumo=yakumo-module.html"><a title="yakumo" class="py-name" href="#" onclick="return doclink('link-0', 'yakumo', 'link-0');">yakumo</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module yakumo.smoketest=yakumo.smoketest-module.html"><a title="yakumo.smoketest" class="py-name" href="#" onclick="return doclink('link-1', 'smoketest', 'link-1');">smoketest</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name"><a title="yakumo" class="py-name" href="#" onclick="return doclink('link-2', 'yakumo', 'link-0');">yakumo</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Module yakumo.utils=yakumo.utils-module.html"><a title="yakumo.utils" class="py-name" href="#" onclick="return doclink('link-3', 'utils', 'link-3');">utils</a></tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable yakumo.smoketests.st60_container_admin.QUOTA_BYTES=yakumo.smoketests.st60_container_admin-module.html#QUOTA_BYTES"><a title="yakumo.smoketests.st60_container_admin.QUOTA_BYTES" class="py-name" href="#" onclick="return doclink('link-4', 'QUOTA_BYTES', 'link-4');">QUOTA_BYTES</a></tt> <tt class="py-op">=</tt> <tt class="py-number">10</tt> <tt class="py-op">*</tt> <tt class="py-number">1024</tt> <tt class="py-op">**</tt> <tt class="py-number">3</tt>  <tt class="py-comment"># 10GB</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable yakumo.smoketests.st60_container_admin.QUOTA_COUNT=yakumo.smoketests.st60_container_admin-module.html#QUOTA_COUNT"><a title="yakumo.smoketests.st60_container_admin.QUOTA_COUNT" class="py-name" href="#" onclick="return doclink('link-5', 'QUOTA_COUNT', 'link-5');">QUOTA_COUNT</a></tt> <tt class="py-op">=</tt> <tt class="py-number">10</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"> </tt>
+<a name="main"></a><div id="main-def"><a name="L30"></a><tt class="py-lineno">30</tt> <a class="py-toggle" href="#" id="main-toggle" onclick="return toggle('main');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="yakumo.smoketests.st60_container_admin-module.html#main">main</a><tt class="py-op">(</tt><tt class="py-param">c</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="main-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="main-expanded"><a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">_session</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method yakumo.session.Session.has_endpoint()=yakumo.session.Session-class.html#has_endpoint,Method yakumo.session.SessionProxy.has_endpoint()=yakumo.session.SessionProxy-class.html#has_endpoint"><a title="yakumo.session.Session.has_endpoint
+yakumo.session.SessionProxy.has_endpoint" class="py-name" href="#" onclick="return doclink('link-6', 'has_endpoint', 'link-6');">has_endpoint</a></tt><tt class="py-op">(</tt><tt class="py-string">'object-store'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">    <tt id="link-7" class="py-name" targets="Variable yakumo.smoketest.LOG=yakumo.smoketest-module.html#LOG"><a title="yakumo.smoketest.LOG" class="py-name" href="#" onclick="return doclink('link-7', 'LOG', 'link-7');">LOG</a></tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-string">"Create an container"</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">    <tt class="py-name">name</tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name" targets="Function yakumo.smoketest.get_random_str()=yakumo.smoketest-module.html#get_random_str"><a title="yakumo.smoketest.get_random_str" class="py-name" href="#" onclick="return doclink('link-8', 'get_random_str', 'link-8');">get_random_str</a></tt><tt class="py-op">(</tt><tt class="py-string">'container'</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">    <tt class="py-name">metadata</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'foo'</tt><tt class="py-op">:</tt> <tt class="py-string">'bar'</tt><tt class="py-op">,</tt> <tt class="py-string">'foo2'</tt><tt class="py-op">:</tt> <tt class="py-string">'bar2'</tt><tt class="py-op">}</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">    <tt class="py-keyword">with</tt> <tt class="py-name">c</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Module yakumo.swift.v1.container=yakumo.swift.v1.container-module.html"><a title="yakumo.swift.v1.container" class="py-name" href="#" onclick="return doclink('link-9', 'container', 'link-9');">container</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method yakumo.base.GlanceV2Manager.create()=yakumo.base.GlanceV2Manager-class.html#create,Method yakumo.base.Manager.create()=yakumo.base.Manager-class.html#create,Method yakumo.base.SwiftV1Manager.create()=yakumo.base.SwiftV1Manager-class.html#create,Method yakumo.cinder.v1.snapshot.Manager.create()=yakumo.cinder.v1.snapshot.Manager-class.html#create,Method yakumo.cinder.v1.volume.Manager.create()=yakumo.cinder.v1.volume.Manager-class.html#create,Method yakumo.cinder.v1.volume_type.Manager.create()=yakumo.cinder.v1.volume_type.Manager-class.html#create,Method yakumo.cinder.v2.consistency_group.Manager.create()=yakumo.cinder.v2.consistency_group.Manager-class.html#create,Method yakumo.cinder.v2.consistency_group_snapshot.Manager.create()=yakumo.cinder.v2.consistency_group_snapshot.Manager-class.html#create,Method yakumo.cinder.v2.qos.Manager.create()=yakumo.cinder.v2.qos.Manager-class.html#create,Method yakumo.cinder.v2.snapshot.Manager.create()=yakumo.cinder.v2.snapshot.Manager-class.html#create,Method yakumo.cinder.v2.volume.Manager.create()=yakumo.cinder.v2.volume.Manager-class.html#create,Method yakumo.cinder.v2.volume_backup.Manager.create()=yakumo.cinder.v2.volume_backup.Manager-class.html#create,Method yakumo.cinder.v2.volume_transfer.Manager.create()=yakumo.cinder.v2.volume_transfer.Manager-class.html#create,Method yakumo.cinder.v2.volume_type.Manager.create()=yakumo.cinder.v2.volume_type.Manager-class.html#create,Method yakumo.glance.v1.image.Manager.create()=yakumo.glance.v1.image.Manager-class.html#create,Method yakumo.glance.v2.image.Manager.create()=yakumo.glance.v2.image.Manager-class.html#create,Method yakumo.glance.v2.image_member.Manager.create()=yakumo.glance.v2.image_member.Manager-class.html#create,Method yakumo.keystone.v2.endpoint.Manager.create()=yakumo.keystone.v2.endpoint.Manager-class.html#create,Method yakumo.keystone.v2.project.Manager.create()=yakumo.keystone.v2.project.Manager-class.html#create,Method yakumo.keystone.v2.role.Manager.create()=yakumo.keystone.v2.role.Manager-class.html#create,Method yakumo.keystone.v2.service.Manager.create()=yakumo.keystone.v2.service.Manager-class.html#create,Method yakumo.keystone.v2.user.Manager.create()=yakumo.keystone.v2.user.Manager-class.html#create,Method yakumo.keystone.v3.credential.Manager.create()=yakumo.keystone.v3.credential.Manager-class.html#create,Method yakumo.keystone.v3.domain.Manager.create()=yakumo.keystone.v3.domain.Manager-class.html#create,Method yakumo.keystone.v3.endpoint.Manager.create()=yakumo.keystone.v3.endpoint.Manager-class.html#create,Method yakumo.keystone.v3.group.Manager.create()=yakumo.keystone.v3.group.Manager-class.html#create,Method yakumo.keystone.v3.project.Manager.create()=yakumo.keystone.v3.project.Manager-class.html#create,Method yakumo.keystone.v3.region.Manager.create()=yakumo.keystone.v3.region.Manager-class.html#create,Method yakumo.keystone.v3.role.Manager.create()=yakumo.keystone.v3.role.Manager-class.html#create,Method yakumo.keystone.v3.service.Manager.create()=yakumo.keystone.v3.service.Manager-class.html#create,Method yakumo.keystone.v3.user.Manager.create()=yakumo.keystone.v3.user.Manager-class.html#create,Method yakumo.neutron.v2.floating_ip.Manager.create()=yakumo.neutron.v2.floating_ip.Manager-class.html#create,Method yakumo.neutron.v2.lb.health_monitor.Manager.create()=yakumo.neutron.v2.lb.health_monitor.Manager-class.html#create,Method yakumo.neutron.v2.lb.member.Manager.create()=yakumo.neutron.v2.lb.member.Manager-class.html#create,Method yakumo.neutron.v2.lb.pool.Manager.create()=yakumo.neutron.v2.lb.pool.Manager-class.html#create,Method yakumo.neutron.v2.lb.vip.Manager.create()=yakumo.neutron.v2.lb.vip.Manager-class.html#create,Method yakumo.neutron.v2.lbaas.health_monitor.Manager.create()=yakumo.neutron.v2.lbaas.health_monitor.Manager-class.html#create,Method yakumo.neutron.v2.lbaas.listener.Manager.create()=yakumo.neutron.v2.lbaas.listener.Manager-class.html#create,Method yakumo.neutron.v2.lbaas.load_balancer.Manager.create()=yakumo.neutron.v2.lbaas.load_balancer.Manager-class.html#create,Method yakumo.neutron.v2.lbaas.member.Manager.create()=yakumo.neutron.v2.lbaas.member.Manager-class.html#create,Method yakumo.neutron.v2.lbaas.pool.Manager.create()=yakumo.neutron.v2.lbaas.pool.Manager-class.html#create,Method yakumo.neutron.v2.metering.label.Manager.create()=yakumo.neutron.v2.metering.label.Manager-class.html#create,Method yakumo.neutron.v2.metering.rule.Manager.create()=yakumo.neutron.v2.metering.rule.Manager-class.html#create,Method yakumo.neutron.v2.network.Manager.create()=yakumo.neutron.v2.network.Manager-class.html#create,Method yakumo.neutron.v2.port.Manager.create()=yakumo.neutron.v2.port.Manager-class.html#create,Method yakumo.neutron.v2.router.Manager.create()=yakumo.neutron.v2.router.Manager-class.html#create,Method yakumo.neutron.v2.security_group.Manager.create()=yakumo.neutron.v2.security_group.Manager-class.html#create,Method yakumo.neutron.v2.security_group_rule.Manager.create()=yakumo.neutron.v2.security_group_rule.Manager-class.html#create,Method yakumo.neutron.v2.subnet.Manager.create()=yakumo.neutron.v2.subnet.Manager-class.html#create,Method yakumo.neutron.v2.subnet_pool.Manager.create()=yakumo.neutron.v2.subnet_pool.Manager-class.html#create,Method yakumo.neutron.v2.vpn.ike_policy.Manager.create()=yakumo.neutron.v2.vpn.ike_policy.Manager-class.html#create,Method yakumo.neutron.v2.vpn.ipsec_policy.Manager.create()=yakumo.neutron.v2.vpn.ipsec_policy.Manager-class.html#create,Method yakumo.neutron.v2.vpn.ipsec_site_connection.Manager.create()=yakumo.neutron.v2.vpn.ipsec_site_connection.Manager-class.html#create,Method yakumo.neutron.v2.vpn.service.Manager.create()=yakumo.neutron.v2.vpn.service.Manager-class.html#create,Method yakumo.nova.v2.agent.Manager.create()=yakumo.nova.v2.agent.Manager-class.html#create,Method yakumo.nova.v2.aggregate.Manager.create()=yakumo.nova.v2.aggregate.Manager-class.html#create,Method yakumo.nova.v2.certificate.Manager.create()=yakumo.nova.v2.certificate.Manager-class.html#create,Method yakumo.nova.v2.cloudpipe.Manager.create()=yakumo.nova.v2.cloudpipe.Manager-class.html#create,Method yakumo.nova.v2.flavor.Manager.create()=yakumo.nova.v2.flavor.Manager-class.html#create,Method yakumo.nova.v2.floating_ip_bulk.Manager.create()=yakumo.nova.v2.floating_ip_bulk.Manager-class.html#create,Method yakumo.nova.v2.floating_ip_dns.Manager.create()=yakumo.nova.v2.floating_ip_dns.Manager-class.html#create,Method yakumo.nova.v2.key_pair.Manager.create()=yakumo.nova.v2.key_pair.Manager-class.html#create,Method yakumo.nova.v2.network.Manager.create()=yakumo.nova.v2.network.Manager-class.html#create,Method yakumo.nova.v2.security_group.Manager.create()=yakumo.nova.v2.security_group.Manager-class.html#create,Method yakumo.nova.v2.security_group_default_rule.Manager.create()=yakumo.nova.v2.security_group_default_rule.Manager-class.html#create,Method yakumo.nova.v2.security_group_rule.Manager.create()=yakumo.nova.v2.security_group_rule.Manager-class.html#create,Method yakumo.nova.v2.server.Manager.create()=yakumo.nova.v2.server.Manager-class.html#create,Method yakumo.nova.v2.server_group.Manager.create()=yakumo.nova.v2.server_group.Manager-class.html#create,Method yakumo.swift.v1.container.Manager.create()=yakumo.swift.v1.container.Manager-class.html#create,Method yakumo.swift.v1.file_object.Manager.create()=yakumo.swift.v1.file_object.Manager-class.html#create"><a title="yakumo.base.GlanceV2Manager.create
+yakumo.base.Manager.create
+yakumo.base.SwiftV1Manager.create
+yakumo.cinder.v1.snapshot.Manager.create
+yakumo.cinder.v1.volume.Manager.create
+yakumo.cinder.v1.volume_type.Manager.create
+yakumo.cinder.v2.consistency_group.Manager.create
+yakumo.cinder.v2.consistency_group_snapshot.Manager.create
+yakumo.cinder.v2.qos.Manager.create
+yakumo.cinder.v2.snapshot.Manager.create
+yakumo.cinder.v2.volume.Manager.create
+yakumo.cinder.v2.volume_backup.Manager.create
+yakumo.cinder.v2.volume_transfer.Manager.create
+yakumo.cinder.v2.volume_type.Manager.create
+yakumo.glance.v1.image.Manager.create
+yakumo.glance.v2.image.Manager.create
+yakumo.glance.v2.image_member.Manager.create
+yakumo.keystone.v2.endpoint.Manager.create
+yakumo.keystone.v2.project.Manager.create
+yakumo.keystone.v2.role.Manager.create
+yakumo.keystone.v2.service.Manager.create
+yakumo.keystone.v2.user.Manager.create
+yakumo.keystone.v3.credential.Manager.create
+yakumo.keystone.v3.domain.Manager.create
+yakumo.keystone.v3.endpoint.Manager.create
+yakumo.keystone.v3.group.Manager.create
+yakumo.keystone.v3.project.Manager.create
+yakumo.keystone.v3.region.Manager.create
+yakumo.keystone.v3.role.Manager.create
+yakumo.keystone.v3.service.Manager.create
+yakumo.keystone.v3.user.Manager.create
+yakumo.neutron.v2.floating_ip.Manager.create
+yakumo.neutron.v2.lb.health_monitor.Manager.create
+yakumo.neutron.v2.lb.member.Manager.create
+yakumo.neutron.v2.lb.pool.Manager.create
+yakumo.neutron.v2.lb.vip.Manager.create
+yakumo.neutron.v2.lbaas.health_monitor.Manager.create
+yakumo.neutron.v2.lbaas.listener.Manager.create
+yakumo.neutron.v2.lbaas.load_balancer.Manager.create
+yakumo.neutron.v2.lbaas.member.Manager.create
+yakumo.neutron.v2.lbaas.pool.Manager.create
+yakumo.neutron.v2.metering.label.Manager.create
+yakumo.neutron.v2.metering.rule.Manager.create
+yakumo.neutron.v2.network.Manager.create
+yakumo.neutron.v2.port.Manager.create
+yakumo.neutron.v2.router.Manager.create
+yakumo.neutron.v2.security_group.Manager.create
+yakumo.neutron.v2.security_group_rule.Manager.create
+yakumo.neutron.v2.subnet.Manager.create
+yakumo.neutron.v2.subnet_pool.Manager.create
+yakumo.neutron.v2.vpn.ike_policy.Manager.create
+yakumo.neutron.v2.vpn.ipsec_policy.Manager.create
+yakumo.neutron.v2.vpn.ipsec_site_connection.Manager.create
+yakumo.neutron.v2.vpn.service.Manager.create
+yakumo.nova.v2.agent.Manager.create
+yakumo.nova.v2.aggregate.Manager.create
+yakumo.nova.v2.certificate.Manager.create
+yakumo.nova.v2.cloudpipe.Manager.create
+yakumo.nova.v2.flavor.Manager.create
+yakumo.nova.v2.floating_ip_bulk.Manager.create
+yakumo.nova.v2.floating_ip_dns.Manager.create
+yakumo.nova.v2.key_pair.Manager.create
+yakumo.nova.v2.network.Manager.create
+yakumo.nova.v2.security_group.Manager.create
+yakumo.nova.v2.security_group_default_rule.Manager.create
+yakumo.nova.v2.security_group_rule.Manager.create
+yakumo.nova.v2.server.Manager.create
+yakumo.nova.v2.server_group.Manager.create
+yakumo.swift.v1.container.Manager.create
+yakumo.swift.v1.file_object.Manager.create" class="py-name" href="#" onclick="return doclink('link-10', 'create', 'link-10');">create</a></tt><tt class="py-op">(</tt><tt class="py-name">name</tt><tt class="py-op">=</tt><tt class="py-name">name</tt><tt class="py-op">,</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">                            <tt class="py-name">quota_bytes</tt><tt class="py-op">=</tt><tt id="link-11" class="py-name"><a title="yakumo.smoketests.st60_container_admin.QUOTA_BYTES" class="py-name" href="#" onclick="return doclink('link-11', 'QUOTA_BYTES', 'link-4');">QUOTA_BYTES</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">                            <tt class="py-name">quota_count</tt><tt class="py-op">=</tt><tt id="link-12" class="py-name"><a title="yakumo.smoketests.st60_container_admin.QUOTA_COUNT" class="py-name" href="#" onclick="return doclink('link-12', 'QUOTA_COUNT', 'link-5');">QUOTA_COUNT</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">                            <tt class="py-name">metadata</tt><tt class="py-op">=</tt><tt class="py-name">metadata</tt><tt class="py-op">)</tt> <tt class="py-keyword">as</tt> <tt class="py-name">co</tt><tt class="py-op">:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">        <tt id="link-13" class="py-name" targets="Function yakumo.smoketest.test()=yakumo.smoketest-module.html#test"><a title="yakumo.smoketest.test" class="py-name" href="#" onclick="return doclink('link-13', 'test', 'link-13');">test</a></tt><tt class="py-op">(</tt><tt class="py-string">"Container #1: name is "</tt> <tt class="py-op">+</tt> <tt class="py-name">name</tt><tt class="py-op">,</tt> <tt class="py-name">co</tt><tt class="py-op">.</tt><tt class="py-name">name</tt> <tt class="py-op">==</tt> <tt class="py-name">name</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">        <tt id="link-14" class="py-name"><a title="yakumo.smoketest.test" class="py-name" href="#" onclick="return doclink('link-14', 'test', 'link-13');">test</a></tt><tt class="py-op">(</tt><tt class="py-string">"Container #1: quota bytes is %s"</tt> <tt class="py-op">%</tt> <tt id="link-15" class="py-name"><a title="yakumo.smoketests.st60_container_admin.QUOTA_BYTES" class="py-name" href="#" onclick="return doclink('link-15', 'QUOTA_BYTES', 'link-4');">QUOTA_BYTES</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">             <tt class="py-name">co</tt><tt class="py-op">.</tt><tt class="py-name">quota_bytes</tt> <tt class="py-op">==</tt> <tt id="link-16" class="py-name"><a title="yakumo.smoketests.st60_container_admin.QUOTA_BYTES" class="py-name" href="#" onclick="return doclink('link-16', 'QUOTA_BYTES', 'link-4');">QUOTA_BYTES</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt id="link-17" class="py-name"><a title="yakumo.smoketest.test" class="py-name" href="#" onclick="return doclink('link-17', 'test', 'link-13');">test</a></tt><tt class="py-op">(</tt><tt class="py-string">"Container #1: quota count is %s"</tt> <tt class="py-op">%</tt> <tt id="link-18" class="py-name"><a title="yakumo.smoketests.st60_container_admin.QUOTA_COUNT" class="py-name" href="#" onclick="return doclink('link-18', 'QUOTA_COUNT', 'link-5');">QUOTA_COUNT</a></tt><tt class="py-op">,</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">             <tt class="py-name">co</tt><tt class="py-op">.</tt><tt class="py-name">quota_count</tt> <tt class="py-op">==</tt> <tt id="link-19" class="py-name"><a title="yakumo.smoketests.st60_container_admin.QUOTA_COUNT" class="py-name" href="#" onclick="return doclink('link-19', 'QUOTA_COUNT', 'link-5');">QUOTA_COUNT</a></tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">        <tt id="link-20" class="py-name"><a title="yakumo.smoketest.LOG" class="py-name" href="#" onclick="return doclink('link-20', 'LOG', 'link-7');">LOG</a></tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-string">"Double quotas"</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">        <tt class="py-name">co</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method yakumo.base.GlanceV2Resource.update()=yakumo.base.GlanceV2Resource-class.html#update,Method yakumo.base.Resource.update()=yakumo.base.Resource-class.html#update,Method yakumo.base.SwiftV1Resource.update()=yakumo.base.SwiftV1Resource-class.html#update,Method yakumo.cinder.v2.consistency_group.Resource.update()=yakumo.cinder.v2.consistency_group.Resource-class.html#update,Method yakumo.cinder.v2.quota_set.Manager.update()=yakumo.cinder.v2.quota_set.Manager-class.html#update,Method yakumo.cinder.v2.service.Resource.update()=yakumo.cinder.v2.service.Resource-class.html#update,Method yakumo.cinder.v2.volume.Resource.update()=yakumo.cinder.v2.volume.Resource-class.html#update,Method yakumo.glance.v1.image.Resource.update()=yakumo.glance.v1.image.Resource-class.html#update,Method yakumo.glance.v2.image.Resource.update()=yakumo.glance.v2.image.Resource-class.html#update,Method yakumo.glance.v2.image_member.Resource.update()=yakumo.glance.v2.image_member.Resource-class.html#update,Method yakumo.keystone.v2.project.Resource.update()=yakumo.keystone.v2.project.Resource-class.html#update,Method yakumo.keystone.v2.user.Resource.update()=yakumo.keystone.v2.user.Resource-class.html#update,Method yakumo.keystone.v3.credential.Resource.update()=yakumo.keystone.v3.credential.Resource-class.html#update,Method yakumo.keystone.v3.domain.Resource.update()=yakumo.keystone.v3.domain.Resource-class.html#update,Method yakumo.keystone.v3.endpoint.Resource.update()=yakumo.keystone.v3.endpoint.Resource-class.html#update,Method yakumo.keystone.v3.group.Resource.update()=yakumo.keystone.v3.group.Resource-class.html#update,Method yakumo.keystone.v3.project.Resource.update()=yakumo.keystone.v3.project.Resource-class.html#update,Method yakumo.keystone.v3.region.Resource.update()=yakumo.keystone.v3.region.Resource-class.html#update,Method yakumo.keystone.v3.role.Resource.update()=yakumo.keystone.v3.role.Resource-class.html#update,Method yakumo.keystone.v3.service.Resource.update()=yakumo.keystone.v3.service.Resource-class.html#update,Method yakumo.keystone.v3.user.Resource.update()=yakumo.keystone.v3.user.Resource-class.html#update,Method yakumo.neutron.v2.floating_ip.Resource.update()=yakumo.neutron.v2.floating_ip.Resource-class.html#update,Method yakumo.neutron.v2.lb.health_monitor.Resource.update()=yakumo.neutron.v2.lb.health_monitor.Resource-class.html#update,Method yakumo.neutron.v2.lb.member.Resource.update()=yakumo.neutron.v2.lb.member.Resource-class.html#update,Method yakumo.neutron.v2.lb.pool.Resource.update()=yakumo.neutron.v2.lb.pool.Resource-class.html#update,Method yakumo.neutron.v2.lb.vip.Resource.update()=yakumo.neutron.v2.lb.vip.Resource-class.html#update,Method yakumo.neutron.v2.lbaas.health_monitor.Resource.update()=yakumo.neutron.v2.lbaas.health_monitor.Resource-class.html#update,Method yakumo.neutron.v2.lbaas.listener.Resource.update()=yakumo.neutron.v2.lbaas.listener.Resource-class.html#update,Method yakumo.neutron.v2.lbaas.load_balancer.Resource.update()=yakumo.neutron.v2.lbaas.load_balancer.Resource-class.html#update,Method yakumo.neutron.v2.lbaas.member.Resource.update()=yakumo.neutron.v2.lbaas.member.Resource-class.html#update,Method yakumo.neutron.v2.lbaas.pool.Resource.update()=yakumo.neutron.v2.lbaas.pool.Resource-class.html#update,Method yakumo.neutron.v2.network.Resource.update()=yakumo.neutron.v2.network.Resource-class.html#update,Method yakumo.neutron.v2.port.Resource.update()=yakumo.neutron.v2.port.Resource-class.html#update,Method yakumo.neutron.v2.quota.Resource.update()=yakumo.neutron.v2.quota.Resource-class.html#update,Method yakumo.neutron.v2.router.Resource.update()=yakumo.neutron.v2.router.Resource-class.html#update,Method yakumo.neutron.v2.subnet.Resource.update()=yakumo.neutron.v2.subnet.Resource-class.html#update,Method yakumo.neutron.v2.subnet_pool.Resource.update()=yakumo.neutron.v2.subnet_pool.Resource-class.html#update,Method yakumo.neutron.v2.vpn.ike_policy.Resource.update()=yakumo.neutron.v2.vpn.ike_policy.Resource-class.html#update,Method yakumo.neutron.v2.vpn.ipsec_policy.Resource.update()=yakumo.neutron.v2.vpn.ipsec_policy.Resource-class.html#update,Method yakumo.neutron.v2.vpn.ipsec_site_connection.Resource.update()=yakumo.neutron.v2.vpn.ipsec_site_connection.Resource-class.html#update,Method yakumo.neutron.v2.vpn.service.Resource.update()=yakumo.neutron.v2.vpn.service.Resource-class.html#update,Method yakumo.nova.v2.agent.Resource.update()=yakumo.nova.v2.agent.Resource-class.html#update,Method yakumo.nova.v2.aggregate.Resource.update()=yakumo.nova.v2.aggregate.Resource-class.html#update,Method yakumo.nova.v2.cloudpipe.Resource.update()=yakumo.nova.v2.cloudpipe.Resource-class.html#update,Method yakumo.nova.v2.floating_ip_dns.Resource.update()=yakumo.nova.v2.floating_ip_dns.Resource-class.html#update,Method yakumo.nova.v2.quota_set.Manager.update()=yakumo.nova.v2.quota_set.Manager-class.html#update,Method yakumo.nova.v2.service.Resource.update()=yakumo.nova.v2.service.Resource-class.html#update,Method yakumo.swift.v1.container.Resource.update()=yakumo.swift.v1.container.Resource-class.html#update,Method yakumo.swift.v1.file_object.Resource.update()=yakumo.swift.v1.file_object.Resource-class.html#update"><a title="yakumo.base.GlanceV2Resource.update
+yakumo.base.Resource.update
+yakumo.base.SwiftV1Resource.update
+yakumo.cinder.v2.consistency_group.Resource.update
+yakumo.cinder.v2.quota_set.Manager.update
+yakumo.cinder.v2.service.Resource.update
+yakumo.cinder.v2.volume.Resource.update
+yakumo.glance.v1.image.Resource.update
+yakumo.glance.v2.image.Resource.update
+yakumo.glance.v2.image_member.Resource.update
+yakumo.keystone.v2.project.Resource.update
+yakumo.keystone.v2.user.Resource.update
+yakumo.keystone.v3.credential.Resource.update
+yakumo.keystone.v3.domain.Resource.update
+yakumo.keystone.v3.endpoint.Resource.update
+yakumo.keystone.v3.group.Resource.update
+yakumo.keystone.v3.project.Resource.update
+yakumo.keystone.v3.region.Resource.update
+yakumo.keystone.v3.role.Resource.update
+yakumo.keystone.v3.service.Resource.update
+yakumo.keystone.v3.user.Resource.update
+yakumo.neutron.v2.floating_ip.Resource.update
+yakumo.neutron.v2.lb.health_monitor.Resource.update
+yakumo.neutron.v2.lb.member.Resource.update
+yakumo.neutron.v2.lb.pool.Resource.update
+yakumo.neutron.v2.lb.vip.Resource.update
+yakumo.neutron.v2.lbaas.health_monitor.Resource.update
+yakumo.neutron.v2.lbaas.listener.Resource.update
+yakumo.neutron.v2.lbaas.load_balancer.Resource.update
+yakumo.neutron.v2.lbaas.member.Resource.update
+yakumo.neutron.v2.lbaas.pool.Resource.update
+yakumo.neutron.v2.network.Resource.update
+yakumo.neutron.v2.port.Resource.update
+yakumo.neutron.v2.quota.Resource.update
+yakumo.neutron.v2.router.Resource.update
+yakumo.neutron.v2.subnet.Resource.update
+yakumo.neutron.v2.subnet_pool.Resource.update
+yakumo.neutron.v2.vpn.ike_policy.Resource.update
+yakumo.neutron.v2.vpn.ipsec_policy.Resource.update
+yakumo.neutron.v2.vpn.ipsec_site_connection.Resource.update
+yakumo.neutron.v2.vpn.service.Resource.update
+yakumo.nova.v2.agent.Resource.update
+yakumo.nova.v2.aggregate.Resource.update
+yakumo.nova.v2.cloudpipe.Resource.update
+yakumo.nova.v2.floating_ip_dns.Resource.update
+yakumo.nova.v2.quota_set.Manager.update
+yakumo.nova.v2.service.Resource.update
+yakumo.swift.v1.container.Resource.update
+yakumo.swift.v1.file_object.Resource.update" class="py-name" href="#" onclick="return doclink('link-21', 'update', 'link-21');">update</a></tt><tt class="py-op">(</tt><tt class="py-name">quota_bytes</tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt id="link-22" class="py-name"><a title="yakumo.smoketests.st60_container_admin.QUOTA_BYTES" class="py-name" href="#" onclick="return doclink('link-22', 'QUOTA_BYTES', 'link-4');">QUOTA_BYTES</a></tt> <tt class="py-op">*</tt> <tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">quota_count</tt><tt class="py-op">=</tt><tt class="py-op">(</tt><tt id="link-23" class="py-name"><a title="yakumo.smoketests.st60_container_admin.QUOTA_COUNT" class="py-name" href="#" onclick="return doclink('link-23', 'QUOTA_COUNT', 'link-5');">QUOTA_COUNT</a></tt> <tt class="py-op">*</tt> <tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">        <tt id="link-24" class="py-name"><a title="yakumo.smoketest.test" class="py-name" href="#" onclick="return doclink('link-24', 'test', 'link-13');">test</a></tt><tt class="py-op">(</tt><tt class="py-string">"Container #1: quota bytes is %s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-25" class="py-name"><a title="yakumo.smoketests.st60_container_admin.QUOTA_BYTES" class="py-name" href="#" onclick="return doclink('link-25', 'QUOTA_BYTES', 'link-4');">QUOTA_BYTES</a></tt> <tt class="py-op">*</tt> <tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">             <tt class="py-name">co</tt><tt class="py-op">.</tt><tt class="py-name">quota_bytes</tt> <tt class="py-op">==</tt> <tt id="link-26" class="py-name"><a title="yakumo.smoketests.st60_container_admin.QUOTA_BYTES" class="py-name" href="#" onclick="return doclink('link-26', 'QUOTA_BYTES', 'link-4');">QUOTA_BYTES</a></tt> <tt class="py-op">*</tt> <tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">        <tt id="link-27" class="py-name"><a title="yakumo.smoketest.test" class="py-name" href="#" onclick="return doclink('link-27', 'test', 'link-13');">test</a></tt><tt class="py-op">(</tt><tt class="py-string">"Container #1: quota count is %s"</tt> <tt class="py-op">%</tt> <tt class="py-op">(</tt><tt id="link-28" class="py-name"><a title="yakumo.smoketests.st60_container_admin.QUOTA_COUNT" class="py-name" href="#" onclick="return doclink('link-28', 'QUOTA_COUNT', 'link-5');">QUOTA_COUNT</a></tt> <tt class="py-op">*</tt> <tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">             <tt class="py-name">co</tt><tt class="py-op">.</tt><tt class="py-name">quota_count</tt> <tt class="py-op">==</tt> <tt id="link-29" class="py-name"><a title="yakumo.smoketests.st60_container_admin.QUOTA_COUNT" class="py-name" href="#" onclick="return doclink('link-29', 'QUOTA_COUNT', 'link-5');">QUOTA_COUNT</a></tt> <tt class="py-op">*</tt> <tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">        <tt id="link-30" class="py-name"><a title="yakumo.smoketest.LOG" class="py-name" href="#" onclick="return doclink('link-30', 'LOG', 'link-7');">LOG</a></tt><tt class="py-op">.</tt><tt class="py-name">info</tt><tt class="py-op">(</tt><tt class="py-string">"Update metadata"</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">        <tt id="link-31" class="py-name"><a title="yakumo.smoketest.LOG" class="py-name" href="#" onclick="return doclink('link-31', 'LOG', 'link-7');">LOG</a></tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"Initial metadata: %s"</tt><tt class="py-op">,</tt> <tt class="py-name">co</tt><tt class="py-op">.</tt><tt class="py-name">metadata</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">        <tt id="link-32" class="py-name"><a title="yakumo.smoketest.test" class="py-name" href="#" onclick="return doclink('link-32', 'test', 'link-13');">test</a></tt><tt class="py-op">(</tt><tt class="py-string">"Metadata has %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">metadata</tt><tt class="py-op">,</tt> <tt class="py-name">co</tt><tt class="py-op">.</tt><tt class="py-name">metadata</tt> <tt class="py-op">==</tt> <tt class="py-name">metadata</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line"> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">        <tt class="py-name">m</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-string">'foo2'</tt><tt class="py-op">:</tt> <tt class="py-string">'bar4'</tt><tt class="py-op">,</tt> <tt class="py-string">'foo3'</tt><tt class="py-op">:</tt> <tt class="py-string">'bar3'</tt><tt class="py-op">}</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line">        <tt id="link-33" class="py-name"><a title="yakumo.smoketest.LOG" class="py-name" href="#" onclick="return doclink('link-33', 'LOG', 'link-7');">LOG</a></tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"Set metadata : %s"</tt><tt class="py-op">,</tt> <tt class="py-name">m</tt><tt class="py-op">)</tt> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-name">metadata</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="yakumo.base.GlanceV2Resource.update
+yakumo.base.Resource.update
+yakumo.base.SwiftV1Resource.update
+yakumo.cinder.v2.consistency_group.Resource.update
+yakumo.cinder.v2.quota_set.Manager.update
+yakumo.cinder.v2.service.Resource.update
+yakumo.cinder.v2.volume.Resource.update
+yakumo.glance.v1.image.Resource.update
+yakumo.glance.v2.image.Resource.update
+yakumo.glance.v2.image_member.Resource.update
+yakumo.keystone.v2.project.Resource.update
+yakumo.keystone.v2.user.Resource.update
+yakumo.keystone.v3.credential.Resource.update
+yakumo.keystone.v3.domain.Resource.update
+yakumo.keystone.v3.endpoint.Resource.update
+yakumo.keystone.v3.group.Resource.update
+yakumo.keystone.v3.project.Resource.update
+yakumo.keystone.v3.region.Resource.update
+yakumo.keystone.v3.role.Resource.update
+yakumo.keystone.v3.service.Resource.update
+yakumo.keystone.v3.user.Resource.update
+yakumo.neutron.v2.floating_ip.Resource.update
+yakumo.neutron.v2.lb.health_monitor.Resource.update
+yakumo.neutron.v2.lb.member.Resource.update
+yakumo.neutron.v2.lb.pool.Resource.update
+yakumo.neutron.v2.lb.vip.Resource.update
+yakumo.neutron.v2.lbaas.health_monitor.Resource.update
+yakumo.neutron.v2.lbaas.listener.Resource.update
+yakumo.neutron.v2.lbaas.load_balancer.Resource.update
+yakumo.neutron.v2.lbaas.member.Resource.update
+yakumo.neutron.v2.lbaas.pool.Resource.update
+yakumo.neutron.v2.network.Resource.update
+yakumo.neutron.v2.port.Resource.update
+yakumo.neutron.v2.quota.Resource.update
+yakumo.neutron.v2.router.Resource.update
+yakumo.neutron.v2.subnet.Resource.update
+yakumo.neutron.v2.subnet_pool.Resource.update
+yakumo.neutron.v2.vpn.ike_policy.Resource.update
+yakumo.neutron.v2.vpn.ipsec_policy.Resource.update
+yakumo.neutron.v2.vpn.ipsec_site_connection.Resource.update
+yakumo.neutron.v2.vpn.service.Resource.update
+yakumo.nova.v2.agent.Resource.update
+yakumo.nova.v2.aggregate.Resource.update
+yakumo.nova.v2.cloudpipe.Resource.update
+yakumo.nova.v2.floating_ip_dns.Resource.update
+yakumo.nova.v2.quota_set.Manager.update
+yakumo.nova.v2.service.Resource.update
+yakumo.swift.v1.container.Resource.update
+yakumo.swift.v1.file_object.Resource.update" class="py-name" href="#" onclick="return doclink('link-34', 'update', 'link-21');">update</a></tt><tt class="py-op">(</tt><tt class="py-name">m</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line">        <tt class="py-name">co</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Method yakumo.base.SwiftV1Resource.set_metadata()=yakumo.base.SwiftV1Resource-class.html#set_metadata,Method yakumo.cinder.v1.snapshot.Resource.set_metadata()=yakumo.cinder.v1.snapshot.Resource-class.html#set_metadata,Method yakumo.cinder.v1.volume.Resource.set_metadata()=yakumo.cinder.v1.volume.Resource-class.html#set_metadata,Method yakumo.cinder.v2.qos.Resource.set_metadata()=yakumo.cinder.v2.qos.Resource-class.html#set_metadata,Method yakumo.cinder.v2.snapshot.Resource.set_metadata()=yakumo.cinder.v2.snapshot.Resource-class.html#set_metadata,Method yakumo.cinder.v2.volume.Resource.set_metadata()=yakumo.cinder.v2.volume.Resource-class.html#set_metadata,Method yakumo.cinder.v2.volume_type.Resource.set_metadata()=yakumo.cinder.v2.volume_type.Resource-class.html#set_metadata,Method yakumo.nova.v2.aggregate.Resource.set_metadata()=yakumo.nova.v2.aggregate.Resource-class.html#set_metadata,Method yakumo.nova.v2.image.Resource.set_metadata()=yakumo.nova.v2.image.Resource-class.html#set_metadata,Method yakumo.nova.v2.server.Resource.set_metadata()=yakumo.nova.v2.server.Resource-class.html#set_metadata,Method yakumo.swift.v1.container.Resource.set_metadata()=yakumo.swift.v1.container.Resource-class.html#set_metadata,Method yakumo.swift.v1.file_object.Resource.set_metadata()=yakumo.swift.v1.file_object.Resource-class.html#set_metadata"><a title="yakumo.base.SwiftV1Resource.set_metadata
+yakumo.cinder.v1.snapshot.Resource.set_metadata
+yakumo.cinder.v1.volume.Resource.set_metadata
+yakumo.cinder.v2.qos.Resource.set_metadata
+yakumo.cinder.v2.snapshot.Resource.set_metadata
+yakumo.cinder.v2.volume.Resource.set_metadata
+yakumo.cinder.v2.volume_type.Resource.set_metadata
+yakumo.nova.v2.aggregate.Resource.set_metadata
+yakumo.nova.v2.image.Resource.set_metadata
+yakumo.nova.v2.server.Resource.set_metadata
+yakumo.swift.v1.container.Resource.set_metadata
+yakumo.swift.v1.file_object.Resource.set_metadata" class="py-name" href="#" onclick="return doclink('link-35', 'set_metadata', 'link-35');">set_metadata</a></tt><tt class="py-op">(</tt><tt class="py-op">**</tt><tt class="py-name">m</tt><tt class="py-op">)</tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line">        <tt id="link-36" class="py-name"><a title="yakumo.smoketest.LOG" class="py-name" href="#" onclick="return doclink('link-36', 'LOG', 'link-7');">LOG</a></tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"Updated metadata: %s"</tt><tt class="py-op">,</tt> <tt class="py-name">co</tt><tt class="py-op">.</tt><tt class="py-name">metadata</tt><tt class="py-op">)</tt> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line">        <tt id="link-37" class="py-name"><a title="yakumo.smoketest.test" class="py-name" href="#" onclick="return doclink('link-37', 'test', 'link-13');">test</a></tt><tt class="py-op">(</tt><tt class="py-string">"Metadata has %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">metadata</tt><tt class="py-op">,</tt> <tt class="py-name">co</tt><tt class="py-op">.</tt><tt class="py-name">metadata</tt> <tt class="py-op">==</tt> <tt class="py-name">metadata</tt><tt class="py-op">)</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line">        <tt class="py-name">m</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'foo'</tt><tt class="py-op">,</tt> <tt class="py-string">'foo2'</tt><tt class="py-op">]</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">        <tt id="link-38" class="py-name"><a title="yakumo.smoketest.LOG" class="py-name" href="#" onclick="return doclink('link-38', 'LOG', 'link-7');">LOG</a></tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"Unset metadata : %s"</tt><tt class="py-op">,</tt> <tt class="py-name">m</tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">key</tt> <tt class="py-keyword">in</tt> <tt class="py-name">m</tt><tt class="py-op">:</tt> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">            <tt class="py-name">metadata</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-name">key</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line">        <tt class="py-name">co</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name" targets="Method yakumo.base.SwiftV1Resource.unset_metadata()=yakumo.base.SwiftV1Resource-class.html#unset_metadata,Method yakumo.cinder.v1.snapshot.Resource.unset_metadata()=yakumo.cinder.v1.snapshot.Resource-class.html#unset_metadata,Method yakumo.cinder.v1.volume.Resource.unset_metadata()=yakumo.cinder.v1.volume.Resource-class.html#unset_metadata,Method yakumo.cinder.v2.qos.Resource.unset_metadata()=yakumo.cinder.v2.qos.Resource-class.html#unset_metadata,Method yakumo.cinder.v2.snapshot.Resource.unset_metadata()=yakumo.cinder.v2.snapshot.Resource-class.html#unset_metadata,Method yakumo.cinder.v2.volume.Resource.unset_metadata()=yakumo.cinder.v2.volume.Resource-class.html#unset_metadata,Method yakumo.cinder.v2.volume_type.Resource.unset_metadata()=yakumo.cinder.v2.volume_type.Resource-class.html#unset_metadata,Method yakumo.nova.v2.aggregate.Resource.unset_metadata()=yakumo.nova.v2.aggregate.Resource-class.html#unset_metadata,Method yakumo.nova.v2.image.Resource.unset_metadata()=yakumo.nova.v2.image.Resource-class.html#unset_metadata,Method yakumo.nova.v2.server.Resource.unset_metadata()=yakumo.nova.v2.server.Resource-class.html#unset_metadata,Method yakumo.swift.v1.container.Resource.unset_metadata()=yakumo.swift.v1.container.Resource-class.html#unset_metadata,Method yakumo.swift.v1.file_object.Resource.unset_metadata()=yakumo.swift.v1.file_object.Resource-class.html#unset_metadata"><a title="yakumo.base.SwiftV1Resource.unset_metadata
+yakumo.cinder.v1.snapshot.Resource.unset_metadata
+yakumo.cinder.v1.volume.Resource.unset_metadata
+yakumo.cinder.v2.qos.Resource.unset_metadata
+yakumo.cinder.v2.snapshot.Resource.unset_metadata
+yakumo.cinder.v2.volume.Resource.unset_metadata
+yakumo.cinder.v2.volume_type.Resource.unset_metadata
+yakumo.nova.v2.aggregate.Resource.unset_metadata
+yakumo.nova.v2.image.Resource.unset_metadata
+yakumo.nova.v2.server.Resource.unset_metadata
+yakumo.swift.v1.container.Resource.unset_metadata
+yakumo.swift.v1.file_object.Resource.unset_metadata" class="py-name" href="#" onclick="return doclink('link-39', 'unset_metadata', 'link-39');">unset_metadata</a></tt><tt class="py-op">(</tt><tt class="py-op">*</tt><tt class="py-name">m</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line">        <tt id="link-40" class="py-name"><a title="yakumo.smoketest.LOG" class="py-name" href="#" onclick="return doclink('link-40', 'LOG', 'link-7');">LOG</a></tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"Updated metadata: %s"</tt><tt class="py-op">,</tt> <tt class="py-name">co</tt><tt class="py-op">.</tt><tt class="py-name">metadata</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno">73</tt>  <tt class="py-line">        <tt id="link-41" class="py-name"><a title="yakumo.smoketest.test" class="py-name" href="#" onclick="return doclink('link-41', 'test', 'link-13');">test</a></tt><tt class="py-op">(</tt><tt class="py-string">"Metadata has %s"</tt> <tt class="py-op">%</tt> <tt class="py-name">metadata</tt><tt class="py-op">,</tt> <tt class="py-name">co</tt><tt class="py-op">.</tt><tt class="py-name">metadata</tt> <tt class="py-op">==</tt> <tt class="py-name">metadata</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L74"></a><tt class="py-lineno">74</tt>  <tt class="py-line"> </tt>
+<a name="L75"></a><tt class="py-lineno">75</tt>  <tt class="py-line"> </tt>
+<a name="L76"></a><tt class="py-lineno">76</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt class="py-name">__name__</tt> <tt class="py-op">==</tt> <tt class="py-string">'__main__'</tt><tt class="py-op">:</tt> </tt>
+<a name="L77"></a><tt class="py-lineno">77</tt>  <tt class="py-line">    <tt class="py-name">c</tt> <tt class="py-op">=</tt> <tt id="link-42" class="py-name"><a title="yakumo.utils" class="py-name" href="#" onclick="return doclink('link-42', 'utils', 'link-3');">utils</a></tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Function yakumo.utils.get_client()=yakumo.utils-module.html#get_client"><a title="yakumo.utils.get_client" class="py-name" href="#" onclick="return doclink('link-43', 'get_client', 'link-43');">get_client</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno">78</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-keyword">not</tt> <tt class="py-name">c</tt><tt class="py-op">.</tt><tt class="py-name">_session</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="yakumo.session.Session.has_endpoint
+yakumo.session.SessionProxy.has_endpoint" class="py-name" href="#" onclick="return doclink('link-44', 'has_endpoint', 'link-6');">has_endpoint</a></tt><tt class="py-op">(</tt><tt class="py-string">'object-store'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L79"></a><tt class="py-lineno">79</tt>  <tt class="py-line">        <tt class="py-name">sys</tt><tt class="py-op">.</tt><tt class="py-name">exit</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno">80</tt>  <tt class="py-line"> </tt>
+<a name="L81"></a><tt class="py-lineno">81</tt>  <tt class="py-line">    <tt id="link-45" class="py-name"><a title="yakumo.smoketest.LOG" class="py-name" href="#" onclick="return doclink('link-45', 'LOG', 'link-7');">LOG</a></tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"list containers: %s"</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-name">_</tt><tt class="py-op">.</tt><tt class="py-name">name</tt> <tt class="py-keyword">for</tt> <tt class="py-name">_</tt> <tt class="py-keyword">in</tt> <tt class="py-name">c</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="yakumo.swift.v1.container" class="py-name" href="#" onclick="return doclink('link-46', 'container', 'link-9');">container</a></tt><tt class="py-op">.</tt><tt id="link-47" class="py-name" targets="Method yakumo.base.Manager.list()=yakumo.base.Manager-class.html#list"><a title="yakumo.base.Manager.list" class="py-name" href="#" onclick="return doclink('link-47', 'list', 'link-47');">list</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno">82</tt>  <tt class="py-line">    <tt id="link-48" class="py-name" targets="Function yakumo.cmd.ossh.main()=yakumo.cmd.ossh-module.html#main,Function yakumo.cmd.run_tests.main()=yakumo.cmd.run_tests-module.html#main,Function yakumo.smoketests.st10_v2_role_project_user_admin.main()=yakumo.smoketests.st10_v2_role_project_user_admin-module.html#main,Function yakumo.smoketests.st11_v2_service_endpoint_admin.main()=yakumo.smoketests.st11_v2_service_endpoint_admin-module.html#main,Function yakumo.smoketests.st12_v3_role_project_user_admin.main()=yakumo.smoketests.st12_v3_role_project_user_admin-module.html#main,Function yakumo.smoketests.st13_v3_service_endpoint_admin.main()=yakumo.smoketests.st13_v3_service_endpoint_admin-module.html#main,Function yakumo.smoketests.st14_v3_project_on_project_admin.main()=yakumo.smoketests.st14_v3_project_on_project_admin-module.html#main,Function yakumo.smoketests.st15_v3_region_on_region_admin.main()=yakumo.smoketests.st15_v3_region_on_region_admin-module.html#main,Function yakumo.smoketests.st20_image.main()=yakumo.smoketests.st20_image-module.html#main,Function yakumo.smoketests.st22_image_metadata_nova.main()=yakumo.smoketests.st22_image_metadata_nova-module.html#main,Function yakumo.smoketests.st30_network_subnet_port.main()=yakumo.smoketests.st30_network_subnet_port-module.html#main,Function yakumo.smoketests.st31_security_group.main()=yakumo.smoketests.st31_security_group-module.html#main,Function yakumo.smoketests.st40_volume_snapshot.main()=yakumo.smoketests.st40_volume_snapshot-module.html#main,Function yakumo.smoketests.st41_upload_to_image.main()=yakumo.smoketests.st41_upload_to_image-module.html#main,Function yakumo.smoketests.st42_volume_type_admin.main()=yakumo.smoketests.st42_volume_type_admin-module.html#main,Function yakumo.smoketests.st43_volume_type_qos_admin.main()=yakumo.smoketests.st43_volume_type_qos_admin-module.html#main,Function yakumo.smoketests.st50_server.main()=yakumo.smoketests.st50_server-module.html#main,Function yakumo.smoketests.st51_boot_from_volume.main()=yakumo.smoketests.st51_boot_from_volume-module.html#main,Function yakumo.smoketests.st52_attach_volume.main()=yakumo.smoketests.st52_attach_volume-module.html#main,Function yakumo.smoketests.st53_attach_interface.main()=yakumo.smoketests.st53_attach_interface-module.html#main,Function yakumo.smoketests.st54_server_metadata.main()=yakumo.smoketests.st54_server_metadata-module.html#main,Function yakumo.smoketests.st55_host_aggregate_admin.main()=yakumo.smoketests.st55_host_aggregate_admin-module.html#main,Function yakumo.smoketests.st56_key_pair.main()=yakumo.smoketests.st56_key_pair-module.html#main,Function yakumo.smoketests.st60_container_admin.main()=yakumo.smoketests.st60_container_admin-module.html#main,Function yakumo.smoketests.st61_object_admin.main()=yakumo.smoketests.st61_object_admin-module.html#main"><a title="yakumo.cmd.ossh.main
+yakumo.cmd.run_tests.main
+yakumo.smoketests.st10_v2_role_project_user_admin.main
+yakumo.smoketests.st11_v2_service_endpoint_admin.main
+yakumo.smoketests.st12_v3_role_project_user_admin.main
+yakumo.smoketests.st13_v3_service_endpoint_admin.main
+yakumo.smoketests.st14_v3_project_on_project_admin.main
+yakumo.smoketests.st15_v3_region_on_region_admin.main
+yakumo.smoketests.st20_image.main
+yakumo.smoketests.st22_image_metadata_nova.main
+yakumo.smoketests.st30_network_subnet_port.main
+yakumo.smoketests.st31_security_group.main
+yakumo.smoketests.st40_volume_snapshot.main
+yakumo.smoketests.st41_upload_to_image.main
+yakumo.smoketests.st42_volume_type_admin.main
+yakumo.smoketests.st43_volume_type_qos_admin.main
+yakumo.smoketests.st50_server.main
+yakumo.smoketests.st51_boot_from_volume.main
+yakumo.smoketests.st52_attach_volume.main
+yakumo.smoketests.st53_attach_interface.main
+yakumo.smoketests.st54_server_metadata.main
+yakumo.smoketests.st55_host_aggregate_admin.main
+yakumo.smoketests.st56_key_pair.main
+yakumo.smoketests.st60_container_admin.main
+yakumo.smoketests.st61_object_admin.main" class="py-name" href="#" onclick="return doclink('link-48', 'main', 'link-48');">main</a></tt><tt class="py-op">(</tt><tt class="py-name">c</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno">83</tt>  <tt class="py-line">    <tt id="link-49" class="py-name"><a title="yakumo.smoketest.LOG" class="py-name" href="#" onclick="return doclink('link-49', 'LOG', 'link-7');">LOG</a></tt><tt class="py-op">.</tt><tt class="py-name">debug</tt><tt class="py-op">(</tt><tt class="py-string">"list containers: %s"</tt><tt class="py-op">,</tt> <tt class="py-op">[</tt><tt class="py-name">_</tt><tt class="py-op">.</tt><tt class="py-name">name</tt> <tt class="py-keyword">for</tt> <tt class="py-name">_</tt> <tt class="py-keyword">in</tt> <tt class="py-name">c</tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="yakumo.swift.v1.container" class="py-name" href="#" onclick="return doclink('link-50', 'container', 'link-9');">container</a></tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="yakumo.base.Manager.list" class="py-name" href="#" onclick="return doclink('link-51', 'list', 'link-47');">list</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L84"></a><tt class="py-lineno">84</tt>  <tt class="py-line"> </tt>
+<a name="L85"></a><tt class="py-lineno">85</tt>  <tt class="py-line">    <tt id="link-52" class="py-name" targets="Function yakumo.smoketest.show_test_summary()=yakumo.smoketest-module.html#show_test_summary"><a title="yakumo.smoketest.show_test_summary" class="py-name" href="#" onclick="return doclink('link-52', 'show_test_summary', 'link-52');">show_test_summary</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno">86</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="yakumo-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Thu Apr 27 11:48:54 2017
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

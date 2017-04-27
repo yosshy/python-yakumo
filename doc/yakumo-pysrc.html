@@ -99,11 +99,12 @@ yakumo.nova.v2" class="py-name" href="#" onclick="return doclink('link-7', 'v2',
 yakumo.glance.v2
 yakumo.keystone.v2
 yakumo.neutron.v2
-yakumo.nova.v2" class="py-name" href="#" onclick="return doclink('link-11', 'v2', 'link-7');">v2</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Class yakumo.Client=yakumo.Client-class.html,Class yakumo.cinder.v1.Client=yakumo.cinder.v1.Client-class.html,Class yakumo.cinder.v2.Client=yakumo.cinder.v2.Client-class.html,Class yakumo.glance.v1.Client=yakumo.glance.v1.Client-class.html,Class yakumo.glance.v2.Client=yakumo.glance.v2.Client-class.html,Class yakumo.keystone.v2.Client=yakumo.keystone.v2.Client-class.html,Class yakumo.keystone.v3.Client=yakumo.keystone.v3.Client-class.html,Class yakumo.neutron.v2.Client=yakumo.neutron.v2.Client-class.html,Class yakumo.neutron.v2.lb.Client=yakumo.neutron.v2.lb.Client-class.html,Class yakumo.neutron.v2.lbaas.Client=yakumo.neutron.v2.lbaas.Client-class.html,Class yakumo.neutron.v2.metering.Client=yakumo.neutron.v2.metering.Client-class.html,Class yakumo.neutron.v2.vpn.Client=yakumo.neutron.v2.vpn.Client-class.html,Class yakumo.nova.v2.Client=yakumo.nova.v2.Client-class.html,Class yakumo.swift.v1.Client=yakumo.swift.v1.Client-class.html"><a title="yakumo.Client
+yakumo.nova.v2" class="py-name" href="#" onclick="return doclink('link-11', 'v2', 'link-7');">v2</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Class yakumo.Client=yakumo.Client-class.html,Class yakumo.cinder.v1.Client=yakumo.cinder.v1.Client-class.html,Class yakumo.cinder.v2.Client=yakumo.cinder.v2.Client-class.html,Class yakumo.glance.v1.Client=yakumo.glance.v1.Client-class.html,Class yakumo.glance.v2.Client=yakumo.glance.v2.Client-class.html,Class yakumo.heat.v1.Client=yakumo.heat.v1.Client-class.html,Class yakumo.keystone.v2.Client=yakumo.keystone.v2.Client-class.html,Class yakumo.keystone.v3.Client=yakumo.keystone.v3.Client-class.html,Class yakumo.neutron.v2.Client=yakumo.neutron.v2.Client-class.html,Class yakumo.neutron.v2.lb.Client=yakumo.neutron.v2.lb.Client-class.html,Class yakumo.neutron.v2.lbaas.Client=yakumo.neutron.v2.lbaas.Client-class.html,Class yakumo.neutron.v2.metering.Client=yakumo.neutron.v2.metering.Client-class.html,Class yakumo.neutron.v2.vpn.Client=yakumo.neutron.v2.vpn.Client-class.html,Class yakumo.nova.v2.Client=yakumo.nova.v2.Client-class.html,Class yakumo.swift.v1.Client=yakumo.swift.v1.Client-class.html"><a title="yakumo.Client
 yakumo.cinder.v1.Client
 yakumo.cinder.v2.Client
 yakumo.glance.v1.Client
 yakumo.glance.v2.Client
+yakumo.heat.v1.Client
 yakumo.keystone.v2.Client
 yakumo.keystone.v3.Client
 yakumo.neutron.v2.Client
@@ -120,6 +121,7 @@ yakumo.cinder.v1.Client
 yakumo.cinder.v2.Client
 yakumo.glance.v1.Client
 yakumo.glance.v2.Client
+yakumo.heat.v1.Client
 yakumo.keystone.v2.Client
 yakumo.keystone.v3.Client
 yakumo.neutron.v2.Client
@@ -147,6 +149,7 @@ yakumo.cinder.v1.Client
 yakumo.cinder.v2.Client
 yakumo.glance.v1.Client
 yakumo.glance.v2.Client
+yakumo.heat.v1.Client
 yakumo.keystone.v2.Client
 yakumo.keystone.v3.Client
 yakumo.neutron.v2.Client
@@ -160,16 +163,19 @@ yakumo.swift.v1.Client" class="py-name" href="#" onclick="return doclink('link-2
 <a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_session</tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="yakumo.session.Session.has_endpoint
 yakumo.session.SessionProxy.has_endpoint" class="py-name" href="#" onclick="return doclink('link-30', 'has_endpoint', 'link-4');">has_endpoint</a></tt><tt class="py-op">(</tt><tt class="py-string">'image'</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 <a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_session</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'image_api_version'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'1'</tt><tt class="py-op">:</tt> </tt>
-<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">                <tt class="py-keyword">import</tt> <tt id="link-31" class="py-name"><a title="yakumo" class="py-name" href="#" onclick="return doclink('link-31', 'yakumo', 'link-5');">yakumo</a></tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Package yakumo.glance=yakumo.glance-module.html"><a title="yakumo.glance" class="py-name" href="#" onclick="return doclink('link-32', 'glance', 'link-32');">glance</a></tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Package yakumo.cinder.v1=yakumo.cinder.v1-module.html,Package yakumo.glance.v1=yakumo.glance.v1-module.html,Package yakumo.swift.v1=yakumo.swift.v1-module.html"><a title="yakumo.cinder.v1
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">                <tt class="py-keyword">import</tt> <tt id="link-31" class="py-name"><a title="yakumo" class="py-name" href="#" onclick="return doclink('link-31', 'yakumo', 'link-5');">yakumo</a></tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Package yakumo.glance=yakumo.glance-module.html"><a title="yakumo.glance" class="py-name" href="#" onclick="return doclink('link-32', 'glance', 'link-32');">glance</a></tt><tt class="py-op">.</tt><tt id="link-33" class="py-name" targets="Package yakumo.cinder.v1=yakumo.cinder.v1-module.html,Package yakumo.glance.v1=yakumo.glance.v1-module.html,Package yakumo.heat.v1=yakumo.heat.v1-module.html,Package yakumo.swift.v1=yakumo.swift.v1-module.html"><a title="yakumo.cinder.v1
 yakumo.glance.v1
+yakumo.heat.v1
 yakumo.swift.v1" class="py-name" href="#" onclick="return doclink('link-33', 'v1', 'link-33');">v1</a></tt> </tt>
 <a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="yakumo.glance" class="py-name" href="#" onclick="return doclink('link-34', 'glance', 'link-32');">glance</a></tt> <tt class="py-op">=</tt> <tt id="link-35" class="py-name"><a title="yakumo" class="py-name" href="#" onclick="return doclink('link-35', 'yakumo', 'link-5');">yakumo</a></tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="yakumo.glance" class="py-name" href="#" onclick="return doclink('link-36', 'glance', 'link-32');">glance</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="yakumo.cinder.v1
 yakumo.glance.v1
+yakumo.heat.v1
 yakumo.swift.v1" class="py-name" href="#" onclick="return doclink('link-37', 'v1', 'link-33');">v1</a></tt><tt class="py-op">.</tt><tt id="link-38" class="py-name"><a title="yakumo.Client
 yakumo.cinder.v1.Client
 yakumo.cinder.v2.Client
 yakumo.glance.v1.Client
 yakumo.glance.v2.Client
+yakumo.heat.v1.Client
 yakumo.keystone.v2.Client
 yakumo.keystone.v3.Client
 yakumo.neutron.v2.Client
@@ -194,6 +200,7 @@ yakumo.cinder.v1.Client
 yakumo.cinder.v2.Client
 yakumo.glance.v1.Client
 yakumo.glance.v2.Client
+yakumo.heat.v1.Client
 yakumo.keystone.v2.Client
 yakumo.keystone.v3.Client
 yakumo.neutron.v2.Client
@@ -209,14 +216,17 @@ yakumo.session.SessionProxy.has_endpoint" class="py-name" href="#" onclick="retu
 <a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_session</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'volume_api_version'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'1'</tt><tt class="py-op">:</tt> </tt>
 <a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">                <tt class="py-keyword">import</tt> <tt id="link-48" class="py-name"><a title="yakumo" class="py-name" href="#" onclick="return doclink('link-48', 'yakumo', 'link-5');">yakumo</a></tt><tt class="py-op">.</tt><tt id="link-49" class="py-name" targets="Package yakumo.cinder=yakumo.cinder-module.html"><a title="yakumo.cinder" class="py-name" href="#" onclick="return doclink('link-49', 'cinder', 'link-49');">cinder</a></tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="yakumo.cinder.v1
 yakumo.glance.v1
+yakumo.heat.v1
 yakumo.swift.v1" class="py-name" href="#" onclick="return doclink('link-50', 'v1', 'link-33');">v1</a></tt> </tt>
 <a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name"><a title="yakumo.cinder" class="py-name" href="#" onclick="return doclink('link-51', 'cinder', 'link-49');">cinder</a></tt> <tt class="py-op">=</tt> <tt id="link-52" class="py-name"><a title="yakumo" class="py-name" href="#" onclick="return doclink('link-52', 'yakumo', 'link-5');">yakumo</a></tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="yakumo.cinder" class="py-name" href="#" onclick="return doclink('link-53', 'cinder', 'link-49');">cinder</a></tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="yakumo.cinder.v1
 yakumo.glance.v1
+yakumo.heat.v1
 yakumo.swift.v1" class="py-name" href="#" onclick="return doclink('link-54', 'v1', 'link-33');">v1</a></tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="yakumo.Client
 yakumo.cinder.v1.Client
 yakumo.cinder.v2.Client
 yakumo.glance.v1.Client
 yakumo.glance.v2.Client
+yakumo.heat.v1.Client
 yakumo.keystone.v2.Client
 yakumo.keystone.v3.Client
 yakumo.neutron.v2.Client
@@ -241,6 +251,7 @@ yakumo.cinder.v1.Client
 yakumo.cinder.v2.Client
 yakumo.glance.v1.Client
 yakumo.glance.v2.Client
+yakumo.heat.v1.Client
 yakumo.keystone.v2.Client
 yakumo.keystone.v3.Client
 yakumo.neutron.v2.Client
@@ -268,6 +279,7 @@ yakumo.cinder.v1.Client
 yakumo.cinder.v2.Client
 yakumo.glance.v1.Client
 yakumo.glance.v2.Client
+yakumo.heat.v1.Client
 yakumo.keystone.v2.Client
 yakumo.keystone.v3.Client
 yakumo.neutron.v2.Client
@@ -283,14 +295,17 @@ yakumo.session.SessionProxy.has_endpoint" class="py-name" href="#" onclick="retu
 <a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">_session</tt><tt class="py-op">.</tt><tt class="py-name">config</tt><tt class="py-op">[</tt><tt class="py-string">'object_store_api_version'</tt><tt class="py-op">]</tt> <tt class="py-op">==</tt> <tt class="py-string">'1'</tt><tt class="py-op">:</tt> </tt>
 <a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line">                <tt class="py-keyword">import</tt> <tt id="link-74" class="py-name"><a title="yakumo" class="py-name" href="#" onclick="return doclink('link-74', 'yakumo', 'link-5');">yakumo</a></tt><tt class="py-op">.</tt><tt id="link-75" class="py-name" targets="Package yakumo.swift=yakumo.swift-module.html"><a title="yakumo.swift" class="py-name" href="#" onclick="return doclink('link-75', 'swift', 'link-75');">swift</a></tt><tt class="py-op">.</tt><tt id="link-76" class="py-name"><a title="yakumo.cinder.v1
 yakumo.glance.v1
+yakumo.heat.v1
 yakumo.swift.v1" class="py-name" href="#" onclick="return doclink('link-76', 'v1', 'link-33');">v1</a></tt> </tt>
 <a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-77" class="py-name"><a title="yakumo.swift" class="py-name" href="#" onclick="return doclink('link-77', 'swift', 'link-75');">swift</a></tt> <tt class="py-op">=</tt> <tt id="link-78" class="py-name"><a title="yakumo" class="py-name" href="#" onclick="return doclink('link-78', 'yakumo', 'link-5');">yakumo</a></tt><tt class="py-op">.</tt><tt id="link-79" class="py-name"><a title="yakumo.swift" class="py-name" href="#" onclick="return doclink('link-79', 'swift', 'link-75');">swift</a></tt><tt class="py-op">.</tt><tt id="link-80" class="py-name"><a title="yakumo.cinder.v1
 yakumo.glance.v1
+yakumo.heat.v1
 yakumo.swift.v1" class="py-name" href="#" onclick="return doclink('link-80', 'v1', 'link-33');">v1</a></tt><tt class="py-op">.</tt><tt id="link-81" class="py-name"><a title="yakumo.Client
 yakumo.cinder.v1.Client
 yakumo.cinder.v2.Client
 yakumo.glance.v1.Client
 yakumo.glance.v2.Client
+yakumo.heat.v1.Client
 yakumo.keystone.v2.Client
 yakumo.keystone.v3.Client
 yakumo.neutron.v2.Client
@@ -333,7 +348,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Wed Mar 15 17:21:58 2017
+    Generated by Epydoc 3.0.1 on Thu Apr 27 11:48:55 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

@@ -1,6 +1,16 @@
 CHANGES
 =======
 
+* doc: updated
+* ChangeLog: updated
+* README: updated
+* ChangeLog: updated
+* ossh: improved built-in command line completer
+* utils: add Completer() to extend rlcompleter.Completer()
+* base: extend timeout for wait_for_finished()
+* run_tests: handle environment variables
+* ChangeLog: updated
+
 0.9.0
 -----
 
