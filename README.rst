@@ -30,7 +30,28 @@ example,
 from environment variables. Of course, you can define another client
 object by yourself. See ossh source code for details.
 
-ossh has code completion capability of bpython if available. Type "c.":
+ossh has iPython-like built-in completion capability. Type "c.":
+
+::
+
+    >>> c.
+    c.aggregate                    c.image                        c.server
+    c.availability_zone            c.key_pair                     c.server_group
+    c.cinder                       c.keystone                     c.service
+    c.cloudpipe                    c.lb                           c.subnet
+    c.consistency_group            c.lbaas                        c.subnet_pool
+    c.consistency_group_snapshot   c.network                      c.swift
+    c.container                    c.network_quota                c.user
+    c.endpoint                     c.neutron                      c.volume
+    c.fixed_ip                     c.nova                         c.volume_backup
+    c.flavor                       c.port                         c.volume_snapshot
+    c.floating_ip                  c.project                      c.volume_transfer
+    c.floating_ip_bulk             c.role                         c.volume_type
+    c.floating_ip_dns              c.router                       c.volume_type_qos
+    c.glance                       c.security_group               c.vpn
+    c.hypervisor                   c.security_group_default_rule
+
+You can also use one of bpython if available. Type "c.":
 
 ::
 
@@ -53,28 +74,6 @@ ossh has code completion capability of bpython if available. Type "c.":
     | volume_backup                 volume_snapshot               volume_transfer              |
     | volume_type                   volume_type_qos               vpn                          |
     +------------------------------------------------------------------------------------------+
-
-You can also use built-in completion capability without bpython. Type
-"c.":
-
-::
-
-    >>> c.
-    c.aggregate                    c.image                        c.server
-    c.availability_zone            c.key_pair                     c.server_group
-    c.cinder                       c.keystone                     c.service
-    c.cloudpipe                    c.lb                           c.subnet
-    c.consistency_group            c.lbaas                        c.subnet_pool
-    c.consistency_group_snapshot   c.network                      c.swift
-    c.container                    c.network_quota                c.user
-    c.endpoint                     c.neutron                      c.volume
-    c.fixed_ip                     c.nova                         c.volume_backup
-    c.flavor                       c.port                         c.volume_snapshot
-    c.floating_ip                  c.project                      c.volume_transfer
-    c.floating_ip_bulk             c.role                         c.volume_type
-    c.floating_ip_dns              c.router                       c.volume_type_qos
-    c.glance                       c.security_group               c.vpn
-    c.hypervisor                   c.security_group_default_rule
 
 c.CATEGORY.list() returns a list of resource objects:
 
@@ -138,6 +137,31 @@ You can see description of a method:
 
 ::
 
+    >>> c.server.create(<tab>
+    def create(self, name=UNDEF, image=UNDEF, flavor=UNDEF,
+                   personality=UNDEF, disks=UNDEF, max_count=UNDEF,
+                   min_count=UNDEF, networks=UNDEF, security_groups=UNDEF,
+                   availability_zone=UNDEF, metadata=UNDEF,
+                   config_drive=UNDEF, key_pair=UNDEF, user_data=UNDEF):
+    Create a new server
+
+    @keyword name: name of the new server (required)
+    @type name: str
+    @keyword flavor: Flavor object to use (required)
+    @type flavor: yakumo.nova.v2.flavor.Resource
+    @keyword image: Image object to use for ephemeral disk
+    @type image: yakumo.image.Resource
+    @keyword key_pair: KeyPair object to use
+    @type key_pair: yakumo.nova.v2.key_pair.Resource
+            (snip)
+    @return: Created server
+    @rtype: yakumo.nova.v2.server.Resource
+    >>> c.server.create(
+
+or with bpython:
+
+::
+
     >>> c.server.create(
     +--------------------------------------------------------------------------------------------------------------+
     | c.server.create: (self, name=None, image=None, flavor=None, personality=None, block_devices=None,            |
@@ -154,22 +178,7 @@ You can see description of a method:
     | @type image: yakumo.image.Resource                                                                           |
     | @keyword key_pair: KeyPair object to use                                                                     |
     | @type key_pair: yakumo.nova.v2.key_pair.Resource                                                             |
-    | @keyword networks: list of networks or ones with tag and/or fixed IP                                         |
-    | @type networks: [yakumo.network.Resource]                                                                    |
-    | @keyword security_groups: list of SecurityGroup object(s) to use                                             |
-    | @type security_groups: [yakumo.nova.v2.security_group.Resource]                                              |
-    | @keyword block_devices: block device mapping                                                                 |
-    | @type block_devices: [dict]                                                                                  |
-    | @keyword personality: file path and the content to embed                                                     |
-    | @type personality: dict                                                                                      |
-    | @keyword max_count: the maximum number of server(s) to create                                                |
-    | @type max_count: int                                                                                         |
-    | @keyword min_count: the minimun number of server(s) to create                                                |
-    | @type min_count: int                                                                                         |
-    | @keyword config_drive: config drive exists or not (bool)                                                     |
-    | @type config_drive: bool                                                                                     |
-    | @keyword user_data: content of a batch file (str)                                                            |
-    | @type user_data: str                                                                                         |
+            (snip)
     | @return: Created server                                                                                      |
     | @rtype: yakumo.nova.v2.server.Resource                                                                       |
     +--------------------------------------------------------------------------------------------------------------+
