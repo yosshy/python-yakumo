@@ -19,6 +19,8 @@ Miscellaneous functions/decorators
 
 import argparse
 import os
+import rlcompleter
+import re
 import sys
 
 import os_client_config
@@ -87,3 +89,40 @@ def gen_chunk(file):
             if not chunk:
                 break
             yield chunk
+
+
+class Completer(rlcompleter.Completer):
+
+    PATTERN = re.compile(r"(\w+(\.\w+)*)\.(\w*)")
+
+    def attr_matches(self, text):
+        """
+        Derived from rlcompleter.Completer.attr_matches()
+        """
+        m = self.PATTERN.match(text)
+        if not m:
+            return []
+        expr, attr = m.group(1, 3)
+        try:
+            thisobject = eval(expr, self.namespace)
+        except Exception:
+            return []
+
+        # get the content of the object, except __builtins__
+        words = dir(thisobject)
+        if "__builtins__" in words:
+            words.remove("__builtins__")
+
+        if hasattr(thisobject, '__class__'):
+            words.append('__class__')
+            words.extend(rlcompleter.get_class_members(thisobject.__class__))
+        matches = []
+        n = len(attr)
+        for word in words:
+            if attr == '' and word[0] == '_':
+                continue
+            if word[:n] == attr and hasattr(thisobject, word):
+                val = getattr(thisobject, word)
+                word = self._callable_postfix(val, "%s.%s" % (expr, word))
+                matches.append(word)
+        return matches
