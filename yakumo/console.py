@@ -1,17 +1,7 @@
+# Copyright (c) 2010 Python Software Foundation; All Rights Reserved
 # Copyright 2014-2017 by Akira Yoshiyama <akirayoshiyama@gmail.com>.
-# All Rights Reserved.
 #
-#    Licensed under the Apache License, Version 2.0 (the "License"); you may
-#    not use this file except in compliance with the License. You may obtain
-#    a copy of the License at
-#
-#         http://www.apache.org/licenses/LICENSE-2.0
-#
-#    Unless required by applicable law or agreed to in writing, software
-#    distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
-#    WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
-#    License for the specific language governing permissions and limitations
-#    under the License.
+#    Licensed under the Python License
 
 """
 Miscellaneous functions/decorators
@@ -31,14 +21,15 @@ import sys
 class Completer(rlcompleter.Completer):
 
     PATTERN = re.compile(r"(\w+(\.\w+)*)\.(\w*)")
-    PATTERN2 = re.compile(r"([\.\w]+)\($")
-    METHOD_PATTERN = re.compile(r"^\s*(def .*?\):)", re.MULTILINE | re.DOTALL)
+    METHOD_PATTERN = re.compile(r"([\.\w]+)\($")
+    METHOD_DEF_PATTERN = re.compile(r"^\s*(def .*?\):)",
+                                    re.MULTILINE | re.DOTALL)
 
     def help(self):
         line = readline.get_line_buffer().rstrip()
         if line == '' or line[-1] != '(':
             return
-        m = self.PATTERN2.search(line)
+        m = self.METHOD_PATTERN.search(line)
         if not m:
             return
         try:
@@ -48,7 +39,7 @@ class Completer(rlcompleter.Completer):
 
         if not inspect.ismethod(thisobject):
             return
-        m = self.METHOD_PATTERN.match(inspect.getsource(thisobject))
+        m = self.METHOD_DEF_PATTERN.match(inspect.getsource(thisobject))
         if m:
             print("")
             print(m.group(1))
@@ -56,6 +47,9 @@ class Completer(rlcompleter.Completer):
             print(sys.ps1 + readline.get_line_buffer(), end='', flush=True)
 
     def complete(self, text, state):
+        """
+        Derived from rlcompleter.Completer.complete()
+        """
         if self.use_main_ns:
             self.namespace = __main__.__dict__
 
@@ -86,14 +80,6 @@ class Completer(rlcompleter.Completer):
         except Exception:
             return []
 
-        if attr == '' and inspect.ismethod(thisobject):
-            m = self.METHOD_PATTERN.match(inspect.getsource(thisobject))
-            if m:
-                print("")
-                print(m.group(1))
-                print(inspect.getdoc(thisobject).strip())
-                print(sys.ps1 + readline.get_line_buffer(), end='', flush=True)
-
         # get the content of the object, except __builtins__
         words = dir(thisobject)
         if "__builtins__" in words:
@@ -118,7 +104,6 @@ class Console(code.InteractiveConsole):
     def __init__(self, locals_=None, filename="<console>",
                  histfile=os.path.expanduser("~/.ossh-history")):
         code.InteractiveConsole.__init__(self, locals_, filename)
-        print(histfile)
         self.init_history(histfile)
         readline.set_completer(Completer(locals_).complete)
 
