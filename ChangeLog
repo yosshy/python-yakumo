@@ -1,6 +1,18 @@
 CHANGES
 =======
 
+* doc: updated
+* README: improved license description
+* console: improved copyright description and more
+* ChangeLog: updated
+* console: added history saving capability
+
+0.10.2
+------
+
+* utils.Completer: improved in-line help
+* ChangeLog: updated
+
 0.10.1
 ------
 
