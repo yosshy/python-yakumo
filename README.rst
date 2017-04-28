@@ -30,11 +30,11 @@ example,
 from environment variables. Of course, you can define another client
 object by yourself. See ossh source code for details.
 
-ossh has iPython-like built-in completion capability. Type "c.":
+ossh has iPython-like built-in completion capability.
 
 ::
 
-    >>> c.
+    >>> c.<tab><tab>
     c.aggregate                    c.image                        c.server
     c.availability_zone            c.key_pair                     c.server_group
     c.cinder                       c.keystone                     c.service
@@ -51,7 +51,7 @@ ossh has iPython-like built-in completion capability. Type "c.":
     c.glance                       c.security_group               c.vpn
     c.hypervisor                   c.security_group_default_rule
 
-You can also use one of bpython if available. Type "c.":
+You can also use one of bpython if available.
 
 ::
 
