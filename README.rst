@@ -287,6 +287,8 @@ https://github.com/yosshy/python-yakumo
 License
 -------
 
-Apache License Version 2.0
+Apache License Version 2.0 See LICENSE for more details.
 
-See LICENSE for more details.
+Note: yakumo/console.py contains derived code from rlcompleter.py and
+python online manual for readline module. It has its own license. See
+LICENSE-PYTHON for more details.
