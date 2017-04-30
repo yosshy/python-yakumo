@@ -23,6 +23,12 @@ from yakumo import mapper
 from yakumo import utils
 
 
+VISIBILITY_MAPPING = [
+    ('public', True),
+    ('private', False),
+]
+
+
 ATTRIBUTE_MAPPING = [
     ('id', 'id', mapper.Noop),
     ('name', 'name', mapper.Noop),
@@ -35,7 +41,7 @@ ATTRIBUTE_MAPPING = [
     ('min_disk', 'min_disk', mapper.Noop),
     ('owner', 'owner', mapper.Noop),
     ('properties', 'properties', mapper.Noop),
-    ('is_public', 'is_public', mapper.Noop),
+    ('visibility', 'is_public', mapper.Noop),
     ('status', 'status', mapper.Noop),
     ('created_at', 'created_at', mapper.DateTime),
     ('updated_at', 'updated_at', mapper.DateTime),
@@ -52,7 +58,7 @@ class Resource(base.Resource):
     def update(self, name=UNDEF, uri=UNDEF, disk_format=UNDEF,
                container_format=UNDEF, size=UNDEF, virtual_size=UNDEF,
                checksum=UNDEF, min_ram=UNDEF, min_disk=UNDEF, owner=UNDEF,
-               properties=UNDEF, is_public=UNDEF, file=None):
+               properties=UNDEF, visibility=UNDEF, file=None):
         """
         Update properties of an image
 
@@ -76,8 +82,8 @@ class Resource(base.Resource):
         @type owner: str
         @keyword properties: Properties
         @type properties: dict
-        @keyword is_public: Whether this is public or not
-        @type is_public: bool
+        @keyword visibility: 'private' or 'public'
+        @type visibility: str
         @keyword file: File to upload
         @type file: str
         @rtype: None
@@ -87,7 +93,7 @@ class Resource(base.Resource):
                      container_format=container_format, size=size,
                      virtual_size=virtual_size, checksum=checksum,
                      min_ram=min_ram, min_disk=min_disk, owner=owner,
-                     properties=properties, is_public=is_public)
+                     properties=properties, visibility=visibility)
         json_params = self._attr2json(attrs)
         headers = {}
         for key, value in json_params.items():
@@ -135,7 +141,7 @@ class Manager(base.Manager):
     def create(self, name=UNDEF, uri=UNDEF, disk_format=UNDEF,
                container_format=UNDEF, size=UNDEF, virtual_size=UNDEF,
                checksum=UNDEF, min_ram=UNDEF, min_disk=UNDEF, owner=UNDEF,
-               properties=UNDEF, is_public=UNDEF, file=None):
+               properties=UNDEF, visibility=UNDEF, file=None):
         """
         Register an image
 
@@ -161,8 +167,8 @@ class Manager(base.Manager):
         @type owner: str
         @keyword properties: Image properties
         @type properties: dict
-        @keyword is_public: Whether the image is public or not
-        @type is_public: bool
+        @keyword visibility: 'private' or 'public'
+        @type visibility: str
         @keyword file: Filename to upload
         @type file: str
         @return: Created image
@@ -172,7 +178,7 @@ class Manager(base.Manager):
                      container_format=container_format, size=size,
                      virtual_size=virtual_size, checksum=checksum,
                      min_ram=min_ram, min_disk=min_disk, owner=owner,
-                     properties=properties, is_public=is_public)
+                     properties=properties, visibility=visibility)
         json_params = self._attr2json(attrs)
         headers = {}
         for key, value in json_params.items():
