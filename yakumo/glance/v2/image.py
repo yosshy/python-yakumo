@@ -24,11 +24,6 @@ from yakumo import utils
 from . import image_member
 
 
-VISIBILITY_MAPPING = [
-    (True, 'public'),
-    (False, 'private'),
-]
-
 ATTRIBUTE_MAPPING = [
     ('id', 'id', mapper.Noop),
     ('name', 'name', mapper.Noop),
@@ -41,7 +36,7 @@ ATTRIBUTE_MAPPING = [
     ('min_ram', 'min_ram', mapper.Noop),
     ('min_disk', 'min_disk', mapper.Noop),
     ('owner', 'owner', mapper.Resource('keystone.user')),
-    ('is_public', 'visibility', mapper.Simple(VISIBILITY_MAPPING)),
+    ('visibility', 'visibility', mapper.Noop),
     ('is_protected', 'protected', mapper.Noop),
     ('status', 'status', mapper.Noop),
     ('created_at', 'created_at', mapper.DateTime),
@@ -59,7 +54,7 @@ class Resource(base.GlanceV2Resource):
     def update(self, name=UNDEF, disk_format=UNDEF, container_format=UNDEF,
                size=UNDEF, virtual_size=UNDEF, checksum=UNDEF, min_ram=UNDEF,
                min_disk=UNDEF, owner=UNDEF, status=UNDEF, created_at=UNDEF,
-               updated_at=UNDEF, is_public=UNDEF, protected=UNDEF,
+               updated_at=UNDEF, visibility=UNDEF, protected=UNDEF,
                schema=UNDEF, tags=UNDEF, **kwargs):
         """
         Update properties of an image
@@ -92,8 +87,8 @@ class Resource(base.GlanceV2Resource):
         @type created_at: str
         @keyword updated_at: Updated time
         @type updated_at: str
-        @keyword is_public: Public flag
-        @type is_public: bool
+        @keyword visibility: 'public', 'private', 'community' or 'shared'
+        @type visibility: str
         @keyword is_protected: Protected flag
         @type is_protected: bool
         @keyword schema: Image schema
@@ -110,7 +105,7 @@ class Resource(base.GlanceV2Resource):
                      virtual_size=virtual_size, checksum=checksum,
                      min_ram=min_ram, min_disk=min_disk, owner=owner,
                      status=status, created_at=created_at,
-                     updated_at=updated_at, is_public=is_public,
+                     updated_at=updated_at, visibility=visibility,
                      protected=protected, schema=schema, tags=tags)
         json_params = self._attr2json(attrs)
         json_params.update(kwargs)
@@ -199,7 +194,7 @@ class Manager(base.GlanceV2Manager):
     _json_resources_key = 'images'
     _url_resource_path = '/v2/images'
 
-    def create(self, id=UNDEF, name=UNDEF, is_public=UNDEF, tags=UNDEF,
+    def create(self, id=UNDEF, name=UNDEF, visibility=UNDEF, tags=UNDEF,
                container_format=UNDEF, disk_format=UNDEF, min_disk=UNDEF,
                min_ram=UNDEF, is_protected=UNDEF, file=None, **kwargs):
         """
@@ -211,8 +206,8 @@ class Manager(base.GlanceV2Manager):
         @type id: str
         @keyword name: Image name
         @type name: str
-        @keyword is_public: Public flag
-        @type is_public: bool
+        @keyword visibility: 'public', 'private', 'community' or 'shared'
+        @type visibility: str
         @keyword tags: Tag list
         @type tags: [str]
         @keyword container_format: Container format
@@ -233,7 +228,7 @@ class Manager(base.GlanceV2Manager):
         @rtype: yakumo.glance.v2.image.Resource
         """
         obj = super(Manager, self).create(id=id, name=name,
-                                          is_public=is_public,
+                                          visibility=visibility,
                                           tags=tags,
                                           container_format=container_format,
                                           disk_format=disk_format,

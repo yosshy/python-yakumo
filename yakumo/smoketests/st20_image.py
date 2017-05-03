@@ -47,6 +47,7 @@ def main(c):
                         file=SOURCE_IMAGE,
                         container_format='bare',
                         disk_format='qcow2',
+                        visibility='private',
                         tags=['tag1'],
                         os_type='linux') as m:
         LOG.debug("wait for created")
@@ -56,7 +57,7 @@ def main(c):
         test("Image size", m.size == os.stat(SOURCE_IMAGE).st_size)
         test("Image checksum", m.checksum == get_md5(SOURCE_IMAGE))
         test("Image is active", m.status == 'active')
-        test("Image is private", not m.is_public)
+        test("Image is private", m.visibility == 'private')
         test("Container format is bare", m.container_format == 'bare')
         test("Disk format is qcow2", m.disk_format == 'qcow2')
         test("Extended attribute (os_type)", m.os_type == 'linux')

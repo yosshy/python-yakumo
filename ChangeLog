@@ -1,6 +1,16 @@
 CHANGES
 =======
 
+* README: updated
+* glance: replace is\_public keyword with visibility
+* README: updated
+* README: updated
+* ChangeLog: updated
+
+0.10.3
+------
+
+* ChangeLog: updated
 * doc: updated
 * README: improved license description
 * console: improved copyright description and more
@@ -29,8 +39,8 @@ CHANGES
 * ChangeLog: updated
 * ossh: improved built-in command line completer
 * utils: add Completer() to extend rlcompleter.Completer()
-* base: extend timeout for wait_for_finished()
-* run_tests: handle environment variables
+* base: extend timeout for wait\_for\_finished()
+* run\_tests: handle environment variables
 * ChangeLog: updated
 
 0.9.0
@@ -40,7 +50,7 @@ CHANGES
 * smoketest/61: added time.sleep(5) for updating metadata
 * smoketests: add 'rb' to open()
 * mapper: added encode() and decode() for python3
-* base: applied six to _find_gen()
+* base: applied six to \_find\_gen()
 * requirements: Added simplejson and six
 * README: updated
 * ChangeLog: updated
@@ -49,8 +59,8 @@ CHANGES
 -----
 
 * smoketests: fixed tests swift.v1
-* smoketests/st1: added Identity API version checks for run_tests.sh
-* run_tests: added smoke tests for swift.v1
+* smoketests/st1: added Identity API version checks for run\_tests.sh
+* run\_tests: added smoke tests for swift.v1
 
 0.8.2
 -----
@@ -79,18 +89,18 @@ CHANGES
 -----
 
 * ChangeLog: updated
-* run_tests: changed the default flavor
+* run\_tests: changed the default flavor
 
 0.7.2
 -----
 
-* run_test: fixed a bug at creating temporary credential
+* run\_test: fixed a bug at creating temporary credential
 
 0.7.1
 -----
 
 * ChangeLog: updated
-* setup: added yakumo_run_tests command
+* setup: added yakumo\_run\_tests command
 * smoketests: refactored
 
 0.7.0
@@ -99,15 +109,15 @@ CHANGES
 * ChangeLog: updated
 * ChangeLog: updated
 * doc: updated
-* base: don't wait for finish when _stable_state is empty
+* base: don't wait for finish when \_stable\_state is empty
 * smoketests: Refactored entirely
 * base: fixed a bug that remove submanagers
-* utils: added get_client()
-* smoketests: renamed *.admin.py as *_admin.py
+* utils: added get\_client()
+* smoketests: renamed \*.admin.py as \*\_admin.py
 * smoketests: moved into yakumo/
 * smoketests: added .py suffix
 * smoketest: remove cleaner()
-* base: added __enter__ and __exit__ for Resource
+* base: added \_\_enter\_\_ and \_\_exit\_\_ for Resource
 
 0.6.0
 -----
@@ -123,13 +133,13 @@ CHANGES
 * smoketest/10: added Identity API version checker
 * keystone.v2: improved service and endpoint
 * smoketest: display raised exceptions
-* keystone.v3: add grant_role() and revoke_role() to project
-* keystone.v2: add grant_role() and revoke_role()
+* keystone.v3: add grant\_role() and revoke\_role() to project
+* keystone.v2: add grant\_role() and revoke\_role()
 
 0.5.1
 -----
 
-* Patched CloudConfig.get_session_endpoint() for Identity admin endpoint
+* Patched CloudConfig.get\_session\_endpoint() for Identity admin endpoint
 
 0.5
 ---
@@ -161,8 +171,8 @@ CHANGES
 * doc: updated
 * all: added '--verbose' option
 * smoketest: use /usr/bin/env
-* smoketest: supported additional OS_* environment variables
-* ossh: supported additional OS_* environment variables
+* smoketest: supported additional OS\_\* environment variables
+* ossh: supported additional OS\_\* environment variables
 * smoketest: rename the start script
 * README: added README.rst
 
@@ -205,7 +215,7 @@ CHANGES
 
 * ChangeLog: updated
 * doc: updated
-* keystone.v3: fixed a bug in service_type
+* keystone.v3: fixed a bug in service\_type
 
 0.3.1
 -----
@@ -225,7 +235,7 @@ CHANGES
 0.2.1
 -----
 
-* Unset the default value of 'os_interface'
+* Unset the default value of 'os\_interface'
 * ChangeLog: updated
 * AUTHORS: updated
 * ChangeLog: updated
@@ -236,10 +246,10 @@ CHANGES
 * ChangeLog: updated
 * AUTHORS: remove a duplicated entry
 * doc: updated
-* session: replace rest_client with a new session manager
+* session: replace rest\_client with a new session manager
 * requirements: added bpython
 * smoketest: log exceptions in cleaner()
-* utils: improved join_path()
+* utils: improved join\_path()
 * changelog: updated
 
 0.1
