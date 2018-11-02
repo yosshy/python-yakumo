@@ -47,7 +47,7 @@ def main():
     for opt in parser._actions:
         if opt.dest in ENVIRONMENT_VARIABLES:
             opt.metavar = ENVIRONMENT_VARIABLES[opt.dest]
-    parser.set_defaults(timeout=None, insecure=False, **kwargs)
+    parser.set_defaults(timeout=None, **kwargs)
     parser.add_argument('--version', help='Print version and exit',
                         action='store_true')
     parser.add_argument('--verbose', help='Verbose output',

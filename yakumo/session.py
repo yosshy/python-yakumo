@@ -137,6 +137,19 @@ def safe_json_load(func):
     return _wrapper
 
 
+def config_wrapper(func):
+
+    @functools.wraps(func)
+    def _wrapper(self, *args, **kwargs):
+        if self.config.get('cacert') is not None:
+            kwargs.setdefault('verify', self.config.get('cacert'))
+        if not self.config.get('verify', True):
+            kwargs.setdefault('verify', False)
+        return func(self, *args, **kwargs)
+
+    return _wrapper
+
+
 class Session(object):
 
     def __init__(self, config):
@@ -182,6 +195,7 @@ class Session(object):
     @reauth
     @exception_translator
     @safe_json_load
+    @config_wrapper
     def get(self, service, *args, **kwargs):
         url = utils.join_path(self.endpoints[service], *args)
         self.make_headers(kwargs)
@@ -191,6 +205,7 @@ class Session(object):
 
     @reauth
     @exception_translator
+    @config_wrapper
     def head(self, service, *args, **kwargs):
         url = utils.join_path(self.endpoints[service], *args)
         self.make_headers(kwargs)
@@ -200,6 +215,7 @@ class Session(object):
 
     @reauth
     @exception_translator
+    @config_wrapper
     def delete(self, service, *args, **kwargs):
         url = utils.join_path(self.endpoints[service], *args)
         self.make_headers(kwargs)
@@ -209,6 +225,7 @@ class Session(object):
     @reauth
     @exception_translator
     @safe_json_load
+    @config_wrapper
     def patch(self, service, *args, **kwargs):
         url = utils.join_path(self.endpoints[service], *args)
         self.make_headers(kwargs)
@@ -220,6 +237,7 @@ class Session(object):
     @reauth
     @exception_translator
     @safe_json_load
+    @config_wrapper
     def post(self, service, *args, **kwargs):
         url = utils.join_path(self.endpoints[service], *args)
         self.make_headers(kwargs)
@@ -231,6 +249,7 @@ class Session(object):
     @reauth
     @exception_translator
     @safe_json_load
+    @config_wrapper
     def put(self, service, *args, **kwargs):
         url = utils.join_path(self.endpoints[service], *args)
         self.make_headers(kwargs)
@@ -241,6 +260,7 @@ class Session(object):
 
     @reauth
     @exception_translator
+    @config_wrapper
     def get_raw(self, service, *args, **kwargs):
         url = utils.join_path(self.endpoints[service], *args)
         self.make_headers(kwargs)
@@ -251,6 +271,7 @@ class Session(object):
     @reauth
     @exception_translator
     @safe_json_load
+    @config_wrapper
     def post_raw(self, service, *args, **kwargs):
         url = utils.join_path(self.endpoints[service], *args)
         self.make_headers(kwargs, content_type="application/octet-stream")
@@ -261,6 +282,7 @@ class Session(object):
     @reauth
     @exception_translator
     @safe_json_load
+    @config_wrapper
     def put_raw(self, service, *args, **kwargs):
         url = utils.join_path(self.endpoints[service], *args)
         self.make_headers(kwargs, content_type="application/octet-stream")
@@ -271,6 +293,7 @@ class Session(object):
     @reauth
     @exception_translator
     @safe_json_load
+    @config_wrapper
     def get_file(self, service, *args, **kwargs):
         url = utils.join_path(self.endpoints[service], *args)
         file = kwargs.pop('file')
@@ -286,6 +309,7 @@ class Session(object):
     @reauth
     @exception_translator
     @safe_json_load
+    @config_wrapper
     def post_file(self, service, *args, **kwargs):
         url = utils.join_path(self.endpoints[service], *args)
         with open(kwargs.pop('file'), 'rb') as f:
@@ -298,6 +322,7 @@ class Session(object):
     @reauth
     @exception_translator
     @safe_json_load
+    @config_wrapper
     def put_file(self, service, *args, **kwargs):
         url = utils.join_path(self.endpoints[service], *args)
         with open(kwargs.pop('file'), 'rb') as f:
